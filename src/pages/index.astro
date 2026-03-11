@@ -1,20 +1,126 @@
 ---
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>TripAxle</title>
-    <meta
-      name="description"
-      content="Independent car rental comparisons for English-speaking travelers."
-    />
-  </head>
-  <body>
-    <main>
-      <h1>TripAxle</h1>
-      <p>Independent car rental comparisons for smarter trips.</p>
-    </main>
-  </body>
-</html>
+<Layout
+  title="TripAxle"
+  description="Independent car rental comparisons for smarter trips."
+>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Independent travel comparison</p>
+      <h1>Car rental comparisons with more clarity.</h1>
+      <p class="intro">
+        Compare booking sites, airport pickup options, and common rental
+        pitfalls before you book.
+      </p>
+
+      <div class="hero-actions">
+        <a class="button" href="#">Compare booking sites</a>
+        <a class="button secondary" href="#">Start with the Portugal guide</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cards">
+    <article class="card">
+      <h2>Best Booking Sites</h2>
+      <p>
+        Start with a simple comparison of the best platforms for renting in
+        Portugal.
+      </p>
+      <a href="#">See comparison →</a>
+    </article>
+
+    <article class="card">
+      <h2>Airport Comparisons</h2>
+      <p>
+        Compare pickup options for Lisbon, Porto, and Faro before you reserve.
+      </p>
+      <a href="#">See airport guides →</a>
+    </article>
+
+    <article class="card">
+      <h2>Practical Guides</h2>
+      <p>
+        Understand insurance, tolls, debit card rules, and other common issues.
+      </p>
+      <a href="#">See practical guides →</a>
+    </article>
+  </section>
+
+  <style>
+    .hero {
+      padding: 2rem 0 2.5rem;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.75rem;
+      color: #2f6fed;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.05;
+    }
+
+    .intro {
+      max-width: 640px;
+      margin: 1rem 0 0;
+      color: #5b5b55;
+      font-size: 1.1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e4e4de;
+      border-radius: 16px;
+      padding: 1.25rem;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      margin-top: 0;
+      color: #5b5b55;
+    }
+
+    .card a {
+      font-weight: 600;
+      color: #2f6fed;
+    }
+
+    @media (max-width: 800px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>

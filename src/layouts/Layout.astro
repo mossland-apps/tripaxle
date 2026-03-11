@@ -1,0 +1,151 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Independent car rental comparisons for smarter trips.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <style>
+      :root {
+        --bg: #f7f7f5;
+        --surface: #ffffff;
+        --text: #1b1b18;
+        --muted: #5b5b55;
+        --border: #dddd d7;
+        --accent: #2f6fed;
+        --accent-hover: #1f57c7;
+        --max-width: 1100px;
+        --radius: 16px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.5;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(var(--max-width), calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      header {
+        border-bottom: 1px solid #e6e6e0;
+        background: var(--surface);
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        gap: 1rem;
+      }
+
+      .brand {
+        font-size: 1.4rem;
+        font-weight: 700;
+      }
+
+      nav {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      nav a:hover {
+        color: var(--text);
+      }
+
+      main {
+        padding: 2rem 0 4rem;
+      }
+
+      footer {
+        border-top: 1px solid #e6e6e0;
+        background: var(--surface);
+        color: var(--muted);
+      }
+
+      .footer-inner {
+        padding: 1.25rem 0;
+        font-size: 0.95rem;
+      }
+
+      .button {
+        display: inline-block;
+        background: var(--accent);
+        color: white;
+        padding: 0.8rem 1.1rem;
+        border-radius: 10px;
+        font-weight: 600;
+      }
+
+      .button:hover {
+        background: var(--accent-hover);
+      }
+
+      .button.secondary {
+        background: transparent;
+        color: var(--text);
+        border: 1px solid #d8d8d2;
+      }
+
+      .button.secondary:hover {
+        background: #f0f0eb;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container topbar">
+        <a class="brand" href="/">TripAxle</a>
+
+        <nav>
+          <a href="#">Portugal Guide</a>
+          <a href="#">Airport Comparisons</a>
+          <a href="#">Booking Reviews</a>
+          <a href="#">Practical Guides</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <slot />
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        © 2026 TripAxle · Independent car rental comparisons for smarter trips.
+      </div>
+    </footer>
+  </body>
+</html>
