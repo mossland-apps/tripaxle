@@ -1,0 +1,110 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Portugal Car Rental Guide | TripAxle"
+  description="A practical Portugal car rental guide for English-speaking travelers."
+>
+  <section class="hero">
+    <p class="eyebrow">Portugal car rental guide</p>
+    <h1>Renting a car in Portugal: what to know before you book.</h1>
+    <p class="intro">
+      Start here if you want a practical overview of booking sites, airport
+      pickups, insurance concerns, toll roads, and common rental mistakes in
+      Portugal.
+    </p>
+  </section>
+
+  <section class="content-grid">
+    <article class="main-card">
+      <h2>What this guide will help you do</h2>
+      <ul>
+        <li>Choose the best type of booking platform for your trip</li>
+        <li>Understand airport pickup differences</li>
+        <li>Avoid common insurance and toll misunderstandings</li>
+        <li>Know what to double-check before you reserve</li>
+      </ul>
+
+      <h2>Best place to start</h2>
+      <p>
+        If you are comparing where to book, start with our upcoming booking-site
+        comparison page. If you already know your airport, the airport guides
+        will be the fastest path.
+      </p>
+    </article>
+
+    <aside class="side-card">
+      <h2>Planned Portugal sections</h2>
+      <ul>
+        <li>Best booking sites for Portugal</li>
+        <li>Lisbon Airport car rental</li>
+        <li>Porto Airport car rental</li>
+        <li>Faro Airport car rental</li>
+        <li>Insurance guide</li>
+        <li>Toll roads guide</li>
+      </ul>
+    </aside>
+  </section>
+
+  <style>
+    .hero {
+      padding: 2rem 0 2.25rem;
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.75rem;
+      color: #2f6fed;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 3.6rem);
+      line-height: 1.08;
+    }
+
+    .intro {
+      margin-top: 1rem;
+      color: #5b5b55;
+      font-size: 1.1rem;
+      max-width: 680px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1rem;
+    }
+
+    .main-card,
+    .side-card {
+      background: white;
+      border: 1px solid #e4e4de;
+      border-radius: 16px;
+      padding: 1.25rem;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li + li {
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 800px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>
