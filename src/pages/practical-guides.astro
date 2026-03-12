@@ -1,0 +1,156 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Practical Car Rental Guides | TripAxle"
+  description="Practical car rental guides for insurance, tolls, debit card rules, and common booking mistakes."
+>
+  <section class="hero">
+    <p class="eyebrow">Practical guides</p>
+    <h1>Practical car rental guides for smarter trips.</h1>
+    <p class="intro">
+      Use these guides to understand the common details travelers miss before they
+      book: insurance, tolls, debit card rules, transmission choice, and more.
+    </p>
+  </section>
+
+  <section class="guide-grid">
+    <article class="guide-card">
+      <h2>Insurance Guide</h2>
+      <p>
+        Understand the main insurance decisions travelers face before pickup.
+      </p>
+      <a href="#">See insurance guide →</a>
+    </article>
+
+    <article class="guide-card">
+      <h2>Toll Roads Guide</h2>
+      <p>
+        Learn what to check about toll systems before driving in Portugal.
+      </p>
+      <a href="#">See toll guide →</a>
+    </article>
+
+    <article class="guide-card">
+      <h2>Debit Card Rules</h2>
+      <p>
+        See the most important debit card issues travelers should verify before
+        reserving.
+      </p>
+      <a href="#">See debit card guide →</a>
+    </article>
+  </section>
+
+  <section class="content-grid">
+    <article class="main-card">
+      <h2>What these guides will help with</h2>
+      <ul>
+        <li>Avoiding common misunderstandings before pickup</li>
+        <li>Knowing what to verify before finalizing a booking</li>
+        <li>Understanding extra costs and fine-print issues</li>
+        <li>Making better platform and rental choices overall</li>
+      </ul>
+
+      <h2>How to use this hub</h2>
+      <p>
+        Start here if you already know your destination but want help with the
+        practical side of renting. These pages will support the airport guides,
+        booking comparisons, and country-level hubs.
+      </p>
+    </article>
+
+    <aside class="side-card">
+      <h2>Planned practical guides</h2>
+      <ul>
+        <li>Insurance guide</li>
+        <li>Toll roads guide</li>
+        <li>Debit card guide</li>
+        <li>Automatic vs manual guide</li>
+        <li>Deposit and hold guide</li>
+      </ul>
+    </aside>
+  </section>
+
+  <style>
+    .hero {
+      padding: 2rem 0 2.25rem;
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.75rem;
+      color: #2f6fed;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 3.6rem);
+      line-height: 1.08;
+    }
+
+    .intro {
+      margin-top: 1rem;
+      color: #5b5b55;
+      font-size: 1.1rem;
+      max-width: 680px;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .guide-card,
+    .main-card,
+    .side-card {
+      background: white;
+      border: 1px solid #e4e4de;
+      border-radius: 16px;
+      padding: 1.25rem;
+    }
+
+    .guide-card h2,
+    .main-card h2,
+    .side-card h2 {
+      margin-top: 0;
+    }
+
+    .guide-card p {
+      color: #5b5b55;
+      margin-bottom: 0.75rem;
+    }
+
+    .guide-card a {
+      font-weight: 600;
+      color: #2f6fed;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li + li {
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .guide-grid,
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>
