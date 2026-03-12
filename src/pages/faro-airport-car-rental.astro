@@ -1,0 +1,144 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Faro Airport Car Rental Comparison | TripAxle"
+  description="A practical Faro Airport car rental comparison page for travelers planning Algarve trips."
+>
+  <section class="hero">
+    <p class="eyebrow">Faro Airport car rental</p>
+    <h1>Faro Airport car rental comparison.</h1>
+    <p class="intro">
+      Use this page to compare booking options, pickup considerations, and common
+      rental issues at Faro Airport before you reserve.
+    </p>
+  </section>
+
+  <section class="top-grid">
+    <article class="card">
+      <h2>Quick airport summary</h2>
+      <p>
+        Faro Airport is often the main rental pickup point for Algarve trips and
+        southern Portugal driving routes.
+      </p>
+      <ul>
+        <li>Strong fit for Algarve-focused trips</li>
+        <li>Useful for flexible multi-stop itineraries</li>
+        <li>Less necessary for single-resort stays with no driving plans</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Planned page sections</h2>
+      <ul>
+        <li>Best booking platforms for Faro Airport</li>
+        <li>What travelers should watch for</li>
+        <li>Automatic vs manual car availability</li>
+        <li>Who should rent here</li>
+        <li>Common pickup and return issues</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="content-grid">
+    <article class="main-card">
+      <h2>What this page will cover</h2>
+      <ul>
+        <li>Whether Faro Airport is the right pickup point for your trip</li>
+        <li>How airport rental compares with other pickup options</li>
+        <li>Which traveler types benefit most from renting here</li>
+        <li>What to verify before finalizing a booking</li>
+      </ul>
+
+      <h2>How this page fits into the site</h2>
+      <p>
+        This guide will eventually connect to our broader Portugal comparison
+        pages, practical rental guides, and booking-platform reviews.
+      </p>
+    </article>
+
+    <aside class="side-card">
+      <h2>Related Portugal pages</h2>
+      <ul>
+        <li><a href="/portugal-guide">Portugal Guide</a></li>
+        <li><a href="/airport-comparisons">Airport Comparisons</a></li>
+      </ul>
+    </aside>
+  </section>
+
+  <style>
+    .hero {
+      padding: 2rem 0 2.25rem;
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.75rem;
+      color: #2f6fed;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 3.6rem);
+      line-height: 1.08;
+    }
+
+    .intro {
+      margin-top: 1rem;
+      color: #5b5b55;
+      font-size: 1.1rem;
+      max-width: 680px;
+    }
+
+    .top-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1rem;
+    }
+
+    .card,
+    .main-card,
+    .side-card {
+      background: white;
+      border: 1px solid #e4e4de;
+      border-radius: 16px;
+      padding: 1.25rem;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li + li {
+      margin-top: 0.5rem;
+    }
+
+    .side-card a {
+      color: #2f6fed;
+      font-weight: 600;
+    }
+
+    @media (max-width: 900px) {
+      .top-grid,
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>
