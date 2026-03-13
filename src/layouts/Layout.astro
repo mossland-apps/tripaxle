@@ -6,7 +6,7 @@ interface Props {
 
 const {
   title,
-  description = "Independent car rental comparisons for smarter trips.",
+  description = "Independent Portugal car rental guidance for smarter trips.",
 } = Astro.props;
 ---
 
@@ -23,7 +23,7 @@ const {
         --surface: #ffffff;
         --text: #1b1b18;
         --muted: #5b5b55;
-        --border: #dddd d7;
+        --border: #ddddd7;
         --accent: #2f6fed;
         --accent-hover: #1f57c7;
         --max-width: 1100px;
@@ -53,7 +53,7 @@ const {
       }
 
       header {
-        border-bottom: 1px solid #e6e6e0;
+        border-bottom: 1px solid var (--border);
         background: var(--surface);
       }
 
@@ -62,7 +62,7 @@ const {
         justify-content: space-between;
         align-items: center;
         padding: 1rem 0;
-        gap: 1rem;
+        gap: 1.25rem;
       }
 
       .brand {
@@ -72,8 +72,9 @@ const {
 
       nav {
         display: flex;
-        gap: 1rem;
+        gap: 1.25rem;
         flex-wrap: wrap;
+        justify-content: flex-end;
       }
 
       nav a {
@@ -90,7 +91,7 @@ const {
       }
 
       footer {
-        border-top: 1px solid #e6e6e0;
+        border-top: 1px solid var (--border);
         background: var(--surface);
         color: var(--muted);
       }
@@ -116,7 +117,7 @@ const {
       .button.secondary {
         background: transparent;
         color: var(--text);
-        border: 1px solid #d8d8d2;
+        border: 1px solid var (--border);
       }
 
       .button.secondary:hover {
@@ -130,10 +131,10 @@ const {
         <a class="brand" href="/">TripAxle</a>
 
         <nav>
-          <a href="/portugal-guide">Portugal Guide</a>
-          <a href="/airport-comparisons">Airport Comparisons</a>
-          <a href="#">Booking Reviews</a>
-          <a href="/practical-guides">Practical Guides</a>
+         <a href="/portugal-guide">Portugal Guide</a>
+         <a href="/airport-rental-guides">Airport Rental Guides</a>
+         <a href="/booking-basics">Booking Basics</a>
+         <a href="/practical-guides">Practical Guides</a>
         </nav>
       </div>
     </header>
@@ -144,7 +145,7 @@ const {
 
     <footer>
       <div class="container footer-inner">
-        © 2026 TripAxle · Independent car rental comparisons for smarter trips.
+        © 2026 TripAxle · Independent Portugal car rental guidance for smarter trips.
       </div>
     </footer>
   </body>
