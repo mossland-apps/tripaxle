@@ -1,0 +1,146 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Portugal Car Rental Booking Basics | TripAxle"
+  description="Learn the booking basics for renting a car in Portugal, including insurance, deposits, card requirements, rental terms, and common mistakes."
+>
+  <section class="hero">
+    <p class="eyebrow">Booking basics</p>
+    <h1>Booking Basics for Renting a Car in Portugal</h1>
+    <p class="intro">
+      Learn how insurance, card requirements, deposits, rental terms, and
+      common booking mistakes can affect your Portugal car rental before you reserve.
+    </p>
+  </section>
+
+  <section class="top-grid">
+    <article class="card">
+      <h2>Quick section summary</h2>
+      <p>
+        This section focuses on the practical details that often matter most before
+        booking a rental car in Portugal.
+      </p>
+      <ul>
+        <li>Understand insurance and coverage options</li>
+        <li>Check deposit and card requirements before booking</li>
+        <li>Learn how rental terms can vary between offers</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h2>Planned page sections</h2>
+      <ul>
+        <li>Portugal car rental insurance explained</li>
+        <li>Deposits and card requirements</li>
+        <li>Broker vs direct supplier</li>
+        <li>How to read rental terms before booking</li>
+        <li>Common car rental mistakes in Portugal</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="content-grid">
+    <article class="main-card">
+      <h2>What this section will cover</h2>
+      <ul>
+        <li>How insurance and coverage options usually work</li>
+        <li>What to check before booking with a credit or debit card</li>
+        <li>How deposits, holds, and rental terms can vary</li>
+        <li>What to double-check before finalizing a reservation</li>
+      </ul>
+
+      <h2>How to use this hub</h2>
+      <p>
+        Start here if you want to understand the rental terms behind the headline
+        price. Then move to the practical guides or airport rental guides that match
+        your trip.
+      </p>
+    </article>
+
+    <aside class="side-card">
+      <h2>Related Portugal pages</h2>
+      <ul>
+        <li><a href="/portugal-guide">Portugal Guide</a></li>
+        <li><a href="/airport-rental-guides">Airport Rental Guides</a></li>
+        <li><a href="/practical-guides">Practical Guides</a></li>
+      </ul>
+    </aside>
+  </section>
+
+  <style>
+    .hero {
+      padding: 2rem 0 2.25rem;
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.75rem;
+      color: #2f6fed;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 3.6rem);
+      line-height: 1.08;
+    }
+
+    .intro {
+      margin-top: 1rem;
+      color: #5b5b55;
+      font-size: 1.1rem;
+      max-width: 680px;
+    }
+
+    .top-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1rem;
+    }
+
+    .card,
+    .main-card,
+    .side-card {
+      background: white;
+      border: 1px solid #e4e4de;
+      border-radius: 16px;
+      padding: 1.25rem;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li + li {
+      margin-top: 0.5rem;
+    }
+
+    .side-card a {
+      color: #2f6fed;
+      font-weight: 600;
+    }
+
+    @media (max-width: 900px) {
+      .top-grid,
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</Layout>
