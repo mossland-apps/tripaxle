@@ -3,42 +3,43 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
-  title="Practical Car Rental Guides | TripAxle"
-  description="Practical car rental guides for insurance, tolls, debit card rules, and common booking mistakes."
+  title="Practical Portugal Car Rental Guides | TripAxle"
+  description="Handle the practical issues that affect pickup, driving, and day-to-day rental use in Portugal."
 >
   <section class="hero">
-    <p class="eyebrow">Practical guides</p>
-    <h1>Practical car rental guides for smarter trips.</h1>
+    <p class="eyebrow">Practical Guides</p>
+    <h1>Practical Car Rental Guides for Smarter Trips</h1>
     <p class="intro">
-      Use these guides to understand the common details travelers miss before they
-      book: insurance, tolls, debit card rules, transmission choice, and more.
+      Handle the practical side of renting a car in Portugal with more confidence.
+      This section focuses on toll roads, transmission choice, fuel, pickup preparation,
+      and the real-world details that can affect the rental experience once your trip is underway.
     </p>
   </section>
 
-  <section class="guide-grid">
-    <article class="guide-card">
-      <h2>Insurance Guide</h2>
+  <section class="top-grid">
+    <article class="card">
+      <h2>What this section covers</h2>
       <p>
-        Understand the main insurance decisions travelers face before pickup.
+        This section focuses on the practical side of renting and driving, not the contract language.
+        These guides help with the everyday issues travelers run into before pickup, at pickup, and on the road.
       </p>
-      <a href="#">See insurance guide →</a>
+      <ul>
+        <li>Toll roads, fuel labels, and transmission choice</li>
+        <li>Pickup preparation and rental-day logistics</li>
+        <li>Common issues that can affect the trip in real life</li>
+      </ul>
     </article>
 
-    <article class="guide-card">
-      <h2>Toll Roads Guide</h2>
-      <p>
-        Learn what to check about toll systems before driving in Portugal.
-      </p>
-      <a href="#">See toll guide →</a>
-    </article>
-
-    <article class="guide-card">
-      <h2>Debit Card Rules</h2>
-      <p>
-        See the most important debit card issues travelers should verify before
-        reserving.
-      </p>
-      <a href="#">See debit card guide →</a>
+    <article class="card">
+      <h2>Practical guides</h2>
+      <ul>
+        <li><a href="/portugal-toll-roads-for-rental-cars">Portugal toll roads for rental cars</a></li>
+        <li>Can you rent a car in Portugal with a debit card?</li>
+        <li>Manual vs automatic rental cars in Portugal</li>
+        <li>What to photograph when picking up a rental car</li>
+        <li>What happens if your flight is late for car rental pickup?</li>
+        <li>After-hours car rental returns in Portugal</li>
+      </ul>
     </article>
   </section>
 
@@ -46,28 +47,30 @@ import Layout from "../layouts/Layout.astro";
     <article class="main-card">
       <h2>What these guides will help with</h2>
       <ul>
-        <li>Avoiding common misunderstandings before pickup</li>
-        <li>Knowing what to verify before finalizing a booking</li>
-        <li>Understanding extra costs and fine-print issues</li>
-        <li>Making better platform and rental choices overall</li>
+        <li>Understanding practical issues before you drive away</li>
+        <li>Knowing what to check before pickup and before fuel stops</li>
+        <li>Handling common friction points during the rental itself</li>
+        <li>Making day-to-day rental use feel simpler and less stressful</li>
       </ul>
 
       <h2>How to use this hub</h2>
       <p>
-        Start here if you already know your destination but want help with the
-        practical side of renting. These pages will support the airport guides,
-        booking basics, and country-level hubs.
+        Start here if you already understand the basic booking terms and want help with the practical side of renting.
+        These guides are meant to support the real-world part of the trip: pickup, driving, tolls, fuel, and the smaller
+        details that can cause stress if you do not plan for them.
+      </p>
+      <p>
+        If you still need help comparing insurance, deposits, holds, or rental terms before reserving,
+        go back to Booking Basics. If your questions are specific to arrival logistics, use the airport rental guides.
       </p>
     </article>
 
     <aside class="side-card">
-      <h2>Planned practical guides</h2>
+      <h2>Related Portugal pages</h2>
       <ul>
-        <li>Insurance guide</li>
-        <li>Toll roads guide</li>
-        <li>Debit card guide</li>
-        <li>Automatic vs manual guide</li>
-        <li>Deposit and hold guide</li>
+        <li><a href="/portugal-guide">Portugal Guide</a></li>
+        <li><a href="/airport-rental-guides">Airport Rental Guides</a></li>
+        <li><a href="/booking-basics">Booking Basics</a></li>
       </ul>
     </aside>
   </section>
@@ -100,14 +103,20 @@ import Layout from "../layouts/Layout.astro";
       max-width: 680px;
     }
 
-    .guide-grid {
+    .top-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 1rem;
       margin-bottom: 1rem;
     }
 
-    .guide-card,
+    .content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1rem;
+    }
+
+    .card,
     .main-card,
     .side-card {
       background: white;
@@ -116,26 +125,8 @@ import Layout from "../layouts/Layout.astro";
       padding: 1.25rem;
     }
 
-    .guide-card h2,
-    .main-card h2,
-    .side-card h2 {
+    h2 {
       margin-top: 0;
-    }
-
-    .guide-card p {
-      color: #5b5b55;
-      margin-bottom: 0.75rem;
-    }
-
-    .guide-card a {
-      font-weight: 600;
-      color: #2f6fed;
-    }
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 1rem;
     }
 
     ul {
@@ -146,8 +137,13 @@ import Layout from "../layouts/Layout.astro";
       margin-top: 0.5rem;
     }
 
+    .side-card a {
+      color: #2f6fed;
+      font-weight: 600;
+    }
+
     @media (max-width: 900px) {
-      .guide-grid,
+      .top-grid,
       .content-grid {
         grid-template-columns: 1fr;
       }
