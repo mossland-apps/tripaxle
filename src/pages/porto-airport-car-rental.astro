@@ -44,7 +44,7 @@ const related = [
   eyebrow="Porto Airport"
   summary="Where the rental companies are at OPO, how the shuttles and pickup work, the routes north into the Douro and Minho, and when the Metro is the better call."
   updated="2026-05-01"
-  image={images.portoDouro}
+  image={images.douroValley}
   breadcrumbs={breadcrumbs}
   toc={toc}
   related={related}
@@ -219,6 +219,12 @@ const related = [
   </div>
 
   <h2 id="when-to-skip">When renting at Porto Airport may not make sense</h2>
+
+  <figure class="inline-figure inline-figure--portrait porto-ribeira-figure">
+    <img src={images.portoRibeira.src} alt={images.portoRibeira.alt} loading="lazy" />
+    <figcaption>Central Porto is steep, stepped and largely pedestrian — a car spends most of its time parked. {images.portoRibeira.credit}</figcaption>
+  </figure>
+
   <p>
     Travelers staying primarily in central Porto may find a rental car more
     inconvenient than useful.
@@ -244,6 +250,15 @@ const related = [
   </div>
 
   <style>
+    .porto-ribeira-figure {
+      float: right;
+      width: min(320px, 42%);
+      margin: 0.25rem 0 1rem 1.5rem;
+    }
+    @media (max-width: 640px) {
+      .porto-ribeira-figure { float: none; width: 100%; margin: 1.5rem 0; }
+    }
+
     .tag-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));

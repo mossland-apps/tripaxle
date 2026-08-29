@@ -2,6 +2,7 @@
 import ArticleLayout from "../layouts/ArticleLayout.astro";
 import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
+import { images } from "../lib/images";
 
 const breadcrumbs = [
   { label: "Portugal Guide", href: "/portugal-guide" },
@@ -32,6 +33,7 @@ const related = [
   eyebrow="Practical Guides"
   summary="Portugal uses both traditional toll booths and electronic-only toll roads, and they do not work the same way. Here is how to avoid finishing the trip still confused."
   updated="2026-03-14"
+  image={images.geresBridge}
   breadcrumbs={breadcrumbs}
   toc={toc}
   related={related}

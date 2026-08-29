@@ -386,6 +386,29 @@ tr:last-child td { border-bottom: 0; }
 .step h3 { margin-top: 0.2rem; }
 .step > div > :last-child { margin-bottom: 0; }
 
+/* ---------- Inline figures ---------- */
+.inline-figure {
+  margin: 1.75rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+}
+.inline-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.inline-figure figcaption {
+  padding: 0.7rem 0.95rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  max-width: none;
+}
+.inline-figure--portrait {
+  max-width: 420px;
+}
+
 /* ---------- Related guides ---------- */
 .related-guides {
   margin-top: 3rem;

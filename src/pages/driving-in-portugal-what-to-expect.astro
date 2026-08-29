@@ -2,6 +2,7 @@
 import ArticleLayout from "../layouts/ArticleLayout.astro";
 import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
+import { images } from "../lib/images";
 
 const breadcrumbs = [
   { label: "Portugal Guide", href: "/portugal-guide" },
@@ -32,6 +33,7 @@ const related = [
   eyebrow="Portugal Guide"
   summary="Once you leave the big-city centres, driving in Portugal is straightforward. The adjustments are the tolls, the manual gearboxes, and historic-town parking."
   updated="2026-07-01"
+  image={images.lisbonAlfama}
   breadcrumbs={breadcrumbs}
   toc={toc}
   related={related}

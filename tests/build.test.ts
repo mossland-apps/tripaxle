@@ -110,6 +110,21 @@ describe('every guide article', () => {
   }
 });
 
+describe('images', () => {
+  it('every /images/*.jpg referenced in built HTML exists in public/images', () => {
+    const pages = allBuiltPages();
+    const missing = new Set<string>();
+    for (const page of pages) {
+      for (const m of read(page).matchAll(/\/images\/([a-z0-9-]+\.(?:jpg|jpeg|png|webp))/g)) {
+        if (!existsSync(resolve(process.cwd(), 'public/images', m[1]))) {
+          missing.add(`${page} -> /images/${m[1]}`);
+        }
+      }
+    }
+    expect([...missing]).toEqual([]);
+  });
+});
+
 describe('internal links', () => {
   it('no page links to a route that was not built', () => {
     const builtRoutes = new Set(['/', '/about']);

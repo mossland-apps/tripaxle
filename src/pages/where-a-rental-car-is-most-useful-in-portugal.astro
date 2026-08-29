@@ -3,6 +3,7 @@ import ArticleLayout from "../layouts/ArticleLayout.astro";
 import QuickAnswer from "../components/QuickAnswer.astro";
 import AtAGlance from "../components/AtAGlance.astro";
 import Callout from "../components/Callout.astro";
+import { images } from "../lib/images";
 
 const breadcrumbs = [
   { label: "Portugal Guide", href: "/portugal-guide" },
@@ -38,6 +39,7 @@ const related = [
   eyebrow="Portugal Guide"
   summary="A car is transformative in some parts of Portugal and dead weight in others. Region by region: where it earns its keep, with the specific roads worth driving."
   updated="2026-07-01"
+  image={images.alentejoVillage}
   breadcrumbs={breadcrumbs}
   toc={toc}
   related={related}

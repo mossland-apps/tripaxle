@@ -2,6 +2,7 @@
 import ArticleLayout from "../layouts/ArticleLayout.astro";
 import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
+import { images } from "../lib/images";
 
 const breadcrumbs = [
   { label: "Portugal Guide", href: "/portugal-guide" },
@@ -30,6 +31,7 @@ const related = [
   eyebrow="Portugal Guide"
   summary="Whether a rental car helps depends on how your trip is shaped, not just where you are going. A short test, worked through common Portugal itineraries."
   updated="2026-07-01"
+  image={images.sintraPark}
   breadcrumbs={breadcrumbs}
   toc={toc}
   related={related}

@@ -2,6 +2,7 @@
 import ArticleLayout from "../layouts/ArticleLayout.astro";
 import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
+import { images } from "../lib/images";
 
 const breadcrumbs = [
   { label: "Portugal Guide", href: "/portugal-guide" },
@@ -54,6 +55,14 @@ const related = [
     the border enforces them, but your insurance and breakdown cover depend on
     the crossing being authorised.
   </p>
+
+  <figure class="inline-figure">
+    <img src={images.portugalSpainMap.src} alt={images.portugalSpainMap.alt} loading="lazy" />
+    <figcaption>
+      The land border runs about 1,200 km from the Minho down to the Algarve.
+      {images.portugalSpainMap.credit}
+    </figcaption>
+  </figure>
 
   <h2 id="confirm">What to confirm before you book</h2>
   <ul>

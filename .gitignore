@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Original unprocessed photo drops (optimized copies live in public/images/)
+photos-from-you/
