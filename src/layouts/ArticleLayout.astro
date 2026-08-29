@@ -1,0 +1,88 @@
+---
+import Layout from './Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
+import OnThisPage from '../components/OnThisPage.astro';
+import RelatedGuides from '../components/RelatedGuides.astro';
+import CommercialCTA from '../components/CommercialCTA.astro';
+import TrustNote from '../components/TrustNote.astro';
+import { site } from '../config';
+import { formatUpdated } from '../lib/text';
+
+interface Crumb { label: string; href?: string }
+interface TocItem { label: string; id: string }
+interface RelatedLink { label: string; href: string }
+
+interface Props {
+  title: string;
+  description?: string;
+  eyebrow?: string;
+  summary?: string;
+  updated?: string | Date;
+  image?: { src: string; alt: string; credit?: string };
+  breadcrumbs: Crumb[];
+  toc?: TocItem[];
+  related?: RelatedLink[];
+  relatedTitle?: string;
+  cta?: { heading?: string; body?: string };
+  showTrustNote?: boolean;
+}
+
+const {
+  title,
+  description,
+  eyebrow,
+  summary,
+  updated = site.defaultUpdated,
+  image,
+  breadcrumbs,
+  toc = [],
+  related = [],
+  relatedTitle,
+  cta,
+  showTrustNote = true,
+} = Astro.props;
+
+const headline = title.replace(/\s*\|\s*TripAxle\s*$/, '');
+
+const articleLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline,
+  description: description ?? summary,
+  dateModified: new Date(updated).toISOString(),
+  author: { '@type': 'Organization', name: site.name },
+  publisher: { '@type': 'Organization', name: site.name },
+  mainEntityOfPage: new URL(Astro.url.pathname, site.domain).href,
+};
+---
+
+<Layout title={title} description={description ?? summary}>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <div class="article-grid">
+    <article class="prose">
+      <PageHero
+        eyebrow={eyebrow}
+        title={headline}
+        summary={summary}
+        updated={updated}
+        image={image}
+      />
+
+      <slot />
+
+      {cta && <CommercialCTA heading={cta.heading} body={cta.body} />}
+      {showTrustNote && <TrustNote />}
+      {related.length > 0 && <RelatedGuides links={related} title={relatedTitle} />}
+    </article>
+
+    {toc.length > 0 && (
+      <aside class="article-rail">
+        <OnThisPage items={toc} />
+      </aside>
+    )}
+  </div>
+
+  <script type="application/ld+json" set:html={JSON.stringify(articleLd)} />
+</Layout>

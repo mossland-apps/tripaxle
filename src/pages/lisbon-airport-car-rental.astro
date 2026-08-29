@@ -1,733 +1,384 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import AtAGlance from "../components/AtAGlance.astro";
+import Callout from "../components/Callout.astro";
+import { images } from "../lib/images";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Airport Rental Guides", href: "/airport-rental-guides" },
+  { label: "Lisbon Airport" },
+];
+
+const toc = [
+  { label: "On-airport rental desks", id: "rental-desks" },
+  { label: "Off-airport companies & shuttles", id: "off-airport" },
+  { label: "How pickup works", id: "pickup" },
+  { label: "Leaving the airport", id: "leaving-the-airport" },
+  { label: "Tolls before you drive off", id: "tolls" },
+  { label: "Returning the car", id: "returning" },
+  { label: "When renting makes sense", id: "when-to-rent" },
+  { label: "When to wait", id: "when-to-wait" },
+];
+
+const glance = [
+  { label: "Airport", value: "Lisbon Humberto Delgado (LIS)" },
+  { label: "On-airport desks", value: "Terminal 1 Arrivals hall" },
+  { label: "Off-airport area", value: "Prior Velho, ~1.5–3 km" },
+  { label: "Shuttle pickup", value: "Terminal 1, Exit 4" },
+  { label: "Main routes out", value: "A1 north · A2 / A12 south" },
+  { label: "Typical desk hours", value: "~06:00–01:00 (confirm yours)" },
+];
+
+const related = [
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
+  { label: "Porto Airport Car Rental", href: "/porto-airport-car-rental" },
+  { label: "Faro Airport Car Rental", href: "/faro-airport-car-rental" },
+  { label: "Portugal Toll Roads for Rental Cars", href: "/portugal-toll-roads-for-rental-cars" },
+  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance" },
+];
 ---
 
-<Layout
+<ArticleLayout
   title="Lisbon Airport Car Rental Guide | TripAxle"
-  description="A practical guide to renting a car at Lisbon Airport, including terminal rental desks, off-airport shuttles, pickup procedures, tolls, and when renting makes sense."
+  description="A practical guide to renting a car at Lisbon Airport (LIS): terminal rental desks, off-airport shuttles, pickup, tolls, leaving the airport, and when renting is worth it."
+  eyebrow="Lisbon Airport"
+  summary="Where the rental companies are, how pickup and shuttles work, what to expect leaving the airport, and when it makes more sense to collect a car later."
+  updated="2026-08-15"
+  image={images.lisbonStreet}
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+  cta={{
+    heading: "Ready to compare cars at Lisbon Airport?",
+    body: "Compare available rental companies and current prices for your dates.",
+  }}
 >
-  <section class="hero">
-    <p class="eyebrow">Lisbon Airport car rental</p>
-    <h1>Lisbon Airport car rental guide.</h1>
-
-    <p class="intro">
-      Lisbon Airport (LIS) can be a convenient place to begin a Portugal road
-      trip, but renting immediately is not the best choice for every traveler.
-      This guide covers where rental companies are located, how pickup works,
-      what to expect when leaving the airport, and when it may make more sense
-      to wait before collecting a car.
-    </p>
-  </section>
-
-  <section class="summary-grid">
-    <article class="card">
-      <h2>Quick summary</h2>
-      <ul>
-        <li>Airport car rental desks are located in the Terminal 1 Arrivals hall.</li>
-        <li>On-airport vehicles are generally collected from the nearby rental parking facilities.</li>
-        <li>Many lower-cost providers use off-airport branches around Prior Velho.</li>
-        <li>Off-airport rental shuttles commonly collect passengers near Terminal 1 Exit 4.</li>
-        <li>Lisbon Airport provides fast access toward the A1, A2, A12, and surrounding road network.</li>
-      </ul>
-    </article>
-
-    <article class="card">
-      <h2>Best suited for</h2>
-      <ul>
-        <li>Travelers leaving Lisbon shortly after arrival</li>
-        <li>Alentejo and Algarve road trips</li>
-        <li>Trips involving Óbidos, Nazaré, Tomar, and smaller towns</li>
-        <li>Families traveling with substantial luggage</li>
-        <li>Multi-stop Portugal itineraries</li>
-      </ul>
-    </article>
-  </section>
-
-  <section class="section-card">
-    <p class="section-label">Airport rental options</p>
-    <h2>Inside-terminal and on-airport rental companies</h2>
-
+  <QuickAnswer>
     <p>
-      The main car rental desks at Lisbon Humberto Delgado Airport are located
-      in the <strong>Terminal 1 Arrivals hall</strong>. After clearing customs
-      and entering the public arrivals area, follow signs for
-      <strong>“Aluguer de Viaturas”</strong> or <strong>“Car Rental.”</strong>
+      Renting at Lisbon Airport makes sense if you are <strong>leaving Lisbon
+      soon after you land</strong> — heading for the Alentejo, the Algarve, or
+      smaller towns. If you are staying in central Lisbon first, you are usually
+      better off collecting the car on the day you actually leave the city.
     </p>
+  </QuickAnswer>
 
-    <p>
-      Terminal 2 is used for departures by certain airlines, while arriving
-      passengers are processed through Terminal 1. This makes Terminal 1 the
-      main starting point for airport car rental pickup.
-    </p>
+  <AtAGlance items={glance} />
 
-    <h3>Agencies with terminal desks</h3>
+  <p>
+    Lisbon Airport (LIS) can be a convenient place to begin a Portugal road
+    trip, but renting immediately is not the best choice for every traveler.
+    This guide covers where rental companies are located, how pickup works,
+    what to expect when leaving the airport, and when it may make more sense to
+    wait before collecting a car.
+  </p>
 
-    <div class="agency-grid">
-      <div class="mini-card">
-        <strong>Avis</strong>
-      </div>
+  <h2 id="rental-desks">Inside-terminal and on-airport rental companies</h2>
+  <p>
+    The main car rental desks at Lisbon Humberto Delgado Airport are located in
+    the <strong>Terminal 1 Arrivals hall</strong>. After clearing customs and
+    entering the public arrivals area, follow signs for
+    <strong>“Aluguer de Viaturas”</strong> or <strong>“Car Rental.”</strong>
+  </p>
+  <p>
+    Terminal 2 is used for departures by certain airlines, while arriving
+    passengers are processed through Terminal 1. This makes Terminal 1 the main
+    starting point for airport car rental pickup.
+  </p>
 
-      <div class="mini-card">
-        <strong>Budget</strong>
-      </div>
+  <h3>Agencies with terminal desks</h3>
+  <div class="tag-grid">
+    <span>Avis</span><span>Budget</span><span>Europcar</span><span>Hertz</span>
+    <span>Enterprise</span><span>Sixt</span><span>Guerin</span><span>Cael</span>
+    <span>Alamo</span>
+  </div>
 
-      <div class="mini-card">
-        <strong>Europcar</strong>
-      </div>
+  <Callout>
+    Not every company advertising Lisbon Airport pickup has a counter inside the
+    terminal. Some providers operate from nearby facilities and require a
+    shuttle or meet-and-greet transfer. Always check the pickup instructions on
+    your booking voucher before arrival.
+  </Callout>
 
-      <div class="mini-card">
-        <strong>Hertz</strong>
-      </div>
+  <h2 id="off-airport">Off-airport rental providers and shuttles</h2>
+  <p>
+    Lisbon has a substantial group of off-airport rental providers operating
+    from <strong>Prior Velho</strong> and nearby business areas. These
+    facilities are generally around 1.5 to 3 kilometers from the terminal, with
+    typical transfers taking roughly 5 to 10 minutes once the shuttle departs.
+  </p>
+  <p>
+    Most of these companies provide complimentary transport between Terminal 1
+    and the rental branch, although the exact pickup procedure varies by
+    provider.
+  </p>
 
-      <div class="mini-card">
-        <strong>Enterprise</strong>
-      </div>
+  <h3>Common shuttle meeting area</h3>
+  <p>
+    Many off-site providers direct arriving customers toward <strong>Exit 4 of
+    Terminal 1</strong>. From the Arrivals hall, travelers are commonly
+    instructed to head toward the Vodafone shop, leave through Exit 4, and cross
+    toward the designated shuttle or meeting area.
+  </p>
 
-      <div class="mini-card">
-        <strong>Sixt</strong>
-      </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Provider</th><th>Location</th><th>Typical shuttle arrangement</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Centauro</td><td>Rua Américo Jesus Fernandes area</td><td>Exit 4; cross the first pedestrian crossing and look for the branded shuttle.</td></tr>
+        <tr><td>OK Mobility</td><td>Rua da Guiné, Prior Velho</td><td>Exit 4; cross toward the shuttle pickup area and wait for the branded vehicle.</td></tr>
+        <tr><td>Record Go</td><td>Near the airport perimeter</td><td>Exit 4; follow the ramp toward the designated shuttle area.</td></tr>
+        <tr><td>Goldcar / Interrent</td><td>Airport perimeter area</td><td>Pickup arrangements may vary between nearby rental facilities and shuttle service.</td></tr>
+        <tr><td>Sixt shuttle branch</td><td>Prior Velho</td><td>Pickup from the Terminal 1 meeting area near Exit 4.</td></tr>
+        <tr><td>Klass Wagen</td><td>Prior Velho</td><td>Exit 4; some bookings may require contacting the branch after arrival.</td></tr>
+        <tr><td>Surprice</td><td>Prior Velho</td><td>Exit 4; look for a representative or branded vehicle.</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-      <div class="mini-card">
-        <strong>Guerin</strong>
-      </div>
+  <h3>Finding your shuttle</h3>
+  <ul>
+    <li>Collect your luggage and enter the Terminal 1 Arrivals hall.</li>
+    <li>Follow your provider's instructions toward Exit 4.</li>
+    <li>Cross toward the designated rental shuttle or meeting area.</li>
+    <li>Look for a branded van, minibus, or representative.</li>
+    <li>Some companies run frequent loops, while others may ask you to call after arrival.</li>
+  </ul>
 
-      <div class="mini-card">
-        <strong>Cael</strong>
-      </div>
+  <Callout title="Return logistics">
+    With an off-airport company, you will usually return the vehicle directly to
+    that company's branch rather than the terminal. The provider then transfers
+    you back to the airport.
+  </Callout>
 
-      <div class="mini-card">
-        <strong>Alamo</strong>
-      </div>
-    </div>
+  <h2 id="pickup">How car rental pickup usually works at Lisbon Airport</h2>
+  <p>
+    The process differs significantly depending on whether your provider has a
+    Terminal 1 desk or operates from an off-airport branch.
+  </p>
 
-    <div class="note">
-      <strong>Important:</strong> Not every company advertising Lisbon Airport
-      pickup has a counter inside the terminal. Some providers operate from
-      nearby facilities and require a shuttle or meet-and-greet transfer.
-      Always check the pickup instructions on your booking voucher before
-      arrival.
-    </div>
-  </section>
-
-  <section class="section-card">
-    <p class="section-label">Off-airport rentals</p>
-    <h2>Off-airport rental providers and shuttles</h2>
-
-    <p>
-      Lisbon has a substantial group of off-airport rental providers operating
-      from <strong>Prior Velho</strong> and nearby business areas. These
-      facilities are generally around 1.5 to 3 kilometers from the terminal,
-      with typical transfers taking roughly 5 to 10 minutes once the shuttle
-      departs.
-    </p>
-
-    <p>
-      Most of these companies provide complimentary transport between Terminal
-      1 and the rental branch, although the exact pickup procedure varies by
-      provider.
-    </p>
-
-    <h3>Common shuttle meeting area</h3>
-
-    <p>
-      Many off-site providers direct arriving customers toward
-      <strong>Exit 4 of Terminal 1</strong>. From the Arrivals hall, travelers
-      are commonly instructed to head toward the Vodafone shop, leave through
-      Exit 4, and cross toward the designated shuttle or meeting area.
-    </p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Provider</th>
-            <th>Location</th>
-            <th>Typical shuttle arrangement</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>Centauro</td>
-            <td>Rua Américo Jesus Fernandes area</td>
-            <td>Exit 4; cross the first pedestrian crossing and look for the branded shuttle.</td>
-          </tr>
-
-          <tr>
-            <td>OK Mobility</td>
-            <td>Rua da Guiné, Prior Velho</td>
-            <td>Exit 4; cross toward the shuttle pickup area and wait for the branded vehicle.</td>
-          </tr>
-
-          <tr>
-            <td>Record Go</td>
-            <td>Near the airport perimeter</td>
-            <td>Exit 4; follow the ramp toward the designated shuttle area.</td>
-          </tr>
-
-          <tr>
-            <td>Goldcar / Interrent</td>
-            <td>Airport perimeter area</td>
-            <td>Pickup arrangements may vary between nearby rental facilities and shuttle service.</td>
-          </tr>
-
-          <tr>
-            <td>Sixt shuttle branch</td>
-            <td>Prior Velho</td>
-            <td>Pickup from the Terminal 1 meeting area near Exit 4.</td>
-          </tr>
-
-          <tr>
-            <td>Klass Wagen</td>
-            <td>Prior Velho</td>
-            <td>Exit 4; some bookings may require contacting the branch after arrival.</td>
-          </tr>
-
-          <tr>
-            <td>Surprice</td>
-            <td>Prior Velho</td>
-            <td>Exit 4; look for a representative or branded vehicle.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3>Finding your shuttle</h3>
-
-    <ul>
-      <li>Collect your luggage and enter the Terminal 1 Arrivals hall.</li>
-      <li>Follow your provider's instructions toward Exit 4.</li>
-      <li>Cross toward the designated rental shuttle or meeting area.</li>
-      <li>Look for a branded van, minibus, or representative.</li>
-      <li>Some companies run frequent loops, while others may ask you to call after arrival.</li>
-    </ul>
-
-    <div class="note">
-      <strong>Return logistics:</strong> With an off-airport company, you will
-      usually return the vehicle directly to that company's branch rather than
-      the terminal. The provider then transfers you back to the airport.
-    </div>
-  </section>
-
-  <section class="section-card">
-    <p class="section-label">Pickup process</p>
-    <h2>How car rental pickup usually works at Lisbon Airport</h2>
-
-    <p>
-      The process differs significantly depending on whether your provider has
-      a Terminal 1 desk or operates from an off-airport branch.
-    </p>
-
-    <div class="steps">
-      <article class="step">
-        <span class="step-number">1</span>
-
-        <div>
-          <h3>Find your rental desk or shuttle instructions</h3>
-
-          <p>
-            For terminal-based companies, follow the car rental signage inside
-            the Terminal 1 Arrivals hall. For an off-airport provider, follow
-            the meeting-point instructions supplied with your reservation.
-          </p>
-        </div>
-      </article>
-
-      <article class="step">
-        <span class="step-number">2</span>
-
-        <div>
-          <h3>Complete the rental paperwork</h3>
-
-          <p>
-            Travelers should normally have their driving license, passport or
-            other accepted identification, booking information, and the payment
-            card required by the rental company.
-          </p>
-
-          <p>
-            Deposit and payment rules vary substantially between rental
-            companies, so confirm the provider's requirements before traveling.
-          </p>
-        </div>
-      </article>
-
-      <article class="step">
-        <span class="step-number">3</span>
-
-        <div>
-          <h3>Collect the vehicle</h3>
-
-          <p>
-            Customers using terminal-based rental companies are generally
-            directed toward the airport's nearby rental parking facilities,
-            commonly around P1 and, depending on the provider, other designated
-            collection areas.
-          </p>
-
-          <p>
-            Customers using an off-airport agency will instead take the
-            provider's shuttle to a nearby branch, often in Prior Velho, and
-            collect the vehicle there.
-          </p>
-        </div>
-      </article>
-
-      <article class="step">
-        <span class="step-number">4</span>
-
-        <div>
-          <h3>Inspect the vehicle before leaving</h3>
-
-          <p>
-            Compare the car against the condition report supplied by the rental
-            company. Photograph or record any existing scratches, dents, wheel
-            damage, interior damage, or other discrepancies before driving away.
-          </p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="section-card">
-    <p class="section-label">Driving away</p>
-    <h2>Leaving Lisbon Airport by car</h2>
-
-    <p>
-      Lisbon Airport sits directly beside one of the city's busiest road
-      networks. The benefit is quick access to major routes; the tradeoff is
-      that drivers need to choose lanes and directions relatively quickly after
-      leaving the rental area.
-    </p>
-
-    <h3>Airport exits and the surrounding road network</h3>
-
-    <p>
-      After leaving the rental parking area, airport traffic feeds toward the
-      surrounding access roads and the <strong>Rotunda do Relógio</strong>
-      area. Signs divide traffic toward central Lisbon and the main routes
-      leading north, south, and east.
-    </p>
-
-    <div class="route-grid">
-      <article class="mini-card">
-        <h3>A1</h3>
+  <div class="steps">
+    <div class="step">
+      <span class="step__num">1</span>
+      <div>
+        <h3>Find your rental desk or shuttle instructions</h3>
         <p>
-          The main motorway heading north toward destinations such as Coimbra
-          and Porto.
+          For terminal-based companies, follow the car rental signage inside the
+          Terminal 1 Arrivals hall. For an off-airport provider, follow the
+          meeting-point instructions supplied with your reservation.
         </p>
-      </article>
-
-      <article class="mini-card">
-        <h3>A2 / A12</h3>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step__num">2</span>
+      <div>
+        <h3>Complete the rental paperwork</h3>
         <p>
-          Important routes for journeys south and southeast, including
-          Alentejo and Algarve itineraries.
+          Travelers should normally have their driving license, passport or
+          other accepted identification, booking information, and the payment
+          card required by the rental company.
         </p>
-      </article>
-
-      <article class="mini-card">
-        <h3>Lisbon center</h3>
         <p>
-          Follow signs toward Centro and the appropriate city district if
-          Lisbon itself is your first destination.
+          Deposit and payment rules vary substantially between rental companies,
+          so confirm the provider's requirements before traveling.
         </p>
-      </article>
+      </div>
     </div>
-
-    <h3>Traffic around the airport</h3>
-
-    <p>
-      The surrounding road system includes the
-      <strong>Segunda Circular</strong>, one of Lisbon's major urban arteries.
-      Traffic can become heavy during commuting periods, and lane changes can
-      arrive quickly.
-    </p>
-
-    <div class="note">
-      <strong>Navigation tip:</strong> Set your destination before leaving the
-      parking space. The first few minutes outside Lisbon Airport can require
-      several rapid lane and route decisions, particularly if you are unfamiliar
-      with the city.
-    </div>
-  </section>
-
-  <section class="section-card">
-    <p class="section-label">Tolls</p>
-    <h2>Understanding tolls before leaving Lisbon Airport</h2>
-
-    <p>
-      Travelers beginning a longer road trip from Lisbon may encounter both
-      conventional motorway tolls and roads using electronic toll collection.
-    </p>
-
-    <p>
-      Many rental companies offer a <strong>Via Verde</strong> transponder that
-      records toll use electronically and bills charges according to the rental
-      company's system.
-    </p>
-
-    <ul>
-      <li>Ask whether your rental includes or offers a Via Verde device.</li>
-      <li>Confirm any activation, administration, or daily fees.</li>
-      <li>Ask how toll charges will appear after the rental.</li>
-      <li>Do not assume every motorway uses the same payment method.</li>
-    </ul>
-
-    <div class="note">
-      <strong>Before driving away:</strong> The important question is not simply
-      whether the car has a transponder, but how your specific rental company
-      charges for using it.
-    </div>
-  </section>
-
-  <section class="section-card">
-    <p class="section-label">Returning the car</p>
-    <h2>Returning a rental car to Lisbon Airport</h2>
-
-    <p>
-      For on-airport companies, follow airport signs for
-      <strong>Car Rental</strong>, the appropriate parking facility, or your
-      provider's return area rather than entering ordinary public parking.
-    </p>
-
-    <p>
-      Off-airport providers usually require the vehicle to be returned to their
-      own nearby facility. The company then provides transport back to the
-      airport terminal.
-    </p>
-
-    <ul>
-      <li>Allow extra time for fuel, traffic, inspection, and the return process.</li>
-      <li>For shuttle-based providers, include transfer time back to the terminal.</li>
-      <li>Keep the provider's return address available in your navigation app.</li>
-    </ul>
-  </section>
-
-  <section class="section-card">
-    <p class="section-label">Should you rent?</p>
-    <h2>When renting at Lisbon Airport makes sense</h2>
-
-    <div class="decision-grid">
-      <article class="decision-card">
-        <h3>You are leaving Lisbon immediately</h3>
-
+    <div class="step">
+      <span class="step__num">3</span>
+      <div>
+        <h3>Collect the vehicle</h3>
         <p>
-          Airport pickup can work particularly well if you plan to leave the
-          metropolitan area soon after arrival instead of spending several days
-          sightseeing in central Lisbon.
+          Customers using terminal-based rental companies are generally directed
+          toward the airport's nearby rental parking facilities, commonly around
+          P1 and, depending on the provider, other designated collection areas.
         </p>
-      </article>
-
-      <article class="decision-card">
-        <h3>You are heading into the countryside</h3>
-
         <p>
-          A rental car provides much greater flexibility for itineraries
-          involving Alentejo, the Algarve, rural areas, and smaller destinations
-          that are less convenient to combine by public transport.
+          Customers using an off-airport agency will instead take the provider's
+          shuttle to a nearby branch, often in Prior Velho, and collect the
+          vehicle there.
         </p>
-      </article>
-
-      <article class="decision-card">
-        <h3>You are visiting smaller towns</h3>
-
+      </div>
+    </div>
+    <div class="step">
+      <span class="step__num">4</span>
+      <div>
+        <h3>Inspect the vehicle before leaving</h3>
         <p>
-          Destinations such as Óbidos, Nazaré, and Tomar can fit naturally into
-          a road-trip itinerary, particularly when combining several stops in a
-          single journey.
+          Compare the car against the condition report supplied by the rental
+          company. Photograph or record any existing scratches, dents, wheel
+          damage, interior damage, or other discrepancies before driving away.
         </p>
-      </article>
-
-      <article class="decision-card">
-        <h3>You are traveling with children or substantial luggage</h3>
-
-        <p>
-          Airport pickup may simplify the arrival process for families or
-          travelers carrying strollers, multiple suitcases, child equipment, or
-          other bulky gear.
-        </p>
-      </article>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <section class="section-card">
-    <p class="section-label">When to wait</p>
-    <h2>When renting at Lisbon Airport may not make sense</h2>
+  <h2 id="leaving-the-airport">Leaving Lisbon Airport by car</h2>
+  <p>
+    Lisbon Airport sits directly beside one of the city's busiest road
+    networks. The benefit is quick access to major routes; the tradeoff is that
+    drivers need to choose lanes and directions relatively quickly after leaving
+    the rental area.
+  </p>
 
-    <p>
-      Lisbon is one of the clearest examples of a destination where
-      <strong>having a car and needing a car are not the same thing</strong>.
-      If the first part of your trip is concentrated in the historic center,
-      collecting a vehicle immediately can create unnecessary cost and
-      inconvenience.
-    </p>
+  <h3>Airport exits and the surrounding road network</h3>
+  <p>
+    After leaving the rental parking area, airport traffic feeds toward the
+    surrounding access roads and the <strong>Rotunda do Relógio</strong> area.
+    Signs divide traffic toward central Lisbon and the main routes leading
+    north, south, and east.
+  </p>
 
-    <ul>
-      <li>
-        <strong>Several days in central Lisbon:</strong> Parking can be
-        difficult and expensive, while many major sights are easier to reach on
-        foot or by public transport.
-      </li>
+  <div class="card-grid">
+    <div class="card"><h3>A1</h3><p>The main motorway heading north toward destinations such as Coimbra and Porto.</p></div>
+    <div class="card"><h3>A2 / A12</h3><p>Important routes for journeys south and southeast, including Alentejo and Algarve itineraries.</p></div>
+    <div class="card"><h3>Lisbon center</h3><p>Follow signs toward Centro and the appropriate city district if Lisbon itself is your first destination.</p></div>
+  </div>
 
-      <li>
-        <strong>Traveling onward to Porto:</strong> Rail may be a better fit for
-        travelers whose next major stop is Porto and who do not need a vehicle
-        between the two cities.
-      </li>
+  <h3>Traffic around the airport</h3>
+  <p>
+    The surrounding road system includes the <strong>Segunda Circular</strong>,
+    one of Lisbon's major urban arteries. Traffic can become heavy during
+    commuting periods, and lane changes can arrive quickly.
+  </p>
 
-      <li>
-        <strong>Short budget-focused visits:</strong> Metro, taxi, and rideshare
-        services may cost substantially less than keeping a rental car parked
-        for most of the trip.
-      </li>
-    </ul>
+  <Callout variant="tip">
+    Set your destination in your navigation app before you leave the parking
+    space. The first few minutes outside Lisbon Airport can require several
+    rapid lane and route decisions, especially if you do not know the city.
+  </Callout>
 
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Travel plan</th>
-            <th>Likely best approach</th>
-          </tr>
-        </thead>
+  <h2 id="tolls">Understanding tolls before leaving Lisbon Airport</h2>
+  <p>
+    Travelers beginning a longer road trip from Lisbon may encounter both
+    conventional motorway tolls and roads using electronic toll collection.
+  </p>
+  <p>
+    Many rental companies offer a <strong>Via Verde</strong> transponder that
+    records toll use electronically and bills charges according to the rental
+    company's system.
+  </p>
+  <ul>
+    <li>Ask whether your rental includes or offers a Via Verde device.</li>
+    <li>Confirm any activation, administration, or daily fees.</li>
+    <li>Ask how toll charges will appear after the rental.</li>
+    <li>Do not assume every motorway uses the same payment method.</li>
+  </ul>
 
-        <tbody>
-          <tr>
-            <td>Leave Lisbon for coast or countryside immediately</td>
-            <td>Airport rental can make sense</td>
-          </tr>
+  <Callout title="Before you drive away">
+    The important question is not simply whether the car has a transponder, but
+    how your specific rental company charges for using it. See
+    <a href="/portugal-toll-roads-for-rental-cars">Portugal toll roads for rental cars</a>
+    for the full picture.
+  </Callout>
 
-          <tr>
-            <td>Spend several days sightseeing in Lisbon first</td>
-            <td>Consider renting later</td>
-          </tr>
+  <h2 id="returning">Returning a rental car to Lisbon Airport</h2>
+  <p>
+    For on-airport companies, follow airport signs for <strong>Car Rental</strong>,
+    the appropriate parking facility, or your provider's return area rather than
+    entering ordinary public parking.
+  </p>
+  <p>
+    Off-airport providers usually require the vehicle to be returned to their
+    own nearby facility. The company then provides transport back to the airport
+    terminal.
+  </p>
+  <ul>
+    <li>Allow extra time for fuel, traffic, inspection, and the return process.</li>
+    <li>For shuttle-based providers, include transfer time back to the terminal.</li>
+    <li>Keep the provider's return address available in your navigation app.</li>
+  </ul>
 
-          <tr>
-            <td>Family trip with significant luggage</td>
-            <td>Airport rental may offer more convenience</td>
-          </tr>
-
-          <tr>
-            <td>Lisbon followed directly by Porto</td>
-            <td>Compare rail with renting a car</td>
-          </tr>
-
-          <tr>
-            <td>Short city-focused budget trip</td>
-            <td>Public transport may be simpler</td>
-          </tr>
-        </tbody>
-      </table>
+  <h2 id="when-to-rent">When renting at Lisbon Airport makes sense</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>You are leaving Lisbon immediately</h3>
+      <p>
+        Airport pickup works well if you plan to leave the metropolitan area
+        soon after arrival instead of spending several days sightseeing in
+        central Lisbon.
+      </p>
     </div>
-
-    <div class="note">
-      <strong>Hotel parking matters:</strong> If you collect a car at the
-      airport but plan to spend a night or two in Lisbon before leaving, confirm
-      that your accommodation has suitable parking. Parking limitations can
-      change the economics and convenience of renting immediately.
+    <div class="card">
+      <h3>You are heading into the countryside</h3>
+      <p>
+        A rental car provides much greater flexibility for itineraries involving
+        Alentejo, the Algarve, rural areas, and smaller destinations that are
+        less convenient by public transport.
+      </p>
     </div>
-  </section>
-
-  <section class="related-card">
-    <h2>Related Portugal guides</h2>
-
-    <div class="related-links">
-      <a href="/portugal-guide">Portugal Car Rental Guide →</a>
-      <a href="/airport-comparisons">Portugal Airport Comparisons →</a>
-      <a href="/porto-airport-car-rental">Porto Airport Car Rental →</a>
-      <a href="/faro-airport-car-rental">Faro Airport Car Rental →</a>
-      <a href="/practical-guides">Practical Car Rental Guides →</a>
+    <div class="card">
+      <h3>You are visiting smaller towns</h3>
+      <p>
+        Destinations such as Óbidos, Nazaré, and Tomar fit naturally into a
+        road-trip itinerary, particularly when combining several stops in one
+        journey.
+      </p>
     </div>
-  </section>
+    <div class="card">
+      <h3>You are traveling with children or lots of luggage</h3>
+      <p>
+        Airport pickup can simplify arrival for families or travelers carrying
+        strollers, multiple suitcases, child equipment, or other bulky gear.
+      </p>
+    </div>
+  </div>
+
+  <h2 id="when-to-wait">When renting at Lisbon Airport may not make sense</h2>
+  <p>
+    Lisbon is one of the clearest examples of a destination where
+    <strong>having a car and needing a car are not the same thing</strong>. If
+    the first part of your trip is concentrated in the historic center,
+    collecting a vehicle immediately can create unnecessary cost and
+    inconvenience.
+  </p>
+  <ul>
+    <li><strong>Several days in central Lisbon:</strong> Parking can be difficult and expensive, while many major sights are easier to reach on foot or by public transport.</li>
+    <li><strong>Traveling onward to Porto:</strong> Rail may be a better fit for travelers whose next major stop is Porto and who do not need a vehicle between the two cities.</li>
+    <li><strong>Short budget-focused visits:</strong> Metro, taxi, and rideshare services may cost substantially less than keeping a rental car parked for most of the trip.</li>
+  </ul>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Travel plan</th><th>Likely best approach</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Leave Lisbon for coast or countryside immediately</td><td>Airport rental can make sense</td></tr>
+        <tr><td>Spend several days sightseeing in Lisbon first</td><td>Consider renting later</td></tr>
+        <tr><td>Family trip with significant luggage</td><td>Airport rental may offer more convenience</td></tr>
+        <tr><td>Lisbon followed directly by Porto</td><td>Compare rail with renting a car</td></tr>
+        <tr><td>Short city-focused budget trip</td><td>Public transport may be simpler</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <Callout title="Hotel parking matters">
+    If you collect a car at the airport but plan to spend a night or two in
+    Lisbon before leaving, confirm that your accommodation has suitable parking.
+    Parking limitations can change the economics and convenience of renting
+    immediately.
+  </Callout>
 
   <style>
-    .hero {
-      padding: 2rem 0 2.5rem;
-      max-width: 800px;
-    }
-
-    .eyebrow,
-    .section-label {
-      margin: 0 0 0.75rem;
-      color: #2f6fed;
-      font-size: 0.9rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      line-height: 1.06;
-    }
-
-    h2 {
-      margin-top: 0;
-      font-size: 1.6rem;
-    }
-
-    h3 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-    }
-
-    .intro {
-      margin-top: 1rem;
-      max-width: 720px;
-      color: #5b5b55;
-      font-size: 1.1rem;
-    }
-
-    .summary-grid,
-    .route-grid,
-    .decision-grid {
+    .tag-grid {
       display: grid;
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 0.6rem;
+      margin: 1.25rem 0 1.5rem;
     }
-
-    .summary-grid {
-      grid-template-columns: 1.5fr 1fr;
-      margin-bottom: 1rem;
-    }
-
-    .route-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      margin: 1.25rem 0;
-    }
-
-    .decision-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .agency-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.75rem;
-      margin: 1rem 0;
-    }
-
-    .card,
-    .section-card,
-    .related-card,
-    .mini-card,
-    .decision-card {
-      background: white;
-      border: 1px solid #e4e4de;
-      border-radius: 16px;
-    }
-
-    .card,
-    .section-card,
-    .related-card,
-    .decision-card {
-      padding: 1.25rem;
-    }
-
-    .section-card,
-    .related-card {
-      margin-top: 1rem;
-    }
-
-    .mini-card {
-      padding: 1rem;
-    }
-
-    p {
-      max-width: 820px;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    li + li {
-      margin-top: 0.55rem;
-    }
-
-    .note {
-      margin-top: 1.25rem;
-      padding: 1rem;
-      border-left: 4px solid #2f6fed;
-      background: #f4f7ff;
-      border-radius: 8px;
-    }
-
-    .steps {
-      display: grid;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 1rem;
-      align-items: start;
-      padding-top: 1rem;
-      border-top: 1px solid #e4e4de;
-    }
-
-    .step:first-child {
-      padding-top: 0;
-      border-top: 0;
-    }
-
-    .step-number {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 2rem;
-      height: 2rem;
-      border-radius: 999px;
-      background: #2f6fed;
-      color: white;
-      font-weight: 700;
-    }
-
-    .table-wrap {
-      overflow-x: auto;
-      margin-top: 1rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-    }
-
-    th,
-    td {
-      padding: 0.85rem;
-      text-align: left;
-      vertical-align: top;
-      border-bottom: 1px solid #e4e4de;
-    }
-
-    th {
-      background: #f7f7f5;
-      font-size: 0.9rem;
-    }
-
-    .related-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem 1.5rem;
-    }
-
-    .related-links a {
-      color: #2f6fed;
+    .tag-grid span {
+      display: block;
+      text-align: center;
+      padding: 0.6rem 0.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
       font-weight: 600;
-    }
-
-    @media (max-width: 900px) {
-      .summary-grid,
-      .route-grid,
-      .decision-grid,
-      .agency-grid {
-        grid-template-columns: 1fr;
-      }
+      font-size: 0.95rem;
     }
   </style>
-</Layout>
+</ArticleLayout>

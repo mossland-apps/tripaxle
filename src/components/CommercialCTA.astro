@@ -1,0 +1,29 @@
+---
+import { site } from '../config';
+
+interface Props {
+  heading?: string;
+  body?: string;
+  /** Optional override; defaults to the configured partner URL. */
+  href?: string;
+}
+
+const {
+  heading = 'Ready to compare rental cars?',
+  body = 'Compare available rental companies and current prices for your dates.',
+  href = site.partner.url,
+} = Astro.props;
+
+// Master switch. Stays hidden until an affiliate partner is configured.
+const enabled = site.showCommercialCTA && Boolean(href);
+---
+
+{enabled && (
+  <aside class="commercial-cta">
+    <h2>{heading}</h2>
+    <p>{body}</p>
+    <a class="button" href={href} rel="sponsored nofollow" target="_blank">
+      Compare cars{site.partner.name ? ` on ${site.partner.name}` : ''}
+    </a>
+  </aside>
+)}

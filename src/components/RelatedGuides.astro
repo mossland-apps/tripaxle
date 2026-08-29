@@ -1,0 +1,20 @@
+---
+interface Link {
+  label: string;
+  href: string;
+}
+interface Props {
+  links: Link[];
+  title?: string;
+}
+const { links, title = 'Related Portugal guides' } = Astro.props;
+---
+
+<section class="related-guides">
+  <h2>{title}</h2>
+  <div class="related-guides__links">
+    {links.map((l) => (
+      <a href={l.href}>{l.label} →</a>
+    ))}
+  </div>
+</section>

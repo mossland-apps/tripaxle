@@ -1,0 +1,26 @@
+---
+import { formatUpdated } from '../lib/text';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  summary?: string;
+  updated?: string | Date;
+  image?: { src: string; alt: string; credit?: string };
+}
+const { eyebrow, title, summary, updated, image } = Astro.props;
+---
+
+<header class="page-hero">
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  <h1>{title}</h1>
+  {summary && <p class="lede">{summary}</p>}
+  {updated && <p class="page-hero__updated">Updated {formatUpdated(updated)}</p>}
+
+  {image && (
+    <figure class="page-hero__figure">
+      <img src={image.src} alt={image.alt} loading="eager" />
+      {image.credit && <figcaption class="page-hero__credit">{image.credit}</figcaption>}
+    </figure>
+  )}
+</header>

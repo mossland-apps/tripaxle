@@ -1,152 +1,58 @@
 ---
+import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { site } from '../config';
+
 interface Props {
   title: string;
   description?: string;
+  /** When false, the page supplies its own <main>. */
+  contained?: boolean;
 }
 
 const {
   title,
-  description = "Independent Portugal car rental guidance for smarter trips.",
+  description = site.tagline,
+  contained = true,
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, site.domain).href;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={site.name} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+    />
+
     <title>{title}</title>
-    <style>
-      :root {
-        --bg: #f7f7f5;
-        --surface: #ffffff;
-        --text: #1b1b18;
-        --muted: #5b5b55;
-        --border: #ddddd7;
-        --accent: #2f6fed;
-        --accent-hover: #1f57c7;
-        --max-width: 1100px;
-        --radius: 16px;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.5;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .container {
-        width: min(var(--max-width), calc(100% - 2rem));
-        margin: 0 auto;
-      }
-
-      header {
-        border-bottom: 1px solid var (--border);
-        background: var(--surface);
-      }
-
-      .topbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 0;
-        gap: 1.25rem;
-      }
-
-      .brand {
-        font-size: 1.4rem;
-        font-weight: 700;
-      }
-
-      nav {
-        display: flex;
-        gap: 1.25rem;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
-
-      nav a {
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-
-      nav a:hover {
-        color: var(--text);
-      }
-
-      main {
-        padding: 2rem 0 4rem;
-      }
-
-      footer {
-        border-top: 1px solid var (--border);
-        background: var(--surface);
-        color: var(--muted);
-      }
-
-      .footer-inner {
-        padding: 1.25rem 0;
-        font-size: 0.95rem;
-      }
-
-      .button {
-        display: inline-block;
-        background: var(--accent);
-        color: white;
-        padding: 0.8rem 1.1rem;
-        border-radius: 10px;
-        font-weight: 600;
-      }
-
-      .button:hover {
-        background: var(--accent-hover);
-      }
-
-      .button.secondary {
-        background: transparent;
-        color: var(--text);
-        border: 1px solid var (--border);
-      }
-
-      .button.secondary:hover {
-        background: #f0f0eb;
-      }
-    </style>
   </head>
   <body>
-    <header>
-      <div class="container topbar">
-        <a class="brand" href="/">TripAxle</a>
-
-        <nav>
-         <a href="/portugal-guide">Portugal Guide</a>
-         <a href="/airport-rental-guides">Airport Rental Guides</a>
-         <a href="/booking-basics">Booking Basics</a>
-         <a href="/practical-guides">Practical Guides</a>
-        </nav>
-      </div>
-    </header>
-
-    <main class="container">
+    <SiteHeader />
+    {contained ? (
+      <main class="container" style="padding: 2.5rem 0 1rem;">
+        <slot />
+      </main>
+    ) : (
       <slot />
-    </main>
-
-    <footer>
-      <div class="container footer-inner">
-        © 2026 TripAxle · Independent Portugal car rental guidance for smarter trips.
-      </div>
-    </footer>
+    )}
+    <SiteFooter />
   </body>
 </html>

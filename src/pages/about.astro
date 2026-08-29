@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { site } from "../config";
+---
+
+<Layout
+  title="About TripAxle & How We Research"
+  description="TripAxle is an independent guide to renting and driving a car in Portugal. Here is who it is for, what it is not, and how the guidance is put together."
+>
+  <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "About & how we research" }]} />
+
+  <article class="prose" style="max-width: 46rem;">
+    <p class="eyebrow">About</p>
+    <h1>About TripAxle</h1>
+    <p class="lede">
+      An independent guide to renting and driving a car in Portugal, written for
+      English-speaking travelers.
+    </p>
+
+    <h2>What TripAxle is</h2>
+    <p>{site.trust.whyTrust}</p>
+    <p>
+      Every guide is built around one practical question a traveler actually
+      asks — “how does pickup work at Faro?”, “what does the excess mean?”,
+      “can I pay a toll after I have flown home?” — and answers it in plain
+      language, with the specific things to check on your own booking.
+    </p>
+
+    <h2>What TripAxle is not</h2>
+    <ul>
+      <li>It is not a rental company or a booking site.</li>
+      <li>It does not rank or score rental companies.</li>
+      <li>It does not publish paid or incentivised reviews.</li>
+      <li>It does not run a price-comparison engine.</li>
+    </ul>
+    <p>
+      Where a link to a rental comparison service would genuinely help you act
+      on a decision, we may add one and label it clearly. That is the only
+      commercial element, and it never changes what a guide says.
+    </p>
+
+    <h2>How we research these guides</h2>
+    <p>{site.trust.howWeResearch}</p>
+    <p>
+      Airports rearrange desks, providers change shuttle points, and fees move.
+      Treat every specific detail here as “very likely, verify on your voucher,”
+      not “guaranteed.” When something is commonly misunderstood, we say so
+      rather than glossing over it.
+    </p>
+
+    <h2>Corrections</h2>
+    <p>
+      If something here is out of date or does not match what you found on the
+      ground, that feedback is genuinely useful and helps the next traveler.
+    </p>
+  </article>
+</Layout>

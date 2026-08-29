@@ -1,0 +1,23 @@
+---
+interface Item {
+  label: string;
+  value: string;
+}
+interface Props {
+  items: Item[];
+  label?: string;
+}
+const { items, label = 'At a glance' } = Astro.props;
+---
+
+<section class="at-a-glance">
+  <p class="at-a-glance__label">{label}</p>
+  <dl class="at-a-glance__grid">
+    {items.map((it) => (
+      <div class="at-a-glance__item">
+        <dt>{it.label}</dt>
+        <dd set:html={it.value} />
+      </div>
+    ))}
+  </dl>
+</section>

@@ -1,0 +1,21 @@
+---
+interface Props {
+  variant?: 'tip' | 'note' | 'warning';
+  title?: string;
+}
+
+const { variant = 'note', title } = Astro.props;
+
+const defaultTitles: Record<string, string | undefined> = {
+  tip: 'TripAxle tip',
+  warning: 'Heads up',
+  note: undefined,
+};
+
+const heading = title ?? defaultTitles[variant];
+---
+
+<aside class={`callout callout--${variant}`}>
+  {heading && <p class="callout__title">{heading}</p>}
+  <div class="callout__body"><slot /></div>
+</aside>

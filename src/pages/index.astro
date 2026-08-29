@@ -1,125 +1,163 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { images } from "../lib/images";
+
+const hubs = [
+  {
+    title: "Portugal Guide",
+    href: "/portugal-guide",
+    body:
+      "Start here to decide whether you need a car at all, and where in Portugal one actually adds value.",
+    cta: "Read the Portugal guide",
+  },
+  {
+    title: "Airport Rental Guides",
+    href: "/airport-rental-guides",
+    body:
+      "Pickup desks, off-airport shuttles, documents, and leaving the airport — for Lisbon, Porto, and Faro.",
+    cta: "See airport guides",
+  },
+  {
+    title: "Booking Basics",
+    href: "/booking-basics",
+    body:
+      "Insurance, deposits, card rules, and how to read rental terms before you reserve.",
+    cta: "Learn booking basics",
+  },
+  {
+    title: "Practical Guides",
+    href: "/practical-guides",
+    body:
+      "Toll roads, fuel labels, manual vs automatic, and the day-to-day details of driving here.",
+    cta: "See practical guides",
+  },
+];
+
+const popular = [
+  { label: "Portugal car rental insurance explained", href: "/portugal-car-rental-insurance" },
+  { label: "Renting with a debit card", href: "/portugal-car-rental-with-debit" },
+  { label: "Deposits and card requirements", href: "/portugal-car-rental-deposits-and-card-requirements" },
+  { label: "Toll roads for rental cars", href: "/portugal-toll-roads-for-rental-cars" },
+  { label: "Lisbon Airport car rental guide", href: "/lisbon-airport-car-rental" },
+  { label: "Porto Airport car rental guide", href: "/porto-airport-car-rental" },
+];
 ---
 
 <Layout
-  title="TripAxle"
-  description="Independent car rental guidance for smarter trips."
+  title="TripAxle — Renting and Driving a Car in Portugal, Explained"
+  description="Independent, practical guidance on renting and driving a car in Portugal: airports, insurance, deposits, tolls, and when a rental car is actually worth it."
 >
-  <section class="hero">
-    <div class="hero-copy">
+  <section class="home-hero">
+    <div class="home-hero__copy">
       <p class="eyebrow">Portugal car rental guide</p>
-      <h1>A Complete Guide to Renting a Car in Portugal</h1>
-      <p class="intro">
-        Understand airport pickup, insurance, card requirements, tolls,
-         and common rental pitfalls before you book.
+      <h1>Renting and driving a car in Portugal, explained clearly</h1>
+      <p class="lede">
+        Practical, independent guidance for English-speaking travelers — how
+        airport pickup really works, what the insurance terms mean, how the
+        tolls catch people out, and when a rental car is genuinely worth it.
       </p>
-
-      <div class="hero-actions">
-        <a class="button" href="/portugal-guide">Start with the Portugal guide</a>   
-        <a class="button secondary" href="#">Booking Basics</a>
+      <div class="home-hero__actions">
+        <a class="button" href="/portugal-guide">Start with the Portugal guide</a>
+        <a class="button button--ghost" href="/airport-rental-guides">Airport guides</a>
       </div>
+    </div>
+    <figure class="home-hero__figure">
+      <img src={images.portoDouro.src} alt={images.portoDouro.alt} />
+      <figcaption>{images.portoDouro.credit}</figcaption>
+    </figure>
+  </section>
+
+  <section class="home-hubs">
+    <div class="home-hub-grid">
+      {hubs.map((h) => (
+        <article class="card home-hub">
+          <h2>{h.title}</h2>
+          <p>{h.body}</p>
+          <a class="link-arrow" href={h.href}>{h.cta} →</a>
+        </article>
+      ))}
     </div>
   </section>
 
-  <section class="cards">
-    <article class="card">
-      <h2>Booking Basics</h2>
+  <section class="home-split">
+    <div class="card">
+      <h2>Popular questions</h2>
+      <ul class="home-popular">
+        {popular.map((p) => (
+          <li><a href={p.href}>{p.label}</a></li>
+        ))}
+      </ul>
+    </div>
+    <div class="card home-independent">
+      <h2>An independent guide, not a booking site</h2>
       <p>
-        Learn how booking platforms, insurance options, card rules, and rental terms can vary before you reserve.
+        TripAxle does not rank rental companies, sell reviews, or run a
+        comparison engine. The aim is simpler: help you understand how renting
+        and driving in Portugal actually works, so you can book with confidence
+        wherever you book.
       </p>
-      <a href="booking-basics">Learn booking basics →</a>
-    </article>
-
-    <article class="card">
-      <h2>Airport Rental Guides</h2>
-      <p>
-        Understand pickup locations, shuttle desks, returns, and common airport rental issues in Lisbon, Porto, and Faro.
-      </p>
-      <a href="/airport-rental-guides">See airport guides →</a>
-    </article>
-
-    <article class="card">
-      <h2>Practical Guides</h2>
-      <p>
-        Understand insurance, tolls, card requirements, deposits, and other common rental issues.
-      </p>
-      <a href="/practical-guides">See practical guides →</a>
-    </article>
+      <a class="link-arrow" href="/about">How we research these guides →</a>
+    </div>
   </section>
 
   <style>
-    .hero {
-      padding: 2rem 0 2.5rem;
-    }
-
-    .hero-copy {
-      max-width: 720px;
-    }
-
-    .eyebrow {
-      margin: 0 0 0.75rem;
-      color: #2f6fed;
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      line-height: 1.05;
-    }
-
-    .intro {
-      max-width: 640px;
-      margin: 1rem 0 0;
-      color: #5b5b55;
-      font-size: 1.1rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 0.9rem;
-      flex-wrap: wrap;
-      margin-top: 1.5rem;
-    }
-
-    .cards {
+    .home-hero {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin: 1rem 0 3.5rem;
+    }
+    .home-hero__copy h1 { margin-bottom: 0.75rem; }
+    .home-hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.75rem;
+    }
+    .home-hero__figure {
+      margin: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+    }
+    .home-hero__figure img {
+      display: block;
+      width: 100%;
+      height: clamp(260px, 34vw, 400px);
+      object-fit: cover;
+    }
+    .home-hero__figure figcaption {
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 0.45rem 0.7rem;
+      background: var(--surface);
     }
 
-    .card {
-      background: white;
-      border: 1px solid #e4e4de;
-      border-radius: 16px;
-      padding: 1.25rem;
+    .home-hubs { margin-bottom: 2.5rem; }
+    .home-hub-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
     }
+    .home-hub { display: flex; flex-direction: column; }
+    .home-hub p { color: var(--muted); flex: 1; }
 
-    .card h2 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
+    .home-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
     }
+    .home-popular { list-style: none; padding: 0; margin: 0; }
+    .home-popular li { margin: 0.35rem 0; }
+    .home-popular a { font-weight: 500; }
+    .home-independent p { color: var(--muted); }
 
-    .card p {
-      margin-top: 0;
-      color: #5b5b55;
-    }
-
-    .card a {
-      font-weight: 600;
-      color: #2f6fed;
-    }
-
-    @media (max-width: 800px) {
-      .cards {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 900px) {
+      .home-hero { grid-template-columns: 1fr; gap: 1.5rem; }
+      .home-hub-grid { grid-template-columns: 1fr; }
+      .home-split { grid-template-columns: 1fr; }
     }
   </style>
 </Layout>

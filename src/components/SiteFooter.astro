@@ -1,0 +1,25 @@
+---
+import { site, nav } from '../config';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__grid">
+      <div>
+        <h2>Why trust TripAxle</h2>
+        <p>{site.trust.whyTrust}</p>
+      </div>
+      <div>
+        <h2>Guides</h2>
+        <div class="site-footer__links">
+          {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+          <a href="/about">About &amp; how we research</a>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      © {year} {site.name} · {site.tagline}
+    </div>
+  </div>
+</footer>
