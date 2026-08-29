@@ -1,729 +1,339 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import AtAGlance from "../components/AtAGlance.astro";
+import Callout from "../components/Callout.astro";
+import { images } from "../lib/images";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Airport Rental Guides", href: "/airport-rental-guides" },
+  { label: "Faro Airport" },
+];
+
+const toc = [
+  { label: "On-airport rental desks", id: "rental-desks" },
+  { label: "Off-airport providers & meeting points", id: "off-airport" },
+  { label: "How pickup works", id: "pickup" },
+  { label: "Leaving the airport", id: "leaving-the-airport" },
+  { label: "Algarve tolls", id: "tolls" },
+  { label: "Returning the car", id: "returning" },
+  { label: "When renting makes sense", id: "when-to-rent" },
+  { label: "When to skip the car", id: "when-to-skip" },
+];
+
+const glance = [
+  { label: "Airport", value: "Faro (FAO) — Algarve gateway" },
+  { label: "On-airport desks", value: "Terminal Arrivals area" },
+  { label: "Vehicle collection", value: "Mostly Car Park 4 (P4)" },
+  { label: "Main routes out", value: "N125 · A22 west · A22 east" },
+  { label: "A22 tolls", value: "Not currently charged" },
+  { label: "Best for", value: "Multi-stop Algarve trips" },
+];
+
+const related = [
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
+  { label: "Lisbon Airport Car Rental", href: "/lisbon-airport-car-rental" },
+  { label: "Porto Airport Car Rental", href: "/porto-airport-car-rental" },
+  { label: "Portugal Toll Roads for Rental Cars", href: "/portugal-toll-roads-for-rental-cars" },
+  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance" },
+];
 ---
 
-<Layout
+<ArticleLayout
   title="Faro Airport Car Rental Guide | TripAxle"
-  description="A practical guide to renting a car at Faro Airport, including terminal rental desks, off-airport providers, pickup procedures, driving routes, and when renting makes sense."
+  description="A practical guide to renting a car at Faro Airport (FAO): terminal rental desks, off-airport providers, pickup, Algarve driving routes, tolls, and when renting is worth it."
+  eyebrow="Faro Airport"
+  summary="Where the rental companies are at FAO, how the compact pickup works, the N125-versus-A22 choice, and why airport pickup fits most Algarve trips."
+  updated="2026-03-16"
+  image={images.algarveCoast}
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+  cta={{
+    heading: "Ready to compare cars at Faro Airport?",
+    body: "Compare available rental companies and current prices for your dates.",
+  }}
 >
-  <section class="hero">
-    <p class="eyebrow">Faro Airport car rental</p>
-    <h1>Faro Airport car rental guide.</h1>
-
-    <p class="intro">
-      Faro International Airport (FAO) is the main air gateway to the Algarve
-      and one of the most practical places to collect a rental car in southern
-      Portugal. This guide covers where rental companies are located, how
-      pickup works, what to expect when leaving the airport, and when renting
-      here makes sense.
-    </p>
-  </section>
-
-  <section class="summary-grid">
-    <article class="card">
-      <h2>Quick summary</h2>
-      <ul>
-        <li>Major rental companies operate from the Arrivals area at Faro Airport.</li>
-        <li>Many on-airport vehicles are collected from the nearby Car Park 4 (P4) rental area.</li>
-        <li>Several local and lower-cost providers use off-airport branches or designated meeting points.</li>
-        <li>Faro Airport provides quick access to the N125 and A22 for travel across the Algarve.</li>
-        <li>Airport pickup is particularly useful for travelers planning multi-stop or rural Algarve trips.</li>
-      </ul>
-    </article>
-
-    <article class="card">
-      <h2>Best suited for</h2>
-      <ul>
-        <li>Algarve road trips</li>
-        <li>Multiple beach destinations</li>
-        <li>Rural villas and inland towns</li>
-        <li>Families traveling with substantial luggage</li>
-        <li>Travelers exploring beyond a single resort or town</li>
-      </ul>
-    </article>
-  </section>
-
-  <section class="section-card">
-    <p class="section-label">Airport rental options</p>
-    <h2>Inside-terminal and on-airport rental companies</h2>
-
+  <QuickAnswer>
     <p>
-      Faro Airport's main car rental service desks are located within the
-      terminal's public <strong>Arrivals area</strong>. After leaving baggage
-      reclaim, travelers using one of the airport-based rental companies can
-      complete the paperwork inside the terminal before walking to the nearby
-      vehicle collection area.
+      For most Algarve trips, renting at Faro Airport is the right call — beaches,
+      coves, villas, and inland villages are spread out and awkward to reach
+      without a car. The exception is a <strong>central stay in one walkable
+      town</strong>, or a trip that mostly hops between Faro, Lisbon, and Porto
+      by train.
     </p>
+  </QuickAnswer>
 
-    <p>
-      Unlike airports where most rental facilities require a shuttle transfer,
-      Faro's main airport rental setup is relatively compact. For companies
-      based within the official airport rental area, the vehicle collection
-      point is generally within walking distance.
-    </p>
+  <AtAGlance items={glance} />
 
-    <h3>Agencies with on-site desks</h3>
+  <p>
+    Faro International Airport (FAO) is the main air gateway to the Algarve and
+    one of the most practical places to collect a rental car in southern
+    Portugal. This guide covers where rental companies are located, how pickup
+    works, what to expect when leaving the airport, and when renting here makes
+    sense.
+  </p>
 
-    <div class="agency-grid">
-      <div class="mini-card">
-        <strong>Avis / Budget</strong>
+  <h2 id="rental-desks">Inside-terminal and on-airport rental companies</h2>
+  <p>
+    Faro Airport's main car rental service desks are located within the
+    terminal's public <strong>Arrivals area</strong>. After leaving baggage
+    reclaim, travelers using an airport-based rental company can complete the
+    paperwork inside the terminal before walking to the nearby vehicle
+    collection area.
+  </p>
+  <p>
+    Unlike airports where most rental facilities require a shuttle transfer,
+    Faro's main airport rental setup is relatively compact. For companies based
+    within the official airport rental area, the vehicle collection point is
+    generally within walking distance.
+  </p>
+
+  <h3>Agencies with on-site desks</h3>
+  <div class="tag-grid">
+    <span>Avis / Budget</span>
+    <span>Europcar</span>
+    <span>Hertz</span>
+    <span>Sixt</span>
+    <span>Enterprise / National / Alamo</span>
+    <span>Goldcar</span>
+    <span>Guerin</span>
+  </div>
+
+  <Callout>
+    Not every company advertising Faro Airport pickup operates from a desk inside
+    the terminal. Several local and lower-cost companies use Car Park 4 meeting
+    points or separate off-airport depots. Check the pickup instructions on your
+    reservation before arrival.
+  </Callout>
+
+  <h2 id="off-airport">Off-airport rental providers and meeting points</h2>
+  <p>
+    Faro has a substantial group of rental companies operating outside the main
+    terminal rental setup. Depending on the provider, customers may walk to a
+    designated meeting point around <strong>Car Park 4 (P4)</strong> or use a
+    complimentary shuttle to a nearby rental branch.
+  </p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Provider</th><th>Location</th><th>Typical pickup arrangement</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Airauto</td><td>Car Park 4 area</td><td>Meeting point outside the main terminal desk area.</td></tr>
+        <tr><td>Masterkings</td><td>Car Park 4 area</td><td>Dedicated rental meeting area around P4.</td></tr>
+        <tr><td>Drive on Holidays</td><td>Rua Prof. Dr. Egas Moniz</td><td>Transfer to a nearby off-airport branch.</td></tr>
+        <tr><td>Green Motion</td><td>Estrada Nacional 125 area</td><td>Shuttle pickup from the Kiss &amp; Fly area near Traveller's Rest.</td></tr>
+        <tr><td>Centauro</td><td>Off-airport facility</td><td>Courtesy shuttle from outside the terminal.</td></tr>
+        <tr><td>Record Go</td><td>Montenegro / Estrada do Aeroporto area</td><td>Courtesy shuttle to the rental branch.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Common pickup areas</h3>
+  <p>Off-terminal bookings at Faro generally use one of two arrangements:</p>
+  <ul>
+    <li><strong>Car Park 4 (P4):</strong> Follow the Rent-a-Car signage and pedestrian route toward the rental area. Some local providers use P4 as their meeting or collection point.</li>
+    <li><strong>Kiss &amp; Fly / shuttle zone:</strong> Some off-airport providers collect customers outside the terminal and transfer them to a nearby branch.</li>
+  </ul>
+
+  <Callout title="Check the voucher">
+    Faro has several different rental pickup arrangements within a relatively
+    small area. Do not assume that “Faro Airport pickup” automatically means an
+    Arrivals Hall desk.
+  </Callout>
+
+  <h2 id="pickup">How car rental pickup usually works at Faro Airport</h2>
+  <p>
+    Faro Airport is relatively compact, but the exact process depends on whether
+    your provider uses an inside-terminal desk, a P4 meeting point, or an
+    off-airport branch.
+  </p>
+
+  <div class="steps">
+    <div class="step">
+      <span class="step__num">1</span>
+      <div>
+        <h3>Find the rental desk or meeting instructions</h3>
+        <p>
+          After collecting your luggage, enter the public Arrivals area.
+          Travelers using an airport-based company should follow the rental
+          signage to the appropriate service desk. If you booked with a local or
+          off-airport company, follow the meeting-point or shuttle instructions
+          supplied with your reservation.
+        </p>
       </div>
-
-      <div class="mini-card">
-        <strong>Europcar</strong>
-      </div>
-
-      <div class="mini-card">
-        <strong>Hertz</strong>
-      </div>
-
-      <div class="mini-card">
-        <strong>Sixt</strong>
-      </div>
-
-      <div class="mini-card">
-        <strong>Enterprise / National / Alamo</strong>
-      </div>
-
-      <div class="mini-card">
-        <strong>Goldcar</strong>
-      </div>
-
-      <div class="mini-card">
-        <strong>Guerin</strong>
+    </div>
+    <div class="step">
+      <span class="step__num">2</span>
+      <div>
+        <h3>Complete the rental paperwork</h3>
+        <p>
+          Have your passport or accepted identification, driving license,
+          reservation information, and the payment card the company requires.
+          This is also the time to ask about fuel policy, deposit rules,
+          insurance, and any toll equipment included with the vehicle.
+        </p>
       </div>
     </div>
-
-    <div class="note">
-      <strong>Important:</strong> Not every company advertising Faro Airport
-      pickup operates from a desk inside the terminal. Several local and
-      lower-cost companies use Car Park 4 meeting points or separate off-airport
-      depots. Check the pickup instructions on your reservation before arrival.
-    </div>
-  </section>
-
-  <section class="section-card">
-    <p class="section-label">Off-airport rentals</p>
-    <h2>Off-airport rental providers and meeting points</h2>
-
-    <p>
-      Faro has a substantial group of rental companies operating outside the
-      main terminal rental setup. Depending on the provider, customers may walk
-      to a designated meeting point around <strong>Car Park 4 (P4)</strong> or
-      use a complimentary shuttle to a nearby rental branch.
-    </p>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Provider</th>
-            <th>Location</th>
-            <th>Typical pickup arrangement</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>Airauto</td>
-            <td>Car Park 4 area</td>
-            <td>Meeting point outside the main terminal desk area.</td>
-          </tr>
-
-          <tr>
-            <td>Masterkings</td>
-            <td>Car Park 4 area</td>
-            <td>Dedicated rental meeting area around P4.</td>
-          </tr>
-
-          <tr>
-            <td>Drive on Holidays</td>
-            <td>Rua Prof. Dr. Egas Moniz</td>
-            <td>Transfer to a nearby off-airport branch.</td>
-          </tr>
-
-          <tr>
-            <td>Green Motion</td>
-            <td>Estrada Nacional 125 area</td>
-            <td>Shuttle pickup from the Kiss &amp; Fly area near Traveller's Rest.</td>
-          </tr>
-
-          <tr>
-            <td>Centauro</td>
-            <td>Off-airport facility</td>
-            <td>Courtesy shuttle from outside the terminal.</td>
-          </tr>
-
-          <tr>
-            <td>Record Go</td>
-            <td>Montenegro / Estrada do Aeroporto area</td>
-            <td>Courtesy shuttle to the rental branch.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3>Common pickup areas</h3>
-
-    <p>
-      Off-terminal bookings at Faro generally use one of two types of pickup
-      arrangement:
-    </p>
-
-    <ul>
-      <li>
-        <strong>Car Park 4 (P4):</strong> Follow the Rent-a-Car signage and
-        pedestrian route toward the rental area. Some local providers use P4
-        as their meeting or collection point.
-      </li>
-
-      <li>
-        <strong>Kiss &amp; Fly / shuttle zone:</strong> Some off-airport
-        providers collect customers outside the terminal and transfer them to
-        a nearby branch.
-      </li>
-    </ul>
-
-    <div class="note">
-      <strong>Check the voucher:</strong> Faro has several different rental
-      pickup arrangements within a relatively small area. Do not assume that
-      "Faro Airport pickup" automatically means an Arrivals Hall desk.
-    </div>
-  </section>
-
-  <section class="section-card">
-    <p class="section-label">Pickup process</p>
-    <h2>How car rental pickup usually works at Faro Airport</h2>
-
-    <p>
-      Faro Airport is relatively compact, but the exact process depends on
-      whether your provider uses an inside-terminal desk, a P4 meeting point,
-      or an off-airport branch.
-    </p>
-
-    <div class="steps">
-      <article class="step">
-        <span class="step-number">1</span>
-
-        <div>
-          <h3>Find the rental desk or meeting instructions</h3>
-
-          <p>
-            After collecting your luggage, enter the public Arrivals area.
-            Travelers using an airport-based company should follow the rental
-            signage to the appropriate service desk.
-          </p>
-
-          <p>
-            If you booked with a local or off-airport company, follow the
-            meeting-point or shuttle instructions supplied with your reservation.
-          </p>
-        </div>
-      </article>
-
-      <article class="step">
-        <span class="step-number">2</span>
-
-        <div>
-          <h3>Complete the rental paperwork</h3>
-
-          <p>
-            Travelers should normally have their passport or accepted
-            identification, driving license, reservation information, and the
-            payment card required by the rental company.
-          </p>
-
-          <p>
-            This is also the time to ask about fuel policy, deposit rules,
-            insurance, and any toll equipment included with the vehicle.
-          </p>
-        </div>
-      </article>
-
-      <article class="step">
-        <span class="step-number">3</span>
-
-        <div>
-          <h3>Walk or transfer to the vehicle</h3>
-
-          <p>
-            Many airport-based rentals use the nearby
-            <strong>Car Park 4 (P4)</strong> area for vehicle collection.
-            Follow the Rent-a-Car or P4 signage from the terminal.
-          </p>
-
-          <p>
-            Customers using an off-airport provider may instead board a shuttle
-            and complete the final pickup process at the company's nearby depot.
-          </p>
-        </div>
-      </article>
-
-      <article class="step">
-        <span class="step-number">4</span>
-
-        <div>
-          <h3>Inspect the vehicle before leaving</h3>
-
-          <p>
-            Compare the vehicle against the condition report supplied by the
-            rental company and photograph any existing scratches, dents, wheel
-            damage, interior damage, or other discrepancies before driving away.
-          </p>
-
-          <p>
-            Check the fuel gauge as well, especially if the agreement requires
-            the vehicle to be returned with a specific fuel level.
-          </p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="section-card">
-    <p class="section-label">Driving away</p>
-    <h2>Leaving Faro Airport by car</h2>
-
-    <p>
-      Faro Airport is considerably easier to leave by car than many large urban
-      airports. The access roads quickly lead toward Faro city, the N125, and
-      the main motorway network serving the Algarve.
-    </p>
-
-    <h3>The first major roundabout</h3>
-
-    <p>
-      Shortly after leaving the airport area, drivers reach the main road
-      junction that divides traffic toward Faro, the N125, and the wider
-      Algarve.
-    </p>
-
-    <div class="route-grid">
-      <article class="mini-card">
-        <h3>Faro / N125</h3>
+    <div class="step">
+      <span class="step__num">3</span>
+      <div>
+        <h3>Walk or transfer to the vehicle</h3>
         <p>
-          Use this direction for Faro city and destinations reached via the
-          regional N125 corridor.
+          Many airport-based rentals use the nearby <strong>Car Park 4 (P4)</strong>
+          area for vehicle collection; follow the Rent-a-Car or P4 signage from
+          the terminal. Customers using an off-airport provider may instead board
+          a shuttle and complete pickup at the company's nearby depot.
         </p>
-      </article>
-
-      <article class="mini-card">
-        <h3>A22 west</h3>
-        <p>
-          Follow signs toward Portimão, Albufeira, and routes continuing toward
-          western Algarve destinations.
-        </p>
-      </article>
-
-      <article class="mini-card">
-        <h3>A22 east</h3>
-        <p>
-          Follow signs toward Olhão, Tavira, and the Spanish border.
-        </p>
-      </article>
+      </div>
     </div>
-
-    <h3>N125 or A22?</h3>
-
-    <p>
-      The <strong>N125</strong> runs through many Algarve communities and can
-      be useful for shorter local journeys, but it is generally slower and more
-      stop-and-go.
-    </p>
-
-    <p>
-      The <strong>A22</strong> provides the faster east-west route across much
-      of the Algarve and is often the simpler choice for travelers covering
-      longer distances.
-    </p>
-
-    <div class="note">
-      <strong>Navigation tip:</strong> Set your destination before leaving the
-      rental bay. Faro Airport is not especially difficult to navigate, but the
-      first major roundabout determines whether you head toward Faro, the N125,
-      or the A22.
+    <div class="step">
+      <span class="step__num">4</span>
+      <div>
+        <h3>Inspect the vehicle before leaving</h3>
+        <p>
+          Compare the vehicle against the condition report and photograph any
+          existing scratches, dents, wheel damage, or interior damage before
+          driving away. Check the fuel gauge too, especially if the agreement
+          requires a specific return fuel level.
+        </p>
+      </div>
     </div>
-  </section>
+  </div>
 
-  <section class="section-card">
-    <p class="section-label">Tolls</p>
-    <h2>What to know about Algarve toll roads</h2>
+  <h2 id="leaving-the-airport">Leaving Faro Airport by car</h2>
+  <p>
+    Faro Airport is considerably easier to leave by car than many large urban
+    airports. The access roads quickly lead toward Faro city, the N125, and the
+    main motorway network serving the Algarve.
+  </p>
 
-    <p>
-      The A22 is the main motorway crossing the Algarve and is an important
-      route for many travelers leaving Faro Airport.
-    </p>
+  <h3>The first major roundabout</h3>
+  <p>
+    Shortly after leaving the airport area, drivers reach the main road junction
+    that divides traffic toward Faro, the N125, and the wider Algarve.
+  </p>
 
-    <p>
-      Under the current road setup reflected in this guide, the A22 no longer
-      charges the electronic tolls that once made toll planning a major concern
-      for Algarve-only trips.
-    </p>
+  <div class="card-grid">
+    <div class="card"><h3>Faro / N125</h3><p>For Faro city and destinations reached via the regional N125 corridor.</p></div>
+    <div class="card"><h3>A22 west</h3><p>Toward Portimão, Albufeira, and western Algarve destinations.</p></div>
+    <div class="card"><h3>A22 east</h3><p>Toward Olhão, Tavira, and the Spanish border.</p></div>
+  </div>
 
-    <p>
-      Travelers continuing beyond the Algarve may still encounter toll roads
-      elsewhere in Portugal, so it remains useful to understand whether the
-      rental vehicle has a <strong>Via Verde</strong> transponder and how the
-      rental company bills toll use.
-    </p>
+  <h3>N125 or A22?</h3>
+  <p>
+    The <strong>N125</strong> runs through many Algarve communities and can be
+    useful for shorter local journeys, but it is generally slower and more
+    stop-and-go. The <strong>A22</strong> provides the faster east–west route
+    across much of the Algarve and is often the simpler choice for longer
+    distances.
+  </p>
 
-    <ul>
-      <li>Ask whether the car includes or offers a Via Verde device.</li>
-      <li>Confirm any administration or activation fees.</li>
-      <li>Ask how toll charges outside the Algarve will be billed.</li>
-      <li>Do not assume all Portuguese motorways use the same payment setup.</li>
-    </ul>
-  </section>
+  <Callout variant="tip">
+    Set your destination before leaving the rental bay. Faro Airport is not
+    especially difficult to navigate, but the first major roundabout determines
+    whether you head toward Faro, the N125, or the A22.
+  </Callout>
 
-  <section class="section-card">
-    <p class="section-label">Returning the car</p>
-    <h2>Returning a rental car to Faro Airport</h2>
+  <h2 id="tolls">What to know about Algarve toll roads</h2>
+  <p>
+    The A22 is the main motorway crossing the Algarve and an important route for
+    many travelers leaving Faro Airport.
+  </p>
+  <p>
+    Under the current road setup reflected in this guide, the A22 no longer
+    charges the electronic tolls that once made toll planning a major concern
+    for Algarve-only trips.
+  </p>
+  <p>
+    Travelers continuing beyond the Algarve may still encounter toll roads
+    elsewhere in Portugal, so it remains useful to understand whether the rental
+    vehicle has a <strong>Via Verde</strong> transponder and how the rental
+    company bills toll use.
+  </p>
+  <ul>
+    <li>Ask whether the car includes or offers a Via Verde device.</li>
+    <li>Confirm any administration or activation fees.</li>
+    <li>Ask how toll charges outside the Algarve will be billed.</li>
+    <li>Do not assume all Portuguese motorways use the same payment setup.</li>
+  </ul>
 
-    <p>
-      For airport-based rental companies, follow the airport signs toward the
-      appropriate <strong>Rent-a-Car</strong> or P4 return area rather than
-      entering ordinary public parking.
-    </p>
+  <h2 id="returning">Returning a rental car to Faro Airport</h2>
+  <p>
+    For airport-based rental companies, follow the airport signs toward the
+    appropriate <strong>Rent-a-Car</strong> or P4 return area rather than
+    entering ordinary public parking.
+  </p>
+  <p>
+    If you rented from an off-airport provider, you will generally return the
+    vehicle directly to that company's depot and use its shuttle service back to
+    the terminal.
+  </p>
+  <ul>
+    <li>Allow extra time for fuel and the vehicle inspection.</li>
+    <li>For off-airport rentals, include shuttle transfer time in your plans.</li>
+    <li>Keep your provider's return location saved in your navigation app.</li>
+    <li>A fuel station near the airport is useful for final refueling before return.</li>
+  </ul>
 
-    <p>
-      If you rented from an off-airport provider, you will generally return the
-      vehicle directly to that company's depot and use its shuttle service back
-      to the terminal.
-    </p>
+  <h2 id="when-to-rent">When renting at Faro Airport makes sense</h2>
+  <p>
+    Faro is one of the Portuguese airports where collecting a car immediately
+    often fits naturally with the type of trip visitors are planning.
+  </p>
+  <div class="card-grid">
+    <div class="card"><h3>You want to explore multiple beaches</h3><p>Algarve beaches, coves, and coastal areas are far easier to combine with a car than by regional transport alone.</p></div>
+    <div class="card"><h3>You are staying outside a major town</h3><p>Rural villas, smaller resorts, inland villages, and accommodation away from rail stations are much easier to reach with a vehicle.</p></div>
+    <div class="card"><h3>You are traveling with children or lots of luggage</h3><p>A rental simplifies transfers with multiple suitcases, strollers, child equipment, beach gear, or larger groups.</p></div>
+    <div class="card"><h3>You want a flexible multi-stop itinerary</h3><p>A vehicle makes it easier to combine coastal towns, inland destinations, and day trips without bus or rail schedules.</p></div>
+    <div class="card"><h3>You want to explore inland Algarve</h3><p>The value of a rental grows once the itinerary moves away from the main coastal transport corridor.</p></div>
+  </div>
 
-    <ul>
-      <li>Allow extra time for fuel and the vehicle inspection.</li>
-      <li>For off-airport rentals, include shuttle transfer time in your plans.</li>
-      <li>Keep your provider's return location saved in your navigation app.</li>
-      <li>A fuel station near the airport can be useful for final refueling before return.</li>
-    </ul>
-  </section>
+  <h2 id="when-to-skip">When renting at Faro Airport may not make sense</h2>
+  <p>
+    Despite Faro being a particularly car-friendly airport for regional travel,
+    not every Algarve trip requires a rental.
+  </p>
+  <ul>
+    <li><strong>One-town stays:</strong> If your accommodation is central and most of the trip will be spent in one walkable destination, a car may add little value.</li>
+    <li><strong>Rail-focused trips:</strong> Travelers continuing mainly between Faro, Lisbon, and Porto may find train travel easier than dealing with a car in larger cities.</li>
+    <li><strong>Short solo or couple trips:</strong> If you pack lightly and plan only a few local excursions, taxis or rideshare may be simpler.</li>
+  </ul>
 
-  <section class="section-card">
-    <p class="section-label">Should you rent?</p>
-    <h2>When renting at Faro Airport makes sense</h2>
-
-    <p>
-      Faro is one of the Portuguese airports where collecting a car immediately
-      often fits naturally with the type of trip visitors are planning.
-    </p>
-
-    <div class="decision-grid">
-      <article class="decision-card">
-        <h3>You want to explore multiple beaches</h3>
-
-        <p>
-          Many Algarve beaches, coves, and coastal areas are far easier to
-          combine with a car than by relying entirely on regional transport.
-        </p>
-      </article>
-
-      <article class="decision-card">
-        <h3>You are staying outside a major town</h3>
-
-        <p>
-          Rural villas, smaller resorts, inland villages, and accommodation
-          away from rail stations are much easier to reach with a vehicle.
-        </p>
-      </article>
-
-      <article class="decision-card">
-        <h3>You are traveling with children or substantial luggage</h3>
-
-        <p>
-          A rental can simplify airport transfers when traveling with multiple
-          suitcases, strollers, child equipment, beach gear, or larger groups.
-        </p>
-      </article>
-
-      <article class="decision-card">
-        <h3>You want a flexible multi-stop itinerary</h3>
-
-        <p>
-          A vehicle makes it much easier to combine coastal towns, inland
-          destinations, beaches, and day trips without planning around bus or
-          rail schedules.
-        </p>
-      </article>
-
-      <article class="decision-card">
-        <h3>You want to explore inland Algarve</h3>
-
-        <p>
-          The value of a rental becomes greater once the itinerary moves away
-          from the main coastal transport corridor.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <section class="section-card">
-    <p class="section-label">When to skip the car</p>
-    <h2>When renting at Faro Airport may not make sense</h2>
-
-    <p>
-      Despite Faro being a particularly car-friendly airport for regional
-      travel, not every Algarve trip requires a rental.
-    </p>
-
-    <ul>
-      <li>
-        <strong>One-town stays:</strong> If your accommodation is central and
-        most of the trip will be spent in one walkable destination, keeping a
-        car may add little value.
-      </li>
-
-      <li>
-        <strong>Rail-focused trips:</strong> Travelers continuing primarily
-        between Faro, Lisbon, and Porto may find train travel easier than
-        dealing with a car in larger cities.
-      </li>
-
-      <li>
-        <strong>Short solo or couple trips:</strong> If you pack lightly and
-        plan only a few local excursions, taxis or rideshare services may be
-        simpler.
-      </li>
-    </ul>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Travel plan</th>
-            <th>Likely best approach</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <td>Rural villa or apartment</td>
-            <td>Airport rental is usually useful</td>
-          </tr>
-
-          <tr>
-            <td>Multiple Algarve beaches</td>
-            <td>Rental car offers substantially more flexibility</td>
-          </tr>
-
-          <tr>
-            <td>Family trip with substantial luggage</td>
-            <td>Airport rental may be more convenient</td>
-          </tr>
-
-          <tr>
-            <td>Central stay in one Algarve town</td>
-            <td>Consider whether a car is actually necessary</td>
-          </tr>
-
-          <tr>
-            <td>Faro followed mainly by Lisbon or Porto</td>
-            <td>Compare rail with renting a car</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="related-card">
-    <h2>Related Portugal guides</h2>
-
-    <div class="related-links">
-      <a href="/portugal-guide">Portugal Car Rental Guide →</a>
-      <a href="/airport-comparisons">Portugal Airport Comparisons →</a>
-      <a href="/lisbon-airport-car-rental">Lisbon Airport Car Rental →</a>
-      <a href="/porto-airport-car-rental">Porto Airport Car Rental →</a>
-      <a href="/practical-guides">Practical Car Rental Guides →</a>
-    </div>
-  </section>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Travel plan</th><th>Likely best approach</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Rural villa or apartment</td><td>Airport rental is usually useful</td></tr>
+        <tr><td>Multiple Algarve beaches</td><td>Rental car offers substantially more flexibility</td></tr>
+        <tr><td>Family trip with substantial luggage</td><td>Airport rental may be more convenient</td></tr>
+        <tr><td>Central stay in one Algarve town</td><td>Consider whether a car is actually necessary</td></tr>
+        <tr><td>Faro followed mainly by Lisbon or Porto</td><td>Compare rail with renting a car</td></tr>
+      </tbody>
+    </table>
+  </div>
 
   <style>
-    .hero {
-      padding: 2rem 0 2.5rem;
-      max-width: 800px;
-    }
-
-    .eyebrow,
-    .section-label {
-      margin: 0 0 0.75rem;
-      color: #2f6fed;
-      font-size: 0.9rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      line-height: 1.06;
-    }
-
-    h2 {
-      margin-top: 0;
-      font-size: 1.6rem;
-    }
-
-    h3 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-    }
-
-    .intro {
-      margin-top: 1rem;
-      max-width: 720px;
-      color: #5b5b55;
-      font-size: 1.1rem;
-    }
-
-    .summary-grid,
-    .route-grid,
-    .decision-grid {
+    .tag-grid {
       display: grid;
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 0.6rem;
+      margin: 1.25rem 0 1.5rem;
     }
-
-    .summary-grid {
-      grid-template-columns: 1.5fr 1fr;
-      margin-bottom: 1rem;
-    }
-
-    .route-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      margin: 1.25rem 0;
-    }
-
-    .decision-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .agency-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.75rem;
-      margin: 1rem 0;
-    }
-
-    .card,
-    .section-card,
-    .related-card,
-    .mini-card,
-    .decision-card {
-      background: white;
-      border: 1px solid #e4e4de;
-      border-radius: 16px;
-    }
-
-    .card,
-    .section-card,
-    .related-card,
-    .decision-card {
-      padding: 1.25rem;
-    }
-
-    .section-card,
-    .related-card {
-      margin-top: 1rem;
-    }
-
-    .mini-card {
-      padding: 1rem;
-    }
-
-    p {
-      max-width: 820px;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    li + li {
-      margin-top: 0.55rem;
-    }
-
-    .note {
-      margin-top: 1.25rem;
-      padding: 1rem;
-      border-left: 4px solid #2f6fed;
-      background: #f4f7ff;
-      border-radius: 8px;
-    }
-
-    .steps {
-      display: grid;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 1rem;
-      align-items: start;
-      padding-top: 1rem;
-      border-top: 1px solid #e4e4de;
-    }
-
-    .step:first-child {
-      padding-top: 0;
-      border-top: 0;
-    }
-
-    .step-number {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 2rem;
-      height: 2rem;
-      border-radius: 999px;
-      background: #2f6fed;
-      color: white;
-      font-weight: 700;
-    }
-
-    .table-wrap {
-      overflow-x: auto;
-      margin-top: 1rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-    }
-
-    th,
-    td {
-      padding: 0.85rem;
-      text-align: left;
-      vertical-align: top;
-      border-bottom: 1px solid #e4e4de;
-    }
-
-    th {
-      background: #f7f7f5;
-      font-size: 0.9rem;
-    }
-
-    .related-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem 1.5rem;
-    }
-
-    .related-links a {
-      color: #2f6fed;
+    .tag-grid span {
+      display: block;
+      text-align: center;
+      padding: 0.6rem 0.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
       font-weight: 600;
-    }
-
-    @media (max-width: 900px) {
-      .summary-grid,
-      .route-grid,
-      .decision-grid,
-      .agency-grid {
-        grid-template-columns: 1fr;
-      }
+      font-size: 0.9rem;
     }
   </style>
-</Layout>
+</ArticleLayout>

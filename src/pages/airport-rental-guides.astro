@@ -1,155 +1,85 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import HubLayout from "../layouts/HubLayout.astro";
+import { images } from "../lib/images";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Airport Rental Guides" },
+];
+
+const airports = [
+  {
+    name: "Lisbon Airport",
+    href: "/lisbon-airport-car-rental",
+    blurb:
+      "A common pickup point for travelers leaving the city quickly — often unnecessary for city-only stays.",
+  },
+  {
+    name: "Porto Airport",
+    href: "/porto-airport-car-rental",
+    blurb:
+      "A practical start for the Douro, the Minho, and flexible multi-stop northern itineraries.",
+  },
+  {
+    name: "Faro Airport",
+    href: "/faro-airport-car-rental",
+    blurb:
+      "Usually the key pickup point for Algarve trips, beach stays, and southern driving routes.",
+  },
+];
+
+const related = [
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
+  { label: "Booking Basics", href: "/booking-basics" },
+  { label: "Practical Guides", href: "/practical-guides" },
+];
 ---
 
-<Layout
+<HubLayout
   title="Portugal Airport Rental Guides | TripAxle"
-  description="Understand pickup locations, shuttle desks, returns, and common rental issues at Portugal’s main airports."
+  description="Pickup locations, shuttle desks, returns, and common rental issues at Portugal's main airports — Lisbon, Porto, and Faro."
+  eyebrow="Airport Rental Guides"
+  heading="Airport Rental Guides for Portugal"
+  summary="Where to collect a car at each major airport, how the shuttles and pickup work, and whether airport pickup beats collecting the car later."
+  image={images.lisbonTram}
+  breadcrumbs={breadcrumbs}
+  related={related}
 >
-  <section class="hero">
-    <p class="eyebrow">Airport rental guides</p>
-    <h1>Airport Rental Guides for Portugal</h1>
-    <p class="intro">
-  Use these guides to understand pickup locations, shuttle desks, returns,
-  and common airport rental issues in Lisbon, Porto, and Faro before you reserve.
+  <div class="hub-cards">
+    {airports.map((a) => (
+      <article class="card">
+        <h2>{a.name}</h2>
+        <p>{a.blurb}</p>
+        <a class="link-arrow" href={a.href}>{a.name} guide →</a>
+      </article>
+    ))}
+  </div>
+
+  <h2>What each airport guide covers</h2>
+  <ul>
+    <li>Where pickup desks or shuttle transfers are usually located</li>
+    <li>Common pickup and return issues to watch for</li>
+    <li>How each airport fits different trip plans and arrival times</li>
+    <li>What to check before choosing airport pickup over city pickup</li>
+  </ul>
+
+  <h2>How to use this hub</h2>
+  <p>
+    Start with the airport that matches your arrival city. Then use the guide to
+    decide whether airport pickup, city pickup, or no rental at all makes the
+    most sense for your trip. If you are still deciding whether to rent at all,
+    begin with the <a href="/portugal-guide">Portugal Car Rental Guide</a>.
   </p>
-  </section>
-
-  <section class="airport-grid">
-    <article class="airport-card">
-      <h2>Lisbon Airport</h2>
-      <p>
-  A common pickup point for travelers leaving the city quickly, though not always necessary for city-only stays.
-    </p>
-      <a href="/lisbon-airport-car-rental">Lisbon Airport guide →</a>
-    </article>
-
-    <article class="airport-card">
-      <h2>Porto Airport</h2>
-      <p>
-  A practical starting point for northern Portugal road trips and flexible
-  multi-stop itineraries.
-  </p>
-      <a href="/porto-airport-car-rental">Porto Airport guide →</a>
-    </article>
-
-    <article class="airport-card">
-      <h2>Faro Airport</h2>
-      <p>
-        Often the key pickup point for Algarve trips, beach stays, and southern
-        Portugal driving routes.
-      </p>
-      <a href="/faro-airport-car-rental">Faro Airport guide →</a>
-    </article>
-  </section>
-
-  <section class="content-grid">
-    <article class="main-card">
-      <h2>What these airport guides will cover</h2>
-      <ul>
-        <li>Where pickup desks or shuttle transfers are usually located</li>
-        <li>Common pickup and return issues to watch for</li>
-        <li>How each airport may fit different trip plans and arrival times</li>
-        <li>What to check before choosing airport pickup over city pickup</li>
-      </ul>
-
-      <h2>How to use this hub</h2>
-      <p>
-       Start with the airport that matches your arrival city. Then use the
-       guide to decide whether airport pickup, city pickup, or no rental at all
-       makes the most sense for your trip.
-      </p>
-    </article>
-
-    <aside class="side-card">
-      <h2>Airport guides</h2>
-      <ul>
-        <li>Lisbon Airport car rental guide</li>
-        <li>Porto Airport car rental guide</li>
-        <li>Faro Airport car rental guide</li>
-      </ul>
-    </aside>
-  </section>
 
   <style>
-    .hero {
-      padding: 2rem 0 2.25rem;
-      max-width: 760px;
-    }
-
-    .eyebrow {
-      margin: 0 0 0.75rem;
-      color: #2f6fed;
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.1rem, 5vw, 3.6rem);
-      line-height: 1.08;
-    }
-
-    .intro {
-      margin-top: 1rem;
-      color: #5b5b55;
-      font-size: 1.1rem;
-      max-width: 680px;
-    }
-
-    .airport-grid {
+    .hub-cards {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-bottom: 1rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin: 0 0 2.5rem;
     }
-
-    .airport-card,
-    .main-card,
-    .side-card {
-      background: white;
-      border: 1px solid #e4e4de;
-      border-radius: 16px;
-      padding: 1.25rem;
-    }
-
-    .airport-card h2,
-    .main-card h2,
-    .side-card h2 {
-      margin-top: 0;
-    }
-
-    .airport-card p {
-      color: #5b5b55;
-      margin-bottom: 0.75rem;
-    }
-
-    .airport-card a {
-      font-weight: 600;
-      color: #2f6fed;
-    }
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 1rem;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    li + li {
-      margin-top: 0.5rem;
-    }
-
-    @media (max-width: 900px) {
-      .airport-grid,
-      .content-grid {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 860px) {
+      .hub-cards { grid-template-columns: 1fr; }
     }
   </style>
-</Layout>
+</HubLayout>

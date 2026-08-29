@@ -1,357 +1,287 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import AtAGlance from "../components/AtAGlance.astro";
+import Callout from "../components/Callout.astro";
+import { images } from "../lib/images";
+
+const breadcrumbs = [
+  { label: "Portugal Guide" },
+];
+
+const toc = [
+  { label: "Do you need a car in Portugal?", id: "do-you-need-a-car" },
+  { label: "When renting makes sense", id: "when-renting-makes-sense" },
+  { label: "Where a car is most useful", id: "where-most-useful" },
+  { label: "Algarve", id: "algarve" },
+  { label: "Douro Valley & northern interior", id: "douro" },
+  { label: "Alentejo", id: "alentejo" },
+  { label: "Multi-stop itineraries", id: "multi-stop" },
+  { label: "Driving in Portugal: what to expect", id: "driving-what-to-expect" },
+];
+
+const glance = [
+  { label: "A car pays off for", value: "Algarve, Douro, Alentejo, multi-stop trips" },
+  { label: "You can skip it for", value: "Lisbon + Porto, linked by rail" },
+  { label: "Transmission", value: "Manual common — book automatic early" },
+  { label: "Tolls", value: "Mixed manual + electronic gantries" },
+  { label: "Great drives", value: "N222 (Douro) · Monchique · Cabo de São Vicente" },
+];
+
+const related = [
+  { label: "Airport Rental Guides", href: "/airport-rental-guides" },
+  { label: "Booking Basics", href: "/booking-basics" },
+  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Portugal Toll Roads for Rental Cars", href: "/portugal-toll-roads-for-rental-cars" },
+];
 ---
 
-<Layout
+<ArticleLayout
   title="Portugal Car Rental Guide | TripAxle"
-  description="A practical guide to renting a car in Portugal, including when a car makes sense, where it is most useful, and what to expect before you book."
+  description="A practical guide to renting a car in Portugal: whether you need one, which trips it transforms, where it adds the most value, and what driving here is actually like."
+  eyebrow="Portugal Guide"
+  summary="Start here if you are deciding whether to rent a car in Portugal — which trips it transforms, where it adds the most value, and what driving here is actually like."
+  updated="2026-07-01"
+  image={images.portugalRoad}
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+  cta={{
+    heading: "Ready to compare rental cars in Portugal?",
+    body: "Compare available companies and current prices once you have decided a car is right for your trip.",
+  }}
 >
-  <section class="hero">
-    <p class="eyebrow">Portugal Guide</p>
-    <h1>Portugal Car Rental Guide</h1>
-    <p class="intro">
-      Start here if you are deciding whether renting a car in Portugal makes sense for your trip.
-    </p>
-  </section>
-
-  <section class="top-grid">
-    <article class="card">
-  <h2>On this page</h2>
-  <ul class="jump-list">
-    <li><a href="#do-you-need-a-car-in-portugal">Do You Need a Car in Portugal?</a></li>
-    <li>
-      <a href="#where-a-rental-car-is-most-useful-in-portugal">Where a Rental Car Is Most Useful in Portugal</a>
-      <ul class="jump-sublist">
-        <li><a href="#algarve">Algarve</a></li>
-        <li><a href="#douro-valley-and-northern-interior">Douro Valley and Northern Interior</a></li>
-        <li><a href="#alentejo">Alentejo</a></li>
-      </ul>
-    </li>
-    <li><a href="#driving-in-portugal-what-to-expect">Driving in Portugal: What to Expect</a></li>
-  </ul>
-</article>
-
-    <article class="card">
-      <h2>What this guide will help you decide</h2>
-      <ul>
-        <li>Whether you need a car at all</li>
-        <li>Which trip types benefit most from a rental car</li>
-        <li>Where in Portugal a car is most useful</li>
-        <li>What driving in Portugal generally feels like</li>
-        <li>What travelers often overlook before booking</li>
-      </ul>
-    </article>
-  </section>
-
-  <section class="content-grid">
-    <article class="main-card">
-      <h2 id="do-you-need-a-car-in-portugal">Do You Need a Car in Portugal?</h2>
+  <QuickAnswer>
     <p>
-    Portugal is a country that rewards travelers who want a little more freedom in how they move.
-    Beyond the well-known cities, the real charm often lies in the shifts between places:
-    vineyard-covered hills in the Douro, quiet inland villages, dramatic Atlantic viewpoints,
-    and beach towns that feel completely different from one another. Distances are manageable,
-    the scenery changes quickly, and it is easy to turn a simple route into part of the experience.
+      You want a car in Portugal if your trip goes <strong>beyond Lisbon and
+      Porto</strong> — the Algarve coast, the Douro, the Alentejo, or a route
+      that strings together smaller towns. For a trip built around the two big
+      cities with rail between them, skip it: parking is hard, city driving is
+      stressful, and the trains are good.
     </p>
-    <p>
-    That said, Portugal is not one-size-fits-all. Some trips are best spent lingering in Lisbon or Porto,
-    while others open up when you can follow your own pace through smaller towns, coastal stretches,
-    and regions where public transport is thinner. Thinking about how you want to travel through the country,
-    not just where you want to stay, can make a big difference in the kind of trip you end up having.
-    </p>
-    <p>
-    There are also plenty of Portugal trips where having your own wheels adds very little.
-    If your plans center on Lisbon, Porto, or a handful of major stops connected by rail,
-    the country is often easier to enjoy without the extra cost and complication. City centers can be dense,
-    parking can be frustrating, and the day-to-day rhythm of walking, trains, metros,
-    and the occasional rideshare is often more practical than managing a vehicle you barely use.
-    </p>
-    <p>
-    For many travelers, the decision comes down to structure.
-    If most of your time will be spent in a few well-connected places, adding a car can create more friction than freedom.
-    If your trip is built around flexibility, smaller stops, and moving beyond the main urban centers,
-    renting starts to make much more sense.
-    </p>
+  </QuickAnswer>
 
-    <h2>When Renting a Car Makes Sense</h2>
-    <p>
-    Renting a car makes the most sense in Portugal when the trip is built around seeing more than its biggest cities.
-    It becomes far more useful once you start looking at smaller towns, coastal regions, wine country, mountain areas,
-    and places where the appeal is not just the destination itself but everything in between.
-    </p>
-    <p>
-    In those kinds of trips, having your own schedule makes it easier to stop at viewpoints,
-    detour into villages, linger in places that surprise you, and connect areas that would otherwise
-    take much longer to piece together.
-    </p>
-    <p>
-    For the right itinerary, a car does not just make travel easier — it expands what the trip can be.
-    More of the country becomes realistically accessible, day plans become less rigid,
-    and overnight stays are not limited to the same small set of well-connected hubs.
-    If your goal is to experience Portugal beyond the standard city pairing,
-    it is often the option that gives you the most value from the time you have.
-    </p>
+  <AtAGlance items={glance} />
 
-      <h2 id="where-a-rental-car-is-most-useful-in-portugal">Where a Rental Car Is Most Useful in Portugal</h2>
-      <p>
-        While Lisbon and Porto offer extensive and efficient public transportation services, 
-        renting a car can be practical for exploring the rest of the country at a more flexible pace. 
-        It makes it easier to reach rural regions like the Alentejo and Douro Valley, 
-        as well as Algarve beaches that have limited bus or train connections. 
-        A car also simplifies multi-stop trips by allowing you to transport luggage directly between accommodations 
-        and visit multiple historic sites in a single day without following fixed transit schedules. 
-      </p>
-      <h3 id="algarve">Algarve</h3>
-      <p>
-        Renting a car in the Algarve is widely considered one of the best ways to see the region, 
-        as it transforms a standard resort holiday into a far more flexible road trip. 
-        While major towns are connected by public transport, many of the Algarve’s most iconic landscapes — hidden cove beaches, 
-        rugged stretches of coast, and inland mountain villages — are much harder to reach without a private vehicle.
-      </p>
-      <p>
-        Many of the Algarve's most beautiful beaches, such as Praia da Marinha or the secluded coves of the Costa Vicentina (West Coast), 
-        have limited or no bus service. A rental car gives you the freedom to beach-hop instead of returning to the same stretch 
-        of sand each day, and it opens up the wilder Atlantic side near Aljezur and Sagres, where dramatic cliffs, surf breaks, 
-        and beaches like Praia do Amado or Odeceixe are far easier to reach with your own transport. 
-        It also makes inland day trips to places like Silves or the Serra de Monchique much simpler and more enjoyable. 
-      </p>
-      <p> 
-      That flexibility matters because public transport in the Algarve can be slow and uneven. 
-      Regional trains do not always stop where travelers actually want to be, and buses can become infrequent, 
-      especially outside the main routes or on weekends. A short drive can easily turn into a much 
-      longer trip by bus once transfers and walking are added in. 
-      </p>
-      <p>
-      Some drives in this region can be part of the experience themselves. 
-      The road inland to Monchique climbs through eucalyptus and cork forests toward Fóia, the highest point in the Algarve, 
-      while the route out to Cabo de São Vicente near Sagres feels like its own reward. 
-      For travelers staying outside the busiest hubs, or for families carrying beach gear, 
-      groceries, or luggage, a car often makes the whole region feel much easier to enjoy.
-      </p>
+  <h2 id="do-you-need-a-car">Do you need a car in Portugal?</h2>
+  <p>
+    Portugal is a country that rewards travelers who want a little more freedom in
+    how they move. Beyond the well-known cities, the real charm often lies in the
+    shifts between places: vineyard-covered hills in the Douro, quiet inland
+    villages, dramatic Atlantic viewpoints, and beach towns that feel completely
+    different from one another. Distances are manageable, the scenery changes
+    quickly, and it is easy to turn a simple route into part of the experience.
+  </p>
+  <p>
+    That said, Portugal is not one-size-fits-all. Some trips are best spent
+    lingering in Lisbon or Porto, while others open up when you can follow your
+    own pace through smaller towns, coastal stretches, and regions where public
+    transport is thinner. Thinking about how you want to travel through the
+    country, not just where you want to stay, can make a big difference in the
+    kind of trip you end up having.
+  </p>
+  <p>
+    There are also plenty of Portugal trips where having your own wheels adds very
+    little. If your plans center on Lisbon, Porto, or a handful of major stops
+    connected by rail, the country is often easier to enjoy without the extra
+    cost and complication. City centers can be dense, parking can be frustrating,
+    and the day-to-day rhythm of walking, trains, metros, and the occasional
+    rideshare is often more practical than managing a vehicle you barely use.
+  </p>
+  <p>
+    For many travelers, the decision comes down to structure. If most of your
+    time will be spent in a few well-connected places, adding a car can create
+    more friction than freedom. If your trip is built around flexibility, smaller
+    stops, and moving beyond the main urban centers, renting starts to make much
+    more sense.
+  </p>
 
-      <h3 id="douro-valley-and-northern-interior">Douro Valley and Northern Interior</h3>
-      <p>
-        While the Douro Valley is famous for its scenic train line, a rental car opens up a much fuller version of the region. 
-        Instead of staying tied to the river’s edge, you gain access to the terraced hillsides above it, 
-        the quieter roads between villages, and the viewpoints and wine estates that sit well beyond the stations.
-      </p>
-      <p>
-        Many of the most appealing quintas are perched high on the slopes rather than near the rail line, 
-        and a car makes it much easier to move between places like Peso da Régua, Pinhão, 
-        and the more rugged stretches of the Douro on your own schedule. 
-        It also allows you to stop at miradouros such as São Leonardo de Galafura or follow scenic routes like the N222, 
-        which many travelers consider one of the most memorable drives in Portugal.
-      </p>
-      <p>
-      The value grows even more once the trip extends beyond the main Douro corridor and into the northern interior. 
-      Rural hotels, historic towns, and mountain landscapes are often far easier to reach with your own vehicle than with 
-      public transport alone. That is especially true for travelers who want to combine Porto with vineyard stays, 
-      interior villages, or a broader northern route without constantly working around train schedules, 
-      transfers, or uphill walks with luggage.
-      </p>
-      <h3 id="alentejo">Alentejo</h3>
-      <p>
-      In the Alentejo, the car isn’t just a convenience—it’s a key to the region's identity. 
-      While the Algarve is about beaches and the Douro is about terraces, the Alentejo is about vastness. 
-      It is Portugal's largest and most sparsely populated region, characterized by rolling plains, 
-      cork forests, and hilltop "eagle's nest" villages that public transport simply cannot reach effectively.
-      </p>
-      <p>
-      The Alentejo is famous for its fortified medieval villages perched on high ridges along the Spanish border. 
-      A car makes it easier to connect villages like Marvão, Castelo de Vide, and Monsaraz at your own pace, 
-      and it gives you the freedom to arrive for the moments that matter most — like sunset over the plains.
-      </p>
-      <p>
-      A car also opens up the more rural side of the region: wine estates, cork-country roads, 
-      artisan towns like Arraiolos or Corval, and the darker-sky areas around Alqueva that are difficult to piece together by bus. 
-      The same is true along parts of the Alentejo coast, where smaller beaches and quieter stops feel much more accessible 
-      with your own transport. For travelers who want to experience the region as a slow, 
-      wide, exploratory trip, a car often makes that possible.
-      </p>
-      <h3>Multi-Stop Portugal Itineraries</h3>
-      <p>
-      For a multi-stop trip, a rental car bridges the gap between the places public transport handles well and the ones it often 
-      skips over.  Portugal’s trains are great for direct journeys between major cities like Lisbon and Porto, 
-      but they are far less useful when the trip includes smaller towns, scenic detours, 
-      or several overnight stops that do not sit neatly on the same corridor.
-      </p>
-      <p>
-      With your own car, the route becomes much easier to shape around the trip you actually want. 
-      You can wake up in a medieval town like Óbidos, stop for lunch by the sea in Nazaré, 
-      and still have time to explore somewhere like Tomar before reaching your next hotel. 
-      You are not tied to bus schedules, backtracking through major cities, 
-      or dragging suitcases through stations just to connect one smaller stop to another. 
-      </p>
+  <h2 id="when-renting-makes-sense">When renting a car makes sense</h2>
+  <p>
+    Renting a car makes the most sense in Portugal when the trip is built around
+    seeing more than its biggest cities. It becomes far more useful once you
+    start looking at smaller towns, coastal regions, wine country, mountain
+    areas, and places where the appeal is not just the destination itself but
+    everything in between.
+  </p>
+  <p>
+    In those kinds of trips, having your own schedule makes it easier to stop at
+    viewpoints, detour into villages, linger in places that surprise you, and
+    connect areas that would otherwise take much longer to piece together.
+  </p>
+  <p>
+    For the right itinerary, a car does not just make travel easier — it expands
+    what the trip can be. More of the country becomes realistically accessible,
+    day plans become less rigid, and overnight stays are not limited to the same
+    small set of well-connected hubs. If your goal is to experience Portugal
+    beyond the standard city pairing, it is often the option that gives you the
+    most value from the time you have.
+  </p>
 
-      <h2 id="driving-in-portugal-what-to-expect">Driving in Portugal: What to Expect</h2>
-      <p>
-       Driving in Portugal is generally manageable for many visitors, especially once you leave the busiest city centers.
-       The country’s highways make it easy to move between regions, and for many trips the driving itself is not the difficult part.
-       The bigger adjustment usually comes from a few Portugal-specific quirks: toll roads, manual cars, and the contrast
-       between dense historic cities and much easier regional driving.
-      </p>
+  <h2 id="where-most-useful">Where a rental car is most useful in Portugal</h2>
+  <p>
+    While Lisbon and Porto offer extensive and efficient public transport,
+    renting a car can be practical for exploring the rest of the country at a
+    more flexible pace. It makes it easier to reach rural regions like the
+    Alentejo and Douro Valley, as well as Algarve beaches that have limited bus
+    or train connections. A car also simplifies multi-stop trips by letting you
+    move luggage directly between accommodations and visit several historic sites
+    in a single day without following fixed transit schedules.
+  </p>
 
-      <h3>Roads and Driving Feel</h3>
-      <p>
-      One of the first things travelers notice is that driving can feel very different depending on where they are.
-      Major cities like Lisbon and Porto can be stressful, with narrow streets, steep hills, tighter parking, and more traffic
-      than many visitors expect. Outside those areas, the experience often becomes much calmer.
-      </p>
-      <p>
-      Highways and regional roads make it relatively easy to cover distance, and driving through the Algarve, Alentejo,
-      or northern interior usually feels much more relaxed than driving in the middle of a historic city.
-      </p>
+  <h3 id="algarve">Algarve</h3>
+  <p>
+    Renting a car in the Algarve is widely considered one of the best ways to see
+    the region, as it turns a standard resort holiday into a far more flexible
+    road trip. While major towns are connected by public transport, many of the
+    Algarve's most iconic landscapes — hidden cove beaches, rugged stretches of
+    coast, and inland mountain villages — are much harder to reach without a
+    private vehicle.
+  </p>
+  <p>
+    Many of the Algarve's most beautiful beaches, such as Praia da Marinha or the
+    secluded coves of the Costa Vicentina, have limited or no bus service. A
+    rental car gives you the freedom to beach-hop instead of returning to the
+    same stretch of sand each day, and it opens up the wilder Atlantic side near
+    Aljezur and Sagres, where dramatic cliffs, surf breaks, and beaches like
+    Praia do Amado or Odeceixe are far easier to reach with your own transport.
+    It also makes inland day trips to Silves or the Serra de Monchique much
+    simpler.
+  </p>
+  <p>
+    That flexibility matters because public transport in the Algarve can be slow
+    and uneven. Regional trains do not always stop where travelers actually want
+    to be, and buses can become infrequent, especially outside the main routes or
+    on weekends. A short drive can easily turn into a much longer trip by bus
+    once transfers and walking are added in.
+  </p>
+  <p>
+    Some drives here are part of the experience themselves. The road inland to
+    Monchique climbs through eucalyptus and cork forests toward Fóia, the highest
+    point in the Algarve, while the route out to Cabo de São Vicente near Sagres
+    feels like its own reward. For travelers staying outside the busiest hubs, or
+    for families carrying beach gear and luggage, a car often makes the whole
+    region much easier to enjoy.
+  </p>
 
-      <h3>Tolls</h3>
-      <p>
-       Tolls are one of the most important things to understand before getting behind the wheel. Portugal uses both
-       traditional toll roads and electronic-only toll roads, and that mix can be confusing if you are unfamiliar with it.
-      </p>
-      <p>
-       For many travelers, this ends up being one of the most awkward parts of driving in the country — not because the
-      roads are difficult, but because the payment setup is not always obvious at first glance. It is worth understanding
-      how your rental company handles tolls before you leave the lot. For a fuller breakdown, see
-      <a href="/portugal-toll-roads-for-rental-cars">Portugal Toll Roads for Rental Cars</a>.
-      </p>
+  <h3 id="douro">Douro Valley and northern interior</h3>
+  <p>
+    While the Douro Valley is famous for its scenic train line, a rental car
+    opens up a much fuller version of the region. Instead of staying tied to the
+    river's edge, you gain access to the terraced hillsides above it, the quieter
+    roads between villages, and the viewpoints and wine estates that sit well
+    beyond the stations.
+  </p>
+  <p>
+    Many of the most appealing quintas are perched high on the slopes rather than
+    near the rail line, and a car makes it much easier to move between Peso da
+    Régua, Pinhão, and the more rugged stretches of the Douro on your own
+    schedule. It also lets you stop at miradouros such as São Leonardo de
+    Galafura or follow scenic routes like the N222, which many travelers consider
+    one of the most memorable drives in Portugal.
+  </p>
+  <p>
+    The value grows even more once the trip extends beyond the main Douro
+    corridor into the northern interior. Rural hotels, historic towns, and
+    mountain landscapes are often far easier to reach with your own vehicle,
+    especially for travelers combining Porto with vineyard stays or interior
+    villages without constantly working around train schedules and uphill walks
+    with luggage.
+  </p>
 
+  <h3 id="alentejo">Alentejo</h3>
+  <p>
+    In the Alentejo, the car is not just a convenience — it is a key to the
+    region's identity. While the Algarve is about beaches and the Douro is about
+    terraces, the Alentejo is about vastness. It is Portugal's largest and most
+    sparsely populated region: rolling plains, cork forests, and hilltop
+    "eagle's nest" villages that public transport cannot reach effectively.
+  </p>
+  <p>
+    The Alentejo is famous for its fortified medieval villages perched on high
+    ridges along the Spanish border. A car makes it easier to connect Marvão,
+    Castelo de Vide, and Monsaraz at your own pace, and to arrive for the moments
+    that matter most — like sunset over the plains.
+  </p>
+  <p>
+    A car also opens up the more rural side of the region: wine estates,
+    cork-country roads, artisan towns like Arraiolos or Corval, and the
+    dark-sky areas around Alqueva that are difficult to piece together by bus.
+    The same is true along parts of the Alentejo coast, where smaller beaches and
+    quieter stops feel much more accessible with your own transport.
+  </p>
 
-      <h3>Cars, Fuel, and Practical Basics</h3>
-      <p>
-      Transmission type can affect the experience more than some travelers expect. Manual cars are common, so anyone
-      who needs an automatic should plan ahead and check carefully before booking.
-      </p>
-      <p>
-      Fuel is another small but important detail. If you are not used to European fuel labels, it is worth double-checking
-      whether your car takes Gasóleo or Gasolina before filling up. It is also a good idea to make sure the basic equipment
-      in the car is there before leaving the rental lot, so that nothing simple becomes a problem later.
-      </p>
+  <h3 id="multi-stop">Multi-stop Portugal itineraries</h3>
+  <p>
+    For a multi-stop trip, a rental car bridges the gap between the places public
+    transport handles well and the ones it skips over. Portugal's trains are
+    great for direct journeys between major cities, but far less useful when the
+    trip includes smaller towns, scenic detours, or several overnight stops that
+    do not sit neatly on the same corridor.
+  </p>
+  <p>
+    With your own car, the route becomes much easier to shape around the trip you
+    actually want. You can wake up in a medieval town like Óbidos, stop for lunch
+    by the sea in Nazaré, and still have time to explore Tomar before reaching
+    your next hotel — without bus schedules, backtracking through major cities,
+    or dragging suitcases through stations to connect one small stop to another.
+  </p>
 
-      <h3>What Matters Most Before You Drive</h3>
-      <p>
-      For most travelers, driving in Portugal is less about difficulty and more about preparation. Once you understand
-      the toll system, know what kind of car you are renting, and avoid assuming that city driving will feel the same
-      as regional driving, the experience is usually quite manageable.
-      </p>
-      <p>
-  This is the broad picture. More detailed topics like toll roads, fuel labels, and rental-car basics will be expanded on
-  in practical guides.
-</p>
-    </article>
+  <h2 id="driving-what-to-expect">Driving in Portugal: what to expect</h2>
+  <p>
+    Driving in Portugal is generally manageable for many visitors, especially
+    once you leave the busiest city centers. The highways make it easy to move
+    between regions, and for many trips the driving itself is not the difficult
+    part. The bigger adjustment usually comes from a few Portugal-specific
+    quirks: toll roads, manual cars, and the contrast between dense historic
+    cities and much easier regional driving.
+  </p>
 
-    <aside class="side-card">
-      <h2>Related Portugal pages</h2>
-      <ul>
-        <li><a href="/airport-rental-guides">Airport Rental Guides</a></li>
-        <li><a href="/booking-basics">Booking Basics</a></li>
-        <li><a href="/practical-guides">Practical Guides</a></li>
-      </ul>
-    </aside>
-  </section>
+  <h3>Roads and driving feel</h3>
+  <p>
+    Driving can feel very different depending on where you are. Lisbon and Porto
+    can be stressful, with narrow streets, steep hills, tight parking, and more
+    traffic than many visitors expect. Outside those areas the experience often
+    becomes much calmer — highways and regional roads make it relatively easy to
+    cover distance, and driving through the Algarve, Alentejo, or northern
+    interior usually feels far more relaxed than the middle of a historic city.
+  </p>
 
-  <style>
-    .hero {
-      padding: 2rem 0 2.25rem;
-      max-width: 760px;
-    }
+  <h3>Tolls</h3>
+  <p>
+    Tolls are one of the most important things to understand before getting
+    behind the wheel. Portugal uses both traditional toll booths and
+    electronic-only toll roads, and that mix is confusing if you are unfamiliar
+    with it. For many travelers this is the most awkward part of driving here —
+    not because the roads are difficult, but because the payment setup is not
+    obvious at first glance.
+  </p>
 
-    .eyebrow {
-      margin: 0 0 0.75rem;
-      color: #2f6fed;
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
+  <Callout variant="tip">
+    Before you leave the rental lot, ask exactly how your company handles tolls —
+    whether the car has a Via Verde transponder, what it costs per day, and how
+    charges appear after the rental. Full breakdown in
+    <a href="/portugal-toll-roads-for-rental-cars">Portugal toll roads for rental cars</a>.
+  </Callout>
 
-    .jump-list {
-      padding-left: 1.2rem;
-      margin: 0;
-    }
+  <h3>Cars, fuel, and practical basics</h3>
+  <p>
+    Transmission type can affect the experience more than travelers expect.
+    Manual cars are common, so anyone who needs an automatic should plan ahead
+    and check carefully before booking. Fuel is another small but important
+    detail: if you are not used to European fuel labels, double-check whether
+    your car takes <strong>Gasóleo</strong> (diesel) or <strong>Gasolina</strong>
+    (petrol) before filling up. It is also worth checking the car's basic
+    equipment before leaving the lot.
+  </p>
 
-    .jump-list a {
-      color: #2f6fed;
-      font-weight: 600;
-    }
-
-    .jump-list li + li {
-      margin-top: 0.5rem;
-    }
-
-    .jump-sublist {
-      margin-top: 0.4rem;
-      padding-left: 1.2rem;
-    }
-
-    .jump-sublist li + li {
-      margin-top: 0.35rem;
-    }
-
-    .jump-sublist a {
-      font-weight: 500;
-      font-size: 0.96rem;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.1rem, 5vw, 3.6rem);
-      line-height: 1.08;
-    }
-
-    .intro {
-      margin-top: 1rem;
-      color: #5b5b55;
-      font-size: 1.1rem;
-      max-width: 680px;
-    }
-
-    .top-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 1rem;
-    }
-
-    .card,
-    .main-card,
-    .side-card {
-      background: white;
-      border: 1px solid #e4e4de;
-      border-radius: 16px;
-      padding: 1.25rem;
-    }
-
-    h2 {
-      margin-top: 0;
-    }
-
-    .main-card p {
-      color: #5b5b55;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    li + li {
-      margin-top: 0.5rem;
-    }
-
-    .side-card a {
-      color: #2f6fed;
-      font-weight: 600;
-    }
-
-    @media (max-width: 900px) {
-      .top-grid,
-      .content-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</Layout>
+  <h3>What matters most before you drive</h3>
+  <p>
+    For most travelers, driving in Portugal is less about difficulty and more
+    about preparation. Once you understand the toll system, know what kind of car
+    you are renting, and stop assuming city driving will feel like regional
+    driving, the experience is usually quite manageable. More detailed topics —
+    toll roads, fuel labels, transmission choice — are covered in the
+    <a href="/practical-guides">Practical Guides</a>.
+  </p>
+</ArticleLayout>

@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { execSync } from 'node:child_process';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const dist = (p: string) => resolve(process.cwd(), 'dist', p);
@@ -59,6 +59,68 @@ describe('home page', () => {
     ]) {
       expect(html).toContain(`href="${href}"`);
     }
+  });
+});
+
+describe('every guide article', () => {
+  const guides = [
+    'portugal-guide/index.html',
+    'lisbon-airport-car-rental/index.html',
+    'porto-airport-car-rental/index.html',
+    'faro-airport-car-rental/index.html',
+    'portugal-car-rental-insurance/index.html',
+    'portugal-car-rental-with-debit/index.html',
+    'portugal-car-rental-deposits-and-card-requirements/index.html',
+    'portugal-toll-roads-for-rental-cars/index.html',
+  ];
+  for (const g of guides) {
+    it(`${g}: carries the full guide template`, () => {
+      const html = read(g);
+      expect(html).toContain('aria-label="Breadcrumb"');
+      expect(html).toContain('BreadcrumbList');
+      expect(html).toMatch(/Updated \w+ 20\d\d/);
+      expect(html).toContain('quick-answer');
+      expect(html).toContain('on-this-page');
+      expect(html).toContain('How we research this guide');
+      expect(html).toContain('related-guides');
+      expect(html).toContain('"@type":"Article"');
+    });
+    it(`${g}: every on-this-page anchor resolves to a real section id`, () => {
+      const html = read(g);
+      const targets = [...html.matchAll(/class="on-this-page"[\s\S]*?<\/nav>/g)]
+        .flatMap((m) => [...m[0].matchAll(/href="#([^"]+)"/g)].map((x) => x[1]));
+      expect(targets.length).toBeGreaterThan(2);
+      for (const id of targets) {
+        expect(html, `missing id="${id}" in ${g}`).toContain(`id="${id}"`);
+      }
+    });
+  }
+});
+
+describe('internal links', () => {
+  it('no page links to a route that was not built', () => {
+    const builtRoutes = new Set(['/', '/about']);
+    for (const entry of readdirSync(dist(''), { withFileTypes: true })) {
+      if (entry.isDirectory() && existsSync(dist(`${entry.name}/index.html`))) {
+        builtRoutes.add(`/${entry.name}`);
+      }
+    }
+
+    const pages = readdirSync(dist(''), { withFileTypes: true })
+      .filter((e) => e.isDirectory() && existsSync(dist(`${e.name}/index.html`)))
+      .map((e) => `${e.name}/index.html`)
+      .concat('index.html');
+
+    const broken: string[] = [];
+    for (const page of pages) {
+      const html = read(page);
+      for (const m of html.matchAll(/href="(\/[a-z0-9-]*(?:\/[a-z0-9-]+)*)\/?"/g)) {
+        const route = m[1] === '' ? '/' : m[1];
+        if (route.startsWith('/_') || route.startsWith('/images')) continue;
+        if (!builtRoutes.has(route)) broken.push(`${page} -> ${route}`);
+      }
+    }
+    expect(broken, `broken internal links:\n${broken.join('\n')}`).toEqual([]);
   });
 });
 

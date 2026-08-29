@@ -1,0 +1,42 @@
+---
+import Layout from './Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageHero from '../components/PageHero.astro';
+import RelatedGuides from '../components/RelatedGuides.astro';
+
+interface Crumb { label: string; href?: string }
+interface RelatedLink { label: string; href: string }
+
+interface Props {
+  title: string;
+  description?: string;
+  eyebrow?: string;
+  heading: string;
+  summary?: string;
+  image?: { src: string; alt: string; credit?: string };
+  breadcrumbs: Crumb[];
+  related?: RelatedLink[];
+  relatedTitle?: string;
+}
+
+const {
+  title,
+  description,
+  eyebrow,
+  heading,
+  summary,
+  image,
+  breadcrumbs,
+  related = [],
+  relatedTitle,
+} = Astro.props;
+---
+
+<Layout title={title} description={description ?? summary}>
+  <Breadcrumbs items={breadcrumbs} />
+  <div class="hub prose">
+    <PageHero eyebrow={eyebrow} title={heading} summary={summary} image={image} />
+    <slot />
+    {related.length > 0 && <RelatedGuides links={related} title={relatedTitle} />}
+  </div>
+</Layout>

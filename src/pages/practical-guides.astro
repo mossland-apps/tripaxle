@@ -1,152 +1,79 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import HubLayout from "../layouts/HubLayout.astro";
+import { images } from "../lib/images";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Practical Guides" },
+];
+
+const guides = [
+  { label: "Portugal toll roads for rental cars", href: "/portugal-toll-roads-for-rental-cars" },
+  { label: "Can you rent a car in Portugal with a debit card?", href: "/portugal-car-rental-with-debit" },
+  { label: "Manual vs automatic rental cars in Portugal", href: "/manual-vs-automatic-portugal", soon: true },
+  { label: "What to photograph when picking up a rental car", href: "/what-to-photograph-rental-pickup", soon: true },
+  { label: "What happens if your flight is late for pickup?", href: "/flight-late-for-car-rental-pickup", soon: true },
+  { label: "After-hours car rental returns in Portugal", href: "/after-hours-car-rental-returns-portugal", soon: true },
+  { label: "Gasóleo vs Gasolina: fuelling a rental car in Portugal", href: "/gasoleo-vs-gasolina-portugal", soon: true },
+  { label: "Can you drive a Portugal rental car into Spain?", href: "/portugal-rental-car-into-spain", soon: true },
+  { label: "Child seats and extras for rental cars in Portugal", href: "/child-seats-and-extras-portugal", soon: true },
+];
+
+const related = [
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
+  { label: "Booking Basics", href: "/booking-basics" },
+  { label: "Airport Rental Guides", href: "/airport-rental-guides" },
+];
 ---
 
-<Layout
+<HubLayout
   title="Practical Portugal Car Rental Guides | TripAxle"
-  description="Handle the practical issues that affect pickup, driving, and day-to-day rental use in Portugal."
+  description="Handle the real-world side of renting and driving in Portugal: toll roads, fuel labels, transmission choice, pickup preparation, and day-to-day rental friction."
+  eyebrow="Practical Guides"
+  heading="Practical Car Rental Guides for Smarter Trips"
+  summary="The practical side of renting and driving in Portugal — toll roads, fuel, transmission, pickup preparation, and the details that cause stress if you do not plan for them."
+  image={images.portugalRoad}
+  breadcrumbs={breadcrumbs}
+  related={related}
 >
-  <section class="hero">
-    <p class="eyebrow">Practical Guides</p>
-    <h1>Practical Car Rental Guides for Smarter Trips</h1>
-    <p class="intro">
-      Handle the practical side of renting a car in Portugal with more confidence.
-      This section focuses on toll roads, transmission choice, fuel, pickup preparation,
-      and the real-world details that can affect the rental experience once your trip is underway.
-    </p>
-  </section>
+  <h2>Guides in this section</h2>
+  <ul class="guide-list">
+    {guides.map((g) => (
+      <li>
+        {g.soon
+          ? <span class="soon">{g.label} <em>— coming soon</em></span>
+          : <a href={g.href}>{g.label}</a>}
+      </li>
+    ))}
+  </ul>
 
-  <section class="top-grid">
-    <article class="card">
-      <h2>What this section covers</h2>
-      <p>
-        This section focuses on the practical side of renting and driving, not the contract language.
-        These guides help with the everyday issues travelers run into before pickup, at pickup, and on the road.
-      </p>
-      <ul>
-        <li>Toll roads, fuel labels, and transmission choice</li>
-        <li>Pickup preparation and rental-day logistics</li>
-        <li>Common issues that can affect the trip in real life</li>
-      </ul>
-    </article>
+  <h2>What this section covers</h2>
+  <p>
+    This section focuses on the practical side of renting and driving, not the
+    contract language. These guides help with the everyday issues travelers run
+    into before pickup, at pickup, and on the road.
+  </p>
+  <ul>
+    <li>Toll roads, fuel labels, and transmission choice</li>
+    <li>Pickup preparation and rental-day logistics</li>
+    <li>Common friction points that can affect the trip in real life</li>
+  </ul>
 
-    <article class="card">
-      <h2>Practical guides</h2>
-      <ul>
-        <li><a href="/portugal-toll-roads-for-rental-cars">Portugal toll roads for rental cars</a></li>
-        <li><a href="/portugal-car-rental-with-debit">Can you rent a car in Portugal with a debit card?</a></li>
-        <li>Manual vs automatic rental cars in Portugal</li>
-        <li>What to photograph when picking up a rental car</li>
-        <li>What happens if your flight is late for car rental pickup?</li>
-        <li>After-hours car rental returns in Portugal</li>
-      </ul>
-    </article>
-  </section>
-
-  <section class="content-grid">
-    <article class="main-card">
-      <h2>What these guides will help with</h2>
-      <ul>
-        <li>Understanding practical issues before you drive away</li>
-        <li>Knowing what to check before pickup and before fuel stops</li>
-        <li>Handling common friction points during the rental itself</li>
-        <li>Making day-to-day rental use feel simpler and less stressful</li>
-      </ul>
-
-      <h2>How to use this hub</h2>
-      <p>
-        Start here if you already understand the basic booking terms and want help with the practical side of renting.
-        These guides are meant to support the real-world part of the trip: pickup, driving, tolls, fuel, and the smaller
-        details that can cause stress if you do not plan for them.
-      </p>
-      <p>
-        If you still need help comparing insurance, deposits, holds, or rental terms before reserving,
-        go back to Booking Basics. If your questions are specific to arrival logistics, use the airport rental guides.
-      </p>
-    </article>
-
-    <aside class="side-card">
-      <h2>Related Portugal pages</h2>
-      <ul>
-        <li><a href="/portugal-guide">Portugal Guide</a></li>
-        <li><a href="/airport-rental-guides">Airport Rental Guides</a></li>
-        <li><a href="/booking-basics">Booking Basics</a></li>
-      </ul>
-    </aside>
-  </section>
+  <h2>How to use this hub</h2>
+  <p>
+    Start here if you already understand the basic booking terms and want help
+    with the practical side of renting. If you still need help comparing
+    insurance, deposits, holds, or rental terms before reserving, go back to
+    <a href="/booking-basics">Booking Basics</a>. If your questions are specific
+    to arrival logistics, use the
+    <a href="/airport-rental-guides">airport rental guides</a>.
+  </p>
 
   <style>
-    .hero {
-      padding: 2rem 0 2.25rem;
-      max-width: 760px;
-    }
-
-    .eyebrow {
-      margin: 0 0 0.75rem;
-      color: #2f6fed;
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.1rem, 5vw, 3.6rem);
-      line-height: 1.08;
-    }
-
-    .intro {
-      margin-top: 1rem;
-      color: #5b5b55;
-      font-size: 1.1rem;
-      max-width: 680px;
-    }
-
-    .top-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 1rem;
-    }
-
-    .card,
-    .main-card,
-    .side-card {
-      background: white;
-      border: 1px solid #e4e4de;
-      border-radius: 16px;
-      padding: 1.25rem;
-    }
-
-    h2 {
-      margin-top: 0;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    li + li {
-      margin-top: 0.5rem;
-    }
-
-    .side-card a {
-      color: #2f6fed;
-      font-weight: 600;
-    }
-
-    @media (max-width: 900px) {
-      .top-grid,
-      .content-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .guide-list { margin-bottom: 2rem; }
+    .guide-list li { margin: 0.4rem 0; }
+    .guide-list a { font-weight: 600; }
+    .guide-list .soon { color: var(--muted); }
+    .guide-list .soon em { font-style: normal; font-size: 0.85rem; }
   </style>
-</Layout>
+</HubLayout>

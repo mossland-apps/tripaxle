@@ -1,151 +1,78 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import HubLayout from "../layouts/HubLayout.astro";
+import { images } from "../lib/images";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Booking Basics" },
+];
+
+const guides = [
+  { label: "Portugal car rental insurance explained", href: "/portugal-car-rental-insurance" },
+  { label: "Deposits and card requirements", href: "/portugal-car-rental-deposits-and-card-requirements" },
+  { label: "Broker vs direct supplier for Portugal car rental", href: "/broker-vs-direct-supplier-portugal-car-rental", soon: true },
+  { label: "How to read Portugal car rental terms before booking", href: "/how-to-read-portugal-car-rental-terms", soon: true },
+  { label: "Common car rental mistakes in Portugal", href: "/common-car-rental-mistakes-portugal", soon: true },
+];
+
+const related = [
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
+  { label: "Airport Rental Guides", href: "/airport-rental-guides" },
+  { label: "Practical Guides", href: "/practical-guides" },
+];
 ---
 
-<Layout
+<HubLayout
   title="Portugal Car Rental Booking Basics | TripAxle"
-  description="Understand the booking terms, policies, and requirements that matter before reserving a rental car in Portugal."
+  description="The booking terms, policies, and requirements that matter before you reserve a rental car in Portugal: insurance, deposits, card rules, and how to read the terms."
+  eyebrow="Booking Basics"
+  heading="Booking Basics for Renting a Car in Portugal"
+  summary="What the insurance options mean, what deposit and card rules to verify, and how to read the terms behind the headline price before you reserve."
+  image={images.portugalRoad}
+  breadcrumbs={breadcrumbs}
+  related={related}
 >
-  <section class="hero">
-    <p class="eyebrow">Booking Basics</p>
-    <h1>Booking Basics for Renting a Car in Portugal</h1>
-    <p class="intro">
-      Understand the booking terms, policies, and requirements that matter before you reserve.
-      This section focuses on insurance, deposits, card rules, rental terms, and the details travelers should verify before booking.
-    </p>
-  </section>
+  <h2>Guides in this section</h2>
+  <ul class="guide-list">
+    {guides.map((g) => (
+      <li>
+        {g.soon
+          ? <span class="soon">{g.label} <em>— coming soon</em></span>
+          : <a href={g.href}>{g.label}</a>}
+      </li>
+    ))}
+  </ul>
 
-  <section class="top-grid">
-    <article class="card">
-      <h2>What this section covers</h2>
-      <p>
-        This section focuses on the contract and policy side of renting a car in Portugal,
-        before pickup and before payment details turn into problems.
-      </p>
-      <ul>
-        <li>Insurance and coverage options</li>
-        <li>Deposits, holds, and card requirements</li>
-        <li>Rental terms and broker vs direct booking differences</li>
-      </ul>
-    </article>
+  <h2>What this section covers</h2>
+  <p>
+    This section focuses on the contract and policy side of renting a car in
+    Portugal — before pickup, and before payment details turn into problems.
+  </p>
+  <ul>
+    <li>How insurance and coverage options usually work before booking</li>
+    <li>What to verify about deposits, holds, and accepted cards</li>
+    <li>How rental terms can vary between offers</li>
+    <li>What to double-check before finalising a reservation</li>
+  </ul>
 
-    <article class="card">
-      <h2>Booking basics guides</h2>
-      <ul>
-        <li><a href="/portugal-car-rental-insurance">Portugal car rental insurance explained</a></li>
-        <li><a href="/portugal-car-rental-deposits-and-card-requirements">Deposits and card requirements</a></li>
-        <li>Broker vs direct supplier</li>
-        <li>How to read rental terms before booking</li>
-        <li>Common car rental mistakes in Portugal</li>
-      </ul>
-    </article>
-  </section>
-
-  <section class="content-grid">
-    <article class="main-card">
-      <h2>What this section will help you understand</h2>
-      <ul>
-        <li>How insurance and coverage options usually work before booking</li>
-        <li>What to verify about deposits, holds, and accepted cards</li>
-        <li>How rental terms can vary between offers</li>
-        <li>What to double-check before finalizing a reservation</li>
-      </ul>
-
-      <h2>How to use this hub</h2>
-      <p>
-        Start here if you want to understand the booking terms behind the headline price.
-        These guides are meant to help you interpret what you are agreeing to before you reserve,
-        so you can compare offers more clearly and avoid common mistakes.
-      </p>
-      <p>
-        If you already know the booking terms and need help with tolls, transmission choice,
-        fuel, or pickup logistics, continue to the Practical Guides or the airport rental guides
-        that match your trip.
-      </p>
-    </article>
-
-    <aside class="side-card">
-      <h2>Related Portugal pages</h2>
-      <ul>
-        <li><a href="/portugal-guide">Portugal Guide</a></li>
-        <li><a href="/airport-rental-guides">Airport Rental Guides</a></li>
-        <li><a href="/practical-guides">Practical Guides</a></li>
-      </ul>
-    </aside>
-  </section>
+  <h2>How to use this hub</h2>
+  <p>
+    Start here if you want to understand the booking terms behind the headline
+    price. These guides help you interpret what you are agreeing to before you
+    reserve, so you can compare offers more clearly and avoid common mistakes.
+  </p>
+  <p>
+    If you already know the booking terms and need help with tolls, transmission
+    choice, fuel, or pickup logistics, continue to the
+    <a href="/practical-guides">Practical Guides</a> or the airport rental guide
+    that matches your trip.
+  </p>
 
   <style>
-    .hero {
-      padding: 2rem 0 2.25rem;
-      max-width: 760px;
-    }
-
-    .eyebrow {
-      margin: 0 0 0.75rem;
-      color: #2f6fed;
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.1rem, 5vw, 3.6rem);
-      line-height: 1.08;
-    }
-
-    .intro {
-      margin-top: 1rem;
-      color: #5b5b55;
-      font-size: 1.1rem;
-      max-width: 680px;
-    }
-
-    .top-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 1rem;
-    }
-
-    .card,
-    .main-card,
-    .side-card {
-      background: white;
-      border: 1px solid #e4e4de;
-      border-radius: 16px;
-      padding: 1.25rem;
-    }
-
-    h2 {
-      margin-top: 0;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    li + li {
-      margin-top: 0.5rem;
-    }
-
-    .side-card a {
-      color: #2f6fed;
-      font-weight: 600;
-    }
-
-    @media (max-width: 900px) {
-      .top-grid,
-      .content-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    .guide-list { margin-bottom: 2rem; }
+    .guide-list li { margin: 0.4rem 0; }
+    .guide-list a { font-weight: 600; }
+    .guide-list .soon { color: var(--muted); }
+    .guide-list .soon em { font-style: normal; font-size: 0.85rem; }
   </style>
-</Layout>
+</HubLayout>

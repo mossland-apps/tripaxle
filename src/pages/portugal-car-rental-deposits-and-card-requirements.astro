@@ -1,218 +1,135 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import Callout from "../components/Callout.astro";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Booking Basics", href: "/booking-basics" },
+  { label: "Deposits & Card Requirements" },
+];
+
+const toc = [
+  { label: "What deposit holds are", id: "deposit-holds" },
+  { label: "Why card requirements should be checked", id: "card-requirements" },
+  { label: "Payment card vs deposit card", id: "payment-vs-deposit" },
+  { label: "What to verify before reserving", id: "checklist" },
+];
+
+const related = [
+  { label: "Renting With a Debit Card", href: "/portugal-car-rental-with-debit" },
+  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance" },
+  { label: "Booking Basics", href: "/booking-basics" },
+  { label: "Practical Guides", href: "/practical-guides" },
+];
 ---
 
-<Layout
+<ArticleLayout
   title="Portugal Car Rental Deposits and Card Requirements | TripAxle"
-  description="Understand how Portugal car rental deposits work, why card requirements matter, and what to verify before reserving."
+  description="How Portugal car rental deposit holds work, why card requirements matter, the difference between a payment card and a deposit card, and what to verify before reserving."
+  eyebrow="Booking Basics"
+  summary="Payment and deposit rules are one of the easiest places for a booking to go wrong. What a deposit hold is, why the card matters, and what to check before you reserve."
+  updated="2026-05-02"
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
 >
-  <section class="hero">
-    <p class="eyebrow">Booking Basics</p>
-    <h1>Portugal Car Rental Deposits and Card Requirements</h1>
-    <p class="intro">
-      Renting a car in Portugal is usually straightforward, but the payment and deposit rules
-      can still be one of the easiest places for a booking to go wrong. This page explains what
-      deposit holds are, why card requirements matter, and what to verify before you reserve.
+  <QuickAnswer>
+    <p>
+      A booking can look fully paid online and still fail at pickup if the driver
+      does not have the right card for the deposit. Verify not just how you can
+      <em>pay for</em> the rental, but <strong>what card is accepted for the
+      security hold</strong> — and that the cardholder name matches the main
+      driver.
     </p>
-  </section>
+  </QuickAnswer>
 
-  <section class="top-grid">
-    <article class="card">
-      <h2>On this page</h2>
-      <ul class="jump-list">
-        <li><a href="#what-deposit-holds-are">What Deposit Holds Are</a></li>
-        <li><a href="#why-card-requirements-should-be-checked">Why Card Requirements Should Be Checked</a></li>
-        <li><a href="#payment-card-vs-deposit-card">Payment Card vs Deposit Card</a></li>
-        <li><a href="#what-to-verify-before-reserving">What to Verify Before Reserving</a></li>
-      </ul>
-    </article>
+  <p>
+    Renting a car in Portugal is usually straightforward, but the payment and
+    deposit rules can still be one of the easiest places for a booking to go
+    wrong. This guide explains what deposit holds are, why card requirements
+    matter, and what to verify before you reserve.
+  </p>
 
-    <article class="card">
-      <h2>Quick takeaway</h2>
-      <p>
-        A booking can look fully paid online and still fail at pickup if the driver does not
-        have the right card for the deposit. The most important thing to verify is not just
-        how you can pay for the rental, but what card is accepted for the security hold.
-      </p>
-    </article>
-  </section>
+  <h2 id="deposit-holds">What deposit holds are</h2>
+  <p>
+    A deposit hold, sometimes called a security block, is an amount the rental
+    company places on your card as a safeguard during the rental. It helps cover
+    things like the remaining excess, possible damage, theft-related costs, or
+    unpaid charges linked to the booking.
+  </p>
+  <p>
+    The money is not usually treated like normal spending, but it still reduces
+    the amount available to you during the trip. If your available limit or
+    balance is tight, that can become a problem even when the rental itself has
+    already been paid for.
+  </p>
+  <p>
+    Deposit amounts vary widely depending on the supplier, vehicle group, and
+    level of cover, but they are often high enough to matter. The deposit is not
+    a small detail to check later — it is one of the main financial terms of the
+    booking.
+  </p>
 
-  <section class="content-grid">
-    <article class="main-card">
-      <h2 id="what-deposit-holds-are">What Deposit Holds Are</h2>
-      <p>
-        A deposit hold, sometimes called a security block, is an amount the rental company places
-        on your card as a safeguard during the rental. It is there to help cover things like the
-        remaining excess, possible damage, theft-related costs, or unpaid charges that may still be
-        linked to the booking.
-      </p>
-      <p>
-        In practical terms, the money is not usually treated like normal spending, but it still
-        reduces the amount available to you during the trip. If your available limit or balance
-        is tight, that can become a problem even when the rental itself has already been paid for.
-      </p>
-      <p>
-        Deposit amounts vary widely depending on the supplier, vehicle group, and level of cover,
-        but they are often high enough to matter. That is why the deposit is not a small detail to
-        check later. It is one of the main financial terms of the booking.
-      </p>
+  <h2 id="card-requirements">Why card requirements should be checked</h2>
+  <p>
+    Not all cards are treated the same way at the rental counter. A supplier may
+    accept a card for one part of the booking but not another. The most common
+    friction point is the security deposit, because that is where suppliers apply
+    their strictest rules.
+  </p>
+  <p>
+    Many suppliers are more flexible about taking payment for the rental than
+    about accepting a card for the deposit. Even when debit cards are accepted in
+    general, they may be excluded for certain vehicle groups, rate types, or
+    deposit situations.
+  </p>
+  <p>
+    The name on the card matters too. In most cases the card used for the deposit
+    must match the main driver exactly. Showing up with the right booking but the
+    wrong cardholder can be enough to create problems at pickup.
+  </p>
 
-      <h2 id="why-card-requirements-should-be-checked">Why Card Requirements Should Be Checked</h2>
-      <p>
-        Not all cards are treated the same way at the rental counter. A supplier may accept a card
-        for one part of the booking, but not for another. The most common friction point is the
-        security deposit, because this is where suppliers often apply their strictest rules.
-      </p>
-      <p>
-        Many suppliers are more flexible about taking payment for the rental than they are about
-        accepting a card for the deposit. Even when debit cards are accepted in general, they may
-        still be excluded for certain vehicle groups, rate types, or deposit situations.
-      </p>
-      <p>
-        The name on the card matters too. In most cases, the payment card used for the deposit
-        needs to match the main driver exactly. Showing up with the right booking but the wrong
-        cardholder can be enough to create problems at pickup.
-      </p>
+  <h2 id="payment-vs-deposit">Payment card vs deposit card</h2>
+  <p>
+    This is one of the easiest places for travelers to get caught out. A company
+    may let you prepay online with one card type and still require something
+    different at the desk when it is time to collect the car.
+  </p>
+  <p>
+    In other words, the card accepted for the rental payment is not always the
+    card accepted for the deposit. A booking may look confirmed, the payment may
+    already be processed, and the voucher may still contain stricter rules for
+    the security hold at pickup.
+  </p>
+  <p>
+    That is why the payment policy for the exact booking matters more than broad
+    homepage wording. If the voucher says a credit card is mandatory for the
+    deposit, that matters more than a general message saying debit cards are
+    accepted.
+  </p>
 
-      <h2 id="payment-card-vs-deposit-card">Payment Card vs Deposit Card</h2>
-      <p>
-        This is one of the easiest places for travelers to get caught out. A company may allow you
-        to prepay online with one card type and still require something different at the desk when
-        it is time to collect the car.
-      </p>
-      <p>
-        In other words, the card accepted for the rental payment is not always the same as the card
-        accepted for the deposit. A booking may look confirmed, the payment may already be processed,
-        and the voucher may still contain stricter rules for the security hold at pickup.
-      </p>
-      <p>
-        That is why the payment policy for the exact booking matters more than broad homepage wording.
-        If the voucher says that a credit card is mandatory for the deposit, that matters more than a
-        general message saying that debit cards are accepted.
-      </p>
+  <h2 id="checklist">What to verify before reserving</h2>
+  <ul>
+    <li>What is the exact deposit amount or range for that booking?</li>
+    <li>What card type is accepted for the security hold?</li>
+    <li>Is a debit card accepted for the deposit, not just the rental payment?</li>
+    <li>Does the name on the card have to match the main driver exactly?</li>
+    <li>Does buying stronger cover reduce the deposit requirement?</li>
+  </ul>
+  <p>
+    These questions matter most because they affect whether you can actually
+    collect the car when you arrive. If any of them are unclear, do not assume
+    the easiest answer — check the voucher terms for that exact booking before
+    relying on the card you plan to bring.
+  </p>
 
-      <h2 id="what-to-verify-before-reserving">What to Verify Before Reserving</h2>
-      <p>
-        Before you reserve, confirm these points:
-      </p>
-      <ul>
-        <li>What is the exact deposit amount or range for that booking?</li>
-        <li>What card type is accepted for the security hold?</li>
-        <li>Is a debit card accepted for the deposit, not just for the rental payment?</li>
-        <li>Does the name on the card have to match the main driver exactly?</li>
-        <li>Does buying stronger cover reduce the deposit requirement?</li>
-      </ul>
-      <p>
-        These are the questions that matter most because they affect whether you can actually collect
-        the car when you arrive. If any of them are unclear, do not assume the easiest answer.
-        Check the voucher terms for that exact booking before relying on the card you plan to bring.
-      </p>
-
-      <h2>The Short Version</h2>
-      <p>
-        Deposits and card requirements are easy to underestimate because they sit in the fine print,
-        but they can be one of the biggest causes of stress at pickup.
-      </p>
-      <ul>
-        <li>A deposit hold reduces the funds or credit you can use during the trip.</li>
-        <li>Deposit amounts can be large enough to matter.</li>
-        <li>Payment acceptance and deposit acceptance are not always the same thing.</li>
-        <li>The exact voucher terms matter more than general marketing language.</li>
-      </ul>
-    </article>
-
-    <aside class="side-card">
-      <h2>Related Portugal pages</h2>
-      <ul>
-        <li><a href="/booking-basics">Booking Basics</a></li>
-        <li><a href="/portugal-car-rental-insurance">Portugal Car Rental Insurance Explained</a></li>
-        <li><a href="/portugal-car-rental-with-debit">Can You Rent a Car in Portugal With a Debit Card?</a></li>
-        <li><a href="/practical-guides">Practical Guides</a></li>
-      </ul>
-    </aside>
-  </section>
-
-  <style>
-    .hero {
-      padding: 2rem 0 2.25rem;
-      max-width: 760px;
-    }
-
-    .eyebrow {
-      margin: 0 0 0.75rem;
-      color: #2f6fed;
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(2.1rem, 5vw, 3.6rem);
-      line-height: 1.08;
-    }
-
-    .intro {
-      margin-top: 1rem;
-      color: #5b5b55;
-      font-size: 1.1rem;
-      max-width: 680px;
-    }
-
-    .top-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 1rem;
-    }
-
-    .card,
-    .main-card,
-    .side-card {
-      background: white;
-      border: 1px solid #e4e4de;
-      border-radius: 16px;
-      padding: 1.25rem;
-    }
-
-    h2 {
-      margin-top: 0;
-    }
-
-    .main-card p {
-      color: #5b5b55;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    li + li {
-      margin-top: 0.5rem;
-    }
-
-    .jump-list {
-      margin: 0;
-    }
-
-    .jump-list a,
-    .side-card a {
-      color: #2f6fed;
-      font-weight: 600;
-    }
-
-    @media (max-width: 900px) {
-      .top-grid,
-      .content-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</Layout>
+  <Callout title="The short version">
+    <ul>
+      <li>A deposit hold reduces the funds or credit you can use during the trip.</li>
+      <li>Deposit amounts can be large enough to matter.</li>
+      <li>Payment acceptance and deposit acceptance are not always the same thing.</li>
+      <li>The exact voucher terms matter more than general marketing language.</li>
+    </ul>
+  </Callout>
+</ArticleLayout>
