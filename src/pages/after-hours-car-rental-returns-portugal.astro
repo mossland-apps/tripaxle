@@ -1,0 +1,102 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import Callout from "../components/Callout.astro";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "After-Hours Returns" },
+];
+
+const toc = [
+  { label: "How an after-hours return works", id: "how" },
+  { label: "The risk: you are not there for the inspection", id: "risk" },
+  { label: "Step by step at drop-off", id: "steps" },
+  { label: "Fuel, tolls, and keys", id: "details" },
+  { label: "When to avoid an after-hours return", id: "avoid" },
+];
+
+const related = [
+  { label: "What to Photograph When Picking Up a Rental Car", href: "/what-to-photograph-rental-pickup" },
+  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance" },
+  { label: "Portugal Toll Roads for Rental Cars", href: "/portugal-toll-roads-for-rental-cars" },
+  { label: "Practical Guides", href: "/practical-guides" },
+];
+---
+
+<ArticleLayout
+  title="After-Hours Car Rental Returns in Portugal | TripAxle"
+  description="How to return a rental car in Portugal when the desk is closed: key drop-boxes, why the missing inspection is the real risk, and the photos and steps that protect you."
+  eyebrow="Practical Guides"
+  summary="Dropping a car back when the office is shut is normal, but no one checks it in front of you. The record you leave behind is what protects your deposit."
+  updated="2026-03-24"
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+>
+  <QuickAnswer>
+    <p>
+      An after-hours return usually means parking in a specified bay and posting
+      the keys in a drop-box. Because no one inspects the car with you, do a
+      thorough <strong>timestamped video and photo walk-around, note the
+      odometer and fuel, keep the fuel receipt</strong>, and record the exact
+      time and location you left it. That evidence is your defence against a
+      later damage claim.
+    </p>
+  </QuickAnswer>
+
+  <h2 id="how">How an after-hours return works</h2>
+  <p>
+    Confirm the arrangement <em>before</em> your rental day, because it varies by
+    company and location:
+  </p>
+  <ul>
+    <li>You are given a specific return car park or set of bays — at airports this is usually the normal rental return area; off-airport it may be the branch's own yard.</li>
+    <li>You lock the car, then drop the keys into a sealed key box, sometimes with a return slip filled in.</li>
+    <li>Staff check the car in the next morning and email you the final invoice.</li>
+    <li>Your contract end time still applies — leaving the keys at 02:00 for a 09:00 contract does not shorten the rental, but returning after your contracted time can trigger an extra day.</li>
+  </ul>
+
+  <h2 id="risk">The risk: you are not there for the inspection</h2>
+  <p>
+    With a staffed return, damage is agreed (or disputed) face to face. With an
+    after-hours drop, the first inspection happens without you, and any charge
+    lands by email days later against the
+    <a href="/portugal-car-rental-insurance">excess or deposit</a> already on
+    your card. You cannot prove the car was fine unless you documented it.
+  </p>
+
+  <Callout variant="tip">
+    Treat the drop-off like the pickup in reverse. The
+    <a href="/what-to-photograph-rental-pickup">pickup photo checklist</a> works
+    here too: all four corners, every wheel, the glass, roof and lower bumpers,
+    the interior, and the dashboard with the engine running.
+  </Callout>
+
+  <h2 id="steps">Step by step at drop-off</h2>
+  <ol>
+    <li>Park exactly where the instructions say. A car found in the wrong place can be logged as a late or non-return.</li>
+    <li>Film a slow walk-around in good light (use your phone torch if needed), then take stills of any marks.</li>
+    <li>Photograph the odometer, the fuel gauge, and the interior.</li>
+    <li>Photograph the car in its bay with any location signage or bay number visible.</li>
+    <li>Fill in the return slip if provided; photograph it before it goes in the box.</li>
+    <li>Post the keys, photograph the closed key box, and note the time.</li>
+    <li>Keep everything until the final invoice arrives and is correct.</li>
+  </ol>
+
+  <h2 id="details">Fuel, tolls, and keys</h2>
+  <ul>
+    <li><strong>Fuel:</strong> for a full-to-full rental, fill up near the drop-off and keep the timestamped receipt; without staff present you cannot argue the level later.</li>
+    <li><strong>Tolls:</strong> electronic toll charges from your last drive may still be in transit and can appear on the final invoice days afterwards — that is normal, not an error. See <a href="/portugal-toll-roads-for-rental-cars">toll roads for rental cars</a>.</li>
+    <li><strong>Keys:</strong> only ever use the official key box. Never leave keys in the car, on a tyre, or with a stranger.</li>
+    <li>If there is a second key, return both; a missing key is an expensive charge.</li>
+  </ul>
+
+  <h2 id="avoid">When to avoid an after-hours return</h2>
+  <ul>
+    <li>High-value or premium cars, where a disputed scratch is costly.</li>
+    <li>Small off-airport suppliers with a reputation for post-rental damage claims — a staffed return with a signed “no damage” sheet is worth planning your day around.</li>
+    <li>Any time you can instead return during opening hours for only a small extra cost or a slightly earlier start.</li>
+  </ul>
+</ArticleLayout>

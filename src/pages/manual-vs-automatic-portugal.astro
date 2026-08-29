@@ -1,0 +1,105 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import Callout from "../components/Callout.astro";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Manual vs Automatic" },
+];
+
+const toc = [
+  { label: "Which is standard in Portugal?", id: "standard" },
+  { label: "When an automatic is worth it", id: "when-automatic" },
+  { label: "When a manual is fine", id: "when-manual" },
+  { label: "Booking an automatic without surprises", id: "booking" },
+  { label: "At the counter", id: "counter" },
+];
+
+const related = [
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
+  { label: "How to Read Portugal Car Rental Terms", href: "/how-to-read-portugal-car-rental-terms" },
+  { label: "Common Car Rental Mistakes in Portugal", href: "/common-car-rental-mistakes-portugal" },
+  { label: "Practical Guides", href: "/practical-guides" },
+];
+---
+
+<ArticleLayout
+  title="Manual vs Automatic Rental Cars in Portugal | TripAxle"
+  description="Manual cars are the default in Portugal. When paying for an automatic is worth it, when a manual is fine, and how to book an automatic without a surprise at the counter."
+  eyebrow="Practical Guides"
+  summary="Manual is the default here, and automatics cost more and sell out. How to decide which you need and how to lock in an automatic so it is actually waiting for you."
+  updated="2026-04-01"
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+>
+  <QuickAnswer>
+    <p>
+      In Portugal, manual (stick-shift) cars are the default and automatics are a
+      paid upgrade that often sells out in summer. If you cannot comfortably
+      drive a manual on hills, <strong>book an automatic specifically, early, and
+      confirm the transmission on the voucher</strong> — “or similar” car groups
+      can otherwise swap you back to a manual.
+    </p>
+  </QuickAnswer>
+
+  <h2 id="standard">Which is standard in Portugal?</h2>
+  <p>
+    Like most of Europe, Portugal runs mainly on manual cars. The cheapest rates
+    you see advertised are almost always for a manual. Automatics exist at every
+    major company, but they sit in higher car groups, cost noticeably more per
+    day, and are a smaller share of the fleet — so they are the first thing to
+    run out during busy periods, especially in the Algarve in summer.
+  </p>
+
+  <h2 id="when-automatic">When paying for an automatic is worth it</h2>
+  <ul>
+    <li>You have never driven a manual, or have not driven one in years.</li>
+    <li>Your trip involves Lisbon or Porto, where hill starts on steep, busy streets are common.</li>
+    <li>You will be doing a lot of stop-and-go driving or mountain roads (Serra da Estrela, Peneda-Gerês, the Douro).</li>
+    <li>More than one person will drive and not everyone is confident with a clutch.</li>
+    <li>You simply want the trip to feel relaxed rather than like a skills test.</li>
+  </ul>
+
+  <h2 id="when-manual">When a manual is fine</h2>
+  <ul>
+    <li>You drive a manual regularly at home.</li>
+    <li>Your route is mostly motorway and flat regional roads (much of the Alentejo, the Algarve coast road).</li>
+    <li>You want the lowest price and the widest choice of cars.</li>
+  </ul>
+  <p>
+    Portuguese rental cars are overwhelmingly diesel or petrol with a
+    conventional gearbox. If you are used to driving a manual, nothing about the
+    cars themselves will feel unusual.
+  </p>
+
+  <h2 id="booking">Booking an automatic without surprises</h2>
+  <p>
+    The common mistake is assuming a mid-size booking will “probably” be an
+    automatic. It will not. Transmission is tied to the car group, and many
+    groups are listed as a sample model “or similar,” which can mean a manual.
+  </p>
+  <ul>
+    <li>Filter or select specifically for <strong>automatic transmission</strong> when booking.</li>
+    <li>Book as far ahead as you can — automatics are the first upgrade to sell out.</li>
+    <li>Check that the confirmation or voucher states the transmission, not just the car group.</li>
+    <li>If it only says “or similar,” contact the company to confirm an automatic is guaranteed for that rate.</li>
+  </ul>
+
+  <Callout variant="warning">
+    A booking that just says “Group C — VW Golf or similar” does not guarantee an
+    automatic. If the transmission is not written on the voucher, treat it as not
+    guaranteed and confirm in writing before you travel.
+  </Callout>
+
+  <h2 id="counter">At the counter</h2>
+  <p>
+    When you collect the car, check the gearstick before you sign. If you booked
+    and paid for an automatic and are offered a manual, you are entitled to raise
+    it there and then — it is much harder to resolve after you have driven away.
+    If they cannot provide an automatic, ask for the difference to be refunded
+    and get that agreement in writing.
+  </p>
+</ArticleLayout>

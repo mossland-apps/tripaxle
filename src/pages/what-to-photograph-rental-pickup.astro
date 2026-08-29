@@ -1,0 +1,105 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import Callout from "../components/Callout.astro";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "What to Photograph at Pickup" },
+];
+
+const toc = [
+  { label: "Why this matters in Portugal", id: "why" },
+  { label: "The exterior checklist", id: "exterior" },
+  { label: "The interior and extras", id: "interior" },
+  { label: "The paperwork", id: "paperwork" },
+  { label: "At drop-off", id: "dropoff" },
+];
+
+const related = [
+  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance" },
+  { label: "Deposits and Card Requirements", href: "/portugal-car-rental-deposits-and-card-requirements" },
+  { label: "After-Hours Car Rental Returns in Portugal", href: "/after-hours-car-rental-returns-portugal" },
+  { label: "Practical Guides", href: "/practical-guides" },
+];
+---
+
+<ArticleLayout
+  title="What to Photograph When Picking Up a Rental Car in Portugal | TripAxle"
+  description="A photo checklist for rental car pickup in Portugal: which panels, wheels, glass and interior details to record, plus the paperwork shots that protect your deposit."
+  eyebrow="Practical Guides"
+  summary="Five minutes with your phone at pickup is the cheapest damage insurance there is. Exactly what to photograph, and the paperwork shots people forget."
+  updated="2026-03-24"
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+>
+  <QuickAnswer>
+    <p>
+      Before you drive away, take a dated video walk-around plus close-ups of
+      every existing mark, all four wheels, the windscreen, the roof and lower
+      bumpers, the dashboard with the engine on, and the fuel gauge. Then
+      photograph the signed condition report. This is what settles a disputed
+      damage charge weeks later.
+    </p>
+  </QuickAnswer>
+
+  <h2 id="why">Why this matters in Portugal</h2>
+  <p>
+    Portugal is not unusual for rental disputes, but two things make a good photo
+    record worth the effort: deposits and excesses here are often large (see
+    <a href="/portugal-car-rental-insurance">insurance explained</a>), and a fair
+    number of bookings are with off-airport suppliers whose condition checks can
+    be quick and whose damage claims sometimes arrive by email after you have
+    flown home. Your own timestamped photos are the counter-evidence.
+  </p>
+
+  <h2 id="exterior">The exterior checklist</h2>
+  <p>Do a slow video walk-around first, then stills of:</p>
+  <ul>
+    <li>Each of the four corners at an angle, so every panel appears in at least one shot.</li>
+    <li>Every scratch, scuff, dent or chip already on the car — with a second wider shot showing where on the car it is.</li>
+    <li>All four alloy wheels and tyre sidewalls (kerb damage is a common charge).</li>
+    <li>The windscreen and rear glass, straight on, for existing chips or cracks.</li>
+    <li>The roof and the underside of the front and rear bumpers — the panels people never check and companies do.</li>
+    <li>Wing mirrors and light clusters.</li>
+    <li>The number plate visible in at least one exterior shot, to tie the photos to this car.</li>
+  </ul>
+
+  <Callout variant="tip">
+    Make sure your phone camera has date stamps or location on, or take one photo
+    of the day's newspaper / your phone's lock screen clock next to the car.
+    Metadata is good; a visible timestamp is harder to argue with.
+  </Callout>
+
+  <h2 id="interior">The interior and extras</h2>
+  <ul>
+    <li>Dashboard with the engine running — odometer reading, fuel level, and any warning lights.</li>
+    <li>Seats, trim and boot for existing tears, stains or burns.</li>
+    <li>Any child seat you were given, including its condition and that it was actually fitted.</li>
+    <li>The spare wheel or tyre-repair kit and the warning triangle and hi-vis vest (legally required in Portugal) — so you can prove they were or were not present.</li>
+  </ul>
+
+  <h2 id="paperwork">The paperwork</h2>
+  <ul>
+    <li>The signed vehicle condition / check-out report, both sides.</li>
+    <li>The rental agreement page showing the fuel policy, the excess amount, and the deposit taken.</li>
+    <li>The assistance / breakdown phone number.</li>
+    <li>If the check-out sheet marks existing damage with a diagram, photograph it and check it matches what you actually see.</li>
+  </ul>
+  <p>
+    If you spot damage that is not on the sheet, get it added and initialled
+    before you leave. A photo of an un-amended sheet does not help you.
+  </p>
+
+  <h2 id="dropoff">At drop-off</h2>
+  <p>
+    Repeat a shorter version at the end: full walk-around video, wheels, glass,
+    the odometer and fuel gauge, and — if someone inspects the car — a photo of
+    them doing it and of any “no damage” sign-off. For an
+    <a href="/after-hours-car-rental-returns-portugal">after-hours return</a>
+    where no one checks the car, the drop-off photos are the only record that the
+    car came back undamaged, so take them carefully and note the time.
+  </p>
+</ArticleLayout>

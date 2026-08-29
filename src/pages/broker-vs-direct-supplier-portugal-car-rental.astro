@@ -1,0 +1,103 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import Callout from "../components/Callout.astro";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Booking Basics", href: "/booking-basics" },
+  { label: "Broker vs Direct Supplier" },
+];
+
+const toc = [
+  { label: "What each one actually is", id: "definitions" },
+  { label: "Where brokers help", id: "broker-pros" },
+  { label: "Where brokers cause problems", id: "broker-cons" },
+  { label: "Where booking direct helps", id: "direct-pros" },
+  { label: "How to decide", id: "decide" },
+];
+
+const related = [
+  { label: "How to Read Portugal Car Rental Terms", href: "/how-to-read-portugal-car-rental-terms" },
+  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance" },
+  { label: "Common Car Rental Mistakes in Portugal", href: "/common-car-rental-mistakes-portugal" },
+  { label: "Booking Basics", href: "/booking-basics" },
+];
+---
+
+<ArticleLayout
+  title="Broker vs Direct Supplier for Portugal Car Rental | TripAxle"
+  description="The difference between booking a Portugal rental through a broker/aggregator and booking direct with the rental company, and which is better for your trip."
+  eyebrow="Booking Basics"
+  summary="A broker resells someone else's car; a direct booking is with the company that hands you the keys. That difference decides who fixes a problem when one comes up."
+  updated="2026-04-25"
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+>
+  <QuickAnswer>
+    <p>
+      A <strong>broker</strong> (Discover Cars, RentalCars, Holiday Autos, and
+      similar) compares and sells rentals supplied by other companies. Booking
+      <strong>direct</strong> means contracting with the company at the desk.
+      Brokers usually win on price and choice; direct usually wins when something
+      goes wrong, because there is no third party in the middle. For a
+      first Portugal trip with a tight schedule, leaning direct — or using a
+      broker but reading the actual supplier's terms — is the safer call.
+    </p>
+  </QuickAnswer>
+
+  <h2 id="definitions">What each one actually is</h2>
+  <p>
+    <strong>Direct supplier:</strong> you book on the website of Europcar, Sixt,
+    Hertz, Avis, Guerin, a regional company, and so on. Your contract is with
+    them; they hold the deposit, run the counter, and own the customer service.
+  </p>
+  <p>
+    <strong>Broker / aggregator / OTA:</strong> a site that shows many companies'
+    cars side by side and takes your booking, then passes it to whichever
+    supplier fulfilled that rate. You may not even know which supplier you have
+    until the voucher. Your contract is partly with the broker (for the booking
+    and any cover you bought from them) and partly with the supplier (for the
+    car itself).
+  </p>
+
+  <h2 id="broker-pros">Where brokers help</h2>
+  <ul>
+    <li><strong>Price and comparison:</strong> one search across many companies, often with genuinely lower rates.</li>
+    <li><strong>Cheaper excess cover:</strong> broker "full protection" is usually far cheaper than buying SCDW at the desk — though it is normally reimbursement-based (see below and <a href="/portugal-car-rental-insurance">insurance explained</a>).</li>
+    <li><strong>Access to local suppliers</strong> you might not find or trust on your own.</li>
+    <li>Sometimes better cancellation flexibility than a supplier's own prepaid rate.</li>
+  </ul>
+
+  <h2 id="broker-cons">Where brokers cause problems</h2>
+  <ul>
+    <li><strong>Two parties, so buck-passing:</strong> the desk says "talk to the broker," the broker says "talk to the supplier." Disputes take longer.</li>
+    <li><strong>Reimbursement cover:</strong> if you damage the car, the supplier charges your card the full excess and you claim it back from the broker afterwards with photos and paperwork. You are out the money in the meantime.</li>
+    <li><strong>Deposit still applies:</strong> broker cover does not stop the supplier holding a large deposit on a credit card at pickup.</li>
+    <li><strong>Unknown supplier quality:</strong> the cheapest rate is sometimes an off-airport company with slow shuttles or aggressive damage claims.</li>
+    <li><strong>Changes are harder:</strong> amending a name, time, or flight number can mean going through the broker rather than a quick call to the branch.</li>
+  </ul>
+
+  <h2 id="direct-pros">Where booking direct helps</h2>
+  <ul>
+    <li>One company owns the whole experience, so problems are resolved in one conversation.</li>
+    <li>Loyalty programmes, faster desks, and sometimes a waived additional-driver fee.</li>
+    <li>Easier to reach the actual branch about a delay or a change.</li>
+    <li>The terms you read on the site are the terms you get — no surprise third supplier.</li>
+  </ul>
+
+  <Callout variant="tip">
+    A middle path many travellers use: find the best price on a broker to see
+    what is realistic, then check the same car and dates on that supplier's own
+    site. If direct is within a small margin, book direct for the simpler support
+    path.
+  </Callout>
+
+  <h2 id="decide">How to decide</h2>
+  <ul>
+    <li><strong>Lean direct</strong> if your itinerary is tight, you are arriving late, you want the simplest possible support, or you are renting a higher-value car.</li>
+    <li><strong>A broker is fine</strong> if you are price-led, flexible on timing, comfortable handling a reimbursement claim, and you take a minute to check which supplier and terms you are actually getting.</li>
+    <li>Either way, read the fulfilling supplier's rental conditions before you pay — that is covered in <a href="/how-to-read-portugal-car-rental-terms">how to read the terms</a>.</li>
+  </ul>
+</ArticleLayout>

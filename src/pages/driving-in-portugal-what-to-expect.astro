@@ -1,0 +1,123 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import Callout from "../components/Callout.astro";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Driving: What to Expect" },
+];
+
+const toc = [
+  { label: "The overall picture", id: "picture" },
+  { label: "Road types and signage", id: "roads" },
+  { label: "City driving", id: "city" },
+  { label: "Tolls", id: "tolls" },
+  { label: "Parking", id: "parking" },
+  { label: "Fuel and the car", id: "fuel" },
+  { label: "Rules and enforcement", id: "rules" },
+];
+
+const related = [
+  { label: "Do You Need a Car in Portugal?", href: "/do-you-need-a-car-in-portugal" },
+  { label: "Portugal Toll Roads for Rental Cars", href: "/portugal-toll-roads-for-rental-cars" },
+  { label: "Gasóleo vs Gasolina in Portugal", href: "/gasoleo-vs-gasolina-portugal" },
+  { label: "Manual vs Automatic Rental Cars in Portugal", href: "/manual-vs-automatic-portugal" },
+];
+---
+
+<ArticleLayout
+  title="Driving in Portugal: What to Expect | TripAxle"
+  description="What driving in Portugal is actually like for visitors: road types and signage, city driving, the toll systems, parking, fuel labels, and how the rules are enforced."
+  eyebrow="Portugal Guide"
+  summary="Once you leave the big-city centres, driving in Portugal is straightforward. The adjustments are the tolls, the manual gearboxes, and historic-town parking."
+  updated="2026-07-01"
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+>
+  <QuickAnswer>
+    <p>
+      For most visitors, driving in Portugal is easy on motorways and regional
+      roads and stressful only in central Lisbon and Porto. The three things to
+      prepare for: <strong>the toll system</strong> (booths <em>and</em>
+      camera-only gantries), <strong>manual gearboxes as standard</strong>, and
+      <strong>tight, paid parking in historic towns</strong>.
+    </p>
+  </QuickAnswer>
+
+  <h2 id="picture">The overall picture</h2>
+  <p>
+    Portugal drives on the right, road quality is good, and the motorway network
+    is modern and quiet outside rush hour. Distances are short — Lisbon to Porto
+    is under three hours, Lisbon to Faro about two and a half. The difficulty is
+    almost never the open road; it is a handful of country-specific quirks and
+    the contrast between calm regional driving and dense historic cities.
+  </p>
+
+  <h2 id="roads">Road types and signage</h2>
+  <ul>
+    <li><strong>A-roads (autoestradas):</strong> motorways, blue signs, prefix “A”. Fast and well maintained. Most are tolled (see below).</li>
+    <li><strong>IC and IP roads:</strong> main national routes, often dual carriageway, usually free, sometimes as quick as the motorway.</li>
+    <li><strong>N-roads (estradas nacionais):</strong> single-carriageway national roads, slower, scenic, pass through towns. The N222 and N2 are destinations in themselves.</li>
+    <li><strong>M-roads:</strong> local municipal roads; fine but narrow in rural areas.</li>
+    <li>Signage uses EU pictograms; destination signs favour the next big town, so know your direction (north/south/Lisboa/Porto) as well as your final stop.</li>
+  </ul>
+
+  <h2 id="city">City driving</h2>
+  <p>
+    Lisbon and Porto are the hard part: steep cobbled hills, trams sharing narrow
+    lanes, one-way systems, assertive local driving, and scooters filtering
+    past. It is manageable but not relaxing. The <strong>Segunda Circular</strong>
+    and bridges in Lisbon, and the tight streets of Porto's Ribeira, catch
+    visitors out. Wherever possible, avoid picking up or dropping off in the city
+    centre — use an airport or edge-of-town branch and start driving in the
+    direction you are actually heading.
+  </p>
+
+  <Callout variant="tip">
+    Set your navigation destination before you pull out of the rental bay. The
+    first few minutes near Lisbon Airport in particular demand quick lane
+    choices, and a wrong one commits you to a bridge or a ring road for several
+    kilometres.
+  </Callout>
+
+  <h2 id="tolls">Tolls</h2>
+  <p>
+    Portugal runs <strong>two toll systems</strong>, sometimes on the same trip:
+    traditional plazas where you take a ticket and pay a machine or attendant,
+    and <strong>electronic-only roads</strong> with overhead camera gantries and
+    no way to pay at the roadside. In a rental car the charges are tied to the
+    plate and billed by the rental company, often with an admin fee. Confirm at
+    pickup whether the car has an active Via Verde transponder and how you will
+    be charged. Full detail: <a href="/portugal-toll-roads-for-rental-cars">toll
+    roads for rental cars</a>.
+  </p>
+
+  <h2 id="parking">Parking</h2>
+  <ul>
+    <li><strong>Blue lines</strong> mean paid parking — pay at the meter (“parquímetro”) or by app; enforcement is real.</li>
+    <li>Historic centres are often <strong>resident-permit only</strong> or pedestrianised; look for an edge-of-centre car park instead.</li>
+    <li>Underground car parks are common in cities and worth the fee for peace of mind.</li>
+    <li>“Arrumadores” — informal attendants — may wave you into a public space and expect a euro or two; it is customary but not obligatory.</li>
+    <li>Confirm your hotel has parking before you rely on it; many small-town guesthouses do not.</li>
+  </ul>
+
+  <h2 id="fuel">Fuel and the car</h2>
+  <ul>
+    <li><strong>Gasóleo = diesel, Gasolina = petrol.</strong> Most rental cars are diesel; check before filling. See <a href="/gasoleo-vs-gasolina-portugal">gasóleo vs gasolina</a>.</li>
+    <li><strong>Manual is standard.</strong> If you need an automatic, book it specifically — see <a href="/manual-vs-automatic-portugal">manual vs automatic</a>.</li>
+    <li>Stations are mostly self-service; pay at the pump or inside by pump number.</li>
+    <li>Every car must carry a <strong>reflective vest and warning triangle</strong>; check they are present at pickup.</li>
+  </ul>
+
+  <h2 id="rules">Rules and enforcement</h2>
+  <ul>
+    <li><strong>Drink-driving limit is 0.5 g/l</strong> (0.2 for drivers licensed under three years). Enforced with roadside checks.</li>
+    <li>Seatbelts for everyone; children under 135 cm need an appropriate restraint (<a href="/child-seats-and-extras-portugal">child seats</a>).</li>
+    <li>Phone use requires hands-free.</li>
+    <li>Speed limits: 120 on motorways, 90–100 on open roads, 50 in towns, sometimes 30 on narrow streets. Fixed and mobile cameras are common.</li>
+    <li>Non-EU licence holders should carry an International Driving Permit alongside the home licence.</li>
+    <li>Fines for non-residents are often expected to be paid on the spot; the rental company will pass on any camera fines plus a handling charge.</li>
+  </ul>
+</ArticleLayout>

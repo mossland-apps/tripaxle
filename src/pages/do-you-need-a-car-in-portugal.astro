@@ -1,0 +1,104 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import Callout from "../components/Callout.astro";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Do You Need a Car?" },
+];
+
+const toc = [
+  { label: "The one-question test", id: "test" },
+  { label: "Trips where you don't need a car", id: "no-car" },
+  { label: "Trips where a car is worth it", id: "car" },
+  { label: "The in-between case: rent partway", id: "partway" },
+  { label: "What a car costs beyond the rental", id: "true-cost" },
+];
+
+const related = [
+  { label: "Where a Rental Car Is Most Useful in Portugal", href: "/where-a-rental-car-is-most-useful-in-portugal" },
+  { label: "Driving in Portugal: What to Expect", href: "/driving-in-portugal-what-to-expect" },
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
+  { label: "Airport Rental Guides", href: "/airport-rental-guides" },
+];
+---
+
+<ArticleLayout
+  title="Do You Need a Car in Portugal? | TripAxle"
+  description="A decision guide to whether you need a rental car in Portugal, by trip type — city breaks, the Algarve, the Douro, multi-stop routes — plus the real cost of having one."
+  eyebrow="Portugal Guide"
+  summary="Whether a rental car helps depends on how your trip is shaped, not just where you are going. A short test, worked through common Portugal itineraries."
+  updated="2026-07-01"
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+>
+  <QuickAnswer>
+    <p>
+      You do <strong>not</strong> need a car for a trip built around Lisbon,
+      Porto, and the train between them. You <strong>do</strong> want one for the
+      Algarve beaches, the Douro, the Alentejo, or any route that strings
+      together smaller towns. For a mix — a few city days, then a region — the
+      usual answer is to <strong>rent only for the second part</strong>.
+    </p>
+  </QuickAnswer>
+
+  <h2 id="test">The one-question test</h2>
+  <p>
+    Ask: <em>on how many days of this trip would a car actually be moving?</em>
+  </p>
+  <ul>
+    <li><strong>Most days</strong> — a road-trip shape, changing base often or exploring a rural region. Rent.</li>
+    <li><strong>A day or two</strong> — mostly one or two city bases with the odd excursion. Rent for those days only, or use day tours, trains, and rideshare.</li>
+    <li><strong>Almost none</strong> — city-centred, everything walkable or on transit. Skip it; a parked car is a daily cost and a parking search.</li>
+  </ul>
+
+  <h2 id="no-car">Trips where you don't need a car</h2>
+  <ul>
+    <li><strong>Lisbon + Porto by rail.</strong> Fast trains link them in under three hours; both cities are walkable with metro, trams, and cheap rideshare. Driving in either is stressful and parking is expensive.</li>
+    <li><strong>A single-city break</strong> (just Lisbon, just Porto, just one Algarve town you can walk).</li>
+    <li><strong>City + one or two rail day trips</strong> — Sintra and Cascais from Lisbon, Aveiro or Guimarães from Porto, all reachable by train or organised tour.</li>
+    <li><strong>A wine-tasting trip</strong> where you specifically do not want a designated driver — the Douro has train-plus-transfer and small-group tour options.</li>
+  </ul>
+
+  <h2 id="car">Trips where a car is worth it</h2>
+  <ul>
+    <li><strong>Algarve beyond one resort.</strong> Beach-hopping, hidden coves, the west coast near Sagres and Aljezur, inland Monchique or Silves — buses are sparse and slow.</li>
+    <li><strong>Douro Valley in depth.</strong> The hillside quintas and miradouros sit well above the rail line; the N222 drive is part of the point.</li>
+    <li><strong>Alentejo.</strong> Marvão, Monsaraz, Évora's surroundings, the quiet coast — this region barely functions for a visitor without a car.</li>
+    <li><strong>Multi-stop routes</strong> like Óbidos–Nazaré–Tomar, or Lisbon down through the Alentejo to the Algarve, where each hop by bus means backtracking.</li>
+    <li><strong>Families or groups with luggage, beach gear, or child seats</strong>, where door-to-door matters.</li>
+  </ul>
+
+  <h2 id="partway">The in-between case: rent partway</h2>
+  <p>
+    The most common Portugal trip is a hybrid: a few days in Lisbon or Porto,
+    then a region. The efficient version is to spend the city days car-free and
+    pick the car up <em>on the day you leave the city</em> — from a downtown
+    office or on your way past the airport — then drop it before your final city
+    stop or at the departure airport. You avoid paying for a car to sit idle and
+    avoid city-centre driving on both ends.
+  </p>
+  <Callout variant="tip">
+    Collecting a car at the airport just to park it near your Lisbon hotel for
+    three nights is the classic wrong move — it adds parking fees, city driving,
+    and rental days for no benefit. Time the rental to the driving.
+  </Callout>
+
+  <h2 id="true-cost">What a car costs beyond the rental</h2>
+  <p>When you compare “car” against “no car,” count the whole picture:</p>
+  <ul>
+    <li>The daily rate <em>plus</em> excess-reduction cover if you want it.</li>
+    <li>Fuel, and tolls (Portugal's mix of booths and electronic gantries — see <a href="/portugal-toll-roads-for-rental-cars">toll roads</a>).</li>
+    <li>Paid parking at hotels and in towns; some historic centres are permit-only.</li>
+    <li>The deposit hold on your card for the trip.</li>
+    <li>Time: collection, inspection, and return can each take the better part of an hour.</li>
+  </ul>
+  <p>
+    Against that, a car buys flexibility and reach. For the right itinerary it is
+    easily worth it; for a city trip it rarely is. If you have decided a car
+    helps, <a href="/where-a-rental-car-is-most-useful-in-portugal">where it is
+    most useful</a> goes region by region.
+  </p>
+</ArticleLayout>

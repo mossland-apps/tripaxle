@@ -1,0 +1,106 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import Callout from "../components/Callout.astro";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Child Seats & Extras" },
+];
+
+const toc = [
+  { label: "Portugal's child-seat law", id: "law" },
+  { label: "Rent a seat or bring your own?", id: "rent-or-bring" },
+  { label: "Other common extras", id: "extras" },
+  { label: "How extras are priced", id: "pricing" },
+  { label: "At the counter", id: "counter" },
+];
+
+const related = [
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
+  { label: "How to Read Portugal Car Rental Terms", href: "/how-to-read-portugal-car-rental-terms" },
+  { label: "Common Car Rental Mistakes in Portugal", href: "/common-car-rental-mistakes-portugal" },
+  { label: "Practical Guides", href: "/practical-guides" },
+];
+---
+
+<ArticleLayout
+  title="Child Seats and Extras for Rental Cars in Portugal | TripAxle"
+  description="Portugal's child-seat rules, whether to rent a seat or bring your own, and how add-ons like extra drivers, GPS, and winter/roof equipment are really priced."
+  eyebrow="Practical Guides"
+  summary="What Portuguese law requires for children in cars, the rent-versus-bring trade-off, and how the other add-ons are priced so the cheap headline rate does not creep."
+  updated="2026-04-02"
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+>
+  <QuickAnswer>
+    <p>
+      Children under 135 cm (and under 12) must use an appropriate restraint in
+      Portugal, and under-3s effectively need a proper child seat. Rental seats
+      are convenient but priced <strong>per day with a cap</strong> and cannot be
+      guaranteed to a specific model — for long trips or specific needs, bringing
+      your own (airlines carry it free) is often cheaper and safer.
+    </p>
+  </QuickAnswer>
+
+  <h2 id="law">Portugal's child-seat law</h2>
+  <ul>
+    <li>Children <strong>under 135 cm tall and under 12 years</strong> must travel in a certified restraint suited to their size and weight.</li>
+    <li>Children <strong>under 3</strong> must use a child restraint system and may not travel in a car without one; in practice this means a rear-facing or forward-facing seat.</li>
+    <li>Under-3s in a rear-facing seat in the front are only allowed if the passenger airbag is deactivated.</li>
+    <li>Rear seats are required for younger children where the car has them.</li>
+    <li>Fines apply to the driver, and an improperly restrained child can also affect an insurance claim after an incident.</li>
+  </ul>
+  <p>These rules apply to rental cars exactly as they do to private cars.</p>
+
+  <h2 id="rent-or-bring">Rent a seat or bring your own?</h2>
+  <p><strong>Renting the seat</strong></p>
+  <ul>
+    <li>Nothing to carry through the airport.</li>
+    <li>Charged per day, usually with a maximum (often around a week's worth), so a two-week trip is not double a one-week trip.</li>
+    <li>You get "a" seat of the right category, not a chosen brand; condition and cleanliness vary, and fitment is your responsibility.</li>
+    <li>Reserve it in advance — stock is limited, especially infant seats in summer.</li>
+  </ul>
+  <p><strong>Bringing your own</strong></p>
+  <ul>
+    <li>Most airlines carry a child seat and/or a folding buggy free, in addition to normal baggage.</li>
+    <li>You know the model, its history, and how to fit it.</li>
+    <li>Cheaper across a longer trip, and no risk of the branch being out of stock.</li>
+    <li>Downside is lugging it through transfers; a travel-friendly or backless booster is easiest.</li>
+  </ul>
+
+  <Callout variant="tip">
+    Whichever you choose, photograph the seat and that it is correctly fitted at
+    pickup — see the <a href="/what-to-photograph-rental-pickup">pickup photo
+    checklist</a>. If you rent one and it arrives damaged or filthy, that is the
+    moment to ask for a replacement.
+  </Callout>
+
+  <h2 id="extras">Other common extras</h2>
+  <ul>
+    <li><strong>Additional driver:</strong> usually a per-day fee; sometimes free for a spouse/partner on certain rates or with certain memberships. Everyone who drives must be on the contract or the insurance is void for them.</li>
+    <li><strong>Young-driver / senior surcharges:</strong> drivers under about 25 (sometimes 21) and occasionally over 70–75 pay a daily surcharge that cannot be waived.</li>
+    <li><strong>GPS unit:</strong> rarely worth it — a phone with offline maps does the same job. Decline unless you have no data plan.</li>
+    <li><strong>Toll transponder (Via Verde):</strong> often a small daily fee plus the tolls; see <a href="/portugal-toll-roads-for-rental-cars">toll roads for rental cars</a>.</li>
+    <li><strong>Roof box / ski equipment / snow chains:</strong> seasonal and region-specific (Serra da Estrela); reserve ahead.</li>
+    <li><strong>Excess-reduction cover:</strong> a big-ticket "extra" covered separately in <a href="/portugal-car-rental-insurance">insurance explained</a>.</li>
+  </ul>
+
+  <h2 id="pricing">How extras are priced</h2>
+  <p>
+    Most extras are quoted per day, and several of them stack, so a cheap base
+    rate with an extra driver, a child seat, GPS and a transponder can easily
+    double at the counter. Add the extras you actually need when you book so the
+    real total is visible while you are still comparing offers, rather than
+    discovering it at pickup.
+  </p>
+
+  <h2 id="counter">At the counter</h2>
+  <ul>
+    <li>Check that only the extras you agreed to are on the contract before you sign — unrequested cover and seats are a common add.</li>
+    <li>Confirm the per-day caps for anything long-term.</li>
+    <li>If you pre-paid an extra online, have that confirmation ready so you are not charged twice.</li>
+  </ul>
+</ArticleLayout>

@@ -1,0 +1,104 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import Callout from "../components/Callout.astro";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Booking Basics", href: "/booking-basics" },
+  { label: "How to Read the Terms" },
+];
+
+const toc = [
+  { label: "Read these before you pay", id: "before-you-pay" },
+  { label: "The excess and what it excludes", id: "excess" },
+  { label: "Deposit and card rules", id: "deposit" },
+  { label: "Fuel policy", id: "fuel" },
+  { label: "Mileage, area, and driver rules", id: "usage" },
+  { label: "Cancellation and “or similar”", id: "cancellation" },
+];
+
+const related = [
+  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance" },
+  { label: "Deposits and Card Requirements", href: "/portugal-car-rental-deposits-and-card-requirements" },
+  { label: "Common Car Rental Mistakes in Portugal", href: "/common-car-rental-mistakes-portugal" },
+  { label: "Booking Basics", href: "/booking-basics" },
+];
+---
+
+<ArticleLayout
+  title="How to Read Portugal Car Rental Terms Before Booking | TripAxle"
+  description="A plain-English checklist for the fine print on a Portugal car rental: excess and exclusions, deposit and card rules, fuel policy, area limits, and cancellation."
+  eyebrow="Booking Basics"
+  summary="The headline price hides most of what decides your trip. The specific lines to find in the rental conditions before you commit — and what each one really means."
+  updated="2026-04-25"
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+>
+  <QuickAnswer>
+    <p>
+      Before you pay, find six things in the rental conditions: the
+      <strong>excess amount and what it excludes</strong>, the
+      <strong>deposit and which card is required</strong>, the
+      <strong>fuel policy</strong>, any <strong>mileage or geographic limits</strong>,
+      the <strong>driver age/licence rules</strong>, and the
+      <strong>cancellation terms</strong>. If any of these is vague or missing,
+      treat it as unfavourable until the company confirms otherwise in writing.
+    </p>
+  </QuickAnswer>
+
+  <h2 id="before-you-pay">Read these before you pay</h2>
+  <p>
+    On a broker the terms are often behind a “rental conditions” or “important
+    information” link for the specific supplier; on a direct booking they are in
+    the terms and the rate details. Open them. The price comparison is
+    meaningless until you have, because two rates that look €20 apart can be
+    €1,500 apart once the excess and fuel policy differ.
+  </p>
+
+  <h2 id="excess">The excess and what it excludes</h2>
+  <ul>
+    <li><strong>Excess / “franquia”:</strong> the amount you still pay for damage or theft even with the standard waiver. In Portugal often €1,000–€2,500.</li>
+    <li><strong>Exclusions:</strong> look specifically for tyres, wheels, glass/windscreen, roof, underbody, mirrors, interior, keys, and “negligence.” Many of these are not covered even by desk “full” cover.</li>
+    <li><strong>Excess reduction:</strong> whether a zero/low-excess option is offered, at what daily price, and whether it removes the exclusions too.</li>
+  </ul>
+  <p>Full detail in <a href="/portugal-car-rental-insurance">insurance explained</a>.</p>
+
+  <h2 id="deposit">Deposit and card rules</h2>
+  <ul>
+    <li>The deposit amount or range, and whether buying more cover reduces it.</li>
+    <li>Whether a <strong>credit card in the main driver's name</strong> is mandatory, or a debit card is accepted for the deposit (not just for payment).</li>
+    <li>Whether prepaid/virtual cards are excluded.</li>
+  </ul>
+  <p>See <a href="/portugal-car-rental-deposits-and-card-requirements">deposits and card requirements</a> and <a href="/portugal-car-rental-with-debit">renting with a debit card</a>.</p>
+
+  <h2 id="fuel">Fuel policy</h2>
+  <ul>
+    <li><strong>Full-to-full:</strong> collect full, return full, keep the receipt. Usually best value.</li>
+    <li><strong>Full-to-empty / prepaid tank:</strong> you buy a tank up front, no refund for what is left. Often poor value.</li>
+    <li>Watch for a separate <strong>refuelling or service fee</strong> from off-airport suppliers.</li>
+  </ul>
+
+  <h2 id="usage">Mileage, area, and driver rules</h2>
+  <ul>
+    <li><strong>Mileage:</strong> most Portugal rentals are unlimited, but some long or one-way rentals cap it — check the daily allowance and the per-km overage.</li>
+    <li><strong>Geographic limits:</strong> whether Spain is allowed and any cross-border fee; other countries are usually excluded. See <a href="/portugal-rental-car-into-spain">driving into Spain</a>.</li>
+    <li><strong>Drivers:</strong> minimum age, young/senior surcharge, minimum licence-held period (often 1–3 years), and that every driver must be listed.</li>
+    <li><strong>Licence:</strong> non-EU licences may need an International Driving Permit alongside the home licence — confirm for your country.</li>
+  </ul>
+
+  <Callout variant="warning">
+    “Or similar” describes the car group, not a guarantee of a model — and, more
+    importantly, not a guarantee of transmission. If you need an automatic, the
+    voucher must say automatic. See
+    <a href="/manual-vs-automatic-portugal">manual vs automatic</a>.
+  </Callout>
+
+  <h2 id="cancellation">Cancellation and “or similar”</h2>
+  <ul>
+    <li>Whether the rate is <strong>free-cancellation</strong> or <strong>prepaid non-refundable</strong>, and the cut-off time.</li>
+    <li>The <strong>no-show</strong> policy and the <strong>grace period</strong> for a late pickup — critical if your flight might be delayed (<a href="/flight-late-for-car-rental-pickup">more here</a>).</li>
+    <li>Amendment fees for changing the name, time, or location.</li>
+  </ul>
+</ArticleLayout>

@@ -1,0 +1,110 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import Callout from "../components/Callout.astro";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Gasóleo vs Gasolina" },
+];
+
+const toc = [
+  { label: "The two words that matter", id: "words" },
+  { label: "How to know which your car takes", id: "which" },
+  { label: "At the fuel station", id: "station" },
+  { label: "Fuel policies and returning the car", id: "policy" },
+  { label: "If you put in the wrong fuel", id: "misfuel" },
+];
+
+const related = [
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
+  { label: "Manual vs Automatic Rental Cars in Portugal", href: "/manual-vs-automatic-portugal" },
+  { label: "What to Photograph When Picking Up a Rental Car", href: "/what-to-photograph-rental-pickup" },
+  { label: "Practical Guides", href: "/practical-guides" },
+];
+---
+
+<ArticleLayout
+  title="Gasóleo vs Gasolina: Fuelling a Rental Car in Portugal | TripAxle"
+  description="Gasóleo is diesel and gasolina is petrol. How to tell which your rental car takes, what the pump colours mean, fuel policies, and what to do if you misfuel."
+  eyebrow="Practical Guides"
+  summary="Gasóleo means diesel; gasolina means petrol. A quick guide to reading the pumps, confirming what your car takes, and handling the fuel policy on your rental."
+  updated="2026-03-15"
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+>
+  <QuickAnswer>
+    <p>
+      <strong>Gasóleo = diesel. Gasolina = petrol (gasoline).</strong> Most
+      Portuguese rental cars are diesel, but never assume — check the fuel flap,
+      the key tag, or ask at the desk, and confirm before the nozzle goes in.
+      Diesel pumps are usually black; petrol pumps green (95) or often a darker
+      shade for 98.
+    </p>
+  </QuickAnswer>
+
+  <h2 id="words">The two words that matter</h2>
+  <p>
+    Portuguese fuel stations label pumps in Portuguese. The only two words you
+    strictly need:
+  </p>
+  <ul>
+    <li><strong>Gasóleo</strong> — diesel. Sometimes shown as “Gasóleo simples,” “Gasóleo especial,” or a branded premium diesel.</li>
+    <li><strong>Gasolina</strong> — petrol. Usually “Gasolina 95” and “Gasolina 98,” with 95 the standard grade.</li>
+  </ul>
+  <p>
+    The trap for English speakers is that “gasolina” looks and sounds like
+    “gasoline,” so a diesel car can be misfuelled by reflex. If your car is
+    diesel, the word you want is the one that looks less familiar: gasóleo.
+  </p>
+
+  <h2 id="which">How to know which your car takes</h2>
+  <ul>
+    <li>Look inside the fuel filler flap — many cars have a “Diesel only” / “Gasóleo” sticker there.</li>
+    <li>Check the key fob tag or the rental paperwork; some companies write the fuel type on it.</li>
+    <li>Ask at the desk when you collect the car and note the answer.</li>
+    <li>A diesel filler neck is wider; a modern petrol car often has a smaller opening with a green ring.</li>
+  </ul>
+
+  <Callout variant="tip">
+    Take a photo of the open fuel flap when you pick the car up. If there is a
+    fuel-type label there, you now have it on your phone for every fill-up.
+  </Callout>
+
+  <h2 id="station">At the fuel station</h2>
+  <p>
+    Most stations on motorways and in towns are self-service (“self” or
+    “automática”). Pull up, note the pump number, and either pay at the pump by
+    card or pay the cashier inside afterwards by quoting the pump number.
+    Attended stations exist in rural areas and simply add a small service
+    premium.
+  </p>
+  <ul>
+    <li>Diesel nozzles/handles are commonly black; petrol 95 is commonly green.</li>
+    <li>Colours are a hint, not a guarantee — always read the word on the pump.</li>
+    <li>“Aditivado” or premium grades are fine to use but cost more; the standard grade is all a rental car needs.</li>
+  </ul>
+
+  <h2 id="policy">Fuel policies and returning the car</h2>
+  <ul>
+    <li><strong>Full-to-full</strong> (most common and usually best value): you get a full tank and return it full. Keep the receipt from a station near the drop-off.</li>
+    <li><strong>Full-to-empty / pre-purchase</strong>: you pay for a tank up front and return it as empty as you dare, with no refund for what is left. Often poor value unless you will genuinely run it down.</li>
+    <li>Some off-airport suppliers charge a refuelling or “service” fee on top — check the terms.</li>
+  </ul>
+  <p>
+    For a full-to-full rental, fill up within a few kilometres of the return
+    location and keep the timestamped receipt in case of a dispute.
+  </p>
+
+  <h2 id="misfuel">If you put in the wrong fuel</h2>
+  <p>
+    <strong>Do not start the engine.</strong> Starting it circulates the wrong
+    fuel through the system and turns a drain-and-flush into a major repair.
+    Leave the car where it is, call the rental company's assistance number on
+    your paperwork, and tell them what happened. Misfuelling is usually treated
+    as driver responsibility, so the cost is likely yours, but it is far smaller
+    if the engine never ran.
+  </p>
+</ArticleLayout>

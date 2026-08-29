@@ -1,0 +1,97 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import Callout from "../components/Callout.astro";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Late Flight for Pickup" },
+];
+
+const toc = [
+  { label: "Will they hold the car?", id: "hold" },
+  { label: "Airport bookings vs off-airport", id: "airport-vs-off" },
+  { label: "What to do while you are still delayed", id: "in-transit" },
+  { label: "If the desk is closed when you land", id: "desk-closed" },
+  { label: "Booking to reduce the risk", id: "booking" },
+];
+
+const related = [
+  { label: "Lisbon Airport Car Rental Guide", href: "/lisbon-airport-car-rental" },
+  { label: "After-Hours Car Rental Returns in Portugal", href: "/after-hours-car-rental-returns-portugal" },
+  { label: "How to Read Portugal Car Rental Terms", href: "/how-to-read-portugal-car-rental-terms" },
+  { label: "Practical Guides", href: "/practical-guides" },
+];
+---
+
+<ArticleLayout
+  title="What Happens if Your Flight Is Late for Car Rental Pickup? | TripAxle"
+  description="How rental companies in Portugal handle delayed arrivals: flight-tracked airport desks, grace periods, closed off-airport branches, and how to book to reduce the risk."
+  eyebrow="Practical Guides"
+  summary="Airport rental desks usually track your flight and hold the car. Off-airport branches with fixed hours are where a late arrival can actually cost you the booking."
+  updated="2026-03-24"
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+>
+  <QuickAnswer>
+    <p>
+      If you booked with an <strong>in-terminal desk at Lisbon, Porto, or
+      Faro</strong>, they normally track the flight number on your reservation
+      and hold the car — just go to the desk when you land. The real risk is an
+      <strong>off-airport branch with fixed closing hours</strong>: if you land
+      after it closes, you may lose the car for the night. Call ahead the moment
+      you know you are delayed.
+    </p>
+  </QuickAnswer>
+
+  <h2 id="hold">Will they hold the car?</h2>
+  <p>
+    Most major companies ask for your flight number precisely so they can check
+    arrivals. A delayed inbound flight is the routine case, not an emergency, and
+    the car is normally still there when you reach the desk. Where you can run
+    into trouble is a very long delay that pushes you past the desk's own closing
+    time, or a booking where you never provided a flight number.
+  </p>
+
+  <h2 id="airport-vs-off">Airport bookings vs off-airport</h2>
+  <ul>
+    <li><strong>In-terminal desks</strong> at LIS, OPO and FAO keep long hours (often to around midnight or 01:00) and flight-track. A delay of an hour or two is a non-issue.</li>
+    <li><strong>Off-airport / shuttle branches</strong> around Prior Velho (Lisbon), Perafita (Porto) or near Faro often have firm opening hours and smaller teams. If the shuttle stops running or the branch closes, there may be no one to hand you a car until the morning.</li>
+    <li>A "meet and greet" booking depends on a person coming to meet you — always call the number on the voucher if you are late.</li>
+  </ul>
+
+  <h2 id="in-transit">What to do while you are still delayed</h2>
+  <ul>
+    <li>As soon as a delay is confirmed, message or call the rental company with your booking reference and new arrival time.</li>
+    <li>Check the branch's closing time on your voucher against your revised landing time.</li>
+    <li>If you will miss the closing time, ask directly: can they wait, leave the car for a later collection, or move the pickup to tomorrow morning with no penalty?</li>
+    <li>Keep screenshots of the flight delay and of any message you send — useful if you later dispute a no-show charge.</li>
+  </ul>
+
+  <Callout variant="warning">
+    A "no-show" is treated very differently from a "late arrival." If you simply
+    do not turn up and do not contact them, a prepaid rate is often
+    non-refundable and the whole booking can be cancelled. One phone call usually
+    prevents that.
+  </Callout>
+
+  <h2 id="desk-closed">If the desk is closed when you land</h2>
+  <p>
+    First, check whether another desk from the same company or its partner brands
+    is still open — at airports, several brands often share a counter. If nothing
+    is open, contact the company's after-hours or customer line, arrange a
+    morning pickup, and keep your delay evidence. You may need a taxi or one
+    hotel night in the meantime; keep those receipts, as some travel insurance
+    policies cover missed-connection-type costs caused by the airline's delay.
+  </p>
+
+  <h2 id="booking">Booking to reduce the risk</h2>
+  <ul>
+    <li>Always enter your flight number on the reservation.</li>
+    <li>For late-evening arrivals, prefer an in-terminal desk over an off-airport branch, even at a slightly higher price.</li>
+    <li>Check the branch's stated hours before booking and compare them with your scheduled landing time plus a couple of hours' buffer.</li>
+    <li>Favour companies with 24-hour phone support for anything landing after 22:00.</li>
+  </ul>
+</ArticleLayout>

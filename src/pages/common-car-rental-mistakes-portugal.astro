@@ -1,0 +1,88 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import Callout from "../components/Callout.astro";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Booking Basics", href: "/booking-basics" },
+  { label: "Common Mistakes" },
+];
+
+const toc = [
+  { label: "Booking mistakes", id: "booking" },
+  { label: "Pickup mistakes", id: "pickup" },
+  { label: "On-the-road mistakes", id: "road" },
+  { label: "Return mistakes", id: "return" },
+];
+
+const related = [
+  { label: "How to Read Portugal Car Rental Terms", href: "/how-to-read-portugal-car-rental-terms" },
+  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance" },
+  { label: "Portugal Toll Roads for Rental Cars", href: "/portugal-toll-roads-for-rental-cars" },
+  { label: "Booking Basics", href: "/booking-basics" },
+];
+---
+
+<ArticleLayout
+  title="Common Car Rental Mistakes in Portugal | TripAxle"
+  description="The rental mistakes travelers make most often in Portugal — at booking, pickup, on the road, and at return — and the simple checks that avoid each one."
+  eyebrow="Booking Basics"
+  summary="Almost every expensive rental surprise in Portugal traces back to a handful of avoidable mistakes. Here they are, grouped by when they happen."
+  updated="2026-04-25"
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+>
+  <QuickAnswer>
+    <p>
+      The big ones: booking a car for a city-only trip, assuming a mid-size
+      booking is automatic, not checking which card the deposit needs, skipping
+      the pickup photos, misunderstanding the tolls, and doing an unchecked
+      after-hours return. None of them cost anything to avoid.
+    </p>
+  </QuickAnswer>
+
+  <h2 id="booking">Booking mistakes</h2>
+  <ul>
+    <li><strong>Renting for a city-only trip.</strong> If your days are in central Lisbon or Porto, a car is mostly a parking problem. Decide with the <a href="/portugal-guide">Portugal car rental guide</a> first.</li>
+    <li><strong>Assuming automatic.</strong> Manual is the default; automatics are a paid upgrade that sells out. The voucher must say automatic. See <a href="/manual-vs-automatic-portugal">manual vs automatic</a>.</li>
+    <li><strong>Comparing headline prices only.</strong> Two rates can look €20 apart and be €1,500 apart once the excess and fuel policy differ. Read <a href="/how-to-read-portugal-car-rental-terms">the terms</a>.</li>
+    <li><strong>Not entering a flight number.</strong> It is how the desk knows to hold your car if you land late.</li>
+    <li><strong>Booking the cheapest off-airport supplier blind.</strong> Check the shuttle arrangement and the supplier's reputation for damage claims.</li>
+    <li><strong>Ignoring the deposit.</strong> A prepaid car can still fail at pickup without the right <a href="/portugal-car-rental-deposits-and-card-requirements">card for the deposit</a>.</li>
+  </ul>
+
+  <h2 id="pickup">Pickup mistakes</h2>
+  <ul>
+    <li><strong>Not photographing the car.</strong> Five minutes of video and stills is the only defence against a damage claim by email weeks later. Use the <a href="/what-to-photograph-rental-pickup">pickup checklist</a>.</li>
+    <li><strong>Signing a condition sheet that does not match the car.</strong> Get new marks added and initialled before you leave.</li>
+    <li><strong>Accepting extras you did not ask for.</strong> Unrequested cover and a GPS unit are commonly added — check the contract line by line.</li>
+    <li><strong>Not confirming the toll setup.</strong> Ask whether the car has an active Via Verde device and how tolls are billed. See <a href="/portugal-toll-roads-for-rental-cars">toll roads</a>.</li>
+    <li><strong>Not checking the fuel type.</strong> Gasóleo is diesel, gasolina is petrol — <a href="/gasoleo-vs-gasolina-portugal">details here</a>.</li>
+  </ul>
+
+  <Callout variant="tip">
+    Do the pickup checks before you leave the branch, not in the car park later.
+    Anything raised while a member of staff is standing there is easy to fix;
+    anything raised afterwards is a dispute.
+  </Callout>
+
+  <h2 id="road">On-the-road mistakes</h2>
+  <ul>
+    <li><strong>Treating every toll road like a booth.</strong> Electronic-only gantries have nowhere to stop; the charge is recorded and billed later.</li>
+    <li><strong>Trying to pay a toll at a petrol station or the airport.</strong> That system is for locals with plates registered another way; for a rental, the company bills you.</li>
+    <li><strong>Driving into Spain without permission.</strong> It can void your cover. Arrange it first — <a href="/portugal-rental-car-into-spain">how it works</a>.</li>
+    <li><strong>Kerbing a wheel in a historic town.</strong> Alloy and tyre damage is a frequent charge and often excluded from the standard waiver.</li>
+    <li><strong>Leaving valuables visible.</strong> Theft from cars at trailheads and beaches happens; theft protection still carries an excess.</li>
+    <li><strong>Misfuelling.</strong> If it happens, do not start the engine — call assistance.</li>
+  </ul>
+
+  <h2 id="return">Return mistakes</h2>
+  <ul>
+    <li><strong>Not refuelling close to the drop-off</strong> on a full-to-full rate, or losing the receipt.</li>
+    <li><strong>An unchecked after-hours return with no photos.</strong> If no one inspects the car, your drop-off photos are the only record — see <a href="/after-hours-car-rental-returns-portugal">after-hours returns</a>.</li>
+    <li><strong>Returning late.</strong> Past the contracted time can add a full day, plus knock-on fees.</li>
+    <li><strong>Assuming the invoice is final.</strong> Electronic tolls can post days later; check the itemised charges when they land and query anything you do not recognise.</li>
+  </ul>
+</ArticleLayout>

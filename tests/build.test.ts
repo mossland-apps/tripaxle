@@ -12,22 +12,22 @@ beforeAll(() => {
   }
 }, 120_000);
 
+function allBuiltPages(): string[] {
+  const out = ['index.html'];
+  for (const entry of readdirSync(dist(''), { withFileTypes: true })) {
+    if (entry.isDirectory() && existsSync(dist(`${entry.name}/index.html`))) {
+      out.push(`${entry.name}/index.html`);
+    }
+  }
+  return out;
+}
+
 describe('every built page', () => {
-  const pages = [
-    'index.html',
-    'about/index.html',
-    'portugal-guide/index.html',
-    'airport-rental-guides/index.html',
-    'booking-basics/index.html',
-    'practical-guides/index.html',
-    'lisbon-airport-car-rental/index.html',
-    'porto-airport-car-rental/index.html',
-    'faro-airport-car-rental/index.html',
-    'portugal-car-rental-insurance/index.html',
-    'portugal-car-rental-with-debit/index.html',
-    'portugal-car-rental-deposits-and-card-requirements/index.html',
-    'portugal-toll-roads-for-rental-cars/index.html',
-  ];
+  const pages = allBuiltPages();
+
+  it('built the whole sitemap (25+ pages)', () => {
+    expect(pages.length).toBeGreaterThanOrEqual(25);
+  });
 
   for (const page of pages) {
     it(`${page}: has the shared shell and the terracotta design system`, () => {
@@ -72,6 +72,19 @@ describe('every guide article', () => {
     'portugal-car-rental-with-debit/index.html',
     'portugal-car-rental-deposits-and-card-requirements/index.html',
     'portugal-toll-roads-for-rental-cars/index.html',
+    'do-you-need-a-car-in-portugal/index.html',
+    'where-a-rental-car-is-most-useful-in-portugal/index.html',
+    'driving-in-portugal-what-to-expect/index.html',
+    'broker-vs-direct-supplier-portugal-car-rental/index.html',
+    'how-to-read-portugal-car-rental-terms/index.html',
+    'common-car-rental-mistakes-portugal/index.html',
+    'manual-vs-automatic-portugal/index.html',
+    'what-to-photograph-rental-pickup/index.html',
+    'flight-late-for-car-rental-pickup/index.html',
+    'after-hours-car-rental-returns-portugal/index.html',
+    'gasoleo-vs-gasolina-portugal/index.html',
+    'portugal-rental-car-into-spain/index.html',
+    'child-seats-and-extras-portugal/index.html',
   ];
   for (const g of guides) {
     it(`${g}: carries the full guide template`, () => {

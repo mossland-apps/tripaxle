@@ -1,0 +1,105 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import Callout from "../components/Callout.astro";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Driving Into Spain" },
+];
+
+const toc = [
+  { label: "The short answer", id: "short-answer" },
+  { label: "What to confirm before you book", id: "confirm" },
+  { label: "Cross-border fees and insurance", id: "fees" },
+  { label: "Tolls and driving rules in Spain", id: "spain-rules" },
+  { label: "One-way Portugal–Spain rentals", id: "one-way" },
+];
+
+const related = [
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
+  { label: "How to Read Portugal Car Rental Terms", href: "/how-to-read-portugal-car-rental-terms" },
+  { label: "Portugal Toll Roads for Rental Cars", href: "/portugal-toll-roads-for-rental-cars" },
+  { label: "Practical Guides", href: "/practical-guides" },
+];
+---
+
+<ArticleLayout
+  title="Can You Drive a Portugal Rental Car Into Spain? | TripAxle"
+  description="Usually yes, with permission. What to confirm before booking, the cross-border fee and insurance rules, Spanish tolls and driving differences, and one-way options."
+  eyebrow="Practical Guides"
+  summary="Crossing into Spain in a Portuguese rental is normally allowed, but it is a permission-and-paperwork question, not a free-for-all. Here is what to check."
+  updated="2026-04-02"
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+>
+  <QuickAnswer>
+    <p>
+      Usually yes — most major companies allow a Portuguese rental into Spain,
+      but often only with <strong>advance notice, a cross-border fee, and it
+      noted on the rental agreement</strong>. Some cheap rates and some
+      off-airport suppliers forbid it entirely. Confirm in writing before you
+      book; there is no border checkpoint to sort it out later.
+    </p>
+  </QuickAnswer>
+
+  <h2 id="short-answer">The short answer</h2>
+  <p>
+    Portugal and Spain are both in the Schengen Area and the EU, so there is no
+    passport control and, in normal times, no stop at the border at all — you
+    will often only notice the change from the road signs and your phone's
+    network. That is exactly why the rental company's rules matter: nothing at
+    the border enforces them, but your insurance and breakdown cover depend on
+    the crossing being authorised.
+  </p>
+
+  <h2 id="confirm">What to confirm before you book</h2>
+  <ul>
+    <li>Does this company allow travel to Spain on <em>this</em> rate and car group?</li>
+    <li>Is advance notification required, and how far ahead?</li>
+    <li>Is there a cross-border fee, and is it per day or per rental?</li>
+    <li>Will roadside assistance and the damage waiver still apply in Spain?</li>
+    <li>Are any countries beyond Spain excluded (they usually are)?</li>
+  </ul>
+  <p>
+    Get the answer from the company in writing, or make sure “travel to Spain
+    authorised” is printed on the agreement at pickup. General website language
+    is not enough if your specific voucher is silent — see
+    <a href="/how-to-read-portugal-car-rental-terms">how to read the terms</a>.
+  </p>
+
+  <Callout variant="warning">
+    Taking a car into Spain without authorisation can void the collision and
+    theft waiver for anything that happens there, and may count as a breach of
+    contract. A cross-border fee of a few tens of euros is cheap insurance
+    against that.
+  </Callout>
+
+  <h2 id="fees">Cross-border fees and insurance</h2>
+  <p>
+    When it is allowed, companies typically add a one-off or per-day cross-border
+    charge and keep your existing cover in place for Spain. Local suppliers and
+    brokered “bargain” rates are the ones most likely to prohibit it outright or
+    to require you to buy their full cover as a condition. If you are relying on
+    a credit-card or third-party excess policy, check that it also covers Spain.
+  </p>
+
+  <h2 id="spain-rules">Tolls and driving rules in Spain</h2>
+  <ul>
+    <li><strong>Tolls:</strong> Spain uses mostly barrier tolls (autopistas marked “AP”) where you pay by card or cash at a booth; many motorways (“A” roads) are toll-free. It is simpler than Portugal's electronic gantries, but a Portuguese Via Verde device will not work on most Spanish tolls.</li>
+    <li><strong>Speed limits</strong> are broadly similar; urban limits in Spain are often 30 km/h on single-lane-each-way streets.</li>
+    <li>Both countries drive on the right, require a hi-vis vest and warning triangle, and enforce low drink-drive limits.</li>
+    <li>Keep your licence, passport, and the rental agreement in the car.</li>
+  </ul>
+
+  <h2 id="one-way">One-way Portugal–Spain rentals</h2>
+  <p>
+    Picking up in Portugal and dropping in Spain (Seville, Madrid, Badajoz) is
+    possible with the larger international companies but usually carries a
+    significant one-way fee, because the car has left the country. If your trip
+    is genuinely one-way, price it against flying or the train, and against
+    simply returning the car to a Portuguese city near the border.
+  </p>
+</ArticleLayout>
