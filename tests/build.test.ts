@@ -65,9 +65,39 @@ describe('footer', () => {
     expect(footer).toContain('href="/portugal-car-rental-insurance"');
   });
 
-  it('states the no-affiliation position while the commercial switch is off', () => {
+  it('states editorial independence while the commercial switch is off', () => {
     const footer = html.slice(html.indexOf('class="site-footer__bottom"'));
-    expect(footer).toMatch(/[Nn]ot affiliated with any rental company/);
+    expect(footer).toMatch(/[Ee]ditorially independent/);
+  });
+});
+
+describe('commercial / editorial policy', () => {
+  it('the affiliate disclosure permits advertising and states the real promise', () => {
+    const html = read('affiliate-disclosure/index.html');
+    // monetisation is allowed and named
+    expect(html).toMatch(/display advertising/i);
+    expect(html).toMatch(/affiliate links/i);
+    expect(html).toMatch(/sponsorship|sponsored/i);
+    // the promise that survives
+    expect(html).toMatch(/Payment does not buy TripAxle.?s editorial conclusions/i);
+    expect(html).toMatch(/rel="sponsored"|rel=.sponsored./);
+    // must NOT reinstate the over-broad bans
+    expect(html).not.toMatch(/payment for coverage, placement,? or reviews/i);
+    expect(html).not.toMatch(/no affiliate links and no advertising/i);
+  });
+
+  it('the contact page welcomes commercial enquiries', () => {
+    const html = read('contact/index.html');
+    expect(html).toMatch(/Media, advertising and partnerships/);
+    expect(html).toMatch(/welcome enquiries about advertising/i);
+    expect(html).not.toMatch(/will be\s+declined/i);
+  });
+
+  it('the about page explains monetisation without prohibiting advertising', () => {
+    const html = read('about/index.html');
+    expect(html).toMatch(/How TripAxle makes money/);
+    expect(html).toMatch(/can carry advertising, affiliate\s+links/i);
+    expect(html).not.toMatch(/the only commercial element/i);
   });
 });
 
@@ -75,7 +105,7 @@ describe('policy pages', () => {
   const pages = {
     'about/index.html': [/how we research/i],
     'contact/index.html': [/contact form/i, /correction/i],
-    'affiliate-disclosure/index.html': [/no affiliate links/i, /rel="sponsored"|rel=.sponsored./, /never/i],
+    'affiliate-disclosure/index.html': [/qualifying booking or transaction/i, /rel="sponsored"|rel=.sponsored./, /never/i],
     'privacy/index.html': [/no cookies|sets .*no.* cookies/i, /Google Fonts/, /Cloudflare/],
     'disclaimer/index.html': [/not.*(legal|professional).*advice/i, /as is/i, /out of date/i],
   };

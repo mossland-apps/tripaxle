@@ -26,7 +26,7 @@ export const site = {
   /** Plain-English trust copy, reused in the footer and About page. */
   trust: {
     whyTrust:
-      'TripAxle is an independent guide. We are not a rental company or a booking site, and we do not rank companies or publish paid reviews. Our aim is simply to help English-speaking travelers understand how renting and driving a car in Portugal actually works.',
+      'TripAxle is an independent guide. We are not a rental company or a booking site, and we do not sell favourable reviews, recommendations, or rankings. Our aim is simply to help English-speaking travelers understand how renting and driving a car in Portugal actually works.',
     howWeResearch:
       'Guidance is based on airport and rental-company information, published rental terms, and patterns travelers report again and again. Details like desk locations, shuttle points, and fees change, so we always tell you what to confirm on your own booking before you travel.',
   },
