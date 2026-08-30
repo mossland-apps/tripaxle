@@ -21,6 +21,9 @@ const jobs = [
   ['natanael-vieira-PBD2vtYo7o0-unsplash.jpg', 'geres-bridge.jpg', 1800, 70],
   ['pexels-petra-nesti-17330179.jpg', 'porto-ribeira.jpg', 1100, 76],
   ['Portugal Map2.png', 'portugal-spain-map.jpg', 1100, 80],
+  ['pexels-myersmc16-13540098.jpg', 'algarve-coast.jpg', 1800, 74],
+  ['pexels-mo-eid-1268975-17910087.jpg', 'algarve-cliffs-aerial.jpg', 1800, 72],
+  ['pexels-raybilcliff-30970429.jpg', 'algarve-beach-dusk.jpg', 1800, 74],
 ];
 
 for (const [srcName, outName, width, quality] of jobs) {

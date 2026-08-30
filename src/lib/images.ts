@@ -90,10 +90,22 @@ export const images = {
     alt: 'Satellite map of the Iberian Peninsula with the Portugal–Spain border marked in yellow',
     credit: 'Imagery: Google Earth · Landsat / Copernicus, Data SIO, NOAA, U.S. Navy, NGA, GEBCO',
   },
-  /** Algarve clifftop and Atlantic at sunset. */
+  /** Golden Algarve cliffs, a cove and turquoise water near Lagos. */
   algarveCoast: {
     src: '/images/algarve-coast.jpg',
-    alt: 'The Atlantic at sunset from a grassy clifftop on the Algarve coast',
-    credit: 'Photo: Elisa Kerschbaumer / Unsplash',
+    alt: 'Golden sandstone cliffs, a small cove beach and turquoise water on the Algarve coast',
+    credit: 'Photo: myersmc16 / Pexels',
+  },
+  /** Aerial of the Algarve cliff coast with clifftop villas and a track. */
+  algarveCliffsAerial: {
+    src: '/images/algarve-cliffs-aerial.jpg',
+    alt: 'Aerial view of the Algarve cliff coast with sea stacks, boats and clifftop houses reached by a winding track',
+    credit: 'Photo: Mo Eid / Pexels',
+  },
+  /** Algarve beach and sea stacks under a dusk sky. */
+  algarveBeachDusk: {
+    src: '/images/algarve-beach-dusk.jpg',
+    alt: 'Waves washing a sandy Algarve beach below ochre cliffs and sea stacks at dusk',
+    credit: 'Photo: Ray Bilcliff / Pexels',
   },
 } as const satisfies Record<string, HeroImage>;
