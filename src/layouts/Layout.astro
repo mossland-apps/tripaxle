@@ -27,7 +27,12 @@ const canonical = new URL(Astro.url.pathname, site.domain).href;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="mask-icon" href="/favicon-mask.svg" color="#b9532f" />
+    <meta name="theme-color" content="#b9532f" />
 
     <meta property="og:type" content="article" />
     <meta property="og:title" content={title} />

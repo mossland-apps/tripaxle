@@ -110,6 +110,23 @@ describe('every guide article', () => {
   }
 });
 
+describe('favicon', () => {
+  it('ships every icon asset and links them from the shared head', () => {
+    for (const f of [
+      'favicon.ico',
+      'favicon.svg',
+      'favicon-mask.svg',
+      'apple-touch-icon.png',
+    ]) {
+      expect(existsSync(dist(f)), `missing dist/${f}`).toBe(true);
+    }
+    const html = read('index.html');
+    expect(html).toContain('href="/favicon.ico"');
+    expect(html).toContain('rel="apple-touch-icon"');
+    expect(html).toContain('name="theme-color"');
+  });
+});
+
 describe('images', () => {
   it('every /images/*.jpg referenced in built HTML exists in public/images', () => {
     const pages = allBuiltPages();
