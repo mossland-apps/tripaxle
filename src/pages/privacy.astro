@@ -1,0 +1,65 @@
+---
+import LegalLayout from "../layouts/LegalLayout.astro";
+import { site } from "../config";
+---
+
+<LegalLayout
+  title="Privacy Policy | TripAxle"
+  description="What TripAxle does and does not collect. Short version: no accounts, no tracking, no cookies set by us."
+  heading="Privacy Policy"
+  updated={site.legalUpdated}
+>
+  <p>
+    TripAxle is a plain content website. We do not ask you for personal
+    information, and we do not want any. There are no accounts, no newsletter,
+    and no forms.
+  </p>
+
+  <h2>Cookies and tracking</h2>
+  <p>
+    TripAxle sets <strong>no cookies</strong> of its own and uses
+    <strong>no analytics, advertising, or tracking scripts</strong>. We do not
+    build a profile of you or track you across other sites.
+  </p>
+
+  <h2>Third parties that see your request</h2>
+  <ul>
+    <li>
+      <strong>Fonts.</strong> Pages load typefaces from Google Fonts
+      (<code>fonts.googleapis.com</code> and <code>fonts.gstatic.com</code>).
+      When your browser fetches them, Google receives your IP address and basic
+      request details, handled under
+      <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">Google's privacy policy</a>.
+    </li>
+    <li>
+      <strong>Hosting and security.</strong> The site is delivered through
+      Cloudflare, which processes standard server logs and may set essential
+      cookies to keep the site secure and running. See
+      <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener" target="_blank">Cloudflare's privacy policy</a>.
+    </li>
+  </ul>
+  <p>
+    These are ordinary parts of serving a website, not TripAxle collecting data
+    about you.
+  </p>
+
+  <h2>Links to other websites</h2>
+  <p>
+    When you follow a link to another site — a rental company, a comparison
+    service, an official airport page — that site's own privacy policy and
+    cookies apply, not this one. If TripAxle adds affiliate links in future, the
+    destination may record that you arrived from TripAxle; that is covered in the
+    <a href="/affiliate-disclosure">Affiliate Disclosure</a>.
+  </p>
+
+  <h2>Children</h2>
+  <p>TripAxle is general travel information and is not directed at children.</p>
+
+  <h2>Questions and changes</h2>
+  <p>
+    If a contact form is added later, or anything else changes what we collect,
+    this page will be updated with a new date. Questions about privacy can go
+    through <a href="/contact">Contact</a> once that is live — though in practice
+    the only data connected to your visit is the server logs held by our host.
+  </p>
+</LegalLayout>

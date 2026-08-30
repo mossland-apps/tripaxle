@@ -1,25 +1,61 @@
 ---
-import { site, nav } from '../config';
+import { site, nav, popularGuides, siteNav } from '../config';
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
   <div class="container site-footer__inner">
     <div class="site-footer__grid">
-      <div>
-        <h2>Why trust TripAxle</h2>
-        <p>{site.trust.whyTrust}</p>
+      <div class="site-footer__about">
+        <p class="site-footer__brand">{site.name}</p>
+        <p>{site.tagline}</p>
+        <p>
+          Independent guidance for English-speaking travelers — no rankings, no
+          manufactured reviews, no booking engine. Just how renting and driving
+          a car in Portugal actually works.
+        </p>
       </div>
-      <div>
+
+      <nav class="site-footer__col" aria-label="Guides">
         <h2>Guides</h2>
-        <div class="site-footer__links">
-          {nav.map((item) => <a href={item.href}>{item.label}</a>)}
-          <a href="/about">About &amp; how we research</a>
-        </div>
-      </div>
+        <ul>
+          {nav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </nav>
+
+      <nav class="site-footer__col" aria-label="Popular guides">
+        <h2>Popular</h2>
+        <ul>
+          {popularGuides.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </nav>
+
+      <nav class="site-footer__col" aria-label="About TripAxle">
+        <h2>TripAxle</h2>
+        <ul>
+          {siteNav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </nav>
     </div>
+
     <div class="site-footer__bottom">
-      © {year} {site.name} · {site.tagline}
+      <p>© {year} {site.name} · {site.tagline}</p>
+      <p>
+        {site.showCommercialCTA ? (
+          <>
+            TripAxle is reader-supported. Some links are affiliate links; if you
+            book through them we may earn a commission at no extra cost to you.
+            See our <a href="/affiliate-disclosure">Affiliate Disclosure</a>.
+          </>
+        ) : (
+          <>
+            Not affiliated with any rental company, airport, or booking site.
+            Company names are used for identification only. See the
+            <a href="/affiliate-disclosure">Affiliate Disclosure</a> and
+            <a href="/disclaimer">Disclaimer</a>.
+          </>
+        )}
+      </p>
     </div>
   </div>
 </footer>

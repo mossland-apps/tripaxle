@@ -34,7 +34,10 @@ describe('every built page', () => {
       const html = read(page);
       expect(html).toContain('class="site-header"');
       expect(html).toContain('class="site-footer"');
-      expect(html).toContain('Why trust TripAxle');
+      // footer carries the About / policy links on every page
+      for (const href of ['/about', '/contact', '/affiliate-disclosure', '/privacy', '/disclaimer']) {
+        expect(html, `${page} footer missing ${href}`).toContain(`href="${href}"`);
+      }
       // bundled design-system stylesheet is wired up
       expect(html).toMatch(/href="\/_astro\/[^"]+\.css"/);
       // Google Fonts (Fraunces serif headings)
@@ -43,6 +46,45 @@ describe('every built page', () => {
 
     it(`${page}: never ships the commercial box while the affiliate switch is off`, () => {
       expect(read(page)).not.toContain('commercial-cta');
+    });
+  }
+});
+
+describe('footer', () => {
+  let html = '';
+  beforeAll(() => {
+    html = read('about/index.html');
+  });
+
+  it('is a multi-column footer with Guides, Popular and TripAxle sections', () => {
+    const footer = html.slice(html.indexOf('class="site-footer"'));
+    expect(footer).toContain('>Guides<');
+    expect(footer).toContain('>Popular<');
+    expect(footer).toContain('>TripAxle<');
+    expect(footer).toContain('href="/portugal-guide"');
+    expect(footer).toContain('href="/portugal-car-rental-insurance"');
+  });
+
+  it('states the no-affiliation position while the commercial switch is off', () => {
+    const footer = html.slice(html.indexOf('class="site-footer__bottom"'));
+    expect(footer).toMatch(/[Nn]ot affiliated with any rental company/);
+  });
+});
+
+describe('policy pages', () => {
+  const pages = {
+    'about/index.html': [/how we research/i],
+    'contact/index.html': [/contact form/i, /correction/i],
+    'affiliate-disclosure/index.html': [/no affiliate links/i, /rel="sponsored"|rel=.sponsored./, /never/i],
+    'privacy/index.html': [/no cookies|sets .*no.* cookies/i, /Google Fonts/, /Cloudflare/],
+    'disclaimer/index.html': [/not.*(legal|professional).*advice/i, /as is/i, /out of date/i],
+  };
+
+  for (const [page, patterns] of Object.entries(pages)) {
+    it(`${page} builds with the expected substance`, () => {
+      const html = read(page);
+      expect(html).toContain('aria-label="Breadcrumb"');
+      for (const p of patterns) expect(html, `${page} missing ${p}`).toMatch(p);
     });
   }
 });

@@ -1,0 +1,66 @@
+---
+import LegalLayout from "../layouts/LegalLayout.astro";
+import { site } from "../config";
+---
+
+<LegalLayout
+  title="Affiliate Disclosure | TripAxle"
+  description="How TripAxle uses (and does not use) affiliate links, and why an affiliate relationship never changes the guidance."
+  heading="Affiliate Disclosure"
+  updated={site.legalUpdated}
+>
+  <p>
+    This is a plain-English disclosure of how TripAxle is, or may in future be,
+    supported.
+  </p>
+
+  <h2>Current status</h2>
+  <p>
+    Right now, TripAxle carries <strong>no affiliate links and no advertising</strong>.
+    Nothing on the site earns a commission today. This page is published ahead of
+    that so the policy is clear from the start.
+  </p>
+
+  <h2>What will change, and what won't</h2>
+  <p>
+    At some point we expect to add a small number of links to car-rental
+    comparison services — the kind of link that genuinely helps once you have
+    decided a rental car is right for your trip. Some of those may be
+    <strong>affiliate links</strong>: if you follow one and go on to book, the
+    service may pay TripAxle a commission. It costs you nothing extra, and it
+    does not change the price you are offered.
+  </p>
+  <p>What an affiliate relationship will never do:</p>
+  <ul>
+    <li>
+      <strong>Change what a guide says.</strong> The advice, the "when renting
+      does not make sense" sections, and the cautions stay exactly as they are.
+    </li>
+    <li>
+      <strong>Buy a ranking or a recommendation.</strong> TripAxle does not rank
+      or score rental companies and does not take payment for coverage,
+      placement, or reviews.
+    </li>
+    <li>
+      <strong>Decide which link appears.</strong> We only add a commercial link
+      where comparing options actually helps the reader act on a decision they
+      have already reached.
+    </li>
+  </ul>
+
+  <h2>How links are labelled</h2>
+  <p>
+    Any commercial or affiliate link will be clearly presented as one — set apart
+    from the guidance, and marked in the page code (<code>rel="sponsored"</code>)
+    so browsers and search engines can see it too. Ordinary links to airports,
+    rental companies, and official sources are just references and earn nothing.
+  </p>
+
+  <h2>Why trust this</h2>
+  <p>{site.trust.whyTrust}</p>
+  <p>
+    More on our approach in <a href="/about">About &amp; how we research</a>. If
+    something reads like it was written to sell you a booking rather than help
+    you make one, <a href="/contact">tell us</a>.
+  </p>
+</LegalLayout>

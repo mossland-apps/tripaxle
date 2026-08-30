@@ -1,0 +1,56 @@
+---
+import LegalLayout from "../layouts/LegalLayout.astro";
+import { site } from "../config";
+---
+
+<LegalLayout
+  title="Disclaimer | TripAxle"
+  description="TripAxle is independent editorial guidance, not professional advice. Always confirm the specifics on your own booking before you travel."
+  heading="Disclaimer"
+  updated={site.legalUpdated}
+>
+  <p>
+    TripAxle publishes independent editorial guidance about renting and driving a
+    car in Portugal. It is written to help you ask the right questions — not to
+    replace the official sources or professional advice.
+  </p>
+
+  <h2>Information can go out of date</h2>
+  <p>
+    Airports rearrange rental desks, companies change fees and terms, insurance
+    products vary by supplier and rate, and roads and tolls change. We note this
+    throughout the guides for a reason. Before you book, sign, or drive, confirm
+    the specifics on <strong>your own quote, voucher, rental agreement, and the
+    official airport or authority websites</strong>. Where a guide and your
+    booking disagree, your booking is what counts.
+  </p>
+
+  <h2>Not professional advice</h2>
+  <p>
+    Nothing here is legal, financial, insurance, or tax advice. Decisions about
+    excess cover, credit-card protection, and deposits depend on your own
+    circumstances — check with your card issuer, insurer, or a qualified adviser
+    where it matters.
+  </p>
+
+  <h2>No affiliation</h2>
+  <p>
+    TripAxle is not affiliated with, endorsed by, or acting on behalf of any
+    rental company, broker, comparison site, airport, or government body. Company,
+    brand, and place names are used only to identify what is being described.
+  </p>
+
+  <h2>Liability</h2>
+  <p>
+    The site is provided "as is", without warranties of any kind. To the fullest
+    extent permitted by law, TripAxle and its contributors are not liable for any
+    loss or inconvenience arising from reliance on the site or from following a
+    link to a third party. Your rental contract is between you and the rental
+    company.
+  </p>
+  <p>
+    Spotted something wrong or out of date? <a href="/contact">Let us know</a> —
+    it genuinely helps. More on our method in
+    <a href="/about">About &amp; how we research</a>.
+  </p>
+</LegalLayout>

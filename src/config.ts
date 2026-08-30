@@ -20,6 +20,9 @@ export const site = {
   /** Default "Updated ..." date for guides that don't set their own. */
   defaultUpdated: '2026-08-01',
 
+  /** Effective / last-reviewed date shown on the policy pages. */
+  legalUpdated: '2026-08-30',
+
   /** Plain-English trust copy, reused in the footer and About page. */
   trust: {
     whyTrust:
@@ -35,4 +38,22 @@ export const nav = [
   { label: 'Airport Rental Guides', href: '/airport-rental-guides' },
   { label: 'Booking Basics', href: '/booking-basics' },
   { label: 'Practical Guides', href: '/practical-guides' },
+] as const;
+
+/** Most-read individual guides, surfaced in the footer. */
+export const popularGuides = [
+  { label: 'Do you need a car in Portugal?', href: '/do-you-need-a-car-in-portugal' },
+  { label: 'Car rental insurance explained', href: '/portugal-car-rental-insurance' },
+  { label: 'Renting with a debit card', href: '/portugal-car-rental-with-debit' },
+  { label: 'Toll roads for rental cars', href: '/portugal-toll-roads-for-rental-cars' },
+  { label: 'Lisbon Airport car rental', href: '/lisbon-airport-car-rental' },
+] as const;
+
+/** About / policy pages, shown in the footer. */
+export const siteNav = [
+  { label: 'About TripAxle', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Affiliate Disclosure', href: '/affiliate-disclosure' },
+  { label: 'Privacy Policy', href: '/privacy' },
+  { label: 'Disclaimer', href: '/disclaimer' },
 ] as const;
