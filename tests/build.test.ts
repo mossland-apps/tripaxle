@@ -110,6 +110,58 @@ describe('every guide article', () => {
   }
 });
 
+describe('sitemap & crawl files', () => {
+  it('generates a sitemap index that points at the live sitemap over https', () => {
+    expect(existsSync(dist('sitemap-index.xml'))).toBe(true);
+    const idx = read('sitemap-index.xml');
+    expect(idx).toContain('<loc>https://tripaxle.com/sitemap-0.xml</loc>');
+  });
+
+  it('lists every built page in the sitemap with the correct live origin', () => {
+    const xml = read('sitemap-0.xml');
+    const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+
+    expect(locs.length).toBeGreaterThanOrEqual(25);
+    expect(locs).toContain('https://tripaxle.com/');
+    expect(locs).toContain('https://tripaxle.com/faro-airport-car-rental/');
+
+    for (const loc of locs) {
+      expect(loc, `bad sitemap URL: ${loc}`).toMatch(/^https:\/\/tripaxle\.com\//);
+      expect(loc).not.toMatch(/localhost|readertweaks|127\.0\.0\.1/);
+    }
+
+    // one sitemap <url> per built HTML page
+    const builtRoutes = allBuiltPages()
+      .map((p) => (p === 'index.html' ? '/' : `/${p.replace(/index\.html$/, '')}`))
+      .sort();
+    const sitemapRoutes = locs
+      .map((l) => l.replace('https://tripaxle.com', ''))
+      .sort();
+    expect(sitemapRoutes).toEqual(builtRoutes);
+  });
+
+  it('ships a robots.txt that allows crawling and advertises the sitemap', () => {
+    expect(existsSync(dist('robots.txt'))).toBe(true);
+    const robots = read('robots.txt');
+    expect(robots).toMatch(/Allow:\s*\//);
+    expect(robots).toContain('Sitemap: https://tripaxle.com/sitemap-index.xml');
+  });
+
+  it('redirects the conventional /sitemap.xml to the generated index', () => {
+    expect(existsSync(dist('_redirects'))).toBe(true);
+    expect(read('_redirects')).toMatch(
+      /^\/sitemap\.xml\s+\/sitemap-index\.xml\s+30\d/m,
+    );
+  });
+
+  it('has a real 404 page so unknown paths are not soft-200s', () => {
+    expect(existsSync(dist('404.html'))).toBe(true);
+    const html = read('404.html');
+    expect(html).toContain('class="site-header"');
+    expect(html).toMatch(/isn.t here|not found/i);
+  });
+});
+
 describe('favicon', () => {
   it('ships every icon asset and links them from the shared head', () => {
     for (const f of [
