@@ -4,8 +4,8 @@ import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
 
 const breadcrumbs = [
-  { label: "Portugal Guide", href: "/portugal-guide" },
-  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Practical Guides", href: "/practical-guides/" },
   { label: "Late Flight for Pickup" },
 ];
 
@@ -18,10 +18,10 @@ const toc = [
 ];
 
 const related = [
-  { label: "Lisbon Airport Car Rental Guide", href: "/lisbon-airport-car-rental" },
-  { label: "After-Hours Car Rental Returns in Portugal", href: "/after-hours-car-rental-returns-portugal" },
-  { label: "How to Read Portugal Car Rental Terms", href: "/how-to-read-portugal-car-rental-terms" },
-  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Lisbon Airport Car Rental Guide", href: "/lisbon-airport-car-rental/" },
+  { label: "After-Hours Car Rental Returns in Portugal", href: "/after-hours-car-rental-returns-portugal/" },
+  { label: "How to Read Portugal Car Rental Terms", href: "/how-to-read-portugal-car-rental-terms/" },
+  { label: "Practical Guides", href: "/practical-guides/" },
 ];
 ---
 
@@ -35,7 +35,7 @@ const related = [
   toc={toc}
   related={related}
 >
-  <QuickAnswer>
+  <QuickAnswer slot="answer">
     <p>
       If you booked with an <strong>in-terminal desk at Lisbon, Porto, or
       Faro</strong>, they normally track the flight number on your reservation

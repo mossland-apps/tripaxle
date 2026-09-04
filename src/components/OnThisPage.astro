@@ -5,12 +5,18 @@ interface Item {
 }
 interface Props {
   items: Item[];
+  /** `rail` is the sticky sidebar copy; `inline` sits early in the article. */
+  variant?: 'rail' | 'inline';
+  label?: string;
 }
-const { items } = Astro.props;
+const { items, variant = 'rail', label = 'On this page' } = Astro.props;
 ---
 
-<nav class="on-this-page" aria-label="On this page">
-  <p class="on-this-page__label">On this page</p>
+<nav
+  class={variant === 'inline' ? 'on-this-page on-this-page--inline' : 'on-this-page'}
+  aria-label={label}
+>
+  <p class="on-this-page__label">{label}</p>
   <ol>
     {items.map((it) => (
       <li><a href={`#${it.id}`}>{it.label}</a></li>

@@ -31,3 +31,15 @@ export function formatUpdated(date: string | Date): string {
   const d = typeof date === 'string' ? new Date(date + (date.length === 10 ? 'T00:00:00Z' : '')) : date;
   return `${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
 }
+
+/**
+ * Format a date as "14 March 2026" for source "checked" stamps, where the
+ * exact day matters. UTC-safe for plain "YYYY-MM-DD" strings.
+ */
+export function formatChecked(date: string | Date): string {
+  const d =
+    typeof date === 'string'
+      ? new Date(date + (date.length === 10 ? 'T00:00:00Z' : ''))
+      : date;
+  return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+}

@@ -5,7 +5,7 @@ import Callout from "../components/Callout.astro";
 import { images } from "../lib/images";
 
 const breadcrumbs = [
-  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Portugal Guide", href: "/portugal-guide/" },
   { label: "Driving: What to Expect" },
 ];
 
@@ -20,10 +20,10 @@ const toc = [
 ];
 
 const related = [
-  { label: "Do You Need a Car in Portugal?", href: "/do-you-need-a-car-in-portugal" },
-  { label: "Portugal Toll Roads for Rental Cars", href: "/portugal-toll-roads-for-rental-cars" },
-  { label: "Gasóleo vs Gasolina in Portugal", href: "/gasoleo-vs-gasolina-portugal" },
-  { label: "Manual vs Automatic Rental Cars in Portugal", href: "/manual-vs-automatic-portugal" },
+  { label: "Do You Need a Car in Portugal?", href: "/do-you-need-a-car-in-portugal/" },
+  { label: "Portugal Toll Roads for Rental Cars", href: "/portugal-toll-roads-for-rental-cars/" },
+  { label: "Gasóleo vs Gasolina in Portugal", href: "/gasoleo-vs-gasolina-portugal/" },
+  { label: "Manual vs Automatic Rental Cars in Portugal", href: "/manual-vs-automatic-portugal/" },
 ];
 ---
 
@@ -38,7 +38,7 @@ const related = [
   toc={toc}
   related={related}
 >
-  <QuickAnswer>
+  <QuickAnswer slot="answer">
     <p>
       For most visitors, driving in Portugal is easy on motorways and regional
       roads and stressful only in central Lisbon and Porto. The three things to
@@ -92,7 +92,7 @@ const related = [
     no way to pay at the roadside. In a rental car the charges are tied to the
     plate and billed by the rental company, often with an admin fee. Confirm at
     pickup whether the car has an active Via Verde transponder and how you will
-    be charged. Full detail: <a href="/portugal-toll-roads-for-rental-cars">toll
+    be charged. Full detail: <a href="/portugal-toll-roads-for-rental-cars/">toll
     roads for rental cars</a>.
   </p>
 
@@ -107,8 +107,8 @@ const related = [
 
   <h2 id="fuel">Fuel and the car</h2>
   <ul>
-    <li><strong>Gasóleo = diesel, Gasolina = petrol.</strong> Most rental cars are diesel; check before filling. See <a href="/gasoleo-vs-gasolina-portugal">gasóleo vs gasolina</a>.</li>
-    <li><strong>Manual is standard.</strong> If you need an automatic, book it specifically — see <a href="/manual-vs-automatic-portugal">manual vs automatic</a>.</li>
+    <li><strong>Gasóleo = diesel, Gasolina = petrol.</strong> Most rental cars are diesel; check before filling. See <a href="/gasoleo-vs-gasolina-portugal/">gasóleo vs gasolina</a>.</li>
+    <li><strong>Manual is standard.</strong> If you need an automatic, book it specifically — see <a href="/manual-vs-automatic-portugal/">manual vs automatic</a>.</li>
     <li>Stations are mostly self-service; pay at the pump or inside by pump number.</li>
     <li>Every car must carry a <strong>reflective vest and warning triangle</strong>; check they are present at pickup.</li>
   </ul>
@@ -116,7 +116,7 @@ const related = [
   <h2 id="rules">Rules and enforcement</h2>
   <ul>
     <li><strong>Drink-driving limit is 0.5 g/l</strong> (0.2 for drivers licensed under three years). Enforced with roadside checks.</li>
-    <li>Seatbelts for everyone; children under 135 cm need an appropriate restraint (<a href="/child-seats-and-extras-portugal">child seats</a>).</li>
+    <li>Seatbelts for everyone; children under 135 cm need an appropriate restraint (<a href="/child-seats-and-extras-portugal/">child seats</a>).</li>
     <li>Phone use requires hands-free.</li>
     <li>Speed limits: 120 on motorways, 90–100 on open roads, 50 in towns, sometimes 30 on narrow streets. Fixed and mobile cameras are common.</li>
     <li>Non-EU licence holders should carry an International Driving Permit alongside the home licence.</li>

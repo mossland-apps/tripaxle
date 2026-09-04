@@ -1,15 +1,17 @@
 ---
+import { getImage } from 'astro:assets';
 import Layout from './Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import PageHero from '../components/PageHero.astro';
 import OnThisPage from '../components/OnThisPage.astro';
 import RelatedGuides from '../components/RelatedGuides.astro';
 import CommercialCTA from '../components/CommercialCTA.astro';
-import TrustNote from '../components/TrustNote.astro';
+import Sources from '../components/Sources.astro';
+import type { Source } from '../components/Sources.astro';
 import { site } from '../config';
-import { formatUpdated } from '../lib/text';
+import { images, type HeroImage } from '../lib/images';
+import { articleLd, canonicalPath, type Crumb, type PageType } from '../lib/seo';
 
-interface Crumb { label: string; href?: string }
 interface TocItem { label: string; id: string }
 interface RelatedLink { label: string; href: string }
 
@@ -18,14 +20,20 @@ interface Props {
   description?: string;
   eyebrow?: string;
   summary?: string;
+  published?: string;
   updated?: string | Date;
-  image?: { src: string; alt: string; credit?: string };
+  /** Only for time-sensitive pages: the day the linked sources were read. */
+  lastChecked?: string;
+  image?: HeroImage;
   breadcrumbs: Crumb[];
   toc?: TocItem[];
   related?: RelatedLink[];
   relatedTitle?: string;
   cta?: { heading?: string; body?: string };
-  showTrustNote?: boolean;
+  /** Two to five authoritative links, time-sensitive pages only. */
+  sources?: Source[];
+  pageType?: PageType;
+  noindex?: boolean;
 }
 
 const {
@@ -33,31 +41,59 @@ const {
   description,
   eyebrow,
   summary,
+  published,
   updated = site.defaultUpdated,
+  lastChecked,
   image,
   breadcrumbs,
   toc = [],
   related = [],
   relatedTitle,
   cta,
-  showTrustNote = true,
+  sources = [],
+  pageType = 'guide',
+  noindex = false,
 } = Astro.props;
 
 const headline = title.replace(/\s*\|\s*TripAxle\s*$/, '');
+const path = canonicalPath(Astro.url.pathname);
 
-const articleLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
+// Same 1200x630 raster the social tags point at, so schema and Open Graph agree.
+// Falls back to the site-wide default photo so every Article carries a
+// representative image, and so schema and Open Graph always agree.
+const socialSource = image ?? images.corkRoad;
+const social = await getImage({
+  src: socialSource.src,
+  width: 1200,
+  height: 630,
+  fit: 'cover',
+  format: 'jpeg',
+  quality: 78,
+});
+
+const ld = articleLd({
+  path,
   headline,
   description: description ?? summary,
-  dateModified: new Date(updated).toISOString(),
-  author: { '@type': 'Organization', name: site.name },
-  publisher: { '@type': 'Organization', name: site.name },
-  mainEntityOfPage: new URL(Astro.url.pathname, site.domain).href,
-};
+  datePublished: published,
+  dateModified: updated,
+  image: {
+    url: new URL(social.src, site.domain).href,
+    width: 1200,
+    height: 630,
+    alt: socialSource.alt,
+  },
+});
 ---
 
-<Layout title={title} description={description ?? summary}>
+<Layout
+  title={title}
+  description={description ?? summary}
+  pageType={pageType}
+  socialImage={image}
+  noindex={noindex}
+  jsonLd={[ld]}
+>
   <Breadcrumbs items={breadcrumbs} />
 
   <div class="article-grid">
@@ -67,13 +103,18 @@ const articleLd = {
         title={headline}
         summary={summary}
         updated={updated}
+        lastChecked={lastChecked}
         image={image}
       />
+
+      <slot name="answer" />
+
+      {toc.length > 0 && <OnThisPage items={toc} variant="inline" label="Contents" />}
 
       <slot />
 
       {cta && <CommercialCTA heading={cta.heading} body={cta.body} />}
-      {showTrustNote && <TrustNote />}
+      {sources.length > 0 && <Sources sources={sources} />}
       {related.length > 0 && <RelatedGuides links={related} title={relatedTitle} />}
     </article>
 
@@ -83,6 +124,4 @@ const articleLd = {
       </aside>
     )}
   </div>
-
-  <script type="application/ld+json" set:html={JSON.stringify(articleLd)} />
 </Layout>

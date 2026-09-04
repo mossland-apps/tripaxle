@@ -1,0 +1,198 @@
+---
+import LegalLayout from "../layouts/LegalLayout.astro";
+import { sources } from "../lib/sources";
+
+const preferred = [
+  {
+    name: "Diário da República",
+    url: "https://diariodarepublica.pt/",
+    used: "Portuguese law as enacted — the text itself, not a report of it.",
+  },
+  {
+    name: "Infraestruturas de Portugal and PT Tolls",
+    url: "https://www.pttolls.com/en/",
+    used: "The road network, toll systems and the payment products available to visitors.",
+  },
+  {
+    name: "IMT — Instituto da Mobilidade e dos Transportes",
+    url: "https://www.imt-ip.pt/",
+    used: "Driving licences, international driving permits and vehicle regulation.",
+  },
+  {
+    name: "ANSR — Autoridade Nacional de Segurança Rodoviária",
+    url: "https://ansr.pt/",
+    used: "The Código da Estrada and road-safety rules.",
+  },
+  {
+    name: "ANA Aeroportos / VINCI Airports",
+    url: "https://www.ana.pt/",
+    used: "Airport facilities, including the official rental-company directories.",
+  },
+  {
+    name: "Your Europe (European Commission)",
+    url: "https://europa.eu/youreurope/",
+    used: "Cross-border consumer and licence questions inside the EU.",
+  },
+  {
+    name: "A named rental company's own current terms",
+    url: "",
+    used: "Any claim about that specific company's deposits, cards, fuel, tolls or cross-border policy.",
+  },
+];
+---
+
+<LegalLayout
+  title="Editorial and Research Policy | TripAxle"
+  heading="Editorial and research policy"
+  description="How TripAxle researches, sources and re-checks its Portugal car rental guides, what it refuses to publish, and how to send a correction."
+  updated="2026-09-03"
+>
+  <p class="lede">
+    This is the method behind every guide on the site. It exists so you can
+    judge the guidance rather than take it on trust.
+  </p>
+
+  <h2>What we publish and what we refuse to</h2>
+  <p>
+    TripAxle explains how renting and driving a car in Portugal works. It does
+    not rank rental companies, score them, name a winner, or publish
+    comparisons it cannot evidence. There are no invented prices, no invented
+    deposit amounts, no invented supplier policies, and no first-hand testing
+    claimed that did not happen.
+  </p>
+  <p>
+    Where a fact is genuinely variable — minimum rental age, card acceptance,
+    toll service fees — we say that it varies and tell you where to find the
+    answer for your own booking. That is less satisfying than a number, and it
+    is the honest answer.
+  </p>
+
+  <h2>The source hierarchy</h2>
+  <p>
+    Guides are built from primary sources, in this order of preference. A
+    competitor article, a forum thread or an aggregator page is never treated as
+    evidence.
+  </p>
+  <div class="table-wrap">
+    <table>
+      <caption>Sources TripAxle relies on, and what each is used for.</caption>
+      <thead>
+        <tr><th scope="col">Source</th><th scope="col">Used for</th></tr>
+      </thead>
+      <tbody>
+        {preferred.map((p) => (
+          <tr>
+            <th scope="row">
+              {p.url ? <a href={p.url} rel="noopener">{p.name}</a> : p.name}
+            </th>
+            <td>{p.used}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Dates, and what each one means</h2>
+  <ul>
+    <li>
+      <strong>Updated</strong> — when the page's content last changed. It appears
+      near the top of every guide.
+    </li>
+    <li>
+      <strong>Last verified</strong> — when the time-sensitive claims on the page
+      were last checked against the sources listed at the foot of it. This can be
+      later than the last content edit, and on a factual guide it is the date
+      that matters.
+    </li>
+    <li>
+      <strong>Checked</strong> — shown beside each individual source: the day
+      that specific document was opened and read.
+    </li>
+  </ul>
+  <p>
+    A guide making time-sensitive claims is not published without a
+    verification date and at least one page-specific source. That rule is
+    enforced by an automated test, not by memory.
+  </p>
+
+  <h2>How we cite</h2>
+  <p>
+    Sources appear as ordinary crawlable links with human-readable labels — the
+    publisher and the document title — never a bare URL. Authoritative citations
+    are not marked <code>nofollow</code>; we want you to follow them. We
+    paraphrase and attribute rather than reproducing source prose.
+  </p>
+  <p>
+    Where a claim rests on legislation, we cite the enacted text and name the
+    article, so you can check the wording yourself rather than checking our
+    summary of it.
+  </p>
+
+  <h2>What we do not source, and why</h2>
+  <p>
+    Some things cannot be sourced responsibly, and we would rather say so than
+    fill the gap:
+  </p>
+  <ul>
+    <li>
+      <strong>Average rental prices.</strong> Too seasonal and too
+      supplier-specific to state without misleading you.
+    </li>
+    <li>
+      <strong>Supplier deposit and fee amounts.</strong> These live in a
+      contract that changes without notice. We tell you which clause to open.
+    </li>
+    <li>
+      <strong>A full current map of tolled roads.</strong> We publish the roads
+      a specific law removed tolls from, sourced to that law, and point at the
+      road operator's own map for everything else.
+    </li>
+  </ul>
+
+  <h2>Where a source is older than the page</h2>
+  <p>
+    Occasionally a guide is updated while one of its sources cannot be
+    re-checked in the same pass. The airport rental-desk and shuttle listings
+    are the standing example: they are compiled from the ANA airport
+    directories, and those sites are not always readable in an automated
+    verification run.
+  </p>
+  <p>
+    When that happens we do not quietly restamp the source with today's date,
+    and we do not delete the material either. The source keeps the date it was
+    actually last read, the guide says so in its own words, and the official
+    directory is linked so you can confirm the current position yourself. A
+    listing with an honest older date is more useful than no listing — and far
+    more useful than a fresh date that was never earned.
+  </p>
+
+  <h2>Independence and money</h2>
+  <p>
+    TripAxle is a commercial publication and may carry advertising, affiliate
+    links and labelled sponsorship. No advertiser or partner writes, reviews,
+    approves or influences the guidance, and nothing can be bought that changes
+    a conclusion. The full terms are in the
+    <a href="/affiliate-disclosure/">affiliate disclosure</a>.
+  </p>
+
+  <h2>Corrections</h2>
+  <p>
+    If something here is wrong or has gone out of date, tell us and it gets
+    fixed. When a correction changes a factual claim, the page's updated and
+    verified dates change with it, and the source list is re-checked at the same
+    time. Use the <a href="/contact/">contact page</a> to send one.
+  </p>
+  <p>
+    The full citation library used across the site currently holds
+    {Object.keys(sources).length} primary sources; each guide lists the subset
+    it actually relies on at the foot of the page.
+  </p>
+
+  <h2>Limits</h2>
+  <p>
+    TripAxle is editorial guidance, not legal, financial or insurance advice.
+    Your rental agreement governs your rental, and Portuguese law governs the
+    road. Where those disagree with anything here, they win. See the
+    <a href="/disclaimer/">disclaimer</a>.
+  </p>
+</LegalLayout>

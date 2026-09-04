@@ -3,11 +3,13 @@ import ArticleLayout from "../layouts/ArticleLayout.astro";
 import QuickAnswer from "../components/QuickAnswer.astro";
 import AtAGlance from "../components/AtAGlance.astro";
 import Callout from "../components/Callout.astro";
+import InlineFigure from "../components/InlineFigure.astro";
 import { images } from "../lib/images";
+import { cite } from "../lib/sources";
 
 const breadcrumbs = [
-  { label: "Portugal Guide", href: "/portugal-guide" },
-  { label: "Airport Rental Guides", href: "/airport-rental-guides" },
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Airport Rental Guides", href: "/airport-rental-guides/" },
   { label: "Porto Airport" },
 ];
 
@@ -30,11 +32,11 @@ const glance = [
 ];
 
 const related = [
-  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
-  { label: "Lisbon Airport Car Rental", href: "/lisbon-airport-car-rental" },
-  { label: "Faro Airport Car Rental", href: "/faro-airport-car-rental" },
-  { label: "Portugal Toll Roads for Rental Cars", href: "/portugal-toll-roads-for-rental-cars" },
-  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance" },
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide/" },
+  { label: "Lisbon Airport Car Rental", href: "/lisbon-airport-car-rental/" },
+  { label: "Faro Airport Car Rental", href: "/faro-airport-car-rental/" },
+  { label: "Portugal Toll Roads for Rental Cars", href: "/portugal-toll-roads-for-rental-cars/" },
+  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance/" },
 ];
 ---
 
@@ -44,6 +46,8 @@ const related = [
   eyebrow="Porto Airport"
   summary="Where the rental companies are at OPO, how the shuttles and pickup work, the routes north into the Douro and Minho, and when the Metro is the better call."
   updated="2026-05-01"
+  lastChecked="2026-05-01"
+  sources={cite("anaPorto", "ptTolls")}
   image={images.douroValley}
   breadcrumbs={breadcrumbs}
   toc={toc}
@@ -53,7 +57,7 @@ const related = [
     body: "Compare available rental companies and current prices for your dates.",
   }}
 >
-  <QuickAnswer>
+  <QuickAnswer slot="answer">
     <p>
       Renting at Porto Airport makes sense if your trip is built around the
       <strong>Douro Valley, the Minho, or the northern coast</strong>. If you
@@ -206,7 +210,7 @@ const related = [
     can be supplied with a <strong>Via Verde</strong> transponder. Ask the rental
     company how its toll system, fees, and billing process work before leaving
     the desk — see
-    <a href="/portugal-toll-roads-for-rental-cars">Portugal toll roads for rental cars</a>.
+    <a href="/portugal-toll-roads-for-rental-cars/">Portugal toll roads for rental cars</a>.
   </Callout>
 
   <h2 id="when-to-rent">When renting at Porto Airport makes sense</h2>
@@ -220,10 +224,12 @@ const related = [
 
   <h2 id="when-to-skip">When renting at Porto Airport may not make sense</h2>
 
-  <figure class="inline-figure inline-figure--portrait porto-ribeira-figure">
-    <img src={images.portoRibeira.src} alt={images.portoRibeira.alt} loading="lazy" />
-    <figcaption>Central Porto is steep, stepped and largely pedestrian — a car spends most of its time parked. {images.portoRibeira.credit}</figcaption>
-  </figure>
+  <InlineFigure
+    image={images.portoRibeira}
+    portrait
+    class="inline-figure--pull"
+    caption="Central Porto is steep, stepped and largely pedestrian — a car spends most of its time parked."
+  />
 
   <p>
     Travelers staying primarily in central Porto may find a rental car more
@@ -250,15 +256,6 @@ const related = [
   </div>
 
   <style>
-    .porto-ribeira-figure {
-      float: right;
-      width: min(320px, 42%);
-      margin: 0.25rem 0 1rem 1.5rem;
-    }
-    @media (max-width: 640px) {
-      .porto-ribeira-figure { float: none; width: 100%; margin: 1.5rem 0; }
-    }
-
     .tag-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));

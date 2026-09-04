@@ -1,0 +1,26 @@
+---
+/**
+ * One compact list of the authoritative pages behind a time-sensitive guide.
+ * Deliberately plain: no inline markers in the body, no per-item annotation —
+ * the page carries a single "Last checked" line instead.
+ */
+export interface Source {
+  publisher: string;
+  title: string;
+  url: string;
+}
+
+interface Props {
+  sources: Source[];
+}
+const { sources } = Astro.props;
+---
+
+<section class="sources">
+  <h2>Sources</h2>
+  <ul>
+    {sources.map((s) => (
+      <li><a href={s.url} rel="noopener">{s.publisher} — {s.title}</a></li>
+    ))}
+  </ul>
+</section>

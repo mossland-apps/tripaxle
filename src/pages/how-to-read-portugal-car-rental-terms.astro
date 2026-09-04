@@ -4,8 +4,8 @@ import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
 
 const breadcrumbs = [
-  { label: "Portugal Guide", href: "/portugal-guide" },
-  { label: "Booking Basics", href: "/booking-basics" },
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Booking Basics", href: "/booking-basics/" },
   { label: "How to Read the Terms" },
 ];
 
@@ -19,10 +19,10 @@ const toc = [
 ];
 
 const related = [
-  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance" },
-  { label: "Deposits and Card Requirements", href: "/portugal-car-rental-deposits-and-card-requirements" },
-  { label: "Common Car Rental Mistakes in Portugal", href: "/common-car-rental-mistakes-portugal" },
-  { label: "Booking Basics", href: "/booking-basics" },
+  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance/" },
+  { label: "Deposits and Card Requirements", href: "/portugal-car-rental-deposits-and-card-requirements/" },
+  { label: "Common Car Rental Mistakes in Portugal", href: "/common-car-rental-mistakes-portugal/" },
+  { label: "Booking Basics", href: "/booking-basics/" },
 ];
 ---
 
@@ -36,7 +36,7 @@ const related = [
   toc={toc}
   related={related}
 >
-  <QuickAnswer>
+  <QuickAnswer slot="answer">
     <p>
       Before you pay, find six things in the rental conditions: the
       <strong>excess amount and what it excludes</strong>, the
@@ -63,7 +63,7 @@ const related = [
     <li><strong>Exclusions:</strong> look specifically for tyres, wheels, glass/windscreen, roof, underbody, mirrors, interior, keys, and “negligence.” Many of these are not covered even by desk “full” cover.</li>
     <li><strong>Excess reduction:</strong> whether a zero/low-excess option is offered, at what daily price, and whether it removes the exclusions too.</li>
   </ul>
-  <p>Full detail in <a href="/portugal-car-rental-insurance">insurance explained</a>.</p>
+  <p>Full detail in <a href="/portugal-car-rental-insurance/">insurance explained</a>.</p>
 
   <h2 id="deposit">Deposit and card rules</h2>
   <ul>
@@ -71,7 +71,7 @@ const related = [
     <li>Whether a <strong>credit card in the main driver's name</strong> is mandatory, or a debit card is accepted for the deposit (not just for payment).</li>
     <li>Whether prepaid/virtual cards are excluded.</li>
   </ul>
-  <p>See <a href="/portugal-car-rental-deposits-and-card-requirements">deposits and card requirements</a> and <a href="/portugal-car-rental-with-debit">renting with a debit card</a>.</p>
+  <p>See <a href="/portugal-car-rental-deposits-and-card-requirements/">deposits and card requirements</a> and <a href="/portugal-car-rental-with-debit/">renting with a debit card</a>.</p>
 
   <h2 id="fuel">Fuel policy</h2>
   <ul>
@@ -83,7 +83,7 @@ const related = [
   <h2 id="usage">Mileage, area, and driver rules</h2>
   <ul>
     <li><strong>Mileage:</strong> most Portugal rentals are unlimited, but some long or one-way rentals cap it — check the daily allowance and the per-km overage.</li>
-    <li><strong>Geographic limits:</strong> whether Spain is allowed and any cross-border fee; other countries are usually excluded. See <a href="/portugal-rental-car-into-spain">driving into Spain</a>.</li>
+    <li><strong>Geographic limits:</strong> whether Spain is allowed and any cross-border fee; other countries are usually excluded. See <a href="/portugal-rental-car-into-spain/">driving into Spain</a>.</li>
     <li><strong>Drivers:</strong> minimum age, young/senior surcharge, minimum licence-held period (often 1–3 years), and that every driver must be listed.</li>
     <li><strong>Licence:</strong> non-EU licences may need an International Driving Permit alongside the home licence — confirm for your country.</li>
   </ul>
@@ -92,13 +92,13 @@ const related = [
     “Or similar” describes the car group, not a guarantee of a model — and, more
     importantly, not a guarantee of transmission. If you need an automatic, the
     voucher must say automatic. See
-    <a href="/manual-vs-automatic-portugal">manual vs automatic</a>.
+    <a href="/manual-vs-automatic-portugal/">manual vs automatic</a>.
   </Callout>
 
   <h2 id="cancellation">Cancellation and “or similar”</h2>
   <ul>
     <li>Whether the rate is <strong>free-cancellation</strong> or <strong>prepaid non-refundable</strong>, and the cut-off time.</li>
-    <li>The <strong>no-show</strong> policy and the <strong>grace period</strong> for a late pickup — critical if your flight might be delayed (<a href="/flight-late-for-car-rental-pickup">more here</a>).</li>
+    <li>The <strong>no-show</strong> policy and the <strong>grace period</strong> for a late pickup — critical if your flight might be delayed (<a href="/flight-late-for-car-rental-pickup/">more here</a>).</li>
     <li>Amendment fees for changing the name, time, or location.</li>
   </ul>
 </ArticleLayout>

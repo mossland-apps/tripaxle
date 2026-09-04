@@ -4,8 +4,8 @@ import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
 
 const breadcrumbs = [
-  { label: "Portugal Guide", href: "/portugal-guide" },
-  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Practical Guides", href: "/practical-guides/" },
   { label: "Renting With a Debit Card" },
 ];
 
@@ -17,10 +17,10 @@ const toc = [
 ];
 
 const related = [
-  { label: "Deposits and Card Requirements", href: "/portugal-car-rental-deposits-and-card-requirements" },
-  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance" },
-  { label: "Booking Basics", href: "/booking-basics" },
-  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Deposits and Card Requirements", href: "/portugal-car-rental-deposits-and-card-requirements/" },
+  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance/" },
+  { label: "Booking Basics", href: "/booking-basics/" },
+  { label: "Practical Guides", href: "/practical-guides/" },
 ];
 ---
 
@@ -34,13 +34,13 @@ const related = [
   toc={toc}
   related={related}
 >
-  <QuickAnswer>
+  <QuickAnswer slot="answer">
     <p>
       Renting with a debit card is possible, but not every supplier, vehicle
       class, or rate allows it. The key thing to verify is not just whether debit
       cards are accepted <em>for payment</em>, but whether they are accepted
       <strong>for the security deposit</strong> on your specific booking. See also
-      <a href="/portugal-car-rental-deposits-and-card-requirements">deposits and card requirements</a>.
+      <a href="/portugal-car-rental-deposits-and-card-requirements/">deposits and card requirements</a>.
     </p>
   </QuickAnswer>
 

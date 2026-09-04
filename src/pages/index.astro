@@ -1,32 +1,33 @@
 ---
+import { Picture } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import { images } from "../lib/images";
 
 const hubs = [
   {
     title: "Portugal Guide",
-    href: "/portugal-guide",
+    href: "/portugal-guide/",
     body:
       "Start here to decide whether you need a car at all, and where in Portugal one actually adds value.",
     cta: "Read the Portugal guide",
   },
   {
     title: "Airport Rental Guides",
-    href: "/airport-rental-guides",
+    href: "/airport-rental-guides/",
     body:
       "Pickup desks, off-airport shuttles, documents, and leaving the airport — for Lisbon, Porto, and Faro.",
     cta: "See airport guides",
   },
   {
     title: "Booking Basics",
-    href: "/booking-basics",
+    href: "/booking-basics/",
     body:
       "Insurance, deposits, card rules, and how to read rental terms before you reserve.",
     cta: "Learn booking basics",
   },
   {
     title: "Practical Guides",
-    href: "/practical-guides",
+    href: "/practical-guides/",
     body:
       "Toll roads, fuel labels, manual vs automatic, and the day-to-day details of driving here.",
     cta: "See practical guides",
@@ -34,16 +35,18 @@ const hubs = [
 ];
 
 const popular = [
-  { label: "Do you need a car in Portugal?", href: "/do-you-need-a-car-in-portugal" },
-  { label: "Portugal car rental insurance explained", href: "/portugal-car-rental-insurance" },
-  { label: "Renting with a debit card", href: "/portugal-car-rental-with-debit" },
-  { label: "Toll roads for rental cars", href: "/portugal-toll-roads-for-rental-cars" },
-  { label: "Manual vs automatic in Portugal", href: "/manual-vs-automatic-portugal" },
-  { label: "Lisbon Airport car rental guide", href: "/lisbon-airport-car-rental" },
+  { label: "Do you need a car in Portugal?", href: "/do-you-need-a-car-in-portugal/" },
+  { label: "Portugal car rental insurance explained", href: "/portugal-car-rental-insurance/" },
+  { label: "Renting with a debit card", href: "/portugal-car-rental-with-debit/" },
+  { label: "Toll roads for rental cars", href: "/portugal-toll-roads-for-rental-cars/" },
+  { label: "Manual vs automatic in Portugal", href: "/manual-vs-automatic-portugal/" },
+  { label: "Lisbon Airport car rental guide", href: "/lisbon-airport-car-rental/" },
 ];
 ---
 
 <Layout
+  pageType="home"
+  socialImage={images.portoSkyline}
   title="TripAxle — Renting and Driving a Car in Portugal, Explained"
   description="Independent, practical guidance on renting and driving a car in Portugal: airports, insurance, deposits, tolls, and when a rental car is actually worth it."
 >
@@ -57,12 +60,22 @@ const popular = [
         tolls catch people out, and when a rental car is genuinely worth it.
       </p>
       <div class="home-hero__actions">
-        <a class="button" href="/portugal-guide">Start with the Portugal guide</a>
-        <a class="button button--ghost" href="/airport-rental-guides">Airport guides</a>
+        <a class="button" href="/portugal-guide/">Start with the Portugal guide</a>
+        <a class="button button--ghost" href="/airport-rental-guides/">Airport guides</a>
       </div>
     </div>
     <figure class="home-hero__figure">
-      <img src={images.portoSkyline.src} alt={images.portoSkyline.alt} />
+      <Picture
+        src={images.portoSkyline.src}
+        alt={images.portoSkyline.alt}
+        formats={["avif", "webp"]}
+        widths={[480, 768, 1120]}
+        sizes="(min-width: 900px) 520px, 100vw"
+        quality={60}
+        loading="eager"
+        fetchpriority="high"
+        decoding="sync"
+      />
       <figcaption>{images.portoSkyline.credit}</figcaption>
     </figure>
   </section>
@@ -96,7 +109,7 @@ const popular = [
         and driving in Portugal actually works, so you can book with confidence
         wherever you book.
       </p>
-      <a class="link-arrow" href="/about">How we research these guides →</a>
+      <a class="link-arrow" href="/about/">How we research these guides →</a>
     </div>
   </section>
 

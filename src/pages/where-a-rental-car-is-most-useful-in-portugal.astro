@@ -3,10 +3,11 @@ import ArticleLayout from "../layouts/ArticleLayout.astro";
 import QuickAnswer from "../components/QuickAnswer.astro";
 import AtAGlance from "../components/AtAGlance.astro";
 import Callout from "../components/Callout.astro";
+import InlineFigure from "../components/InlineFigure.astro";
 import { images } from "../lib/images";
 
 const breadcrumbs = [
-  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Portugal Guide", href: "/portugal-guide/" },
   { label: "Where a Car Is Most Useful" },
 ];
 
@@ -26,10 +27,10 @@ const glance = [
 ];
 
 const related = [
-  { label: "Do You Need a Car in Portugal?", href: "/do-you-need-a-car-in-portugal" },
-  { label: "Driving in Portugal: What to Expect", href: "/driving-in-portugal-what-to-expect" },
-  { label: "Faro Airport Car Rental Guide", href: "/faro-airport-car-rental" },
-  { label: "Porto Airport Car Rental Guide", href: "/porto-airport-car-rental" },
+  { label: "Do You Need a Car in Portugal?", href: "/do-you-need-a-car-in-portugal/" },
+  { label: "Driving in Portugal: What to Expect", href: "/driving-in-portugal-what-to-expect/" },
+  { label: "Faro Airport Car Rental Guide", href: "/faro-airport-car-rental/" },
+  { label: "Porto Airport Car Rental Guide", href: "/porto-airport-car-rental/" },
 ];
 ---
 
@@ -44,7 +45,7 @@ const related = [
   toc={toc}
   related={related}
 >
-  <QuickAnswer>
+  <QuickAnswer slot="answer">
     <p>
       A rental car adds the most in the <strong>Alentejo</strong>, the
       <strong>rural and western Algarve</strong>, and the <strong>Douro
@@ -65,10 +66,10 @@ const related = [
     of what you actually want to see, and weekend services thin out.
   </p>
 
-  <figure class="inline-figure">
-    <img src={images.algarveCliffsAerial.src} alt={images.algarveCliffsAerial.alt} loading="lazy" />
-    <figcaption>The central Algarve coast: villas and small resorts strung along the clifftop, linked by a single winding road. {images.algarveCliffsAerial.credit}</figcaption>
-  </figure>
+  <InlineFigure
+    image={images.algarveCliffsAerial}
+    caption="The central Algarve coast: villas and small resorts strung along the clifftop, linked by a single winding road."
+  />
   <ul>
     <li><strong>Best with a car:</strong> beach-hopping, a villa outside town, the west coast, inland day trips.</li>
     <li><strong>Fine without:</strong> a central stay in Lagos, Tavira, or Faro where you mostly walk.</li>
@@ -119,7 +120,7 @@ const related = [
   <Callout variant="tip">
     Match the car to the terrain: for the Serra da Estrela or Gerês in winter,
     ask about an appropriate vehicle and whether chains are needed. See
-    <a href="/child-seats-and-extras-portugal">extras</a> for seasonal equipment.
+    <a href="/child-seats-and-extras-portugal/">extras</a> for seasonal equipment.
   </Callout>
 
   <h2 id="little-value">Where a car adds little</h2>
@@ -129,8 +130,8 @@ const related = [
     <li><strong>Single-base beach or city stays</strong> where you will not really move.</li>
   </ul>
   <p>
-    Still deciding overall? Start with <a href="/do-you-need-a-car-in-portugal">do
+    Still deciding overall? Start with <a href="/do-you-need-a-car-in-portugal/">do
     you need a car in Portugal?</a> For what the driving itself is like, see
-    <a href="/driving-in-portugal-what-to-expect">what to expect</a>.
+    <a href="/driving-in-portugal-what-to-expect/">what to expect</a>.
   </p>
 </ArticleLayout>

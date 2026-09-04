@@ -4,8 +4,8 @@ import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
 
 const breadcrumbs = [
-  { label: "Portugal Guide", href: "/portugal-guide" },
-  { label: "Booking Basics", href: "/booking-basics" },
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Booking Basics", href: "/booking-basics/" },
   { label: "Broker vs Direct Supplier" },
 ];
 
@@ -18,10 +18,10 @@ const toc = [
 ];
 
 const related = [
-  { label: "How to Read Portugal Car Rental Terms", href: "/how-to-read-portugal-car-rental-terms" },
-  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance" },
-  { label: "Common Car Rental Mistakes in Portugal", href: "/common-car-rental-mistakes-portugal" },
-  { label: "Booking Basics", href: "/booking-basics" },
+  { label: "How to Read Portugal Car Rental Terms", href: "/how-to-read-portugal-car-rental-terms/" },
+  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance/" },
+  { label: "Common Car Rental Mistakes in Portugal", href: "/common-car-rental-mistakes-portugal/" },
+  { label: "Booking Basics", href: "/booking-basics/" },
 ];
 ---
 
@@ -35,7 +35,7 @@ const related = [
   toc={toc}
   related={related}
 >
-  <QuickAnswer>
+  <QuickAnswer slot="answer">
     <p>
       A <strong>broker</strong> (Discover Cars, RentalCars, Holiday Autos, and
       similar) compares and sells rentals supplied by other companies. Booking
@@ -65,7 +65,7 @@ const related = [
   <h2 id="broker-pros">Where brokers help</h2>
   <ul>
     <li><strong>Price and comparison:</strong> one search across many companies, often with genuinely lower rates.</li>
-    <li><strong>Cheaper excess cover:</strong> broker "full protection" is usually far cheaper than buying SCDW at the desk — though it is normally reimbursement-based (see below and <a href="/portugal-car-rental-insurance">insurance explained</a>).</li>
+    <li><strong>Cheaper excess cover:</strong> broker "full protection" is usually far cheaper than buying SCDW at the desk — though it is normally reimbursement-based (see below and <a href="/portugal-car-rental-insurance/">insurance explained</a>).</li>
     <li><strong>Access to local suppliers</strong> you might not find or trust on your own.</li>
     <li>Sometimes better cancellation flexibility than a supplier's own prepaid rate.</li>
   </ul>
@@ -98,6 +98,6 @@ const related = [
   <ul>
     <li><strong>Lean direct</strong> if your itinerary is tight, you are arriving late, you want the simplest possible support, or you are renting a higher-value car.</li>
     <li><strong>A broker is fine</strong> if you are price-led, flexible on timing, comfortable handling a reimbursement claim, and you take a minute to check which supplier and terms you are actually getting.</li>
-    <li>Either way, read the fulfilling supplier's rental conditions before you pay — that is covered in <a href="/how-to-read-portugal-car-rental-terms">how to read the terms</a>.</li>
+    <li>Either way, read the fulfilling supplier's rental conditions before you pay — that is covered in <a href="/how-to-read-portugal-car-rental-terms/">how to read the terms</a>.</li>
   </ul>
 </ArticleLayout>

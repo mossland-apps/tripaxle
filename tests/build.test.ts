@@ -35,13 +35,14 @@ describe('every built page', () => {
       expect(html).toContain('class="site-header"');
       expect(html).toContain('class="site-footer"');
       // footer carries the About / policy links on every page
-      for (const href of ['/about', '/contact', '/affiliate-disclosure', '/privacy', '/disclaimer']) {
+      for (const href of ['/about/', '/contact/', '/affiliate-disclosure/', '/privacy/', '/disclaimer/']) {
         expect(html, `${page} footer missing ${href}`).toContain(`href="${href}"`);
       }
       // bundled design-system stylesheet is wired up
       expect(html).toMatch(/href="\/_astro\/[^"]+\.css"/);
-      // Google Fonts (Fraunces serif headings)
-      expect(html).toContain('Fraunces');
+      // Self-hosted Fraunces is preloaded from this origin, not fetched from Google.
+      expect(html).toContain('/fonts/fraunces-latin.woff2');
+      expect(html).not.toContain('fonts.googleapis.com');
     });
 
     it(`${page}: never ships the commercial box while the affiliate switch is off`, () => {
@@ -61,8 +62,15 @@ describe('footer', () => {
     expect(footer).toContain('>Guides<');
     expect(footer).toContain('>Popular<');
     expect(footer).toContain('>TripAxle<');
-    expect(footer).toContain('href="/portugal-guide"');
-    expect(footer).toContain('href="/portugal-car-rental-insurance"');
+    expect(footer).toContain('href="/portugal-guide/"');
+    expect(footer).toContain('href="/portugal-car-rental-insurance/"');
+  });
+
+  it('labels its link groups without adding headings to the outline', () => {
+    const footer = html.slice(html.indexOf('class="site-footer"'));
+    expect(footer).not.toMatch(/<h[1-6]/);
+    expect(footer).toContain('class="site-footer__label"');
+    expect(footer).toMatch(/aria-labelledby="footer-guides"/);
   });
 
   it('states editorial independence while the commercial switch is off', () => {
@@ -106,7 +114,7 @@ describe('policy pages', () => {
     'about/index.html': [/how we research/i],
     'contact/index.html': [/contact form/i, /correction/i],
     'affiliate-disclosure/index.html': [/qualifying booking or transaction/i, /rel="sponsored"|rel=.sponsored./, /never/i],
-    'privacy/index.html': [/no cookies|sets .*no.* cookies/i, /Google Fonts/, /Cloudflare/],
+    'privacy/index.html': [/no cookies|sets .*no.* cookies/i, /own\s+domain/i, /Cloudflare/],
     'disclaimer/index.html': [/not.*(legal|professional).*advice/i, /as is/i, /out of date/i],
   };
 
@@ -124,10 +132,10 @@ describe('home page', () => {
     const html = read('index.html');
     expect(html).toContain('Renting and driving a car in Portugal');
     for (const href of [
-      '/portugal-guide',
-      '/airport-rental-guides',
-      '/booking-basics',
-      '/practical-guides',
+      '/portugal-guide/',
+      '/airport-rental-guides/',
+      '/booking-basics/',
+      '/practical-guides/',
     ]) {
       expect(html).toContain(`href="${href}"`);
     }
@@ -166,7 +174,6 @@ describe('every guide article', () => {
       expect(html).toMatch(/Updated \w+ 20\d\d/);
       expect(html).toContain('quick-answer');
       expect(html).toContain('on-this-page');
-      expect(html).toContain('How we research this guide');
       expect(html).toContain('related-guides');
       expect(html).toContain('"@type":"Article"');
     });
@@ -285,6 +292,7 @@ describe('internal links', () => {
       const html = read(page);
       for (const m of html.matchAll(/href="(\/[a-z0-9-]*(?:\/[a-z0-9-]+)*)\/?"/g)) {
         const route = m[1] === '' ? '/' : m[1];
+        if (route.startsWith('/fonts')) continue;
         if (route.startsWith('/_') || route.startsWith('/images')) continue;
         if (!builtRoutes.has(route)) broken.push(`${page} -> ${route}`);
       }
@@ -302,11 +310,13 @@ describe('Lisbon airport guide (reference template)', () => {
   it('shows a breadcrumb trail with structured data', () => {
     expect(html).toContain('aria-label="Breadcrumb"');
     expect(html).toContain('BreadcrumbList');
-    expect(html).toContain('href="/airport-rental-guides"');
+    expect(html).toContain('href="/airport-rental-guides/"');
   });
 
-  it('shows the updated date', () => {
+  it('shows the updated date and one quiet last-checked line', () => {
     expect(html).toContain('Updated August 2026');
+    expect(html).toContain('Last checked 15 August 2026');
+    expect((html.match(/Last checked/g) ?? []).length).toBe(1);
   });
 
   it('shows a quick-answer box and an at-a-glance panel', () => {
@@ -328,10 +338,10 @@ describe('Lisbon airport guide (reference template)', () => {
     expect(html).toContain('TripAxle tip');
   });
 
-  it('includes the how-we-research trust note and related guides', () => {
-    expect(html).toContain('How we research this guide');
+  it('carries related guides and no research boilerplate', () => {
     expect(html).toContain('related-guides');
-    expect(html).toContain('href="/porto-airport-car-rental"');
+    expect(html).toContain('href="/porto-airport-car-rental/"');
+    expect(html).not.toMatch(/How we research|How this guide is checked/);
   });
 
   it('preserves the original operational content', () => {

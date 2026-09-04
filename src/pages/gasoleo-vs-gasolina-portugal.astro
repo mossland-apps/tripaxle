@@ -4,8 +4,8 @@ import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
 
 const breadcrumbs = [
-  { label: "Portugal Guide", href: "/portugal-guide" },
-  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Practical Guides", href: "/practical-guides/" },
   { label: "Gasóleo vs Gasolina" },
 ];
 
@@ -18,10 +18,10 @@ const toc = [
 ];
 
 const related = [
-  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
-  { label: "Manual vs Automatic Rental Cars in Portugal", href: "/manual-vs-automatic-portugal" },
-  { label: "What to Photograph When Picking Up a Rental Car", href: "/what-to-photograph-rental-pickup" },
-  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide/" },
+  { label: "Manual vs Automatic Rental Cars in Portugal", href: "/manual-vs-automatic-portugal/" },
+  { label: "What to Photograph When Picking Up a Rental Car", href: "/what-to-photograph-rental-pickup/" },
+  { label: "Practical Guides", href: "/practical-guides/" },
 ];
 ---
 
@@ -35,7 +35,7 @@ const related = [
   toc={toc}
   related={related}
 >
-  <QuickAnswer>
+  <QuickAnswer slot="answer">
     <p>
       <strong>Gasóleo = diesel. Gasolina = petrol (gasoline).</strong> Most
       Portuguese rental cars are diesel, but never assume — check the fuel flap,

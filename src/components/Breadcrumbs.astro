@@ -1,33 +1,24 @@
 ---
-import { site } from '../config';
+import { breadcrumbLd, canonicalPath, graph, type Crumb } from '../lib/seo';
 
-interface Crumb {
-  label: string;
-  href?: string;
-}
 interface Props {
   items: Crumb[];
 }
 const { items } = Astro.props;
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: items.map((c, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    name: c.label,
-    ...(c.href ? { item: `${site.domain}${c.href}` } : {}),
-  })),
-};
+// Every trail starts at Home, both visually and in the structured data.
+const trail: Crumb[] =
+  items[0]?.href === '/' ? [...items] : [{ label: 'Home', href: '/' }, ...items];
+
+const jsonLd = graph(breadcrumbLd(trail));
 ---
 
 <nav class="breadcrumbs" aria-label="Breadcrumb">
   <ol>
-    {items.map((c, i) => (
+    {trail.map((c, i) => (
       <li>
-        {c.href && i < items.length - 1 ? (
-          <a href={c.href}>{c.label}</a>
+        {c.href && i < trail.length - 1 ? (
+          <a href={canonicalPath(c.href)}>{c.label}</a>
         ) : (
           <span aria-current="page">{c.label}</span>
         )}

@@ -2,17 +2,19 @@
 import Layout from './Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { formatUpdated } from '../lib/text';
+import type { PageType } from '../lib/seo';
 
 interface Props {
   title: string;
   description?: string;
   heading: string;
   updated?: string | Date;
+  pageType?: PageType;
 }
-const { title, description, heading, updated } = Astro.props;
+const { title, description, heading, updated, pageType = 'legal' } = Astro.props;
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} pageType={pageType}>
   <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: heading }]} />
   <article class="prose legal">
     <h1>{heading}</h1>

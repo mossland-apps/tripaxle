@@ -3,10 +3,11 @@ import ArticleLayout from "../layouts/ArticleLayout.astro";
 import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
 import { images } from "../lib/images";
+import { cite } from "../lib/sources";
 
 const breadcrumbs = [
-  { label: "Portugal Guide", href: "/portugal-guide" },
-  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Practical Guides", href: "/practical-guides/" },
   { label: "Toll Roads for Rental Cars" },
 ];
 
@@ -20,10 +21,10 @@ const toc = [
 ];
 
 const related = [
-  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
-  { label: "Lisbon Airport Car Rental", href: "/lisbon-airport-car-rental" },
-  { label: "Porto Airport Car Rental", href: "/porto-airport-car-rental" },
-  { label: "Faro Airport Car Rental", href: "/faro-airport-car-rental" },
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide/" },
+  { label: "Lisbon Airport Car Rental", href: "/lisbon-airport-car-rental/" },
+  { label: "Porto Airport Car Rental", href: "/porto-airport-car-rental/" },
+  { label: "Faro Airport Car Rental", href: "/faro-airport-car-rental/" },
 ];
 ---
 
@@ -33,12 +34,14 @@ const related = [
   eyebrow="Practical Guides"
   summary="Portugal uses both traditional toll booths and electronic-only toll roads, and they do not work the same way. Here is how to avoid finishing the trip still confused."
   updated="2026-03-14"
+  lastChecked="2026-09-03"
+  sources={cite("lei37", "ptTolls")}
   image={images.geresBridge}
   breadcrumbs={breadcrumbs}
   toc={toc}
   related={related}
 >
-  <QuickAnswer>
+  <QuickAnswer slot="answer">
     <p>
       Portugal has two motorway toll systems: traditional toll plazas and
       electronic-only gantries with no place to stop and pay. In a rental car,

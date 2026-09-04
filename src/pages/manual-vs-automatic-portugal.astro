@@ -4,8 +4,8 @@ import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
 
 const breadcrumbs = [
-  { label: "Portugal Guide", href: "/portugal-guide" },
-  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Practical Guides", href: "/practical-guides/" },
   { label: "Manual vs Automatic" },
 ];
 
@@ -18,10 +18,10 @@ const toc = [
 ];
 
 const related = [
-  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
-  { label: "How to Read Portugal Car Rental Terms", href: "/how-to-read-portugal-car-rental-terms" },
-  { label: "Common Car Rental Mistakes in Portugal", href: "/common-car-rental-mistakes-portugal" },
-  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide/" },
+  { label: "How to Read Portugal Car Rental Terms", href: "/how-to-read-portugal-car-rental-terms/" },
+  { label: "Common Car Rental Mistakes in Portugal", href: "/common-car-rental-mistakes-portugal/" },
+  { label: "Practical Guides", href: "/practical-guides/" },
 ];
 ---
 
@@ -35,7 +35,7 @@ const related = [
   toc={toc}
   related={related}
 >
-  <QuickAnswer>
+  <QuickAnswer slot="answer">
     <p>
       In Portugal, manual (stick-shift) cars are the default and automatics are a
       paid upgrade that often sells out in summer. If you cannot comfortably

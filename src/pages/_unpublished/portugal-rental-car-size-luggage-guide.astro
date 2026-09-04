@@ -1,0 +1,248 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import Callout from "../components/Callout.astro";
+import { images } from "../lib/images";
+import { cite } from "../lib/sources";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Booking Basics", href: "/booking-basics/" },
+  { label: "Car Size and Luggage" },
+];
+
+const toc = [
+  { label: "Measure your luggage first", id: "measure" },
+  { label: "What a category actually promises", id: "categories" },
+  { label: "The size/road trade-off in Portugal", id: "trade-off" },
+  { label: "Where child seats change the maths", id: "child-seats" },
+  { label: "Transmission and size together", id: "transmission" },
+  { label: "The sizing worksheet", id: "worksheet" },
+  { label: "What to do if it does not fit", id: "does-not-fit" },
+];
+
+const related = [
+  { label: "Manual vs automatic in Portugal", href: "/manual-vs-automatic-portugal/" },
+  { label: "Child seats and extras", href: "/child-seats-and-extras-portugal/" },
+  { label: "What a Portugal rental really costs", href: "/portugal-car-rental-cost/" },
+  { label: "Parking with a rental car", href: "/parking-in-portugal-with-a-rental-car/" },
+];
+---
+
+<ArticleLayout
+  title="Portugal Rental Car Size and Luggage Guide | TripAxle"
+  description="How to translate your party size and your actual suitcases into a Portugal rental category — and why a bigger car is not automatically the safer choice here."
+  eyebrow="Booking Basics"
+  summary="A method for choosing the category, based on measuring what you are actually carrying rather than trusting a picture of a car you will not be given."
+  updated="2026-09-03"
+  published="2026-09-03"
+  verified="2026-09-03"
+  image={images.sintraPark}
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+  sources={cite("codigoDaEstrada")}
+  sourcesNote="The only external rule that constrains this decision is the child-restraint requirement in Article 55 of the Código da Estrada, cited below. Boot capacities and model availability are supplier fleet matters and are not published here, because no supplier guarantees a specific model."
+  trustNote="This guide contains no invented boot capacities or model lists. Where a number would be useful, it tells you how to measure it yourself instead."
+>
+  <QuickAnswer slot="answer">
+    <p>
+      Book the category by the luggage you are actually carrying, measured, not
+      by the number of seats. A rental category promises a
+      <strong>class of vehicle, not a model</strong> — "or similar" means what
+      it says — so the reliable planning unit is total suitcase volume plus a
+      seat for every person. In Portugal a larger car also costs you on narrow
+      village streets, in historic-centre car parks and on Algarve access roads,
+      so size up only as far as the luggage genuinely requires.
+    </p>
+  </QuickAnswer>
+
+  <h2 id="measure">Measure your luggage first</h2>
+  <p>
+    Do this before you look at any category chart. Lay out the actual bags you
+    are taking and write down, for each, its three dimensions and whether it is
+    rigid or soft.
+  </p>
+  <ul>
+    <li>
+      <strong>Rigid cases</strong> take their stated dimensions and no less. Two
+      large hard cases side by side is what defeats most small-car boots.
+    </li>
+    <li>
+      <strong>Soft bags</strong> compress into odd spaces and are worth a
+      category to a family travelling heavy.
+    </li>
+    <li>
+      <strong>Awkward items</strong> — a pushchair, a golf bag, a surfboard, a
+      travel cot — should be listed separately and sized separately. They are
+      the ones that decide the booking.
+    </li>
+    <li>
+      Count the <strong>cabin bags too</strong>. They also have to go somewhere,
+      and on a road trip they should not be visible on the back seat.
+    </li>
+  </ul>
+  <p>
+    The rule that matters: luggage must fit in the boot, out of sight. A car
+    with seats for five and a boot for two suitcases is a four-person car once
+    you refuse to leave bags on display in an Algarve beach car park.
+  </p>
+
+  <h2 id="categories">What a category actually promises</h2>
+  <p>
+    You are booking a group — mini, economy, compact, intermediate, estate,
+    SUV, people carrier — and the named model beside it is an example, always
+    followed by "or similar". The company undertakes to give you something of
+    that class, not that car. Two vehicles in the same group can differ
+    substantially in boot shape even where the quoted volume matches.
+  </p>
+  <p>
+    That is why we publish no capacity table. Any number we printed would be
+    for a model you may well not be given. What is durable is the shape of the
+    decision:
+  </p>
+  <div class="table-wrap">
+    <table>
+      <caption>
+        How to think about each step up in category, in Portuguese conditions.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Step up when</th>
+          <th scope="col">You gain</th>
+          <th scope="col">You give up</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Two people, one week, soft bags</th>
+          <td>Nothing you need. The smallest category is usually genuinely enough.</td>
+          <td>Fuel cost, and ease everywhere narrow.</td>
+        </tr>
+        <tr>
+          <th scope="row">Two people with two large hard cases</th>
+          <td>A boot that closes on both without folding a seat.</td>
+          <td>A little manoeuvrability, a little fuel.</td>
+        </tr>
+        <tr>
+          <th scope="row">Four adults with luggage</th>
+          <td>Rear legroom that survives a three-hour drive, plus boot depth.</td>
+          <td>Historic-centre parking becomes noticeably harder.</td>
+        </tr>
+        <tr>
+          <th scope="row">Family with a child seat and a pushchair</th>
+          <td>An estate's boot length is worth more than an SUV's height here.</td>
+          <td>Length matters in tight car parks; estates are long.</td>
+        </tr>
+        <tr>
+          <th scope="row">Five or more travelling together</th>
+          <td>A people carrier, and the fifth seat becomes usable.</td>
+          <td>Real difficulty in old towns; consider two smaller cars instead.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="trade-off">The size/road trade-off in Portugal</h2>
+  <p>
+    In many countries a bigger car is a free upgrade in comfort. In Portugal it
+    is a trade. Historic centres in towns like Óbidos, Évora, Guimarães and
+    much of the Algarve interior were laid out long before cars, and the
+    approach roads to cove beaches and hill villages are frequently single-track
+    with passing places. Multi-storey car parks in older city centres are often
+    tight, with low headroom and small bays.
+  </p>
+  <p>
+    None of that makes a large car impossible; it makes a large car a decision
+    rather than an upgrade. If your itinerary is motorway-and-resort, take the
+    space. If it is village-hopping, the smaller car is the better trip.
+    <a href="/parking-in-portugal-with-a-rental-car/">Parking in Portugal</a>
+    is the other half of that calculation.
+  </p>
+
+  <h2 id="child-seats">Where child seats change the maths</h2>
+  <p>
+    Article 55 of the Código da Estrada requires children under 12 who are
+    under 135 cm tall to be carried in an approved restraint suited to their
+    size and weight, and — with narrow exceptions — in the rear seats. That has
+    two consequences for sizing.
+  </p>
+  <p>
+    First, restraints occupy rear seats generously: two child seats plus an
+    adult across a small car's back seat is often not physically possible, even
+    though it is nominally a three-seat bench. Second, the equipment that comes
+    with children — pushchair, travel cot, beach gear — is bulky and rigid, and
+    it is what fills the boot.
+  </p>
+  <p>
+    <a href="/child-seats-and-extras-portugal/">Child seats and extras</a> covers
+    the rule itself and whether to rent seats or bring your own; either way,
+    size the car for the seats plus the equipment, not for the headcount.
+  </p>
+
+  <h2 id="transmission">Transmission and size together</h2>
+  <p>
+    Automatics are scarcer in Portugal and concentrated in the larger groups, so
+    the two decisions interact: insisting on an automatic sometimes pushes you
+    up a category whether you wanted the space or not, and insisting on the
+    smallest category sometimes means accepting a manual. Decide which of the
+    two matters more before you search.
+    <a href="/manual-vs-automatic-portugal/">Manual vs automatic in Portugal</a>
+    is where to settle that.
+  </p>
+
+  <h2 id="worksheet">The sizing worksheet</h2>
+  <div class="table-wrap">
+    <table>
+      <caption>Fill this in before searching, and book against the answers.</caption>
+      <thead>
+        <tr><th scope="col">Question</th><th scope="col">Your answer</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">People travelling (adults / children)</th><td></td></tr>
+        <tr><th scope="row">Large hard cases</th><td></td></tr>
+        <tr><th scope="row">Medium cases and soft bags</th><td></td></tr>
+        <tr><th scope="row">Cabin bags that must go out of sight</th><td></td></tr>
+        <tr><th scope="row">Awkward items and their longest dimension</th><td></td></tr>
+        <tr><th scope="row">Child seats required (and whose — yours or theirs)</th><td></td></tr>
+        <tr><th scope="row">Longest single drive on the itinerary</th><td></td></tr>
+        <tr><th scope="row">Historic centres or narrow coast roads on the route?</th><td></td></tr>
+        <tr><th scope="row">Automatic required?</th><td></td></tr>
+        <tr><th scope="row">Category chosen, and why</th><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="does-not-fit">What to do if it does not fit</h2>
+  <p>
+    You find out at the car, not at the desk, so deal with it there:
+  </p>
+  <ol>
+    <li>
+      Try the boot before you accept the car. Load the actual cases; do not
+      estimate.
+    </li>
+    <li>
+      If it will not close, go back to the desk before signing anything off. An
+      upgrade negotiated at the counter is cheaper than one negotiated after you
+      have driven away.
+    </li>
+    <li>
+      Ask what is available rather than what it costs first — availability is
+      usually the binding constraint in season, not price.
+    </li>
+    <li>
+      If you accept an upgrade, re-do the inspection and the photographs on the
+      new car. It is a different vehicle and a different damage record.
+      <a href="/what-to-photograph-rental-pickup/">The pickup photo checklist</a>
+      applies again in full.
+    </li>
+  </ol>
+
+  <Callout variant="tip">
+    Book the category that fits your luggage and accept that the car you get
+    will not be the one in the picture. Travelers who are disappointed by a
+    rental car in Portugal are almost always disappointed by the model, and
+    inconvenienced by the boot.
+  </Callout>
+</ArticleLayout>

@@ -1,0 +1,160 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import { cite } from "../lib/sources";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Practical Guides", href: "/practical-guides/" },
+  { label: "Pickup & Return Checklist" },
+];
+
+const toc = [
+  { label: "Before you leave home", id: "before" },
+  { label: "At the desk", id: "desk" },
+  { label: "At the car, before you drive", id: "at-the-car" },
+  { label: "Before the return", id: "before-return" },
+  { label: "At the return", id: "at-return" },
+  { label: "After you get home", id: "after" },
+];
+
+const related = [
+  { label: "What to photograph at pickup", href: "/what-to-photograph-rental-pickup/" },
+  { label: "Toll roads for rental cars", href: "/portugal-toll-roads-for-rental-cars/" },
+  { label: "After-hours car rental returns", href: "/after-hours-car-rental-returns-portugal/" },
+  { label: "Renting a car in Portugal: the complete guide", href: "/portugal-guide/" },
+];
+---
+
+<ArticleLayout
+  title="Portugal Rental Car Pickup & Return Checklist | TripAxle"
+  description="A printable pickup and return checklist for a Portugal hire car: documents, desk questions, the walk-around, the toll device, the fuel receipt and the final photos."
+  eyebrow="Practical Guides"
+  summary="One page, six stages, designed to print cleanly or sit open on a phone while you walk around the car."
+  updated="2026-09-03"
+  published="2026-09-03"
+  verified="2026-09-03"
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+  sources={cite("codigoDaEstrada", "ptTolls")}
+  sourcesNote="Two items on this checklist are legal requirements rather than good practice — the warning triangle and reflective vest, required by Article 88 of the Código da Estrada — and the toll device item reflects how Portuguese electronic tolls are charged. The rest is sequencing drawn from the guides this page links to."
+  trustNote="This checklist deliberately contains no company names, prices or deposit figures, so that it stays correct whoever you rent from and whenever you print it."
+>
+  <QuickAnswer slot="answer">
+    <p>
+      The whole checklist exists to protect two things: the deposit on your card
+      and the evidence of what the car looked like when you took it. If you do
+      nothing else, do these four —
+      <strong>photograph the car before you drive it, confirm the toll device is
+      active, keep the final fuel receipt, and photograph the car again at
+      return</strong>. Everything below is elaboration on those.
+    </p>
+  </QuickAnswer>
+
+  <p class="print-hide">
+    This page is built to print. Use your browser's print command and the
+    navigation, images and related links will drop away, leaving the checklist
+    on its own.
+  </p>
+
+  <div class="checklist-sheet">
+    <section aria-labelledby="before">
+      <h2 id="before">Before you leave home</h2>
+      <ul>
+        <li>Driving licence in date for the whole rental period.</li>
+        <li>Passport or national ID card for the lead driver.</li>
+        <li>Payment card in the lead driver's name, physically with you.</li>
+        <li>Enough available limit on that card for the deposit hold on top of everything else.</li>
+        <li>Booking voucher and reference saved offline, not only in email.</li>
+        <li>International Driving Permit, if your licence is non-EU and you obtained one.</li>
+        <li>Every additional driver's licence and ID.</li>
+        <li>Third-party excess policy documents and claims number, if you bought one.</li>
+        <li>Screenshots of the terms you booked on: deposit, excess, fuel policy, toll fee, cross-border rules.</li>
+        <li>Branch phone number and address saved in your phone.</li>
+        <li>Flight number attached to the booking, if collection is at an airport.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="desk">
+      <h2 id="desk">At the desk</h2>
+      <ul>
+        <li>Confirm the deposit amount they are about to hold, and on which card.</li>
+        <li>Confirm the excess that applies, and exactly what the cover excludes.</li>
+        <li>Decline or accept extra cover deliberately — do not be rushed either way.</li>
+        <li>Confirm the fuel policy, and that it matches what you booked.</li>
+        <li>Confirm the toll arrangement: device fitted, active, daily fee, capped or not.</li>
+        <li>Confirm cross-border permission if you intend to drive into Spain.</li>
+        <li>Register every additional driver now.</li>
+        <li>Confirm the return location, return time and desk opening hours.</li>
+        <li>Read the damage diagram before signing, and have anything missing added.</li>
+        <li>Photograph every page of the signed agreement.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="at-the-car">
+      <h2 id="at-the-car">At the car, before you drive</h2>
+      <ul>
+        <li>Walk the car slowly, in daylight if at all possible.</li>
+        <li>Photograph all four corners at an angle, then each panel square on.</li>
+        <li>Photograph every wheel and alloy edge — kerbing is the most-charged damage.</li>
+        <li>Photograph the windscreen and every glass panel, looking for chips.</li>
+        <li>Photograph the roof and, if you can, the front and rear bumper undersides.</li>
+        <li>Photograph the interior: seats, boot floor, and any existing marks.</li>
+        <li>Photograph the fuel gauge and odometer with the ignition on.</li>
+        <li>Photograph the toll device in place on the windscreen.</li>
+        <li>Check the warning triangle and reflective vest are present — both are legally required.</li>
+        <li>Check the spare wheel or repair kit is there.</li>
+        <li>Confirm the fuel type on the filler cap and write it down.</li>
+        <li>Load the actual luggage before accepting the car.</li>
+        <li>Fit and check any child seats before leaving the lot.</li>
+        <li>Report anything not on the damage sheet, in person, before driving off.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="before-return">
+      <h2 id="before-return">Before the return</h2>
+      <ul>
+        <li>Refuel to the level your policy requires, at a station near the return point.</li>
+        <li>Keep the fuel receipt — the time and location on it are the evidence.</li>
+        <li>Remove all belongings; check under seats, in door pockets and in the boot.</li>
+        <li>Remove any child seat you brought.</li>
+        <li>Give the interior a basic tidy; sand and pet hair are what get charged for.</li>
+        <li>Allow extra time for an unfamiliar return branch or a shuttle.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="at-return">
+      <h2 id="at-return">At the return</h2>
+      <ul>
+        <li>Photograph the car again from the same angles as at pickup.</li>
+        <li>Photograph the fuel gauge and odometer.</li>
+        <li>Photograph the parked car in position, with the bay number or level visible.</li>
+        <li>Ask for the car to be checked in your presence if a member of staff is available.</li>
+        <li>Get a signed or emailed return receipt confirming condition and fuel level.</li>
+        <li>If returning out of hours, photograph the key going into the drop-box and note the time.</li>
+        <li>Keep the parking ticket if the return is inside a paid car park.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="after">
+      <h2 id="after">After you get home</h2>
+      <ul>
+        <li>Watch for the deposit release; note the date it clears.</li>
+        <li>Expect toll charges to arrive days or weeks later — check them against your route.</li>
+        <li>Query any charge you do not recognise in writing, attaching your photographs.</li>
+        <li>Keep every photograph and receipt until the card statement is finally settled.</li>
+        <li>Claim on a third-party excess policy only after the rental company has charged you.</li>
+      </ul>
+    </section>
+  </div>
+
+  <p class="print-hide">
+    The reasoning behind the photographs is in
+    <a href="/what-to-photograph-rental-pickup/">what to photograph at pickup</a>,
+    the toll item in
+    <a href="/portugal-toll-roads-for-rental-cars/">toll roads for rental cars</a>,
+    and the out-of-hours item in
+    <a href="/after-hours-car-rental-returns-portugal/">after-hours returns</a>.
+  </p>
+</ArticleLayout>

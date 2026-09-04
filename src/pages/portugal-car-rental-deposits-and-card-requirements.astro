@@ -4,8 +4,8 @@ import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
 
 const breadcrumbs = [
-  { label: "Portugal Guide", href: "/portugal-guide" },
-  { label: "Booking Basics", href: "/booking-basics" },
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Booking Basics", href: "/booking-basics/" },
   { label: "Deposits & Card Requirements" },
 ];
 
@@ -17,10 +17,10 @@ const toc = [
 ];
 
 const related = [
-  { label: "Renting With a Debit Card", href: "/portugal-car-rental-with-debit" },
-  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance" },
-  { label: "Booking Basics", href: "/booking-basics" },
-  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Renting With a Debit Card", href: "/portugal-car-rental-with-debit/" },
+  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance/" },
+  { label: "Booking Basics", href: "/booking-basics/" },
+  { label: "Practical Guides", href: "/practical-guides/" },
 ];
 ---
 
@@ -34,7 +34,7 @@ const related = [
   toc={toc}
   related={related}
 >
-  <QuickAnswer>
+  <QuickAnswer slot="answer">
     <p>
       A booking can look fully paid online and still fail at pickup if the driver
       does not have the right card for the deposit. Verify not just how you can

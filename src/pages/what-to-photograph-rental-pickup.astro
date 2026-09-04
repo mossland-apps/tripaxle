@@ -4,8 +4,8 @@ import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
 
 const breadcrumbs = [
-  { label: "Portugal Guide", href: "/portugal-guide" },
-  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Practical Guides", href: "/practical-guides/" },
   { label: "What to Photograph at Pickup" },
 ];
 
@@ -18,10 +18,10 @@ const toc = [
 ];
 
 const related = [
-  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance" },
-  { label: "Deposits and Card Requirements", href: "/portugal-car-rental-deposits-and-card-requirements" },
-  { label: "After-Hours Car Rental Returns in Portugal", href: "/after-hours-car-rental-returns-portugal" },
-  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance/" },
+  { label: "Deposits and Card Requirements", href: "/portugal-car-rental-deposits-and-card-requirements/" },
+  { label: "After-Hours Car Rental Returns in Portugal", href: "/after-hours-car-rental-returns-portugal/" },
+  { label: "Practical Guides", href: "/practical-guides/" },
 ];
 ---
 
@@ -35,7 +35,7 @@ const related = [
   toc={toc}
   related={related}
 >
-  <QuickAnswer>
+  <QuickAnswer slot="answer">
     <p>
       Before you drive away, take a dated video walk-around plus close-ups of
       every existing mark, all four wheels, the windscreen, the roof and lower
@@ -49,7 +49,7 @@ const related = [
   <p>
     Portugal is not unusual for rental disputes, but two things make a good photo
     record worth the effort: deposits and excesses here are often large (see
-    <a href="/portugal-car-rental-insurance">insurance explained</a>), and a fair
+    <a href="/portugal-car-rental-insurance/">insurance explained</a>), and a fair
     number of bookings are with off-airport suppliers whose condition checks can
     be quick and whose damage claims sometimes arrive by email after you have
     flown home. Your own timestamped photos are the counter-evidence.
@@ -98,7 +98,7 @@ const related = [
     Repeat a shorter version at the end: full walk-around video, wheels, glass,
     the odometer and fuel gauge, and — if someone inspects the car — a photo of
     them doing it and of any “no damage” sign-off. For an
-    <a href="/after-hours-car-rental-returns-portugal">after-hours return</a>
+    <a href="/after-hours-car-rental-returns-portugal/">after-hours return</a>
     where no one checks the car, the drop-off photos are the only record that the
     car came back undamaged, so take them carefully and note the time.
   </p>

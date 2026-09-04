@@ -34,26 +34,26 @@ export const site = {
 
 /** Primary navigation, shared by the header. */
 export const nav = [
-  { label: 'Portugal Guide', href: '/portugal-guide' },
-  { label: 'Airport Rental Guides', href: '/airport-rental-guides' },
-  { label: 'Booking Basics', href: '/booking-basics' },
-  { label: 'Practical Guides', href: '/practical-guides' },
+  { label: 'Portugal Guide', href: '/portugal-guide/' },
+  { label: 'Airport Rental Guides', href: '/airport-rental-guides/' },
+  { label: 'Booking Basics', href: '/booking-basics/' },
+  { label: 'Practical Guides', href: '/practical-guides/' },
 ] as const;
 
 /** Most-read individual guides, surfaced in the footer. */
 export const popularGuides = [
-  { label: 'Do you need a car in Portugal?', href: '/do-you-need-a-car-in-portugal' },
-  { label: 'Car rental insurance explained', href: '/portugal-car-rental-insurance' },
-  { label: 'Renting with a debit card', href: '/portugal-car-rental-with-debit' },
-  { label: 'Toll roads for rental cars', href: '/portugal-toll-roads-for-rental-cars' },
-  { label: 'Lisbon Airport car rental', href: '/lisbon-airport-car-rental' },
+  { label: 'Do you need a car in Portugal?', href: '/do-you-need-a-car-in-portugal/' },
+  { label: 'Car rental insurance explained', href: '/portugal-car-rental-insurance/' },
+  { label: 'Renting with a debit card', href: '/portugal-car-rental-with-debit/' },
+  { label: 'Toll roads for rental cars', href: '/portugal-toll-roads-for-rental-cars/' },
+  { label: 'Lisbon Airport car rental', href: '/lisbon-airport-car-rental/' },
 ] as const;
 
 /** About / policy pages, shown in the footer. */
 export const siteNav = [
-  { label: 'About TripAxle', href: '/about' },
-  { label: 'Contact', href: '/contact' },
-  { label: 'Affiliate Disclosure', href: '/affiliate-disclosure' },
-  { label: 'Privacy Policy', href: '/privacy' },
-  { label: 'Disclaimer', href: '/disclaimer' },
+  { label: 'About TripAxle', href: '/about/' },
+  { label: 'Contact', href: '/contact/' },
+  { label: 'Affiliate Disclosure', href: '/affiliate-disclosure/' },
+  { label: 'Privacy Policy', href: '/privacy/' },
+  { label: 'Disclaimer', href: '/disclaimer/' },
 ] as const;

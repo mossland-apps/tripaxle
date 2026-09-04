@@ -2,11 +2,12 @@
 import ArticleLayout from "../layouts/ArticleLayout.astro";
 import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
+import InlineFigure from "../components/InlineFigure.astro";
 import { images } from "../lib/images";
 
 const breadcrumbs = [
-  { label: "Portugal Guide", href: "/portugal-guide" },
-  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Practical Guides", href: "/practical-guides/" },
   { label: "Driving Into Spain" },
 ];
 
@@ -19,10 +20,10 @@ const toc = [
 ];
 
 const related = [
-  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
-  { label: "How to Read Portugal Car Rental Terms", href: "/how-to-read-portugal-car-rental-terms" },
-  { label: "Portugal Toll Roads for Rental Cars", href: "/portugal-toll-roads-for-rental-cars" },
-  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide/" },
+  { label: "How to Read Portugal Car Rental Terms", href: "/how-to-read-portugal-car-rental-terms/" },
+  { label: "Portugal Toll Roads for Rental Cars", href: "/portugal-toll-roads-for-rental-cars/" },
+  { label: "Practical Guides", href: "/practical-guides/" },
 ];
 ---
 
@@ -36,7 +37,7 @@ const related = [
   toc={toc}
   related={related}
 >
-  <QuickAnswer>
+  <QuickAnswer slot="answer">
     <p>
       Usually yes — most major companies allow a Portuguese rental into Spain,
       but often only with <strong>advance notice, a cross-border fee, and it
@@ -56,13 +57,10 @@ const related = [
     the crossing being authorised.
   </p>
 
-  <figure class="inline-figure">
-    <img src={images.portugalSpainMap.src} alt={images.portugalSpainMap.alt} loading="lazy" />
-    <figcaption>
-      The land border runs about 1,200 km from the Minho down to the Algarve.
-      {images.portugalSpainMap.credit}
-    </figcaption>
-  </figure>
+  <InlineFigure
+    image={images.portugalSpainMap}
+    caption="The land border runs about 1,200 km from the Minho down to the Algarve."
+  />
 
   <h2 id="confirm">What to confirm before you book</h2>
   <ul>
@@ -76,7 +74,7 @@ const related = [
     Get the answer from the company in writing, or make sure “travel to Spain
     authorised” is printed on the agreement at pickup. General website language
     is not enough if your specific voucher is silent — see
-    <a href="/how-to-read-portugal-car-rental-terms">how to read the terms</a>.
+    <a href="/how-to-read-portugal-car-rental-terms/">how to read the terms</a>.
   </p>
 
   <Callout variant="warning">

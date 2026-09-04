@@ -3,8 +3,9 @@ import Layout from './Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import PageHero from '../components/PageHero.astro';
 import RelatedGuides from '../components/RelatedGuides.astro';
+import type { HeroImage } from '../lib/images';
+import type { Crumb, PageType } from '../lib/seo';
 
-interface Crumb { label: string; href?: string }
 interface RelatedLink { label: string; href: string }
 
 interface Props {
@@ -13,10 +14,11 @@ interface Props {
   eyebrow?: string;
   heading: string;
   summary?: string;
-  image?: { src: string; alt: string; credit?: string };
+  image?: HeroImage;
   breadcrumbs: Crumb[];
   related?: RelatedLink[];
   relatedTitle?: string;
+  pageType?: PageType;
 }
 
 const {
@@ -29,10 +31,16 @@ const {
   breadcrumbs,
   related = [],
   relatedTitle,
+  pageType = 'hub',
 } = Astro.props;
 ---
 
-<Layout title={title} description={description ?? summary}>
+<Layout
+  title={title}
+  description={description ?? summary}
+  pageType={pageType}
+  socialImage={image}
+>
   <Breadcrumbs items={breadcrumbs} />
   <div class="hub prose">
     <PageHero eyebrow={eyebrow} title={heading} summary={summary} image={image} />

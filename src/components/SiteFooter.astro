@@ -16,22 +16,22 @@ const year = new Date().getFullYear();
         </p>
       </div>
 
-      <nav class="site-footer__col" aria-label="Guides">
-        <h2>Guides</h2>
+      <nav class="site-footer__col" aria-labelledby="footer-guides">
+        <p class="site-footer__label" id="footer-guides">Guides</p>
         <ul>
           {nav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
         </ul>
       </nav>
 
-      <nav class="site-footer__col" aria-label="Popular guides">
-        <h2>Popular</h2>
+      <nav class="site-footer__col" aria-labelledby="footer-popular">
+        <p class="site-footer__label" id="footer-popular">Popular</p>
         <ul>
           {popularGuides.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
         </ul>
       </nav>
 
-      <nav class="site-footer__col" aria-label="About TripAxle">
-        <h2>TripAxle</h2>
+      <nav class="site-footer__col" aria-labelledby="footer-tripaxle">
+        <p class="site-footer__label" id="footer-tripaxle">TripAxle</p>
         <ul>
           {siteNav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
         </ul>
@@ -46,14 +46,14 @@ const year = new Date().getFullYear();
             TripAxle carries advertising and affiliate links, kept separate from
             the travel guidance. Booking through an affiliate link may earn us a
             commission at no extra cost to you. See our
-            <a href="/affiliate-disclosure">Affiliate Disclosure</a>.
+            <a href="/affiliate-disclosure/">Affiliate Disclosure</a>.
           </>
         ) : (
           <>
             Editorially independent — not owned by, or acting for, any rental
             company, airport, or booking site. See the
-            <a href="/affiliate-disclosure">Affiliate Disclosure</a> and
-            <a href="/disclaimer">Disclaimer</a>.
+            <a href="/affiliate-disclosure/">Affiliate Disclosure</a> and
+            <a href="/disclaimer/">Disclaimer</a>.
           </>
         )}
       </p>

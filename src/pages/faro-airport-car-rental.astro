@@ -3,11 +3,13 @@ import ArticleLayout from "../layouts/ArticleLayout.astro";
 import QuickAnswer from "../components/QuickAnswer.astro";
 import AtAGlance from "../components/AtAGlance.astro";
 import Callout from "../components/Callout.astro";
+import InlineFigure from "../components/InlineFigure.astro";
 import { images } from "../lib/images";
+import { cite } from "../lib/sources";
 
 const breadcrumbs = [
-  { label: "Portugal Guide", href: "/portugal-guide" },
-  { label: "Airport Rental Guides", href: "/airport-rental-guides" },
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Airport Rental Guides", href: "/airport-rental-guides/" },
   { label: "Faro Airport" },
 ];
 
@@ -32,11 +34,11 @@ const glance = [
 ];
 
 const related = [
-  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
-  { label: "Lisbon Airport Car Rental", href: "/lisbon-airport-car-rental" },
-  { label: "Porto Airport Car Rental", href: "/porto-airport-car-rental" },
-  { label: "Portugal Toll Roads for Rental Cars", href: "/portugal-toll-roads-for-rental-cars" },
-  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance" },
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide/" },
+  { label: "Lisbon Airport Car Rental", href: "/lisbon-airport-car-rental/" },
+  { label: "Porto Airport Car Rental", href: "/porto-airport-car-rental/" },
+  { label: "Portugal Toll Roads for Rental Cars", href: "/portugal-toll-roads-for-rental-cars/" },
+  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance/" },
 ];
 ---
 
@@ -46,6 +48,8 @@ const related = [
   eyebrow="Faro Airport"
   summary="Where the rental companies are at FAO, how the compact pickup works, the N125-versus-A22 choice, and why airport pickup fits most Algarve trips."
   updated="2026-03-16"
+  lastChecked="2026-03-16"
+  sources={cite("anaFaro", "ptTolls")}
   image={images.algarveCoast}
   breadcrumbs={breadcrumbs}
   toc={toc}
@@ -55,7 +59,7 @@ const related = [
     body: "Compare available rental companies and current prices for your dates.",
   }}
 >
-  <QuickAnswer>
+  <QuickAnswer slot="answer">
     <p>
       For most Algarve trips, renting at Faro Airport is the right call — beaches,
       coves, villas, and inland villages are spread out and awkward to reach
@@ -285,10 +289,10 @@ const related = [
     often fits naturally with the type of trip visitors are planning.
   </p>
 
-  <figure class="inline-figure">
-    <img src={images.algarveBeachDusk.src} alt={images.algarveBeachDusk.alt} loading="lazy" />
-    <figcaption>Many of the best Algarve beaches sit at the end of their own access road, with little or no bus service. {images.algarveBeachDusk.credit}</figcaption>
-  </figure>
+  <InlineFigure
+    image={images.algarveBeachDusk}
+    caption="Many of the best Algarve beaches sit at the end of their own access road, with little or no bus service."
+  />
   <div class="card-grid">
     <div class="card"><h3>You want to explore multiple beaches</h3><p>Algarve beaches, coves, and coastal areas are far easier to combine with a car than by regional transport alone.</p></div>
     <div class="card"><h3>You are staying outside a major town</h3><p>Rural villas, smaller resorts, inland villages, and accommodation away from rail stations are much easier to reach with a vehicle.</p></div>

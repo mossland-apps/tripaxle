@@ -58,17 +58,19 @@ describe('Breadcrumbs', () => {
     const html = await container.renderToString(Breadcrumbs, {
       props: {
         items: [
-          { label: 'Portugal', href: '/portugal-guide' },
-          { label: 'Airports', href: '/airport-rental-guides' },
+          { label: 'Portugal', href: '/portugal-guide/' },
+          { label: 'Airports', href: '/airport-rental-guides/' },
           { label: 'Lisbon Airport' },
         ],
       },
     });
     expect(html).toContain('aria-label="Breadcrumb"');
-    expect(html).toContain('href="/airport-rental-guides"');
+    expect(html).toContain('href="/airport-rental-guides/"');
     expect(html).toContain('aria-current="page"');
-    // structured data for search engines
+    // structured data for search engines, always starting at Home
     expect(html).toContain('BreadcrumbList');
+    expect(html).toContain('"name":"Home"');
+    expect(html).toContain('"item":"https://tripaxle.com/"');
   });
 });
 

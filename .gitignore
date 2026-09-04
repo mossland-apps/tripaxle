@@ -23,5 +23,8 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# Original unprocessed photo drops (optimized copies live in public/images/)
+# Original unprocessed photo drops (optimized copies live in src/assets/images/)
 photos-from-you/
+
+# Local SEO audit artefacts — never part of the published site
+reports/

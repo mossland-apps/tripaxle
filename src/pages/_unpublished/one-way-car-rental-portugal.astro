@@ -1,0 +1,186 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import Callout from "../components/Callout.astro";
+import { images } from "../lib/images";
+import { cite } from "../lib/sources";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Booking Basics", href: "/booking-basics/" },
+  { label: "One-Way Rentals" },
+];
+
+const toc = [
+  { label: "How one-way pricing works", id: "pricing" },
+  { label: "Domestic one-ways", id: "domestic" },
+  { label: "Into Spain and beyond", id: "international" },
+  { label: "Madeira, the Azores and the mainland", id: "islands" },
+  { label: "Confirming the drop-off", id: "drop-off" },
+  { label: "Returning out of hours", id: "after-hours" },
+  { label: "Comparing a one-way against the alternatives", id: "compare" },
+];
+
+const related = [
+  { label: "What a Portugal rental really costs", href: "/portugal-car-rental-cost/" },
+  { label: "Driving a Portugal rental into Spain", href: "/portugal-rental-car-into-spain/" },
+  { label: "After-hours car rental returns", href: "/after-hours-car-rental-returns-portugal/" },
+  { label: "Comparing suppliers on their own terms", href: "/portugal-car-rental-terms-compared/" },
+];
+---
+
+<ArticleLayout
+  title="One-Way Car Rental in Portugal | TripAxle"
+  description="How one-way rentals work in Portugal: relocation fees, domestic versus cross-border drop-offs, island restrictions, and confirming the return branch before you book."
+  eyebrow="Booking Basics"
+  summary="Picking the car up in Porto and leaving it in Faro is normal and often worth it. Here is what decides whether it is a small surcharge or a deal-breaker."
+  updated="2026-09-03"
+  published="2026-09-03"
+  verified="2026-09-03"
+  image={images.alentejoVillage}
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+  sources={cite("ptTolls")}
+  sourcesNote="One-way pricing is entirely commercial: no public authority sets or publishes it, so this guide explains mechanism and comparison method rather than quoting fees. The toll source is cited because a long north–south one-way route is where toll charges accumulate."
+  trustNote="No relocation fees are quoted here. They are set per supplier, per route and per season, and the only number that means anything is the one in your own quote."
+>
+  <QuickAnswer slot="answer">
+    <p>
+      Most Portuguese suppliers allow a one-way rental between their own
+      branches for a relocation fee that grows with the distance the car has to
+      be brought back — often modest between mainland cities, frequently
+      substantial across a border, and commonly not permitted at all between the
+      mainland and Madeira or the Azores. Confirm the exact drop-off branch and
+      its opening hours <strong>before</strong> you book, not after.
+    </p>
+  </QuickAnswer>
+
+  <h2 id="pricing">How one-way pricing works</h2>
+  <p>
+    A one-way fee is not a penalty; it is the cost of getting the car back where
+    the fleet needs it. That explains most of its behaviour:
+  </p>
+  <ul>
+    <li>It scales with distance, roughly, but not linearly.</li>
+    <li>It is often lower in the direction the company already needs cars moved, which is why Porto to Faro and Faro to Porto can differ.</li>
+    <li>It is sometimes waived on longer rentals or specific promotional routes.</li>
+    <li>It can be quoted as a fixed fee, folded into the rate, or both — so compare totals, not line items.</li>
+  </ul>
+  <p>
+    Because the fee is set per route and per season, quotes for the same journey
+    from two suppliers can differ far more than their daily rates do.
+
+  </p>
+
+  <h2 id="domestic">Domestic one-ways</h2>
+  <p>
+    Between the main mainland cities — Lisbon, Porto, Faro, Coimbra, Braga — a
+    one-way is generally straightforward, and the two airport-to-airport
+    combinations are the best supported of all because both ends have large
+    branches with plenty of turnover.
+  </p>
+  <p>
+    It gets harder as the branches get smaller. A drop-off at a town-centre
+    office with a handful of cars may be possible but priced steeply, may be
+    restricted to certain vehicle groups, or may simply not be offered on the
+    dates you want. If your itinerary depends on an unusual drop-off point, test
+    it in a live quote before you build the trip around it.
+  </p>
+
+  <h2 id="international">Into Spain and beyond</h2>
+  <p>
+    Dropping a Portuguese rental car in Spain is a different proposition from
+    driving into Spain and back. Two separate permissions are involved:
+    cross-border <em>travel</em>, and cross-border <em>drop-off</em>. Many
+    suppliers permit the first and refuse the second, and where an international
+    one-way is offered the relocation fee is usually large enough to change the
+    plan.
+  </p>
+  <p>
+    If you only want to visit Spain and return the car in Portugal, that is the
+    ordinary case and it is covered in
+    <a href="/portugal-rental-car-into-spain/">driving a Portugal rental into Spain</a>.
+    Check it before assuming either kind of border crossing is permitted on your
+    rate — driving outside the territory allowed by the contract can void the
+    damage cover.
+  </p>
+
+  <h2 id="islands">Madeira, the Azores and the mainland</h2>
+  <p>
+    Treat the islands as separate rental markets. A car collected on the
+    mainland is not going to be returned in Funchal or Ponta Delgada, and a car
+    rented on one island is generally not permitted to leave it. Plan an island
+    leg as its own booking, collected and returned locally.
+  </p>
+
+  <h2 id="drop-off">Confirming the drop-off</h2>
+  <p>
+    The single most common one-way problem is not the fee — it is arriving at a
+    branch that is not the branch on the agreement. Before you travel:
+  </p>
+  <ol>
+    <li>Read the drop-off address on the voucher, and put that exact address into a map.</li>
+    <li>Check whether it is the airport terminal or an off-airport site reached by shuttle.</li>
+    <li>Note the return opening hours, and compare them with your onward flight or train.</li>
+    <li>Confirm the fuel policy applies at the return location, and find a station near it in advance.</li>
+    <li>Save the branch telephone number in your phone.</li>
+  </ol>
+  <p>
+    Allow more time than for a same-city return. An unfamiliar return branch,
+    an unfamiliar city and a shuttle you have not used before add up.
+  </p>
+
+  <h2 id="after-hours">Returning out of hours</h2>
+  <p>
+    One-way returns run into closed desks more often than round trips do,
+    because they are timed to a departure rather than to convenience. If your
+    return falls outside opening hours, establish in advance whether the branch
+    permits a key-drop return at all, and what evidence you should capture when
+    you leave the car.
+    <a href="/after-hours-car-rental-returns-portugal/">After-hours returns</a>
+    covers who carries the risk in the gap between your drop-off and the
+    company's inspection.
+  </p>
+
+  <h2 id="compare">Comparing a one-way against the alternatives</h2>
+  <div class="table-wrap">
+    <table>
+      <caption>
+        Three ways to run a Porto-to-Algarve style itinerary, and what each one
+        actually costs you.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Option</th>
+          <th scope="col">What you pay</th>
+          <th scope="col">What you spend besides money</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">One-way rental</th>
+          <td>Rate plus relocation fee.</td>
+          <td>Nothing — the route is the trip.</td>
+        </tr>
+        <tr>
+          <th scope="row">Round trip, returning to the pickup city</th>
+          <td>Rate only, no relocation fee.</td>
+          <td>A day of driving back over ground you have already seen.</td>
+        </tr>
+        <tr>
+          <th scope="row">Two local rentals with rail between</th>
+          <td>Two rates, two deposits, plus train fares.</td>
+          <td>Two collections, two returns, and luggage through stations.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <Callout variant="tip">
+    Price all three before dismissing the one-way fee as expensive. A day of
+    backtracking has a cost too, and two separate rentals means two
+    pre-authorisation holds sitting on your card at the same time — which is
+    the constraint that catches people out more often than the fee itself. See
+    <a href="/portugal-car-rental-deposits-and-card-requirements/">deposits and card requirements</a>.
+  </Callout>
+</ArticleLayout>

@@ -4,8 +4,8 @@ import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
 
 const breadcrumbs = [
-  { label: "Portugal Guide", href: "/portugal-guide" },
-  { label: "Booking Basics", href: "/booking-basics" },
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Booking Basics", href: "/booking-basics/" },
   { label: "Insurance Explained" },
 ];
 
@@ -18,10 +18,10 @@ const toc = [
 ];
 
 const related = [
-  { label: "Deposits and Card Requirements", href: "/portugal-car-rental-deposits-and-card-requirements" },
-  { label: "Renting With a Debit Card", href: "/portugal-car-rental-with-debit" },
-  { label: "Booking Basics", href: "/booking-basics" },
-  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
+  { label: "Deposits and Card Requirements", href: "/portugal-car-rental-deposits-and-card-requirements/" },
+  { label: "Renting With a Debit Card", href: "/portugal-car-rental-with-debit/" },
+  { label: "Booking Basics", href: "/booking-basics/" },
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide/" },
 ];
 ---
 
@@ -36,7 +36,7 @@ const related = [
   related={related}
   cta={{ heading: "Comparing rental cars in Portugal?", body: "Check the excess and what each rate includes before you pick an offer." }}
 >
-  <QuickAnswer>
+  <QuickAnswer slot="answer">
     <p>
       Most rental prices already include some basic protection, but that does not
       mean you carry no financial risk. The number that usually matters most is
@@ -122,7 +122,7 @@ const related = [
   <h3>Is your outside cover direct or reimbursement-based?</h3>
   <p>That difference matters much more than the marketing language suggests.</p>
   <h3>Are you relying on a debit card?</h3>
-  <p>Some suppliers may restrict your options, add conditions, or push you toward higher-cover products. See <a href="/portugal-car-rental-with-debit">renting with a debit card</a>.</p>
+  <p>Some suppliers may restrict your options, add conditions, or push you toward higher-cover products. See <a href="/portugal-car-rental-with-debit/">renting with a debit card</a>.</p>
   <h3>Does the rate already include CDW by default?</h3>
   <p>Some rates do, and that can complicate how outside credit-card coverage applies.</p>
 

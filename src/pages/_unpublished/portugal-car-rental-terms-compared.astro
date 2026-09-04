@@ -1,0 +1,260 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import Callout from "../components/Callout.astro";
+import { images } from "../lib/images";
+import { cite } from "../lib/sources";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Booking Basics", href: "/booking-basics/" },
+  { label: "Comparing Supplier Terms" },
+];
+
+const toc = [
+  { label: "Why there is no ranking here", id: "no-ranking" },
+  { label: "The nine clauses that decide everything", id: "clauses" },
+  { label: "Where to find each clause", id: "where" },
+  { label: "The comparison worksheet", id: "worksheet" },
+  { label: "Reading a clause properly", id: "reading" },
+  { label: "Broker terms versus supplier terms", id: "broker" },
+  { label: "Recording what you found", id: "record" },
+];
+
+const related = [
+  { label: "How to read Portugal car rental terms", href: "/how-to-read-portugal-car-rental-terms/" },
+  { label: "Broker or direct with the supplier", href: "/broker-vs-direct-supplier-portugal-car-rental/" },
+  { label: "What a Portugal rental really costs", href: "/portugal-car-rental-cost/" },
+  { label: "Deposits and card requirements", href: "/portugal-car-rental-deposits-and-card-requirements/" },
+];
+
+const clauses = [
+  {
+    clause: "Airport arrangement",
+    question: "Is the desk in the terminal, or is this a shuttle to an off-airport branch?",
+    matters: "Decides whether collection takes fifteen minutes or an hour, and whether a delayed arrival can still reach the branch.",
+  },
+  {
+    clause: "Payment card rule",
+    question: "Which card types are accepted, must it be in the lead driver's name, is a debit card usable?",
+    matters: "The most common reason a booked car is refused at the desk.",
+  },
+  {
+    clause: "Deposit and pre-authorisation",
+    question: "How much is held, on what card, and when is it released?",
+    matters: "Occupies your credit limit for the whole rental and often days beyond it.",
+  },
+  {
+    clause: "Excess and waiver",
+    question: "What is the excess, what does the waiver exclude, and what does reducing it cost?",
+    matters: "Tyres, glass, underbody and roof are commonly excluded from cover people think is comprehensive.",
+  },
+  {
+    clause: "Toll arrangement",
+    question: "Is a device fitted, is there a daily service fee, is it capped, how are tolls recharged?",
+    matters: "A daily fee on a fortnight's rental can exceed the tolls themselves.",
+  },
+  {
+    clause: "Cross-border permission",
+    question: "Is travel to Spain allowed, does it need advance notice, and what does it cost?",
+    matters: "Driving out of the permitted territory can void the damage cover entirely.",
+  },
+  {
+    clause: "Late arrival and out-of-hours",
+    question: "How long is the car held, does a flight number change that, and is out-of-hours collection possible?",
+    matters: "Determines what happens when your inbound flight slips past desk closing time.",
+  },
+  {
+    clause: "Fuel policy",
+    question: "Full-to-full, or pre-purchase? Is there a refuelling service charge?",
+    matters: "The difference between paying for fuel you burned and fuel you did not.",
+  },
+  {
+    clause: "Cancellation basis",
+    question: "Free until when, and does the answer differ between the broker and the supplier?",
+    matters: "Plans change. This is the cheapest clause to get right and an expensive one to assume.",
+  },
+];
+---
+
+<ArticleLayout
+  title="Comparing Portugal Car Rental Terms | TripAxle"
+  description="A neutral worksheet for comparing Portugal rental suppliers on their own terms: nine clauses to check, where to find each, and how to record it."
+  eyebrow="Booking Basics"
+  summary="Not a ranking and not a review. A method for holding two suppliers' own terms side by side, so the comparison is yours and the evidence is current."
+  updated="2026-09-03"
+  published="2026-09-03"
+  verified="2026-09-03"
+  image={images.penaPalace}
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+  sources={cite("ptTolls")}
+  sourcesNote="The only claim on this page that rests on an external authority is how Portuguese tolls are charged. Everything else is method: this guide deliberately contains no supplier data, because supplier data goes stale faster than an editorial site can maintain it honestly."
+  trustNote="TripAxle publishes no supplier scores, stars or winners. A populated matrix of named companies is not published here because we could not keep every row current, and a stale row is worse than no row."
+>
+  <QuickAnswer slot="answer">
+    <p>
+      There is no honest shortcut to comparing rental companies in Portugal,
+      because the things that differ between them — deposit, excess, toll fee,
+      cross-border rules, late-arrival handling — are set per rate and change
+      without notice. The reliable method is to open both suppliers' current
+      terms, answer the same nine questions from each, and compare
+      <strong>what the contract says</strong> rather than what a review site
+      says.
+    </p>
+  </QuickAnswer>
+
+  <h2 id="no-ranking">Why there is no ranking here</h2>
+  <p>
+    A "best car rental company in Portugal" list requires a current, complete
+    dataset of every supplier's terms across every booking channel, re-checked
+    continuously. Sites publish those lists anyway, usually built from
+    commission rates rather than contracts. We are not going to do that.
+  </p>
+  <p>
+    We also considered publishing a populated matrix — named suppliers, one row
+    each, sourced to their official terms. We have not, for a specific reason:
+    a matrix like that is only worth anything if every cell is re-verified on a
+    schedule we can commit to, and a cell that silently ages is actively
+    misleading. If TripAxle can sustain that maintenance, the matrix will
+    appear here and each row will carry its own source link and checked date.
+    Until then, this worksheet is the honest version of the same tool.
+  </p>
+
+  <h2 id="clauses">The nine clauses that decide everything</h2>
+  <div class="table-wrap">
+    <table>
+      <caption>
+        What to look for in a supplier's own terms, and why each clause matters
+        more than the headline rate.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Clause</th>
+          <th scope="col">The question to answer</th>
+          <th scope="col">Why it decides the rental</th>
+        </tr>
+      </thead>
+      <tbody>
+        {clauses.map((c) => (
+          <tr>
+            <th scope="row">{c.clause}</th>
+            <td>{c.question}</td>
+            <td>{c.matters}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="where">Where to find each clause</h2>
+  <p>
+    Suppliers organise their terms differently, but the material is nearly
+    always in one of four places:
+  </p>
+  <ol>
+    <li>
+      <strong>The rental conditions or terms and conditions page</strong> for
+      the country you are collecting in. Portugal-specific terms are what
+      matter, not the global page.
+    </li>
+    <li>
+      <strong>The rate details panel</strong> shown before payment. Expand every
+      "what's included" and "important information" section; the deposit figure
+      and fuel policy usually live here.
+    </li>
+    <li>
+      <strong>The confirmation email or voucher.</strong> Pickup location,
+      shuttle instructions and the reference number are here, and this is what
+      the desk will ask for.
+    </li>
+    <li>
+      <strong>The supplier's own FAQ</strong> for questions like card
+      acceptance and cross-border travel, which are often answered more plainly
+      there than in the contract.
+    </li>
+  </ol>
+
+  <h2 id="worksheet">The comparison worksheet</h2>
+  <div class="table-wrap">
+    <table>
+      <caption>
+        Answer every row from the supplier's own current terms. Leave a row
+        blank rather than guessing — a blank is information too.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Row</th>
+          <th scope="col">Supplier A</th>
+          <th scope="col">Supplier B</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Terminal desk or shuttle?</th><td></td><td></td></tr>
+        <tr><th scope="row">Cards accepted for the deposit</th><td></td><td></td></tr>
+        <tr><th scope="row">Must the card be in the lead driver's name?</th><td></td><td></td></tr>
+        <tr><th scope="row">Deposit amount held</th><td></td><td></td></tr>
+        <tr><th scope="row">Excess, and what the waiver excludes</th><td></td><td></td></tr>
+        <tr><th scope="row">Toll device: fitted? daily fee? capped?</th><td></td><td></td></tr>
+        <tr><th scope="row">Spain permitted? notice? fee?</th><td></td><td></td></tr>
+        <tr><th scope="row">How long is the car held after the booked time?</th><td></td><td></td></tr>
+        <tr><th scope="row">Out-of-hours return allowed?</th><td></td><td></td></tr>
+        <tr><th scope="row">Fuel policy</th><td></td><td></td></tr>
+        <tr><th scope="row">Cancellation: free until when?</th><td></td><td></td></tr>
+        <tr><th scope="row">URL of the terms page you read</th><td></td><td></td></tr>
+        <tr><th scope="row">Date you read it</th><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="reading">Reading a clause properly</h2>
+  <p>
+    Three habits change what you get out of the exercise:
+  </p>
+  <ul>
+    <li>
+      <strong>Read the exclusions, not the inclusions.</strong> "Damage cover
+      included" tells you nothing until you know what is carved out of it.
+    </li>
+    <li>
+      <strong>Distinguish "may" from "will".</strong> Terms are written to
+      preserve the supplier's discretion. A clause saying a debit card
+      <em>may</em> be accepted is not an assurance that yours will be.
+    </li>
+    <li>
+      <strong>Note the currency and the country of the terms.</strong> Booking
+      from one country for collection in Portugal sometimes attaches a different
+      set of conditions than booking locally.
+    </li>
+  </ul>
+
+  <h2 id="broker">Broker terms versus supplier terms</h2>
+  <p>
+    If you book through a broker or aggregator, you are dealing with two sets of
+    terms: the broker's, which govern the booking and its cancellation, and the
+    supplier's, which govern the car, the deposit and the damage. They can
+    conflict, and at the desk the supplier's conditions are what apply to the
+    vehicle. Fill in the worksheet from the <em>supplier's</em> terms even when
+    you booked through someone else.
+    <a href="/broker-vs-direct-supplier-portugal-car-rental/">Broker or direct</a>
+    goes into who you actually have a contract with.
+  </p>
+
+  <h2 id="record">Recording what you found</h2>
+  <p>
+    Whatever you conclude, keep the evidence: screenshot the clause, note the
+    URL and the date you read it. Terms change between booking and collection,
+    and the version you agreed to is the one that governs your rental. That
+    small archive is also what turns a disagreement at a desk into a short
+    conversation.
+  </p>
+
+  <Callout variant="tip">
+    Do this once and you will have a reusable habit rather than a one-off
+    comparison. The
+    <a href="/rental-car-checklist/">pickup and return checklist</a>
+    is the physical counterpart — the things to verify when you are standing at
+    the car rather than reading the contract.
+  </Callout>
+</ArticleLayout>

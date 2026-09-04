@@ -4,10 +4,11 @@ import QuickAnswer from "../components/QuickAnswer.astro";
 import AtAGlance from "../components/AtAGlance.astro";
 import Callout from "../components/Callout.astro";
 import { images } from "../lib/images";
+import { cite } from "../lib/sources";
 
 const breadcrumbs = [
-  { label: "Portugal Guide", href: "/portugal-guide" },
-  { label: "Airport Rental Guides", href: "/airport-rental-guides" },
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Airport Rental Guides", href: "/airport-rental-guides/" },
   { label: "Lisbon Airport" },
 ];
 
@@ -32,11 +33,11 @@ const glance = [
 ];
 
 const related = [
-  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
-  { label: "Porto Airport Car Rental", href: "/porto-airport-car-rental" },
-  { label: "Faro Airport Car Rental", href: "/faro-airport-car-rental" },
-  { label: "Portugal Toll Roads for Rental Cars", href: "/portugal-toll-roads-for-rental-cars" },
-  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance" },
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide/" },
+  { label: "Porto Airport Car Rental", href: "/porto-airport-car-rental/" },
+  { label: "Faro Airport Car Rental", href: "/faro-airport-car-rental/" },
+  { label: "Portugal Toll Roads for Rental Cars", href: "/portugal-toll-roads-for-rental-cars/" },
+  { label: "Portugal Car Rental Insurance Explained", href: "/portugal-car-rental-insurance/" },
 ];
 ---
 
@@ -46,6 +47,8 @@ const related = [
   eyebrow="Lisbon Airport"
   summary="Where the rental companies are, how pickup and shuttles work, what to expect leaving the airport, and when it makes more sense to collect a car later."
   updated="2026-08-15"
+  lastChecked="2026-08-15"
+  sources={cite("anaLisbon", "ptTolls")}
   image={images.lisbonTrams}
   breadcrumbs={breadcrumbs}
   toc={toc}
@@ -55,7 +58,7 @@ const related = [
     body: "Compare available rental companies and current prices for your dates.",
   }}
 >
-  <QuickAnswer>
+  <QuickAnswer slot="answer">
     <p>
       Renting at Lisbon Airport makes sense if you are <strong>leaving Lisbon
       soon after you land</strong> — heading for the Alentejo, the Algarve, or
@@ -271,7 +274,7 @@ const related = [
   <Callout title="Before you drive away">
     The important question is not simply whether the car has a transponder, but
     how your specific rental company charges for using it. See
-    <a href="/portugal-toll-roads-for-rental-cars">Portugal toll roads for rental cars</a>
+    <a href="/portugal-toll-roads-for-rental-cars/">Portugal toll roads for rental cars</a>
     for the full picture.
   </Callout>
 

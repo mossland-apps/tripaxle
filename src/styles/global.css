@@ -4,6 +4,28 @@
    Terracotta accent on a warm off-white ground. Light theme only.
    ============================================================ */
 
+/* ---------- Self-hosted variable fonts (SIL OFL 1.1, see public/fonts) ---------- */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/fraunces-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
 :root {
   /* Ground + ink */
   --bg: #faf6f1;
@@ -14,9 +36,13 @@
   --border: #e7ddd0;
   --border-strong: #d8cbb8;
 
-  /* Terracotta / clay accent */
+  /* Terracotta / clay accent.
+     `--accent` is decorative (bars, dots, bullets, filled buttons).
+     `--accent-text` is the only value allowed for small or uppercase text on
+     `--bg`/`--surface`: it clears WCAG AA at 14px/700 where #b9532f does not. */
   --accent: #b9532f;
-  --accent-hover: #99411f;
+  --accent-text: #8f3d1c;
+  --accent-hover: #7b3416;
   --accent-tint: #fbeee7;
   --accent-tint-border: #eccdbd;
 
@@ -47,7 +73,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 6.5rem;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -81,7 +107,7 @@ p, ul, ol { margin: 0 0 1.1rem; }
 .prose > :first-child { margin-top: 0; }
 
 a {
-  color: var(--accent);
+  color: var(--accent-text);
   text-decoration: none;
 }
 a:hover { color: var(--accent-hover); text-decoration: underline; }
@@ -102,7 +128,7 @@ hr {
 
 .eyebrow {
   margin: 0 0 0.75rem;
-  color: var(--accent);
+  color: var(--accent-text);
   font-family: var(--font-sans);
   font-size: 0.8rem;
   font-weight: 700;
@@ -139,7 +165,7 @@ hr {
   color: var(--text);
   letter-spacing: -0.01em;
 }
-.site-header__brand:hover { text-decoration: none; color: var(--accent); }
+.site-header__brand:hover { text-decoration: none; color: var(--accent-text); }
 .site-nav {
   display: flex;
   flex-wrap: wrap;
@@ -151,12 +177,35 @@ hr {
   font-size: 0.95rem;
   font-weight: 500;
 }
-.site-nav a:hover { color: var(--accent); text-decoration: none; }
+.site-nav a:hover { color: var(--accent-text); text-decoration: none; }
 .site-nav a[aria-current="page"] { color: var(--text); font-weight: 650; }
 
 @media (max-width: 720px) {
-  .site-header__inner { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
-  .site-nav { justify-content: flex-start; gap: 0.5rem 1.1rem; }
+  .site-header__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    padding: 0.6rem 0 0.55rem;
+  }
+  .site-header__brand { font-size: 1.2rem; }
+  /* Horizontal scroll instead of wrapping keeps the sticky bar one line tall
+     down to 320px, so anchored headings are not pushed off screen. */
+  .site-nav {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 1rem;
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 0.15rem;
+  }
+  .site-nav::-webkit-scrollbar { display: none; }
+  .site-nav a { font-size: 0.88rem; white-space: nowrap; }
+}
+@media (max-width: 360px) {
+  .container { width: calc(100% - 1.75rem); }
+  .site-nav { gap: 0.85rem; }
+  .site-nav a { font-size: 0.84rem; }
 }
 
 /* ---------- Footer ---------- */
@@ -179,7 +228,7 @@ hr {
   margin: 0 0 0.5rem;
 }
 .site-footer__about p { margin: 0 0 0.6rem; max-width: 34ch; }
-.site-footer__col h2 {
+.site-footer__label {
   font-family: var(--font-sans);
   font-size: 0.72rem;
   font-weight: 700;
@@ -191,7 +240,7 @@ hr {
 .site-footer__col ul { list-style: none; margin: 0; padding: 0; }
 .site-footer__col li { margin: 0.35rem 0; }
 .site-footer__col a { color: var(--text); }
-.site-footer__col a:hover { color: var(--accent); text-decoration: none; }
+.site-footer__col a:hover { color: var(--accent-text); text-decoration: none; }
 
 .site-footer__bottom {
   margin-top: 2.5rem;
@@ -201,7 +250,7 @@ hr {
 }
 .site-footer__bottom p { margin: 0 0 0.4rem; }
 .site-footer__bottom a { color: var(--muted); text-decoration: underline; }
-.site-footer__bottom a:hover { color: var(--accent); }
+.site-footer__bottom a:hover { color: var(--accent-text); }
 
 @media (max-width: 900px) {
   .site-footer__grid { grid-template-columns: 1fr 1fr; gap: 1.75rem; }
@@ -224,7 +273,7 @@ hr {
 .breadcrumbs li { color: var(--muted); }
 .breadcrumbs li + li::before { content: "›"; margin-right: 0.4rem; color: var(--border-strong); }
 .breadcrumbs a { color: var(--muted); }
-.breadcrumbs a:hover { color: var(--accent); }
+.breadcrumbs a:hover { color: var(--accent-text); }
 .breadcrumbs [aria-current="page"] { color: var(--text); }
 
 /* ---------- Page hero ---------- */
@@ -300,7 +349,7 @@ hr {
   color: var(--muted);
   line-height: 1.4;
 }
-.on-this-page a:hover { color: var(--accent); text-decoration: none; }
+.on-this-page a:hover { color: var(--accent-text); text-decoration: none; }
 
 @media (max-width: 940px) {
   .on-this-page { padding: 1rem 1.1rem; }
@@ -321,7 +370,7 @@ hr {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.09em;
-  color: var(--accent);
+  color: var(--accent-text);
 }
 .quick-answer > :last-child { margin-bottom: 0; }
 .quick-answer p { max-width: var(--measure); }
@@ -376,7 +425,7 @@ hr {
   font-size: 0.95rem;
 }
 .callout--tip { border-left-color: var(--tip-bar); background: var(--tip-bg); }
-.callout--tip .callout__title { color: var(--accent); }
+.callout--tip .callout__title { color: var(--accent-text); }
 .callout--warning { border-left-color: var(--warn-bar); background: var(--warn-bg); }
 .callout--note { border-left-color: var(--note-bar); background: var(--note-bg); }
 
@@ -446,6 +495,18 @@ tr:last-child td { border-bottom: 0; }
   max-width: 420px;
 }
 
+/* Pull a portrait figure alongside the text on wide screens. Lives here rather
+   than in a page's <style> because the <figure> is rendered by InlineFigure,
+   and Astro's scoped page styles cannot reach into a component's markup. */
+.inline-figure--pull {
+  float: right;
+  width: min(320px, 42%);
+  margin: 0.25rem 0 1rem 1.5rem;
+}
+@media (max-width: 640px) {
+  .inline-figure--pull { float: none; width: 100%; margin: 1.5rem 0; }
+}
+
 /* ---------- Related guides ---------- */
 .related-guides {
   margin-top: 3rem;
@@ -485,24 +546,83 @@ tr:last-child td { border-bottom: 0; }
 }
 .button--ghost:hover { background: var(--surface-sunk); color: var(--text); }
 
-/* ---------- Trust note ---------- */
-.trust-note {
-  margin-top: 2.5rem;
-  padding: 1.25rem 1.4rem;
-  border: 1px dashed var(--border-strong);
-  border-radius: var(--radius-sm);
-  background: var(--surface);
-  font-size: 0.92rem;
-  color: var(--muted);
-}
-.trust-note h2 { font-size: 0.95rem; margin: 0 0 0.35rem; font-family: var(--font-sans); color: var(--text); }
-.trust-note p { margin: 0 0 0.6rem; max-width: var(--measure); }
-.trust-note > :last-child { margin-bottom: 0; }
-
 /* ---------- Utilities ---------- */
 .stack-lg > * + * { margin-top: 2rem; }
 .visually-hidden {
   position: absolute; width: 1px; height: 1px;
   padding: 0; margin: -1px; overflow: hidden;
   clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---------- Skip link + focus visibility ---------- */
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: -3rem;
+  z-index: 100;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  transition: top 0.15s ease-in-out;
+}
+.skip-link:focus { top: 0.75rem; text-decoration: none; }
+
+:focus-visible {
+  outline: 3px solid var(--accent-text);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .skip-link { transition: none; }
+}
+
+/* ---------- Sticky-header offset for in-page anchors ---------- */
+:where(h2, h3, h4)[id],
+:where(section, article, div)[id] {
+  scroll-margin-top: 6.5rem;
+}
+
+/* ---------- Inline "On this page" (early in long guides) ---------- */
+.on-this-page--inline {
+  margin: 0 0 2rem;
+  background: var(--surface-sunk);
+}
+.on-this-page--inline ol {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0 1.5rem;
+}
+.on-this-page--inline a { color: var(--accent-text); }
+
+/* ---------- Sources (time-sensitive guides only) ---------- */
+.sources {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.sources h2 { margin-top: 0; font-size: 1.05rem; font-family: var(--font-sans); }
+.sources ul { list-style: none; margin: 0; padding: 0; }
+.sources li { margin: 0.35rem 0; font-size: 0.92rem; }
+
+/* ---------- Last-checked line (time-sensitive guides only) ---------- */
+.page-hero__checked {
+  margin: 0.3rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* Exactly one visible table of contents per viewport: the inline one on narrow
+   screens, where the sticky rail would otherwise land below the whole article,
+   and the rail on wide ones. `display: none` hides each from assistive tech too,
+   so nothing is announced twice. */
+@media (min-width: 941px) {
+  .on-this-page--inline { display: none; }
+}
+@media (max-width: 940px) {
+  .article-rail { display: none; }
 }

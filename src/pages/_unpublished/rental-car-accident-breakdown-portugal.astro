@@ -1,0 +1,236 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import AtAGlance from "../components/AtAGlance.astro";
+import Callout from "../components/Callout.astro";
+import { images } from "../lib/images";
+import { cite } from "../lib/sources";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Practical Guides", href: "/practical-guides/" },
+  { label: "Accident or Breakdown" },
+];
+
+const toc = [
+  { label: "First: make the scene safe", id: "safe" },
+  { label: "Who to call", id: "who-to-call" },
+  { label: "What the law requires of you", id: "law" },
+  { label: "Evidence to collect", id: "evidence" },
+  { label: "The European Accident Statement", id: "statement" },
+  { label: "Telling the rental company", id: "supplier" },
+  { label: "Roadside assistance and replacement cars", id: "assistance" },
+  { label: "Breakdown without a collision", id: "breakdown" },
+  { label: "Documents for the claim", id: "claim" },
+];
+
+const glance = [
+  { label: "Emergency number", value: "112 — free from any phone across the EU" },
+  { label: "Must be in the car", value: "Warning triangle and reflective vest" },
+  { label: "Triangle distance", value: "At least 30 m behind the vehicle" },
+  { label: "Wear the vest", value: "Before you step out to place the triangle" },
+  { label: "If anyone is hurt", value: "Wait at the scene for the authorities" },
+];
+
+const related = [
+  { label: "Driving in Portugal: what to expect", href: "/driving-in-portugal-what-to-expect/" },
+  { label: "Portugal car rental insurance explained", href: "/portugal-car-rental-insurance/" },
+  { label: "What to photograph at pickup", href: "/what-to-photograph-rental-pickup/" },
+  { label: "Pickup and return checklist", href: "/rental-car-checklist/" },
+];
+---
+
+<ArticleLayout
+  title="Rental Car Accident or Breakdown in Portugal | TripAxle"
+  description="A collision or breakdown in a Portuguese hire car: making the scene safe, calling 112, the legal duties, the evidence, and telling the rental company."
+  eyebrow="Practical Guides"
+  summary="What to do, in order, when something goes wrong in a hire car in Portugal — with the legal duties separated clearly from the things your rental contract requires."
+  updated="2026-09-03"
+  published="2026-09-03"
+  verified="2026-09-03"
+  image={images.autumnForest}
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+  sources={cite("codigoDaEstrada", "eu112", "ansr")}
+  sourcesNote="The legal duties below are taken from Articles 87 to 89 of the Código da Estrada as published by ANSR, and the emergency-number position from the European Commission. What your rental company requires of you is contractual and is in your own rental agreement — this guide tells you where to look, not what yours says."
+  trustNote="Nothing here is legal advice, and no claim outcome is promised. Where the road code sets a duty it is quoted as such; everything else is practical sequencing."
+>
+  <QuickAnswer slot="answer">
+    <p>
+      Stop, put on the reflective vest before leaving the car, and place the
+      warning triangle at least 30 metres behind it. Call <strong>112</strong> if
+      anyone is hurt or the road is blocked — it is free from any phone. Exchange
+      identification, vehicle owner, insurer and policy number with the other
+      driver, as the road code requires. Photograph everything. Then telephone
+      the rental company on the number in the agreement, before the car is moved
+      or recovered.
+    </p>
+  </QuickAnswer>
+
+  <AtAGlance items={glance} />
+
+  <h2 id="safe">First: make the scene safe</h2>
+  <ol>
+    <li>Stop, switch on the hazard lights, and leave them on.</li>
+    <li>
+      Put on the reflective vest <em>before</em> you open the door. Article 88
+      requires the vest to be worn by whoever places the warning triangle,
+      repairs the vehicle or removes it — and it is the reason the vest is
+      normally stored in the cabin rather than the boot.
+    </li>
+    <li>
+      Get everyone out on the side away from traffic and behind the barrier if
+      there is one. Article 87 says people not involved in removing or repairing
+      the vehicle should not remain on the carriageway.
+    </li>
+    <li>
+      Place the warning triangle perpendicular to the road, at least 30 metres
+      behind the vehicle and visible from at least 100 metres, taking extra care
+      where visibility is reduced.
+    </li>
+    <li>
+      If the car is driveable and the situation allows, Article 87 expects you
+      to park it properly or move it clear of the carriageway and arrange its
+      prompt removal.
+    </li>
+  </ol>
+
+  <h2 id="who-to-call">Who to call</h2>
+  <ul>
+    <li>
+      <strong>112</strong> for police, ambulance or fire. The European
+      Commission confirms 112 is available everywhere in the EU, free of
+      charge, from fixed and mobile phones.
+    </li>
+    <li>
+      <strong>The rental company's assistance line.</strong> It is printed on
+      the rental agreement and usually on a sticker in the car. Call it before
+      arranging any recovery of your own.
+    </li>
+    <li>
+      <strong>Your excess-reimbursement insurer</strong>, if you bought a
+      third-party policy — most require notification within a stated window.
+    </li>
+  </ul>
+
+  <h2 id="law">What the law requires of you</h2>
+  <p>
+    Article 89 of the Código da Estrada requires a driver involved in a
+    collision to give the other parties their own identification, that of the
+    vehicle's owner, and that of the insurer together with the policy number,
+    producing the supporting documents when asked. In a rental car the owner is
+    the rental company and the insurer details are on the rental documentation —
+    which is a good reason to keep the agreement in the car rather than in a
+    hotel room.
+  </p>
+  <p>
+    Article 89 also requires that, if the collision results in death or injury,
+    the driver waits at the scene for the arrival of an officer. Do not leave.
+  </p>
+  <p>
+    Article 88 requires every car in circulation to carry an approved warning
+    triangle and reflective vest, and Article 87 governs how a vehicle
+    immobilised by breakdown or collision must be dealt with. All three carry
+    fines, with higher ranges on motorways.
+  </p>
+  <Callout variant="warning" title="Check the triangle and vest exist at pickup">
+    They are the driver's responsibility, not the rental company's, once you
+    have the car. Confirm both are in the vehicle before you leave the lot and
+    note where they are — the vest belongs somewhere you can reach without
+    getting out.
+  </Callout>
+
+  <h2 id="evidence">Evidence to collect</h2>
+  <ul>
+    <li>Wide shots showing both vehicles, their positions and the road layout.</li>
+    <li>Close shots of every point of contact on both vehicles.</li>
+    <li>Both registration plates, in a frame that also shows the damage.</li>
+    <li>Road signs, markings and traffic signals relevant to what happened.</li>
+    <li>The other driver's licence and insurance document.</li>
+    <li>Names and contact details of any independent witness.</li>
+    <li>The time, and a note of weather and light conditions.</li>
+    <li>If police attend, the officers' unit and any report reference.</li>
+  </ul>
+  <p>
+    The pickup photographs you took at collection do the other half of this job:
+    they establish what the car looked like before.
+    <a href="/what-to-photograph-rental-pickup/">The pickup photo checklist</a>
+    explains why that matters more than most travelers expect.
+  </p>
+
+  <h2 id="statement">The European Accident Statement</h2>
+  <p>
+    Many European insurers use a standard two-part accident statement — the
+    <em>declaração amigável</em> — completed jointly at the scene, with each
+    driver keeping one copy. If a form is in the car's documentation, use it: it
+    records the same facts in the same order in both languages.
+  </p>
+  <p>
+    Read what you sign. Signing a description of events you do not agree with is
+    difficult to undo afterwards, and there is no obligation to agree on fault
+    at the roadside. If you cannot agree, record each version and leave it to
+    the insurers.
+  </p>
+
+  <h2 id="supplier">Telling the rental company</h2>
+  <p>
+    Rental agreements almost universally require prompt notification of any
+    incident, and frequently require that you do not authorise repairs or
+    recovery yourself. Failing to notify, or arranging your own tow, is one of
+    the common ways damage cover is lost — the cover is a contractual promise,
+    and the contract sets conditions on it.
+  </p>
+  <p>
+    Ask, and write down: the incident reference, whether the car may be driven,
+    whether they are sending recovery, whether a replacement vehicle is
+    provided, and where the car should end up.
+    <a href="/portugal-car-rental-insurance/">How the cover works</a> explains
+    what the waiver does and does not do once the claim starts.
+  </p>
+
+  <h2 id="assistance">Roadside assistance and replacement cars</h2>
+  <p>
+    Whether roadside assistance is included, and whether a replacement car is
+    provided and how quickly, are terms of your rental — not rights. They
+    commonly differ between a mechanical breakdown, which is the company's
+    problem, and damage caused by the driver, which may not be. In remote parts
+    of the interior, "how quickly" can mean hours.
+  </p>
+  <p>
+    If you are offered a replacement vehicle, inspect and photograph it exactly
+    as you would at a normal pickup. It is a new car on your agreement and its
+    existing damage is now your exposure.
+  </p>
+
+  <h2 id="breakdown">Breakdown without a collision</h2>
+  <p>
+    The safety sequence is identical: hazards, vest, everyone out and behind
+    the barrier, triangle at 30 metres, then call. Article 87 also prohibits
+    repairing a vehicle on the public road except where it is essential to
+    removing it or, for an easily fixed fault, to continuing the journey — so
+    changing a wheel on a motorway hard shoulder is not the plan. Get it
+    recovered.
+  </p>
+  <p>
+    Do not leave the car unattended with luggage in it while you go for help. If
+    you must leave, take the documents and anything valuable.
+  </p>
+
+  <h2 id="claim">Documents for the claim</h2>
+  <ol>
+    <li>The rental agreement and the incident reference the company gave you.</li>
+    <li>The accident statement, signed by both drivers if one was completed.</li>
+    <li>The police report reference, if police attended.</li>
+    <li>Your photographs, from both the incident and the original pickup.</li>
+    <li>The other driver's details and insurance information.</li>
+    <li>Every receipt: recovery, taxi, accommodation, replacement vehicle.</li>
+    <li>The final invoice and damage assessment from the rental company.</li>
+    <li>Your third-party excess policy number, if you bought one.</li>
+  </ol>
+  <p>
+    Keep all of it until the deposit has been released and any charge on your
+    card has settled. Claims on excess policies are usually made after the
+    rental company has charged you, not before.
+  </p>
+</ArticleLayout>

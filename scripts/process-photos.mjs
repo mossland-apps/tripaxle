@@ -3,7 +3,7 @@ import { mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const SRC = resolve('photos-from-you');
-const OUT = resolve('public/images');
+const OUT = resolve('src/assets/images');
 mkdirSync(OUT, { recursive: true });
 
 // [sourceFile, outName, targetWidth]

@@ -1,0 +1,49 @@
+---
+import { Picture } from 'astro:assets';
+import type { HeroImage } from '../lib/images';
+
+interface Props {
+  image: HeroImage;
+  /** Caption text; the photo credit is appended automatically. */
+  caption?: string;
+  portrait?: boolean;
+  /** Widest the figure is ever rendered, used to size the srcset. */
+  maxWidth?: number;
+  /** Extra class for page-level positioning (e.g. a floated pull-figure). */
+  class?: string;
+}
+const {
+  image,
+  caption,
+  portrait = false,
+  maxWidth = portrait ? 420 : 800,
+  class: extraClass,
+} = Astro.props;
+
+const classes = [
+  'inline-figure',
+  portrait ? 'inline-figure--portrait' : null,
+  extraClass,
+].filter(Boolean).join(' ');
+
+const widths = [480, 768, 1200].filter((w) => w <= maxWidth * 2);
+const sizes = `(min-width: ${maxWidth + 80}px) ${maxWidth}px, 100vw`;
+---
+
+<figure class={classes}>
+  <Picture
+    src={image.src}
+    alt={image.alt}
+    formats={['avif', 'webp']}
+    widths={widths}
+    sizes={sizes}
+    loading="lazy"
+    decoding="async"
+    quality={60}
+  />
+  {(caption || image.credit) && (
+    <figcaption>
+      {caption}{caption && image.credit ? ' ' : ''}{image.credit}
+    </figcaption>
+  )}
+</figure>

@@ -4,8 +4,8 @@ import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
 
 const breadcrumbs = [
-  { label: "Portugal Guide", href: "/portugal-guide" },
-  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Practical Guides", href: "/practical-guides/" },
   { label: "Child Seats & Extras" },
 ];
 
@@ -18,10 +18,10 @@ const toc = [
 ];
 
 const related = [
-  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
-  { label: "How to Read Portugal Car Rental Terms", href: "/how-to-read-portugal-car-rental-terms" },
-  { label: "Common Car Rental Mistakes in Portugal", href: "/common-car-rental-mistakes-portugal" },
-  { label: "Practical Guides", href: "/practical-guides" },
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide/" },
+  { label: "How to Read Portugal Car Rental Terms", href: "/how-to-read-portugal-car-rental-terms/" },
+  { label: "Common Car Rental Mistakes in Portugal", href: "/common-car-rental-mistakes-portugal/" },
+  { label: "Practical Guides", href: "/practical-guides/" },
 ];
 ---
 
@@ -35,7 +35,7 @@ const related = [
   toc={toc}
   related={related}
 >
-  <QuickAnswer>
+  <QuickAnswer slot="answer">
     <p>
       Children under 135 cm (and under 12) must use an appropriate restraint in
       Portugal, and under-3s effectively need a proper child seat. Rental seats
@@ -73,7 +73,7 @@ const related = [
 
   <Callout variant="tip">
     Whichever you choose, photograph the seat and that it is correctly fitted at
-    pickup — see the <a href="/what-to-photograph-rental-pickup">pickup photo
+    pickup — see the <a href="/what-to-photograph-rental-pickup/">pickup photo
     checklist</a>. If you rent one and it arrives damaged or filthy, that is the
     moment to ask for a replacement.
   </Callout>
@@ -83,9 +83,9 @@ const related = [
     <li><strong>Additional driver:</strong> usually a per-day fee; sometimes free for a spouse/partner on certain rates or with certain memberships. Everyone who drives must be on the contract or the insurance is void for them.</li>
     <li><strong>Young-driver / senior surcharges:</strong> drivers under about 25 (sometimes 21) and occasionally over 70–75 pay a daily surcharge that cannot be waived.</li>
     <li><strong>GPS unit:</strong> rarely worth it — a phone with offline maps does the same job. Decline unless you have no data plan.</li>
-    <li><strong>Toll transponder (Via Verde):</strong> often a small daily fee plus the tolls; see <a href="/portugal-toll-roads-for-rental-cars">toll roads for rental cars</a>.</li>
+    <li><strong>Toll transponder (Via Verde):</strong> often a small daily fee plus the tolls; see <a href="/portugal-toll-roads-for-rental-cars/">toll roads for rental cars</a>.</li>
     <li><strong>Roof box / ski equipment / snow chains:</strong> seasonal and region-specific (Serra da Estrela); reserve ahead.</li>
-    <li><strong>Excess-reduction cover:</strong> a big-ticket "extra" covered separately in <a href="/portugal-car-rental-insurance">insurance explained</a>.</li>
+    <li><strong>Excess-reduction cover:</strong> a big-ticket "extra" covered separately in <a href="/portugal-car-rental-insurance/">insurance explained</a>.</li>
   </ul>
 
   <h2 id="pricing">How extras are priced</h2>

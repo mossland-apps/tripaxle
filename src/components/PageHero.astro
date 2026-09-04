@@ -1,14 +1,18 @@
 ---
-import { formatUpdated } from '../lib/text';
+import { Picture } from 'astro:assets';
+import { formatChecked, formatUpdated } from '../lib/text';
+import type { HeroImage } from '../lib/images';
 
 interface Props {
   eyebrow?: string;
   title: string;
   summary?: string;
   updated?: string | Date;
-  image?: { src: string; alt: string; credit?: string };
+  /** Only for time-sensitive pages: the day the linked sources were read. */
+  lastChecked?: string | Date;
+  image?: HeroImage;
 }
-const { eyebrow, title, summary, updated, image } = Astro.props;
+const { eyebrow, title, summary, updated, lastChecked, image } = Astro.props;
 ---
 
 <header class="page-hero">
@@ -16,10 +20,23 @@ const { eyebrow, title, summary, updated, image } = Astro.props;
   <h1>{title}</h1>
   {summary && <p class="lede">{summary}</p>}
   {updated && <p class="page-hero__updated">Updated {formatUpdated(updated)}</p>}
+  {lastChecked && (
+    <p class="page-hero__checked">Last checked {formatChecked(lastChecked)}</p>
+  )}
 
   {image && (
     <figure class="page-hero__figure">
-      <img src={image.src} alt={image.alt} loading="eager" />
+      <Picture
+        src={image.src}
+        alt={image.alt}
+        formats={['avif', 'webp']}
+        widths={[480, 768, 1200]}
+        sizes="(min-width: 1000px) 800px, 100vw"
+        quality={60}
+        loading="eager"
+        fetchpriority="high"
+        decoding="sync"
+      />
       {image.credit && <figcaption class="page-hero__credit">{image.credit}</figcaption>}
     </figure>
   )}

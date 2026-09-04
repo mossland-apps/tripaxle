@@ -1,12 +1,33 @@
 ---
 import '../styles/global.css';
+import { getImage } from 'astro:assets';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { site } from '../config';
+import { images, type HeroImage } from '../lib/images';
+import {
+  absoluteUrl,
+  canonicalPath,
+  graph,
+  ogTypeFor,
+  organizationLd,
+  websiteLd,
+  type PageType,
+} from '../lib/seo';
 
 interface Props {
   title: string;
   description?: string;
+  /** Drives og:type and the page-level structured data. */
+  pageType?: PageType;
+  /** Override the canonical path when it is not the current route. */
+  canonical?: string;
+  /** Social preview image; falls back to the site-wide default photo. */
+  socialImage?: HeroImage;
+  /** Keep the page out of search results (also excluded from the sitemap). */
+  noindex?: boolean;
+  /** Extra JSON-LD nodes merged into the page-level @graph. */
+  jsonLd?: object[];
   /** When false, the page supplies its own <main>. */
   contained?: boolean;
 }
@@ -14,10 +35,35 @@ interface Props {
 const {
   title,
   description = site.tagline,
+  pageType = 'guide',
+  canonical: canonicalOverride,
+  socialImage = images.corkRoad,
+  noindex = false,
+  jsonLd = [],
   contained = true,
 } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, site.domain).href;
+const path = canonicalPath(canonicalOverride ?? Astro.url.pathname);
+const canonical = absoluteUrl(path);
+const ogType = ogTypeFor(pageType);
+
+// Build-time raster for social previews. Fixed 1200x630 so every card crops
+// predictably and no SVG is ever offered as the only preview.
+const social = await getImage({
+  src: socialImage.src,
+  width: 1200,
+  height: 630,
+  fit: 'cover',
+  format: 'jpeg',
+  quality: 78,
+});
+const socialUrl = new URL(social.src, site.domain).href;
+
+const pageNodes = [
+  organizationLd(),
+  websiteLd(),
+  ...jsonLd,
+];
 ---
 
 <!doctype html>
@@ -25,34 +71,44 @@ const canonical = new URL(Astro.url.pathname, site.domain).href;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
 
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="mask-icon" href="/favicon-mask.svg" color="#b9532f" />
-    <meta name="theme-color" content="#b9532f" />
+    <link rel="mask-icon" href="/favicon-mask.svg" color="#8f3d1c" />
+    <meta name="theme-color" content="#8f3d1c" />
 
-    <meta property="og:type" content="article" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={site.name} />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:image" content={socialUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={socialImage.alt} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
-    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialUrl} />
+    <meta name="twitter:image:alt" content={socialImage.alt} />
 
-    <title>{title}</title>
+    <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <script type="application/ld+json" set:html={JSON.stringify(graph(...pageNodes))} />
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <SiteHeader />
     {contained ? (
-      <main class="container" style="padding: 2.5rem 0 1rem;">
+      <main id="main" class="container" style="padding: 2.5rem 0 1rem;">
         <slot />
       </main>
     ) : (

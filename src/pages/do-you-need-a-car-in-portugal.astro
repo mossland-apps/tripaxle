@@ -5,7 +5,7 @@ import Callout from "../components/Callout.astro";
 import { images } from "../lib/images";
 
 const breadcrumbs = [
-  { label: "Portugal Guide", href: "/portugal-guide" },
+  { label: "Portugal Guide", href: "/portugal-guide/" },
   { label: "Do You Need a Car?" },
 ];
 
@@ -18,10 +18,10 @@ const toc = [
 ];
 
 const related = [
-  { label: "Where a Rental Car Is Most Useful in Portugal", href: "/where-a-rental-car-is-most-useful-in-portugal" },
-  { label: "Driving in Portugal: What to Expect", href: "/driving-in-portugal-what-to-expect" },
-  { label: "Portugal Car Rental Guide", href: "/portugal-guide" },
-  { label: "Airport Rental Guides", href: "/airport-rental-guides" },
+  { label: "Where a Rental Car Is Most Useful in Portugal", href: "/where-a-rental-car-is-most-useful-in-portugal/" },
+  { label: "Driving in Portugal: What to Expect", href: "/driving-in-portugal-what-to-expect/" },
+  { label: "Portugal Car Rental Guide", href: "/portugal-guide/" },
+  { label: "Airport Rental Guides", href: "/airport-rental-guides/" },
 ];
 ---
 
@@ -36,7 +36,7 @@ const related = [
   toc={toc}
   related={related}
 >
-  <QuickAnswer>
+  <QuickAnswer slot="answer">
     <p>
       You do <strong>not</strong> need a car for a trip built around Lisbon,
       Porto, and the train between them. You <strong>do</strong> want one for the
@@ -92,7 +92,7 @@ const related = [
   <p>When you compare “car” against “no car,” count the whole picture:</p>
   <ul>
     <li>The daily rate <em>plus</em> excess-reduction cover if you want it.</li>
-    <li>Fuel, and tolls (Portugal's mix of booths and electronic gantries — see <a href="/portugal-toll-roads-for-rental-cars">toll roads</a>).</li>
+    <li>Fuel, and tolls (Portugal's mix of booths and electronic gantries — see <a href="/portugal-toll-roads-for-rental-cars/">toll roads</a>).</li>
     <li>Paid parking at hotels and in towns; some historic centres are permit-only.</li>
     <li>The deposit hold on your card for the trip.</li>
     <li>Time: collection, inspection, and return can each take the better part of an hour.</li>
@@ -100,7 +100,7 @@ const related = [
   <p>
     Against that, a car buys flexibility and reach. For the right itinerary it is
     easily worth it; for a city trip it rarely is. If you have decided a car
-    helps, <a href="/where-a-rental-car-is-most-useful-in-portugal">where it is
+    helps, <a href="/where-a-rental-car-is-most-useful-in-portugal/">where it is
     most useful</a> goes region by region.
   </p>
 </ArticleLayout>

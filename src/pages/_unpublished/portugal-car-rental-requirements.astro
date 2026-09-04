@@ -1,0 +1,199 @@
+---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
+import QuickAnswer from "../components/QuickAnswer.astro";
+import AtAGlance from "../components/AtAGlance.astro";
+import Callout from "../components/Callout.astro";
+import { images } from "../lib/images";
+import { cite } from "../lib/sources";
+
+const breadcrumbs = [
+  { label: "Portugal Guide", href: "/portugal-guide/" },
+  { label: "Booking Basics", href: "/booking-basics/" },
+  { label: "What You Need to Rent" },
+];
+
+const toc = [
+  { label: "Your driving licence", id: "licence" },
+  { label: "When an IDP is worth carrying", id: "idp" },
+  { label: "Passport or ID card", id: "identity" },
+  { label: "The card, and whose name is on it", id: "card" },
+  { label: "Age and licence-held requirements", id: "age" },
+  { label: "Additional drivers", id: "additional-drivers" },
+  { label: "What to physically bring to the desk", id: "at-the-desk" },
+  { label: "Pre-departure checklist", id: "checklist" },
+];
+
+const glance = [
+  { label: "Always needed", value: "Valid driving licence, photo ID, a card in the main driver's name" },
+  { label: "Set by law", value: "Whether your licence lets you drive here at all" },
+  { label: "Set by the supplier", value: "Minimum age, years held, card type, young-driver fees" },
+  { label: "Decided by the contract", value: "Everything else — read the terms, not a summary" },
+  { label: "Most common failure", value: "Card not in the lead driver's name" },
+];
+
+const related = [
+  { label: "Renting a car in Portugal: the complete guide", href: "/portugal-guide/" },
+  { label: "Deposits and card requirements", href: "/portugal-car-rental-deposits-and-card-requirements/" },
+  { label: "Can you rent with a debit card?", href: "/portugal-car-rental-with-debit/" },
+  { label: "What a Portugal rental really costs", href: "/portugal-car-rental-cost/" },
+];
+---
+
+<ArticleLayout
+  title="What You Need to Rent a Car in Portugal | TripAxle"
+  description="The documents, licence, card and age requirements for renting a car in Portugal — what the law sets, what each supplier sets, and what to bring to the desk."
+  eyebrow="Booking Basics"
+  summary="Two different rulebooks decide whether you get the keys: Portuguese law, and the rental company's own terms. This separates them so you know which one to check."
+  updated="2026-09-03"
+  published="2026-09-03"
+  verified="2026-09-03"
+  image={images.coimbra}
+  breadcrumbs={breadcrumbs}
+  toc={toc}
+  related={related}
+  sources={cite("imtForeignLicence", "imtIdp", "yourEurope")}
+  sourcesNote="Licence questions here are answered from the Portuguese licensing authority and the European Commission's own guidance. Age limits, card rules and years-held requirements are commercial terms, not law, so no source can settle them for you — only your supplier's current terms can."
+  trustNote="This guide deliberately states no universal minimum age and no universal IDP rule, because neither exists. Where it says 'varies', that is the finding, not a hedge."
+>
+  <QuickAnswer slot="answer">
+    <p>
+      To collect a rental car in Portugal you need a valid driving licence you
+      are entitled to use here, photo identification, and an accepted payment
+      card <strong>in the main driver's own name</strong>. Everything else —
+      minimum age, how long you must have held the licence, whether a debit card
+      is accepted, whether an International Driving Permit is demanded — is set
+      by the rental company, not by Portuguese law, and differs between
+      suppliers. Check your own booking terms.
+    </p>
+  </QuickAnswer>
+
+  <AtAGlance items={glance} />
+
+  <h2 id="licence">Your driving licence</h2>
+  <p>
+    Licences issued in an EU or EEA country are recognised across the EU, so a
+    licence from another member state lets you drive in Portugal on the same
+    terms as at home. The European Commission's own guidance confirms the
+    mutual-recognition position.
+  </p>
+  <p>
+    If your licence was issued outside the EU or EEA, the Portuguese licensing
+    authority (IMT) allows you to drive on a foreign driving title for
+    <strong>185 days</strong> following entry into Portugal, before you
+    establish residence here — that is, for the whole of any normal holiday. The
+    licence must be valid and you must meet the Portuguese minimum age for the
+    vehicle category.
+  </p>
+  <p>
+    That is the legal position. It is separate from whether a particular rental
+    company will accept your licence, which is a contractual matter and can be
+    stricter.
+  </p>
+
+  <h2 id="idp">When an International Driving Permit is worth carrying</h2>
+  <p>
+    An International Driving Permit is a translation booklet, not a licence.
+    IMT is explicit that it is only valid alongside the national licence that
+    supports it, that it is issued for a maximum of one year, and that it is
+    aimed at driving in countries <em>outside</em> the EU and EEA that are
+    signatories to the international road traffic conventions. The European
+    Commission notes separately that IDPs are not regulated at EU level and may
+    not be recognised in every member state.
+  </p>
+  <Callout title="So do you need one for Portugal?">
+    We will not give you a universal yes or no, because the honest answer has
+    two halves. As a matter of Portuguese licensing law, a valid foreign licence
+    is what permits you to drive. As a matter of contract, some rental companies
+    require an IDP alongside a non-EU licence — particularly one not written in
+    the Latin alphabet — and will refuse the car without it. An IDP is cheap
+    and quick to obtain at home; if your licence was issued outside the EU/EEA,
+    carrying one removes an argument you cannot win at a desk in a foreign
+    country at midnight.
+  </Callout>
+  <p>
+    If you do get one, carry it <em>with</em> the original licence. On its own
+    it is worth nothing.
+  </p>
+
+  <h2 id="identity">Passport or ID card</h2>
+  <p>
+    Expect to show photo identification separate from the licence. For EU and
+    EEA visitors a national identity card normally serves; for everyone else
+    that means a passport. Desks routinely take a copy or scan. Bring the actual
+    document — a photo of it on your phone is not reliably accepted.
+  </p>
+
+  <h2 id="card">The card, and whose name is on it</h2>
+  <p>
+    This is where most refused pickups happen. The security deposit is placed as
+    a pre-authorisation hold on a card that must normally be
+    <strong>in the name of the lead driver</strong> and physically present, with
+    the name embossed or printed on it. A card belonging to a spouse, parent or
+    employer is generally not accepted, however obviously legitimate.
+  </p>
+  <p>
+    Whether a debit card is accepted at all varies by company, by branch and
+    sometimes by vehicle class, and acceptance often comes with extra
+    conditions.
+    <a href="/portugal-car-rental-with-debit/">Renting with a debit card</a>
+    covers how to check before you pay for anything, and
+    <a href="/portugal-car-rental-deposits-and-card-requirements/">deposits and card requirements</a>
+    explains how the hold itself works.
+  </p>
+
+  <h2 id="age">Age and licence-held requirements</h2>
+  <p>
+    There is no single Portuguese rental age. Suppliers set their own minimum
+    age, their own minimum period since the licence was issued, and their own
+    young-driver surcharge, and some also apply a maximum age or restrict which
+    vehicle groups younger drivers may take. Larger and premium groups usually
+    carry higher thresholds than the smallest cars.
+  </p>
+  <p>
+    Because these are commercial terms rather than legal rules, the only
+    reliable way to answer them is to open the terms attached to the quote you
+    are looking at and search for "age". Do it before you pay, not at the desk:
+    a young-driver fee that appears at pickup is usually payable and rarely
+    refundable.
+  </p>
+
+  <h2 id="additional-drivers">Additional drivers</h2>
+  <p>
+    Anyone else who will drive must normally be registered on the rental
+    agreement and present their own licence and identification at the desk.
+    Driving the car while unregistered typically voids the damage cover in the
+    contract, which is a far more expensive problem than the additional-driver
+    fee. Some rates include one additional driver; most charge per day.
+  </p>
+  <p>
+    The same age and licence-held thresholds usually apply to additional drivers
+    as to the lead driver.
+  </p>
+
+  <h2 id="at-the-desk">What to physically bring to the desk</h2>
+  <ul>
+    <li>The lead driver's licence — the plastic card, plus the paper counterpart if your country still issues one.</li>
+    <li>Passport or national ID card for the lead driver.</li>
+    <li>The payment card in the lead driver's name, physically present.</li>
+    <li>Your booking confirmation or voucher, including the reference number.</li>
+    <li>Every additional driver's licence and ID.</li>
+    <li>Your International Driving Permit, if you obtained one.</li>
+    <li>Flight number, if the booking was made with one — it is what links a delayed arrival to your reservation.</li>
+    <li>Proof of any third-party excess policy you bought, if you want to be able to point at it.</li>
+  </ul>
+
+  <h2 id="checklist">Pre-departure checklist</h2>
+  <ol>
+    <li>Check the licence expiry date. An expired licence ends the rental before it starts.</li>
+    <li>Confirm the name on your booking matches the name on your licence and your card, character for character.</li>
+    <li>Open the supplier's terms and find the age, licence-held and card clauses. Screenshot them.</li>
+    <li>Confirm your card's available limit will absorb the deposit hold on top of the rental charge.</li>
+    <li>Register additional drivers at booking rather than at the desk where possible.</li>
+    <li>If your licence is non-EU, decide on an IDP while you are still in your own country.</li>
+  </ol>
+  <p>
+    Once the paperwork is settled, the next decisions are financial:
+    <a href="/portugal-car-rental-cost/">what the rental actually costs</a> and
+    <a href="/portugal-car-rental-insurance/">which cover you are buying</a>.
+  </p>
+</ArticleLayout>
