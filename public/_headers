@@ -19,6 +19,11 @@
 /icon-512.png
   Cache-Control: public, max-age=604800
 
+# Partner banner artwork is a fixed file per size; a week is plenty, and a
+# refreshed creative can be re-downloaded under the same name.
+/images/partners/*
+  Cache-Control: public, max-age=604800
+
 # HTML must revalidate so a corrected guide reaches readers promptly.
 /*
   Cache-Control: public, max-age=0, must-revalidate

@@ -45,10 +45,28 @@ describe('every built page', () => {
       expect(html).not.toContain('fonts.googleapis.com');
     });
 
-    it(`${page}: never ships the commercial box while the affiliate switch is off`, () => {
-      expect(read(page)).not.toContain('commercial-cta');
+    // Commercial units (banners and the end-of-guide box) are opt-in per page;
+    // exactly which pages carry them is pinned in tests/ads.test.ts.
+    it(`${page}: never carries more than one banner unit`, () => {
+      expect(read(page).split('class="ad-slot ').length - 1).toBeLessThanOrEqual(1);
     });
   }
+});
+
+describe('phone layout', () => {
+  it('never lets the one-column article grid grow past the screen', () => {
+    // A bare `1fr` track has an automatic minimum, so one wide child stretched
+    // every guide to ~500px on a 375px phone and cut text off at the right edge.
+    // `minmax(0, 1fr)` pins the track to the container instead.
+    const cssFiles = readdirSync(dist('_astro')).filter((f) => f.endsWith('.css'));
+    expect(cssFiles.length).toBeGreaterThan(0);
+    const css = cssFiles.map((f) => readFileSync(dist(`_astro/${f}`), 'utf8')).join('\n');
+    const rules = [...css.matchAll(/\.article-grid\{([^}]*)\}/g)].map((m) => m[1]);
+    expect(rules.length).toBeGreaterThanOrEqual(2);
+    for (const body of rules) {
+      expect(body, `.article-grid rule: ${body}`).not.toMatch(/grid-template-columns:\s*1fr\s*[;}]|grid-template-columns:\s*1fr$/);
+    }
+  });
 });
 
 describe('footer', () => {
@@ -73,9 +91,10 @@ describe('footer', () => {
     expect(footer).toMatch(/aria-labelledby="footer-guides"/);
   });
 
-  it('states editorial independence while the commercial switch is off', () => {
+  it('discloses advertising and affiliate links once the commercial switch is on', () => {
     const footer = html.slice(html.indexOf('class="site-footer__bottom"'));
-    expect(footer).toMatch(/[Ee]ditorially independent/);
+    expect(footer).toMatch(/carries advertising and affiliate\s+links/);
+    expect(footer).toContain('href="/affiliate-disclosure/"');
   });
 });
 

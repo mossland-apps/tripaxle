@@ -7,14 +7,34 @@ export const site = {
   tagline: 'Independent Portugal car rental guidance for smarter trips.',
 
   /**
-   * Master switch for the "Ready to compare cars?" commercial box.
-   * Stays off until an affiliate partner is chosen; flip to true and set
-   * `partner` below to turn it on across every page at once.
+   * Master switch for every commercial unit: the banner ads, the end-of-guide
+   * "Ready to compare cars?" box, and the footer's advertising disclosure.
+   * Turn it off and all of them disappear together.
    */
-  showCommercialCTA: false,
+  showCommercialCTA: true,
+
+  /** The live affiliate partner (Discover Cars, via Post Affiliate Pro). */
   partner: {
-    name: '',
-    url: '',
+    name: 'Discover Cars',
+    /** The merchant site; every tracked link starts here. */
+    origin: 'https://www.discovercars.com',
+    /** Our affiliate id on the partner's programme. */
+    affiliateId: 'TripAxle',
+    /** The panel's "general affiliate link", used for plain text buttons. */
+    url: 'https://www.discovercars.com/?a_aid=TripAxle',
+    /**
+     * Serve banner artwork from this site (no outside request when a page is
+     * viewed). Set to false to hotlink the network's own copies instead.
+     */
+    selfHostBanners: true,
+    /**
+     * The network's 1x1 impression pixel. Off: it would load from the
+     * network on every view. Commissions are credited from the click.
+     */
+    impressionPixel: false,
+    /** Where the network serves the artwork and counts impressions. */
+    imageBase: 'https://discover-car-hire.postaffiliatepro.com/accounts/default1/bunyh71e',
+    pixelBase: 'https://discover-car-hire.postaffiliatepro.com/scripts/iunyh71e',
   },
 
   /** Default "Updated ..." date for guides that don't set their own. */

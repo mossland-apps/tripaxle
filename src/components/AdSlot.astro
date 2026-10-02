@@ -1,0 +1,63 @@
+---
+import { site } from '../config';
+import {
+  banners,
+  bannerHref,
+  bannerImageSrc,
+  bannerPixelSrc,
+  slugFor,
+  type BannerFormat,
+} from '../lib/ads';
+
+interface Props {
+  /** rectangle 601x397 (all screens) · leaderboard 728x90 · wide 900x150 */
+  format: BannerFormat;
+  /** Override the reporting tag (default "<page-slug>_<format>"). */
+  tag?: string;
+  /** Deep link into the partner site; the tracking parameters are kept. */
+  destination?: string;
+}
+
+const { format, tag, destination } = Astro.props;
+
+const banner = banners[format];
+const partner = site.partner.name;
+const href = bannerHref(format, {
+  tag: tag ?? `${slugFor(Astro.url.pathname)}_${format}`,
+  destination,
+});
+
+// The slim formats are unreadable once squeezed onto a phone, so below 720px
+// they swap to a plain text button (see global.css). Any format also falls
+// back to the text button if its image is blocked or fails to load.
+const fallbackOnError = "this.closest('.ad-slot').classList.add('ad-slot--text')";
+---
+
+{site.showCommercialCTA && (
+  <aside class={`ad-slot ad-slot--${format}`} aria-label="Advertisement">
+    <p class="ad-slot__label" aria-hidden="true">Advertisement</p>
+
+    <a class="ad-slot__banner" href={href} rel="sponsored nofollow noopener" target="_blank">
+      <img
+        src={bannerImageSrc(format)}
+        width={banner.width}
+        height={banner.height}
+        alt={`${partner} — compare rental car prices`}
+        loading="lazy"
+        decoding="async"
+        onerror={fallbackOnError}
+      />
+    </a>
+
+    {site.partner.impressionPixel && (
+      <img src={bannerPixelSrc(format)} width="1" height="1" alt="" loading="lazy" />
+    )}
+
+    <div class="ad-slot__text">
+      <p>Compare rental car prices and availability with {partner}.</p>
+      <a class="button" href={href} rel="sponsored nofollow noopener" target="_blank">
+        Compare cars on {partner}
+      </a>
+    </div>
+  </aside>
+)}

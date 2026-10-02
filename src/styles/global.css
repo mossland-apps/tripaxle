@@ -321,7 +321,7 @@ hr {
 }
 .article-rail { position: sticky; top: 5rem; }
 @media (max-width: 940px) {
-  .article-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .article-grid { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
   .article-rail { position: static; }
 }
 
@@ -517,7 +517,53 @@ tr:last-child td { border-bottom: 0; }
 .related-guides__links { display: flex; flex-wrap: wrap; gap: 0.6rem 1.75rem; }
 .related-guides__links a { font-weight: 600; }
 
-/* ---------- Commercial CTA (off by default) ---------- */
+/* ---------- Advertising units: labelled, boxed, kept apart from editorial ---------- */
+.ad-slot {
+  clear: both;
+  margin: 2.25rem 0;
+  padding: 0.6rem 0.75rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-sunk);
+  text-align: center;
+}
+.ad-slot p { max-width: none; }
+.ad-slot__label {
+  margin: 0 0 0.5rem;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ad-slot__banner { display: block; line-height: 0; }
+.ad-slot__banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-inline: auto;
+  border-radius: 4px;
+}
+.ad-slot--rectangle .ad-slot__banner img { max-width: 601px; }
+.ad-slot--leaderboard .ad-slot__banner img { max-width: 728px; }
+.ad-slot--wide .ad-slot__banner img { max-width: 900px; }
+
+/* Plain text button: phones get it in place of the slim banners, and any
+   format falls back to it if its image is blocked or fails to load. */
+.ad-slot__text { display: none; padding: 0.25rem 0 0; }
+.ad-slot__text p { margin: 0 0 0.75rem; color: var(--muted); }
+.ad-slot--text .ad-slot__banner { display: none; }
+.ad-slot--text .ad-slot__text { display: block; }
+@media (max-width: 719px) {
+  .ad-slot--leaderboard .ad-slot__banner,
+  .ad-slot--wide .ad-slot__banner { display: none; }
+  .ad-slot--leaderboard .ad-slot__text,
+  .ad-slot--wide .ad-slot__text { display: block; }
+}
+
+/* ---------- Commercial CTA ("Ready to compare cars?") ---------- */
 .commercial-cta {
   margin: 2.5rem 0 0;
   padding: 1.5rem;

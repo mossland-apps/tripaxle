@@ -3,6 +3,7 @@ import ArticleLayout from "../layouts/ArticleLayout.astro";
 import QuickAnswer from "../components/QuickAnswer.astro";
 import AtAGlance from "../components/AtAGlance.astro";
 import Callout from "../components/Callout.astro";
+import AdSlot from "../components/AdSlot.astro";
 import InlineFigure from "../components/InlineFigure.astro";
 import { images } from "../lib/images";
 import { cite } from "../lib/sources";
@@ -136,6 +137,8 @@ const related = [
     <li>Some companies run continuous loops while others may require you to call for pickup.</li>
     <li>The drive to most nearby rental facilities is only a few minutes once the shuttle departs.</li>
   </ul>
+
+  <AdSlot format="rectangle" />
 
   <h2 id="pickup">How car rental pickup usually works at Porto Airport</h2>
   <div class="steps">

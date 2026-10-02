@@ -41,7 +41,7 @@ export const pageDates = {
   // About and policy
   '/about/': '2026-08-30',
   '/contact/': '2026-08-30',
-  '/affiliate-disclosure/': '2026-08-30',
-  '/privacy/': '2026-09-04',
+  '/affiliate-disclosure/': '2026-10-02',
+  '/privacy/': '2026-10-02',
   '/disclaimer/': '2026-08-30',
 };

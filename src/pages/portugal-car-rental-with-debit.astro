@@ -2,6 +2,7 @@
 import ArticleLayout from "../layouts/ArticleLayout.astro";
 import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
+import AdSlot from "../components/AdSlot.astro";
 
 const breadcrumbs = [
   { label: "Portugal Guide", href: "/portugal-guide/" },
@@ -129,4 +130,6 @@ const related = [
       <li>The safest approach is to check the exact voucher terms before relying on a debit card.</li>
     </ul>
   </Callout>
+
+  <AdSlot format="leaderboard" />
 </ArticleLayout>

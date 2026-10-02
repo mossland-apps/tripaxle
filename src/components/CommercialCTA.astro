@@ -1,10 +1,11 @@
 ---
 import { site } from '../config';
+import { slugFor, withTag } from '../lib/ads';
 
 interface Props {
   heading?: string;
   body?: string;
-  /** Optional override; defaults to the configured partner URL. */
+  /** Optional override; defaults to the partner's general affiliate link. */
   href?: string;
 }
 
@@ -14,7 +15,10 @@ const {
   href = site.partner.url,
 } = Astro.props;
 
-// Master switch. Stays hidden until an affiliate partner is configured.
+// Tag the click with the page it came from, so affiliate reports can show it.
+const tagged = withTag(href, `${slugFor(Astro.url.pathname)}_cta`);
+
+// Master switch for every commercial unit; hidden until a partner is configured.
 const enabled = site.showCommercialCTA && Boolean(href);
 ---
 
@@ -22,7 +26,7 @@ const enabled = site.showCommercialCTA && Boolean(href);
   <aside class="commercial-cta">
     <h2>{heading}</h2>
     <p>{body}</p>
-    <a class="button" href={href} rel="sponsored nofollow" target="_blank">
+    <a class="button" href={tagged} rel="sponsored nofollow noopener" target="_blank">
       Compare cars{site.partner.name ? ` on ${site.partner.name}` : ''}
     </a>
   </aside>

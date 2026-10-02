@@ -8,6 +8,7 @@ import AtAGlance from '../src/components/AtAGlance.astro';
 import OnThisPage from '../src/components/OnThisPage.astro';
 import RelatedGuides from '../src/components/RelatedGuides.astro';
 import CommercialCTA from '../src/components/CommercialCTA.astro';
+import AdSlot from '../src/components/AdSlot.astro';
 
 let container: AstroContainer;
 beforeAll(async () => {
@@ -122,10 +123,53 @@ describe('RelatedGuides', () => {
 });
 
 describe('CommercialCTA', () => {
-  it('renders nothing while the site-wide affiliate switch is off', async () => {
+  it('renders the end-of-guide box with a sponsored, tagged partner link', async () => {
     const html = await container.renderToString(CommercialCTA, {
       props: { heading: 'Ready to compare cars at Lisbon Airport?' },
     });
-    expect(html.replace(/<!--[\s\S]*?-->/g, '').trim()).toBe('');
+    expect(html).toContain('commercial-cta');
+    expect(html).toContain('Ready to compare cars at Lisbon Airport?');
+    expect(html).toContain('rel="sponsored nofollow noopener"');
+    expect(html).toContain('a_aid=TripAxle');
+    expect(html).toContain('data1=');
+    expect(html).toContain('Compare cars on Discover Cars');
+  });
+});
+
+describe('AdSlot', () => {
+  it('renders a labelled, sponsored banner at its true size', async () => {
+    const html = await container.renderToString(AdSlot, { props: { format: 'rectangle' } });
+    expect(html).toContain('ad-slot--rectangle');
+    expect(html).toContain('Advertisement');
+    expect(html).toContain('rel="sponsored nofollow noopener"');
+    expect(html).toContain('a_bid=61a4ac81');
+    expect(html).toContain('width="601"');
+    expect(html).toContain('height="397"');
+    expect(html).toContain('loading="lazy"');
+  });
+
+  it('gives the slim leaderboard a text-button fallback for phones', async () => {
+    const html = await container.renderToString(AdSlot, { props: { format: 'leaderboard' } });
+    expect(html).toContain('ad-slot--leaderboard');
+    expect(html).toContain('a_bid=f29909e9');
+    expect(html).toContain('ad-slot__text');
+    expect(html).toContain('Compare cars on Discover Cars');
+  });
+
+  it('falls back to the text button if the image is blocked or fails', async () => {
+    const html = await container.renderToString(AdSlot, { props: { format: 'rectangle' } });
+    expect(html).toMatch(/onerror="[^"]*ad-slot--text/);
+  });
+
+  it('deep-links to a partner page and keeps the tracking and the tag', async () => {
+    const html = await container.renderToString(AdSlot, {
+      props: {
+        format: 'rectangle',
+        destination: 'https://www.discovercars.com/portugal/faro/fao',
+        tag: 'faro_test',
+      },
+    });
+    expect(html).toContain('https://www.discovercars.com/portugal/faro/fao?a_aid=TripAxle');
+    expect(html).toContain('data1=faro_test');
   });
 });
