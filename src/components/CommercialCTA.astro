@@ -1,32 +1,32 @@
 ---
 import { site } from '../config';
-import { slugFor, withTag } from '../lib/ads';
+import { partnerLink, slugFor } from '../lib/ads';
 
 interface Props {
   heading?: string;
   body?: string;
-  /** Optional override; defaults to the partner's general affiliate link. */
-  href?: string;
+  /** A page on the partner site to send the reader to (default: its home page). */
+  destination?: string;
 }
 
 const {
   heading = 'Ready to compare rental cars?',
   body = 'Compare available rental companies and current prices for your dates.',
-  href = site.partner.url,
+  destination,
 } = Astro.props;
 
-// Tag the click with the page it came from, so affiliate reports can show it.
-const tagged = withTag(href, `${slugFor(Astro.url.pathname)}_cta`);
+// Tracked link, tagged with the page it came from so affiliate reports show it.
+const href = partnerLink(destination, `${slugFor(Astro.url.pathname)}_cta`);
 
 // Master switch for every commercial unit; hidden until a partner is configured.
-const enabled = site.showCommercialCTA && Boolean(href);
+const enabled = site.showCommercialCTA && Boolean(site.partner.url);
 ---
 
 {enabled && (
   <aside class="commercial-cta">
     <h2>{heading}</h2>
     <p>{body}</p>
-    <a class="button" href={tagged} rel="sponsored nofollow noopener" target="_blank">
+    <a class="button" href={href} rel="sponsored nofollow noopener" target="_blank">
       Compare cars{site.partner.name ? ` on ${site.partner.name}` : ''}
     </a>
   </aside>

@@ -4,6 +4,7 @@ import QuickAnswer from "../components/QuickAnswer.astro";
 import AtAGlance from "../components/AtAGlance.astro";
 import Callout from "../components/Callout.astro";
 import AdSlot from "../components/AdSlot.astro";
+import { destinations } from "../lib/ads";
 import { images } from "../lib/images";
 import { cite } from "../lib/sources";
 
@@ -57,6 +58,7 @@ const related = [
   cta={{
     heading: "Ready to compare cars at Lisbon Airport?",
     body: "Compare available rental companies and current prices for your dates.",
+    destination: destinations.lisbon,
   }}
 >
   <QuickAnswer slot="answer">
@@ -158,7 +160,7 @@ const related = [
     you back to the airport.
   </Callout>
 
-  <AdSlot format="rectangle" />
+  <AdSlot format="rectangle" destination={destinations.lisbon} />
 
   <h2 id="pickup">How car rental pickup usually works at Lisbon Airport</h2>
   <p>

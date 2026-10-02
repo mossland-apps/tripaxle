@@ -2,6 +2,7 @@
 import ArticleLayout from "../layouts/ArticleLayout.astro";
 import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
+import { destinations } from "../lib/ads";
 
 const breadcrumbs = [
   { label: "Portugal Guide", href: "/portugal-guide/" },
@@ -34,7 +35,7 @@ const related = [
   breadcrumbs={breadcrumbs}
   toc={toc}
   related={related}
-  cta={{ heading: "Comparing rental cars in Portugal?", body: "Check the excess and what each rate includes before you pick an offer." }}
+  cta={{ heading: "Comparing rental cars in Portugal?", body: "Check the excess and what each rate includes before you pick an offer.", destination: destinations.portugal }}
 >
   <QuickAnswer slot="answer">
     <p>

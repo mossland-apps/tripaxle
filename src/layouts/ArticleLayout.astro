@@ -29,7 +29,7 @@ interface Props {
   toc?: TocItem[];
   related?: RelatedLink[];
   relatedTitle?: string;
-  cta?: { heading?: string; body?: string };
+  cta?: { heading?: string; body?: string; destination?: string };
   /** Two to five authoritative links, time-sensitive pages only. */
   sources?: Source[];
   pageType?: PageType;
@@ -113,7 +113,7 @@ const ld = articleLd({
 
       <slot />
 
-      {cta && <CommercialCTA heading={cta.heading} body={cta.body} />}
+      {cta && <CommercialCTA heading={cta.heading} body={cta.body} destination={cta.destination} />}
       {sources.length > 0 && <Sources sources={sources} />}
       {related.length > 0 && <RelatedGuides links={related} title={relatedTitle} />}
     </article>

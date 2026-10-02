@@ -3,6 +3,7 @@ import ArticleLayout from "../layouts/ArticleLayout.astro";
 import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
 import AdSlot from "../components/AdSlot.astro";
+import { destinations } from "../lib/ads";
 
 const breadcrumbs = [
   { label: "Portugal Guide", href: "/portugal-guide/" },
@@ -134,5 +135,5 @@ const related = [
     </ul>
   </Callout>
 
-  <AdSlot format="leaderboard" />
+  <AdSlot format="leaderboard" destination={destinations.portugal} />
 </ArticleLayout>

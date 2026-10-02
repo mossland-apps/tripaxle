@@ -3,6 +3,7 @@ import ArticleLayout from "../layouts/ArticleLayout.astro";
 import QuickAnswer from "../components/QuickAnswer.astro";
 import Callout from "../components/Callout.astro";
 import AdSlot from "../components/AdSlot.astro";
+import { destinations } from "../lib/ads";
 import InlineFigure from "../components/InlineFigure.astro";
 import { images } from "../lib/images";
 
@@ -111,5 +112,5 @@ const related = [
     simply returning the car to a Portuguese city near the border.
   </p>
 
-  <AdSlot format="leaderboard" />
+  <AdSlot format="leaderboard" destination={destinations.portugal} />
 </ArticleLayout>

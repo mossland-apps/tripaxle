@@ -8,6 +8,8 @@ import {
   bannerHref,
   bannerImageSrc,
   bannerPixelSrc,
+  destinations,
+  partnerLink,
   slugFor,
   withTag,
 } from '../src/lib/ads';
@@ -65,6 +67,43 @@ describe('ad helpers', () => {
     ).toBe('https://www.discovercars.com/portugal/lisbon/lis?a_aid=TripAxle&a_bid=61a4ac81');
   });
 
+  it('knows the four verified Discover Cars landing pages', () => {
+    expect(destinations).toEqual({
+      portugal: 'https://www.discovercars.com/portugal',
+      lisbon: 'https://www.discovercars.com/portugal/lisbon/lis',
+      porto: 'https://www.discovercars.com/portugal/porto/opo',
+      faro: 'https://www.discovercars.com/portugal/faro/fao',
+    });
+  });
+
+  it('reproduces, link for link, the codes the network generated', () => {
+    // From the panel's "Dynamic link" tool, minus our per-placement tag.
+    expect(bannerHref('rectangle', { destination: destinations.lisbon })).toBe(
+      'https://www.discovercars.com/portugal/lisbon/lis?a_aid=TripAxle&a_bid=61a4ac81',
+    );
+    expect(bannerHref('rectangle', { destination: destinations.porto })).toBe(
+      'https://www.discovercars.com/portugal/porto/opo?a_aid=TripAxle&a_bid=61a4ac81',
+    );
+    expect(bannerHref('rectangle', { destination: destinations.faro })).toBe(
+      'https://www.discovercars.com/portugal/faro/fao?a_aid=TripAxle&a_bid=61a4ac81',
+    );
+    expect(bannerHref('rectangle', { destination: destinations.portugal })).toBe(
+      'https://www.discovercars.com/portugal?a_aid=TripAxle&a_bid=61a4ac81',
+    );
+    expect(bannerHref('leaderboard', { destination: destinations.portugal })).toBe(
+      'https://www.discovercars.com/portugal?a_aid=TripAxle&a_bid=f29909e9',
+    );
+  });
+
+  it('builds a tracked plain-text link to any partner page', () => {
+    expect(partnerLink(destinations.faro, 'faro-airport-car-rental_cta')).toBe(
+      'https://www.discovercars.com/portugal/faro/fao?a_aid=TripAxle&data1=faro-airport-car-rental_cta',
+    );
+    expect(partnerLink(undefined, 'x_cta')).toBe(
+      'https://www.discovercars.com/?a_aid=TripAxle&data1=x_cta',
+    );
+  });
+
   it('serves banner images from this site by default, not from a third party', () => {
     expect(bannerImageSrc('rectangle')).toBe('/images/partners/discover-cars-601x397.jpg');
     expect(bannerImageSrc('leaderboard')).toBe('/images/partners/discover-cars-728x90.jpg');
@@ -95,14 +134,26 @@ const UNITS: Record<string, Format> = {
   'portugal-rental-car-into-spain': 'leaderboard',
 };
 
-/** Pages that carry the "Ready to compare cars?" box at the end. */
-const CTA_PAGES = new Set([
-  'lisbon-airport-car-rental',
-  'faro-airport-car-rental',
-  'porto-airport-car-rental',
-  'portugal-guide',
-  'portugal-car-rental-insurance',
-]);
+/** Where each page's banner sends the reader on the partner site. */
+const BANNER_DEST: Record<string, string> = {
+  'lisbon-airport-car-rental': destinations.lisbon,
+  'faro-airport-car-rental': destinations.faro,
+  'porto-airport-car-rental': destinations.porto,
+  'portugal-guide': destinations.portugal,
+  'portugal-car-rental-with-debit': destinations.portugal,
+  'portugal-car-rental-deposits-and-card-requirements': destinations.portugal,
+  'portugal-rental-car-into-spain': destinations.portugal,
+};
+
+/** Pages that carry the "Ready to compare cars?" box at the end, and where it links. */
+const CTA_DEST: Record<string, string> = {
+  'lisbon-airport-car-rental': destinations.lisbon,
+  'faro-airport-car-rental': destinations.faro,
+  'porto-airport-car-rental': destinations.porto,
+  'portugal-guide': destinations.portugal,
+  'portugal-car-rental-insurance': destinations.portugal,
+};
+const CTA_PAGES = new Set(Object.keys(CTA_DEST));
 
 function allSlugs(): string[] {
   return readdirSync(dist(''), { withFileTypes: true })
@@ -145,6 +196,17 @@ describe('banner placement plan', () => {
     expect(withCta.sort()).toEqual([...CTA_PAGES].sort());
   });
 
+  it('points each end-of-guide box at the matching landing page, tagged by page', () => {
+    for (const [slug, dest] of Object.entries(CTA_DEST)) {
+      const html = pageHtml(slug);
+      const box = html.slice(html.indexOf('class="commercial-cta"'));
+      const href = box.match(/<a\b[^>]*href="([^"]+)"/)?.[1] ?? '';
+      expect(href.startsWith(`${dest}?a_aid=TripAxle`), `${slug}: ${href}`).toBe(true);
+      expect(href, slug).toContain(`data1=${slug}_cta`);
+      expect(box.slice(0, box.indexOf('</aside>')), slug).toContain('rel="sponsored nofollow noopener"');
+    }
+  });
+
   for (const [slug, format] of Object.entries(UNITS)) {
     describe(`/${slug}/`, () => {
       const html = pageHtml(slug);
@@ -174,6 +236,14 @@ describe('banner placement plan', () => {
       it('credits the right banner and tags the placement for reporting', () => {
         expect(unit).toContain(`a_bid=${banner.bannerId}`);
         expect(unit).toContain(`data1=${slug}_${format}`);
+      });
+
+      it("sends the reader to this page's own landing page on the partner site", () => {
+        const links = [...unit.matchAll(/<a\b[^>]*href="([^"]+)"/g)].map((m) => m[1]);
+        expect(links.length).toBeGreaterThanOrEqual(1);
+        for (const href of links) {
+          expect(href.startsWith(`${BANNER_DEST[slug]}?a_aid=TripAxle`), `${slug}: ${href}`).toBe(true);
+        }
       });
 
       it('uses the banner at its true size, lazily, with alt text', () => {

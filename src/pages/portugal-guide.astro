@@ -4,6 +4,7 @@ import QuickAnswer from "../components/QuickAnswer.astro";
 import AtAGlance from "../components/AtAGlance.astro";
 import Callout from "../components/Callout.astro";
 import AdSlot from "../components/AdSlot.astro";
+import { destinations } from "../lib/ads";
 import { images } from "../lib/images";
 
 const breadcrumbs = [
@@ -52,6 +53,7 @@ const related = [
   cta={{
     heading: "Ready to compare rental cars in Portugal?",
     body: "Compare available companies and current prices once you have decided a car is right for your trip.",
+    destination: destinations.portugal,
   }}
 >
   <QuickAnswer slot="answer">
@@ -237,7 +239,7 @@ const related = [
     or dragging suitcases through stations to connect one small stop to another.
   </p>
 
-  <AdSlot format="rectangle" />
+  <AdSlot format="rectangle" destination={destinations.portugal} />
 
   <h2 id="driving-what-to-expect">Driving in Portugal: what to expect</h2>
   <p>

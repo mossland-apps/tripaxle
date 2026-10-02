@@ -4,6 +4,7 @@ import QuickAnswer from "../components/QuickAnswer.astro";
 import AtAGlance from "../components/AtAGlance.astro";
 import Callout from "../components/Callout.astro";
 import AdSlot from "../components/AdSlot.astro";
+import { destinations } from "../lib/ads";
 import InlineFigure from "../components/InlineFigure.astro";
 import { images } from "../lib/images";
 import { cite } from "../lib/sources";
@@ -56,6 +57,7 @@ const related = [
   cta={{
     heading: "Ready to compare cars at Porto Airport?",
     body: "Compare available rental companies and current prices for your dates.",
+    destination: destinations.porto,
   }}
 >
   <QuickAnswer slot="answer">
@@ -138,7 +140,7 @@ const related = [
     <li>The drive to most nearby rental facilities is only a few minutes once the shuttle departs.</li>
   </ul>
 
-  <AdSlot format="rectangle" />
+  <AdSlot format="rectangle" destination={destinations.porto} />
 
   <h2 id="pickup">How car rental pickup usually works at Porto Airport</h2>
   <div class="steps">
